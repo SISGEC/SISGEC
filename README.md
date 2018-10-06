@@ -15,7 +15,7 @@ A continuación se describen los alcances funcionales del sistema de software qu
 5.  Será accesible desde cualquier navegador web moderno, así como de las diferentes plataformas y dispositivos móviles sin necesidad de ser instalado en estos equipos.
 6.  Al trabajar bajo la filosofía del Open Source, puede ser utilizado por cualquier médico sin coste alguno.
 7.  Estará disponible en un repositorio de GitHub para su descarga, o bien para que otros desarrolladores puedan analizar, utilizar e incluso contribuir a la evolución del sistema.
-8. 
+
 ## Limitantes
 
 En cuanto a las limitaciones del sistema, de acuerdo al análisis correspondiente se determinaron las siguientes como resultado.
@@ -24,7 +24,7 @@ En cuanto a las limitaciones del sistema, de acuerdo al análisis correspondient
 2.  El sistema requiere una implementación única a nivel servidor por médico.
 3.  Los expedientes clínicos no podrán ser compartidos entre diferentes médicos a través del sistema.
 4.  Al requerir un servidor web para ser implementado, es necesario el pago de hosting y puede llegar a haber coste de instalación y mantenimiento por parte de terceros.
-5. 
+
 ## Contribuir
 
 SISGEC es un proyecto Open Source por lo que esta abierto a recibir solicitudes, por favor lea la [documentación](https://github.com/SISGEC/SISGEC/wiki) para familiarizarse con nuestra filosofía antes de enviar su solicitud.
