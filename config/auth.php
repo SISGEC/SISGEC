@@ -97,6 +97,16 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'doctors' => [
+            'provider' => 'doctors',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'assistants' => [
+            'provider' => 'assistants',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
     ],
 
 ];
