@@ -6,6 +6,7 @@ php:
 before_script:
   - composer self-update
   - composer install --no-interaction
+  - mv .env.travis .env
   - php artisan key:generate
 
 script:
