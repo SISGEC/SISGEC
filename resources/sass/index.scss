@@ -1,0 +1,26 @@
+@import 'spec/settings/index';
+@import 'spec/tools/index';
+@import "~bootstrap/scss/bootstrap";
+@import 'spec/index';
+@import 'vendor/index';
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+}
+
+.banner-message {
+    text-align: center;
+    color: #868686;
+    padding: 2rem;
+  
+    [class^="ti-"] {
+      font-size: 5rem;
+    }
+}
