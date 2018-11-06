@@ -1,5 +1,7 @@
 //import '../styles/index.scss';
 
+require('./bootstrap');
+
 import './masonry';
 import './charts';
 import './popover';

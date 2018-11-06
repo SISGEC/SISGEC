@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{{ config("site.name", "SISGEC") }} | {{ __("global.desktop") }}</title>
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset("css/sisgec.app.css") }}">
-
         <style>
             #loader {
                 transition: all 0.3s ease-in-out;
@@ -88,6 +88,7 @@
             </div>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="{{ asset("js/sisgec.app.js") }}"></script>
     </body>
 </html>

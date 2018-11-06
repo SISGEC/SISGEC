@@ -32,7 +32,7 @@
                                             <label for="birthdate">{{ __("person.sex") }}</label>
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="sex" id="sexm" value="0">
+                                                    <input class="form-check-input" type="radio" name="sex" id="sexm" checked value="0">
                                                     <label class="form-check-label" for="sexm">{{ __("global.man") }}</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
@@ -388,6 +388,206 @@
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.last_mammogram_date") }}</label>
                                         <textarea class="form-control" name="last_mammogram_date" id="last_mammogram_date" cols="30" rows="1"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">3. {{ __("global.current-condition") }}</h6>
+                    <div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="current_condition" id="current_condition" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">3. {{ __("global.physical-exploration") }}</h6>
+                    <div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="general_appearance">{{ __("global.general_appearance") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="general_appearance" id="general_appearance" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="head">{{ __("global.head") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="head" id="head" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="neck">{{ __("global.neck") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="neck" id="neck" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="chest">{{ __("global.chest") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="chest" id="chest" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="abdomen">{{ __("global.abdomen") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="abdomen" id="abdomen" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="back">{{ __("global.back") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="back" id="back" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="extremities">{{ __("global.extremities") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="extremities" id="extremities" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="genitals">{{ __("global.genitals") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="genitals" id="genitals" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6 class="c-grey-900"><strong>{{ __("global.neurological_examination") }}</strong></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="mental_examination">{{ __("global.mental_examination") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="mental_examination" id="mental_examination" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h6 class="c-grey-900"><strong>{{ __("global.orientation") }}</strong></h6>
+                            </div>
+                            <div class="col-4">
+                                <label for="time">{{ __("global.time") }}</label>
+                                <textarea class="form-control" name="time" id="time" cols="30" rows="2"></textarea>
+                            </div>
+                            <div class="col-4">
+                                <label for="space">{{ __("global.space") }}</label>
+                                <textarea class="form-control" name="space" id="space" cols="30" rows="2"></textarea>
+                            </div>
+                            <div class="col-4">
+                                <label for="person">{{ __("global.person") }}</label>
+                                <textarea class="form-control" name="person" id="person" cols="30" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="language">{{ __("global.language") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="language" id="language" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="memory">{{ __("global.memory") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="memory" id="memory" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <h6 class="c-grey-900"><strong>{{ __("global.superior_cognitive_functions") }}</strong></h6>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[abstract]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[abstract]" id="scfa" value="1">
+                                        <label class="form-check-label" for="scfa">{{ __('global.abstract') }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[concrete]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[concrete]" id="scfc" value="1">
+                                        <label class="form-check-label" for="scfc">{{ __('global.concrete') }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[literal]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[literal]" id="scfl" value="1">
+                                        <label class="form-check-label" for="scfl">{{ __('global.literal') }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[magical]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[magical]" id="scfm" value="1">
+                                        <label class="form-check-label" for="scfm">{{ __('global.magical') }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="arithmetic_calculation">{{ __("global.arithmetic_calculation") }}</label>
+                                        <textarea class="form-control" name="arithmetic_calculation" id="arithmetic_calculation" cols="30" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="ability_to_draw">{{ __("global.ability_to_draw") }}</label>
+                                        <textarea class="form-control" name="ability_to_draw" id="ability_to_draw" cols="30" rows="2"></textarea>
                                     </div>
                                 </div>
                             </div>

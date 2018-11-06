@@ -1,5 +1,5 @@
 import * as $ from 'jquery';
-import '../../../node_modules/jvectormap/jquery-jvectormap';
+import '../../../node_modules/jvectormap/jquery-jvectormap.min';
 import '../../../node_modules/jvectormap/jquery-jvectormap.css';
 import './jquery-jvectormap-world-mill.js';
 import { debounce } from 'lodash';
