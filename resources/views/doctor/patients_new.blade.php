@@ -20,9 +20,9 @@
                                 <div class="form-group">
                                     <label for="name">{{ __("person.full_name") }}</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="{{ __("person.name") }}" />
-                                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="{{ __("person.lastname") }}" />
-                                        <input type="text" class="form-control" id="nickname" name="nickname" placeholder="{{ __("person.nickname") }}" />
+                                        <input type="text" class="form-control" id="name" name="patient[name]" placeholder="{{ __("person.name") }}" />
+                                        <input type="text" class="form-control" id="lastname" name="patient[lastname]" placeholder="{{ __("person.lastname") }}" />
+                                        <input type="text" class="form-control" id="nickname" name="patient[nickname]" placeholder="{{ __("person.nickname") }}" />
                                     </div>
                                 </div>
         
@@ -590,6 +590,103 @@
                                         <textarea class="form-control" name="ability_to_draw" id="ability_to_draw" cols="30" rows="2"></textarea>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="hallucinations">{{ __("global.hallucinations") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="hallucinations" id="hallucinations" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="delusions">{{ __("global.delusions") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="delusions" id="delusions" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="esape">{{ __("global.esape") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="esape" id="esape" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="cranial_nerves">{{ __("global.cranial_nerves") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="cranial_nerves" id="cranial_nerves" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="actor_system">{{ __("global.actor_system") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="actor_system" id="actor_system" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="sensitive_system">{{ __("global.sensitive_system") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="sensitive_system" id="sensitive_system" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="sist_vece">{{ __("global.sist_vece") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="sist_vece" id="sist_vece" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 text-right">
+                                <label class="c-grey-900 pT-20" for="meninges">{{ __("global.meninges") }}</label>
+                            </div>
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="meninges" id="meninges" cols="30" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">3. {{ __("global.cabinet-studies") }}</h6>
+                    <div>
+                        <div id="uploadFiles" class="dropzone">
+                            <div class="dz-default dz-message"></div>
+                            <div class="fallback">
+                                <input name="file" type="file" multiple />
                             </div>
                         </div>
                     </div>

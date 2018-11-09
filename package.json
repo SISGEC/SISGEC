@@ -23,6 +23,7 @@
         "bootstrap-datepicker": "^1.8.0",
         "chart.js": "^2.7.3",
         "datatables.net-dt": "^1.10.19",
+        "dropzone": "^5.5.1",
         "easy-pie-chart": "^2.1.7",
         "fullcalendar": "^3.9.0",
         "imagemin-webpack-plugin": "^2.3.0",

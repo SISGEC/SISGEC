@@ -51,6 +51,9 @@
                 }
             }
         </style>
+        <script>
+            var HOME_URL = "{{ url("") }}";
+        </script>
     </head>
     <body class="app">
         <div id='loader'>
