@@ -91928,31 +91928,32 @@ module.exports = function (options) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dropzone__ = __webpack_require__(219);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_dropzone__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
+__WEBPACK_IMPORTED_MODULE_1_dropzone___default.a.autoDiscover = false;
 
 __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
-    var _Dropzone$options$upl;
-
     __WEBPACK_IMPORTED_MODULE_0_jquery__('input[name="sex"]').on("change", function () {
         __WEBPACK_IMPORTED_MODULE_0_jquery__(".hide-if-sex-is-male").toggle();
     });
     __WEBPACK_IMPORTED_MODULE_0_jquery__(".hide-if-sex-is-male").toggle();
-
-    //var dz = new Dropzone("div#upload-files", { url: HOME_URL + "/attachments/new" });
-    __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a.options.uploadFiles = (_Dropzone$options$upl = {
-        url: HOME_URL + "/attachments/new",
+    var options = {
+        url: HOME_URL + "/attachments/save",
         paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 2, // MB
-        autoProcessQueue: false,
+        maxFilesize: 5, // MB
+        autoProcessQueue: true,
         uploadMultiple: true,
         parallelUploads: 5,
-        maxFiles: 5
-    }, _defineProperty(_Dropzone$options$upl, 'maxFilesize', 1), _defineProperty(_Dropzone$options$upl, 'acceptedFiles', 'image/*'), _defineProperty(_Dropzone$options$upl, 'addRemoveLinks', true), _defineProperty(_Dropzone$options$upl, 'accept', function accept(file, done) {
-        console.log(file);
-    }), _Dropzone$options$upl);
+        maxFiles: 10,
+        acceptedFiles: 'image/*, video/*, application/pdf, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/docx, text/plain, application/msword, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        addRemoveLinks: true,
+        success: function success(file, done) {
+            console.log(file);
+        }
+    };
+    var dz = new __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a("div#uploadFiles", options);
+    __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a.options.uploadFiles = options;
 });
 
 /***/ }),

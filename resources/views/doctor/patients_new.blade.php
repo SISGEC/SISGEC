@@ -683,7 +683,7 @@
                 <div class="bgc-white p-20 bd">
                     <h6 class="c-grey-900">3. {{ __("global.cabinet-studies") }}</h6>
                     <div>
-                        <div id="uploadFiles" class="dropzone">
+                        <div id="uploadFiles" class="sigec__dropzone">
                             <div class="dz-default dz-message"></div>
                             <div class="fallback">
                                 <input name="file" type="file" multiple />

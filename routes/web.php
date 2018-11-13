@@ -34,3 +34,8 @@ Route::get('/medical-appointments', function() {
 Route::get('/medical-appointments/new', function() {
     return "Nueva Cita";
 })->name('medical_appointments.new');
+
+Route::get('/attachments', 'StudiesController@create');
+Route::post('/attachments/save', 'StudiesController@store');
+Route::post('/attachments/delete', 'StudiesController@destroy');
+Route::get('/attachments/show', 'StudiesController@index');

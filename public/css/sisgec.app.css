@@ -80699,3 +80699,73 @@ table.dataTable.no-footer {
   font-size: 5rem;
 }
 
+.sigec__dropzone {
+  width: 100%;
+  border: 5px dotted #ddd;
+  height: auto;
+  min-height: 200px;
+  background-color: #f9f9f9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 15px;
+}
+
+.sigec__dropzone .dz-preview {
+  width: 170px;
+  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 170px;
+          flex: 1 1 170px;
+  border: 1px solid #efefef;
+  padding: 10px;
+}
+
+.sigec__dropzone .dz-preview:not(:nth-child(n+7)) {
+  margin-right: 15px;
+}
+
+.sigec__dropzone .dz-preview .dz-image {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sigec__dropzone .dz-preview .dz-image img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.sigec__dropzone .dz-preview .dz-details .dz-filename {
+  font-weight: 300;
+}
+
+.sigec__dropzone .dz-preview .dz-success-mark,
+.sigec__dropzone .dz-preview .dz-error-mark {
+  width: 54px;
+  height: 54px;
+  display: inline-block;
+}
+
+.sigec__dropzone .dz-preview .dz-success-mark svg,
+.sigec__dropzone .dz-preview .dz-error-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sigec__dropzone .dz-preview .dz-remove {
+  color: red;
+}
+

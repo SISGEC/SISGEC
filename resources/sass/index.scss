@@ -24,3 +24,63 @@
       font-size: 5rem;
     }
 }
+
+.sigec__dropzone {
+  width: 100%;
+  border: 5px dotted #ddd;
+  height: auto;
+  min-height: 200px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px;
+  .dz-preview {
+    width: 170px;
+    height: auto;
+    flex: 1 1 170px;
+    border: 1px solid #efefef;
+    padding: 10px;
+
+    &:not(:nth-child(n+7)) {
+      margin-right: 15px;
+    }
+
+    .dz-image {
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    .dz-details {
+      .dz-filename {
+        font-weight: 300;
+      }
+    }
+
+    .dz-success-mark, .dz-error-mark {
+      width: 54px;
+      height: 54px;
+      display: inline-block;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .dz-remove {
+      color: red;
+    }
+  }
+}
