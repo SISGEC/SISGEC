@@ -419,7 +419,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">3. {{ __("global.physical-exploration") }}</h6>
+                    <h6 class="c-grey-900">4. {{ __("global.physical-exploration") }}</h6>
                     <div>
                         <div class="row">
                             <div class="col-2 text-right">
@@ -681,13 +681,93 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">3. {{ __("global.cabinet-studies") }}</h6>
+                    <h6 class="c-grey-900">5. {{ __("global.cabinet_studies") }}</h6>
                     <div>
                         <div id="uploadFiles" class="sigec__dropzone">
-                            <div class="dz-default dz-message"></div>
+                            <div class="dz-message needsclick">    
+                                Drop files here or click to upload.
+                            </div>
                             <div class="fallback">
                                 <input name="file" type="file" multiple />
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">6. {{ __("global.diagnostical_impression") }}</h6>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="diagnostical_impression" id="diagnostical_impression" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">6. {{ __("global.treatment_plan") }}</h6>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="treatment_plan" id="treatment_plan" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">6. {{ __("global.interconsultation") }}</h6>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="interconsultation" id="interconsultation" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h6 class="c-grey-900">6. {{ __("global.treatment") }}</h6>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="treatment" id="treatment" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <div>
+                        <div class="row justify-content-center">
+                            <button class="btn btn-success">{{ __("global.save_patient") }}</button>
+                            <button class="btn btn-secondary ml-2">{{ __("global.exit") }}</button>
                         </div>
                     </div>
                 </div>

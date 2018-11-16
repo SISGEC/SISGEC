@@ -18,6 +18,9 @@ $(document).ready(function() {
         maxFiles: 10,
         acceptedFiles: 'image/*, video/*, application/pdf, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/docx, text/plain, application/msword, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         addRemoveLinks: true,
+        headers: {
+            'x-csrf-token': document.querySelectorAll('meta[name=csrf-token]')[0].getAttributeNode('content').value,
+        },
         success: function (file, done) {
             console.log(file);
         }

@@ -80717,8 +80717,21 @@ table.dataTable.no-footer {
   padding: 15px;
 }
 
+.sigec__dropzone .dz-message {
+  width: 100%;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 1.8rem;
+}
+
+.sigec__dropzone.dz-started .dz-message {
+  display: none;
+}
+
 .sigec__dropzone .dz-preview {
-  width: 170px;
+  width: 100%;
+  max-width: 170px;
   height: auto;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 170px;
@@ -80752,11 +80765,29 @@ table.dataTable.no-footer {
   font-weight: 300;
 }
 
+.sigec__dropzone .dz-preview .dz-progress {
+  width: 100%;
+  height: auto;
+  margin: 6px 0;
+}
+
+.sigec__dropzone .dz-preview .dz-progress .dz-upload {
+  width: 100%;
+  height: 6px;
+  background-color: #2adb4be6;
+  display: block;
+  border-radius: 8px;
+}
+
+.sigec__dropzone .dz-preview .dz-error-message {
+  display: none;
+}
+
 .sigec__dropzone .dz-preview .dz-success-mark,
 .sigec__dropzone .dz-preview .dz-error-mark {
   width: 54px;
   height: 54px;
-  display: inline-block;
+  display: none;
 }
 
 .sigec__dropzone .dz-preview .dz-success-mark svg,
