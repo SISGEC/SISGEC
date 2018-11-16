@@ -35,8 +35,23 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 15px;
+
+  .dz-message {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    font-size: 1.8rem;
+  }
+
+  &.dz-started {
+    .dz-message {
+      display: none;
+    }
+  }
+
   .dz-preview {
-    width: 170px;
+    width: 100%;
+    max-width: 170px;
     height: auto;
     flex: 1 1 170px;
     border: 1px solid #efefef;
@@ -68,10 +83,27 @@
       }
     }
 
+    .dz-progress {
+      width: 100%;
+      height: auto;
+      margin: 6px 0;
+      .dz-upload {
+        width: 100%;
+        height: 6px;
+        background-color: #2adb4be6;
+        display: block;
+        border-radius: 8px;
+      }
+    }
+
+    .dz-error-message {
+      display: none;
+    }
+
     .dz-success-mark, .dz-error-mark {
       width: 54px;
       height: 54px;
-      display: inline-block;
+      display: none;
 
       svg {
         width: 100%;

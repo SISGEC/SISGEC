@@ -14,7 +14,7 @@ class StudiesController extends Controller
  
     public function __construct()
     {
-        $this->photos_path = public_path('/images');
+        $this->photos_path = public_path('/images/studies');
     }
  
     /**
@@ -60,19 +60,11 @@ class StudiesController extends Controller
             $photo = $photos[$i];
             $name = sha1(date('YmdHis') . str_random(30));
             $save_name = $name . '.' . $photo->getClientOriginalExtension();
-            $resize_name = $name . str_random(2) . '.' . $photo->getClientOriginalExtension();
- 
-            Image::make($photo)
-                ->resize(250, null, function ($constraints) {
-                    $constraints->aspectRatio();
-                })
-                ->save($this->photos_path . '/' . $resize_name);
  
             $photo->move($this->photos_path, $save_name);
  
             $upload = new Upload();
             $upload->filename = $save_name;
-            $upload->resized_name = $resize_name;
             $upload->original_name = basename($photo->getClientOriginalName());
             $upload->save();
         }
@@ -96,14 +88,9 @@ class StudiesController extends Controller
         }
  
         $file_path = $this->photos_path . '/' . $uploaded_image->filename;
-        $resized_file = $this->photos_path . '/' . $uploaded_image->resized_name;
  
         if (file_exists($file_path)) {
             unlink($file_path);
-        }
- 
-        if (file_exists($resized_file)) {
-            unlink($resized_file);
         }
  
         if (!empty($uploaded_image)) {
