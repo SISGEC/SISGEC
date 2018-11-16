@@ -91933,11 +91933,24 @@ module.exports = function (options) {
 
 __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a.autoDiscover = false;
 
+function calcAge(dateString) {
+    var birthday = new Date(dateString);
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getFullYear() - 1970);
+}
+
 __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
     __WEBPACK_IMPORTED_MODULE_0_jquery__('input[name="sex"]').on("change", function () {
         __WEBPACK_IMPORTED_MODULE_0_jquery__(".hide-if-sex-is-male").toggle();
     });
     __WEBPACK_IMPORTED_MODULE_0_jquery__(".hide-if-sex-is-male").toggle();
+
+    __WEBPACK_IMPORTED_MODULE_0_jquery__("#birthdate").change(function () {
+        var birt = __WEBPACK_IMPORTED_MODULE_0_jquery__(this).val();
+        console.log(calcAge(birt));
+    });
+
     var options = {
         url: HOME_URL + "/attachments/save",
         paramName: "file", // The name that will be used to transfer the file
