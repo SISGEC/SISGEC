@@ -10,5 +10,8 @@ return [
     'new_patient' => 'Nuevo paciente',
     'identification_card' => 'Identification Card',
     'man' => 'Male',
-    'woman' => 'Female'
+    'woman' => 'Female',
+    'anamnesis' => 'Anamnesis',
+    'inherit_family' => 'Inherit Family',
+    'not_pathological' => 'Personal Not Pathological'
 ];

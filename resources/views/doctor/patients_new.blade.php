@@ -13,7 +13,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">1. {{ __("global.identification_card") }}</h6>
+                    <h4 class="c-grey-900">1. {{ __("global.identification_card") }}</h4>
                     <div class="mT-30">
                         <div class="row">
                             <div class="col-6">
@@ -140,7 +140,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">2. {{ __("global.anamnesis") }}</h6>
+                    <h4 class="c-grey-900">2. {{ __("global.anamnesis") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col-2 text-right">
@@ -154,7 +154,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h6 class="c-grey-900"><strong>{{ __("global.not_pathological") }}</strong></h6>
+                                <h5 class="c-grey-900">2.1 {{ __("global.not_pathological") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -234,7 +234,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h6 class="c-grey-900"><strong>{{ __("global.pathological_personal") }}</strong></h6>
+                                <h5 class="c-grey-900">2.2 {{ __("global.pathological_personal") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -293,7 +293,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h6 class="c-grey-900"><strong>{{ __("global.gynecological_obstetric_history") }}</strong></h6>
+                                <h5 class="c-grey-900">{{ __("global.gynecological_obstetric_history") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -401,7 +401,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">3. {{ __("global.current-condition") }}</h6>
+                    <h4 class="c-grey-900">3. {{ __("global.current-condition") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col">
@@ -419,7 +419,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">4. {{ __("global.physical-exploration") }}</h6>
+                    <h4 class="c-grey-900">4. {{ __("global.physical-exploration") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col-2 text-right">
@@ -503,7 +503,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h6 class="c-grey-900"><strong>{{ __("global.neurological_examination") }}</strong></h6>
+                                <h5 class="c-grey-900">4.1 {{ __("global.neurological_examination") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -518,7 +518,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <h6 class="c-grey-900"><strong>{{ __("global.orientation") }}</strong></h6>
+                                <h5 class="c-grey-900">4.2 {{ __("global.orientation") }}</h5>
                             </div>
                             <div class="col-4">
                                 <label for="time">{{ __("global.time") }}</label>
@@ -554,8 +554,12 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col">
+                                <h5 class="c-grey-900">4.1 {{ __("global.superior_cognitive_functions") }}</h5>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-4">
-                                <h6 class="c-grey-900"><strong>{{ __("global.superior_cognitive_functions") }}</strong></h6>
                                 <div class="form-group">
                                     <div class="form-check">
                                         <input type="hidden" style="display:none;" name="neuro_exam[superior_cognitive_functions[abstract]]" value="0">
@@ -681,7 +685,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">5. {{ __("global.cabinet_studies") }}</h6>
+                    <h4 class="c-grey-900">5. {{ __("global.cabinet_studies") }}</h4>
                     <div>
                         <div id="uploadFiles" class="sigec__dropzone">
                             <div class="dz-message needsclick">    
@@ -700,7 +704,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">6. {{ __("global.diagnostical_impression") }}</h6>
+                    <h4 class="c-grey-900">6. {{ __("global.diagnostical_impression") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -716,7 +720,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">6. {{ __("global.treatment_plan") }}</h6>
+                    <h4 class="c-grey-900">6. {{ __("global.treatment_plan") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -732,7 +736,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">6. {{ __("global.interconsultation") }}</h6>
+                    <h4 class="c-grey-900">6. {{ __("global.interconsultation") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -748,7 +752,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h6 class="c-grey-900">6. {{ __("global.treatment") }}</h6>
+                    <h4 class="c-grey-900">6. {{ __("global.treatment") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -766,8 +770,8 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <button class="btn btn-success">{{ __("global.save_patient") }}</button>
-                            <button class="btn btn-secondary ml-2">{{ __("global.exit") }}</button>
+                            <button class="btn btn-danger">{{ __("global.exit") }}</button>
+                            <button class="btn btn-success ml-2">{{ __("global.save_patient") }}</button>
                         </div>
                     </div>
                 </div>
