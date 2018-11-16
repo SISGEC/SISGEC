@@ -83,8 +83,8 @@ return [
     'treatment_plan' => 'Treatment Plan',
     'interconsultation' => 'Interconsultation',
     'treatment' => 'Treatment',
-    
-
+    'exit' => 'Exit',
+    'save_patient' => 'Save Patient'
 
     
 ];
