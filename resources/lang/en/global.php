@@ -84,7 +84,15 @@ return [
     'interconsultation' => 'Interconsultation',
     'treatment' => 'Treatment',
     'exit' => 'Exit',
-    'save_patient' => 'Save Patient'
-
-    
+    'save_patient' => 'Save Patient',
+    'new_evolution_note' => 'New Evolution Note',
+    'identification_card' => 'Identification Card',
+    'medication' => 'Taken Medication and Schedules',
+    'treatment_response' => 'Treatment Response',
+    'physical_exploration' => 'Physical Exploration',
+    'cabinet_studies' => 'Cabinet Studies',
+    'diagnostic' => 'Diagnostic',
+    'treatment_plan_sub' => 'Subsequent Treatment Plan',
+    'next_appointment_date' => 'Next Appointment Date',
+    'medical_appointments_new' => 'Medical Appointments'
 ];

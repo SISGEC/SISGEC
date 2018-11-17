@@ -26,12 +26,20 @@ Route::get('/patients/new', 'PatientController@create')->name('patients.new');
 Route::post('/patients/save', 'PatientController@store')->name('patients.save');
 
 Route::get('/medical-appointments', function() {
-    return "Citas";
+    return view("doctor.medical_appointments");
 })->name('medical_appointments');
 
 Route::get('/medical-appointments/new', function() {
-    return "Nueva Cita";
+    //return view("doctor.medical_appointments_new");
 })->name('medical_appointments.new');
+
+Route::get('/evolution-note/new', function() {
+    return view("doctor.new_evolution_note");
+})->name('evolution_note.new');
+
+Route::post('/evolution-note/new', function() {
+    return view("doctor.new_evolution_note");
+})->name('evolution_note.save');
 
 Route::get('/attachments', 'StudiesController@create');
 Route::post('/attachments/save', 'StudiesController@store');
