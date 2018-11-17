@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <form action="{{ route("patients.new") }}" method="POST">
+    <form action="{{ route("evolution_note.save") }}" method="POST">
         @csrf
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
@@ -141,15 +141,51 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h4 class="c-grey-900">6. {{ __("global.treatment") }}</h4>
+                    <h4 class="c-grey-900">2. {{ __("global.medication") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="treatment" id="treatment" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="medication" id="medication" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        {{-- Fin bloque --}}
+
+        {{-- Inicia bloque --}}
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h4 class="c-grey-900">3. {{ __("global.treatment_response") }}</h4>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="treatment_response" id="treatment_response" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        {{-- Fin bloque --}}
+
+        {{-- Inicia bloque --}}
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h4 class="c-grey-900">4. {{ __("global.physical_exploration") }}</h4>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="physical_exploration" id="physical_exploration" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+               </div>
             </div>
         </div>
         {{-- Fin bloque --}}
@@ -174,6 +210,66 @@
             </div>
         </div>
         {{-- Fin Bloque estudios --}}
+
+        {{-- Inicia bloque --}}
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h4 class="c-grey-900">6. {{ __("global.diagnostic") }}</h4>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="diagnostic" id="diagnostic" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        {{-- Fin bloque --}}
+
+        {{-- Inicia bloque --}}
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h4 class="c-grey-900">7. {{ __("global.treatment_plan_sub") }}</h4>
+                    <div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="treatment_plan_sub" id="treatment_plan_sub" cols="30" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        {{-- Fin bloque --}}
+
+        {{-- Inicia bloque --}}
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-12"></div>
+            <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                    <h4 class="c-grey-900">8. {{ __("global.next_appointment_date") }}</h4>
+                    <div>
+                        <div class="col-8">
+                            <label for="next_appointment_date"></label>
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="text" class="form-control" id="next_appointment_date" name="Next Appointment Date" placeholder="dd/mm/yyyy" />
+                                </div>
+                                <div class="col-3">
+                                    <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        {{-- Fin bloque --}}
 
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
