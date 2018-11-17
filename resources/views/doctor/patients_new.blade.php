@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <form action="{{ route("patients.new") }}" method="POST">
+    <form action="{{ route("patients.save") }}" method="POST">
         @csrf
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
@@ -126,6 +126,28 @@
                                         <div class="col-4">
                                             <label or="breathing_frequency">{{ __("person.breathing_frequency") }}</label>
                                             <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="email">{{ __("person.email") }}</label>
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="" />
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="phone">{{ __("person.phone") }}</label>
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="referred_by">{{ __("person.referred_by") }}</label>
+                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="" />
                                         </div>
                                     </div>
                                 </div>

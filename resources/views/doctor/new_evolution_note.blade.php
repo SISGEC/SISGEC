@@ -129,6 +129,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="email">{{ __("person.email") }}</label>
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="" />
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="phone">{{ __("person.phone") }}</label>
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

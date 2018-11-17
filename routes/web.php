@@ -19,13 +19,11 @@ Route::get('/dashboard', function() {
     return view("doctor.desktop");
 })->name("dashboard");
 
-Route::get('/patients', function() {
-    return view("doctor.patients");
-})->name('patients');
+Route::get('/patients','PatientController@index')->name('patients');
 
-Route::get('/patients/new', function() {
-    return view("doctor.patients_new");
-})->name('patients.new');
+Route::get('/patients/new', 'PatientController@create')->name('patients.new');
+
+Route::post('/patients/save', 'PatientController@store')->name('patients.save');
 
 Route::get('/medical-appointments', function() {
     return "Citas";

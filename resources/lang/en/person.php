@@ -18,5 +18,7 @@ return [
     'heart_rate' => 'Heart rate',
     'blood_pressure' => 'Blood pressure',
     'breathing_frequency' => 'Breathing frequency',
-    'sex' => 'Sex'
+    'sex' => 'Sex',
+    'email' => 'E-mail',
+    'phone' => 'Phone'
 ];
