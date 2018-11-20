@@ -170,7 +170,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="background[inherit_family]" id="inherit_family" cols="30" rows="5"></textarea>
+                                    <textarea class="form-control" name="inherit_family" id="inherit_family" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -184,35 +184,35 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.living_place") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[living_place]]" id="living_place" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[living_place]" id="living_place" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.personal_hygiene") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[personal_hygiene]]" id="personal_hygiene" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[personal_hygiene]" id="personal_hygiene" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.sport_activities") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[sport_activities]]" id="sport_activities" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[sport_activities]" id="sport_activities" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.hobbies") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[hobbies]]" id="hobbies" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[hobbies]" id="hobbies" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.immunizations") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[immunizations]]" id="immunizations" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[immunizations]" id="immunizations" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -221,35 +221,35 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.smoking") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[smoking]]" id="smoking" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[smoking]" id="smoking" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.alcoholism") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[alcoholism]]" id="alcoholism" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[alcoholism]" id="alcoholism" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.drug") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[drug]]" id="drug" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[drug]" id="drug" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.work_activities") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[work_activities]]" id="work_activities" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[work_activities]" id="work_activities" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.feeding") }}</label>
-                                        <textarea class="form-control" name="background[non_pathological[feeding]]" id="feeding" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="non_pathological[feeding]" id="feeding" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -264,28 +264,28 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.childhood_diseases") }}</label>
-                                        <textarea class="form-control" name="background[pathological[childhood_diseases]]" id="childhood_diseases" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[childhood_diseases]" id="childhood_diseases" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.surgical_operations") }}</label>
-                                        <textarea class="form-control" name="background[pathological[surgical_operations]]" id="surgical_operations" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[surgical_operations]" id="surgical_operations" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.accidents") }}</label>
-                                        <textarea class="form-control" name="background[pathological[accidents]]" id="accidents" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[accidents]" id="accidents" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.traumatic_brain_injury") }}</label>
-                                        <textarea class="form-control" name="background[pathological[traumatic_brain_injury]]" id="traumatic_brain_injury" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[traumatic_brain_injury]" id="traumatic_brain_injury" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -294,21 +294,21 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.allergies") }}</label>
-                                        <textarea class="form-control" name="background[pathological[allergies]]" id="allergies" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[allergies]" id="allergies" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.disabilities") }}</label>
-                                        <textarea class="form-control" name="background[pathological[disabilities]]" id="disabilities" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[disabilities]" id="disabilities" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.blood_transfusions") }}</label>
-                                        <textarea class="form-control" name="background[pathological[blood_transfusions]]" id="blood_transfusions" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="pathological[blood_transfusions]" id="blood_transfusions" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -323,49 +323,49 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.ivsa") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[ivsa]]" id="ivsa" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[ivsa]" id="ivsa" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.menarca") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[menarca]]" id="menarca" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[menarca]" id="menarca" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
         
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.fur") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[fur]]" id="fur" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[fur]" id="fur" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.came") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[came]]" id="came" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[came]" id="came" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.pregnancies_number") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[pregnancies_number]]" id="pregnancies_number" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[pregnancies_number]" id="pregnancies_number" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.births_number") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[births_number]]" id="births_number" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[births_number]" id="births_number" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.abortions_number") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[abortions_number]]" id="abortions_number" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[abortions_number]" id="abortions_number" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -374,42 +374,42 @@
                                 <div class="row">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.ets") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[ets]]" id="ets" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[ets]" id="ets" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.cesareans_number") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[cesareans_number]]" id="cesareans_number" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[cesareans_number]" id="cesareans_number" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.uma") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[uma]]" id="uma" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[uma]" id="uma" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.other_gyneco_info") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[other_gyneco_info]]" id="other_gyneco_info" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[other_gyneco_info]" id="other_gyneco_info" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.last_papanicolaou_date") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[last_papanicolaou_date]]" id="last_papanicolaou_date" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[last_papanicolaou_date]" id="last_papanicolaou_date" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="row hide-if-sex-is-male">
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.last_mammogram_date") }}</label>
-                                        <textarea class="form-control" name="background[gyneco_obstetrics[last_mammogram_date]]" id="last_mammogram_date" cols="30" rows="1"></textarea>
+                                        <textarea class="form-control" name="gyneco_obstetrics[last_mammogram_date]" id="last_mammogram_date" cols="30" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>

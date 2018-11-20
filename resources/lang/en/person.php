@@ -20,5 +20,6 @@ return [
     'breathing_frequency' => 'Breathing frequency',
     'sex' => 'Sex',
     'email' => 'E-mail',
-    'phone' => 'Phone'
+    'phone' => 'Phone',
+    'referred_by' => 'Referred by'
 ];
