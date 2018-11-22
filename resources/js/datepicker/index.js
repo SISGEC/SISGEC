@@ -10,6 +10,6 @@ export default (function () {
     format: 'dd/mm/yyyy',
     endDate: '0d',
     language: 'es',
-    startView: 'centuries'
+    startView: 'decades'
   });
 }());

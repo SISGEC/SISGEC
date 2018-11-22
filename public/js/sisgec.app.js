@@ -91280,7 +91280,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
     format: 'dd/mm/yyyy',
     endDate: '0d',
     language: 'es',
-    startView: 'centuries'
+    startView: 'decades'
   });
 })());
 
