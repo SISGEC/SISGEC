@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnamnesisTable extends Migration
+class AddRelationsToPatients extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateAnamnesisTable extends Migration
      */
     public function up()
     {
-        Schema::create('anamnesis', function (Blueprint $table) {
-            $table->increments('id');
-            $table->longText('inherit_family');
-            $table->integer('patient_id')->unsigned()->index()->nullable();
-            $table->timestamps();
+        Schema::table('patients', function($table) {
+            $table->integer('anamnesis_id')->unsigned()->index()->nullable();
+            $table->foreign('anamnesis_id')->references('id')->on('anamnesis');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateAnamnesisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anamnesis');
+        Schema::table('patients', function($table) {
+            $table->dropColumn('anamnesis_id');
+        });
     }
 }

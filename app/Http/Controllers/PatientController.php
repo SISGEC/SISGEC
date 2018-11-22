@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Anamnesis;
 use App\NonPathological;
+use App\PathologicalPersonal;
+use App\GynecologicalObstetricHistory;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -47,10 +49,16 @@ class PatientController extends Controller
         $patient = Patient::create($request->input("patient"));
         $anamnesis = Anamnesis::create(['inherit_family' => $request->input("inherit_family")]);
         $non_pathological = NonPathological::create($request->input("non_pathological"));
+        $pathological_personal = PathologicalPersonal::create($request->input("pathological"));
+        $gynecological_obstetric = GynecologicalObstetricHistory::create($request->input("gyneco_obstetrics"));
 
         $anamnesis->non_pathological()->save($non_pathological);
+        $anamnesis->pathological_personal()->save($pathological_personal);
+        $anamnesis->gynecological_obstetric_history()->save($gynecological_obstetric);
 
-        dd([$patient, $non_pathological]);
+        $patient->anamnesis()->save($anamnesis);
+
+        dd($patient);
     }
 
     /**
