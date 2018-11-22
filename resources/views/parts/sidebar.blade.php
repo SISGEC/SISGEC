@@ -49,10 +49,7 @@
                 'title' => __("sidebar.medical-appointments"),
                 'icon' => 'ti-calendar',
                 'color' => 'c-brown-500',
-                'children' => [
-                    ['title' => __("sidebar.all"), 'url' => route("medical_appointments")],
-                    ['title' => __("sidebar.new"), 'url' => route("medical_appointments.new")]
-                ]
+                'url' => route("medical_appointments")
             ])
             @endcomponent
             @component('atom/sidebar-menu-item', [
