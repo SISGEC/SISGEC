@@ -53,6 +53,9 @@
         </style>
         <script>
             var HOME_URL = "{{ url("") }}";
+            var I18N = {
+                'years': "{{ __('years') }}"
+            };
         </script>
     </head>
     <body class="app">
