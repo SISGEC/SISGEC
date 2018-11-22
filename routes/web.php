@@ -45,3 +45,5 @@ Route::get('/attachments', 'StudiesController@create');
 Route::post('/attachments/save', 'StudiesController@store');
 Route::post('/attachments/delete', 'StudiesController@destroy');
 Route::get('/attachments/show', 'StudiesController@index');
+
+Route::get('/prescription/new', 'PrescriptionController@create');
