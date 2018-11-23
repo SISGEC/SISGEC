@@ -30,27 +30,39 @@ $(document).ready(function() {
     });
 
     var weightMask = new IMask($("#weight").get(0), {
-        mask: '00[0] kg'
+        mask: '00[0] kg',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var heightMask = new IMask($("#height").get(0), {
-        mask: '00[0] cm'
+        mask: '00[0] cm',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var temperatureMask = new IMask($("#temperature").get(0), {
-        mask: '00[,0] ºC'
+        mask: '00 ºC',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var heartRateMask = new IMask($("#heart_rate").get(0), {
-        mask: '00[0] BPM'
+        mask: '00[0] BPM',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var bloodPressureMask = new IMask($("#blood_pressure").get(0), {
-        mask: '00[0]/00[0]'
+        mask: '00[0]/00[0]',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var BreathingFrequencyMask = new IMask($("#breathing_frequency").get(0), {
-        mask: '00[0] RPM'
+        mask: '00[0] RPM',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var PhoneMask = new IMask($("#phone").get(0), {

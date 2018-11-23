@@ -7,6 +7,7 @@ use App\Anamnesis;
 use App\NonPathological;
 use App\PathologicalPersonal;
 use App\GynecologicalObstetricHistory;
+use App\InitialClinicalHistory;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -46,17 +47,25 @@ class PatientController extends Controller
             'patient.email' => 'email'
         ]);
 
-        $patient = Patient::create($request->input("patient"));
-        $anamnesis = Anamnesis::create(['inherit_family' => $request->input("inherit_family")]);
-        $non_pathological = NonPathological::create($request->input("non_pathological"));
-        $pathological_personal = PathologicalPersonal::create($request->input("pathological"));
-        $gynecological_obstetric = GynecologicalObstetricHistory::create($request->input("gyneco_obstetrics"));
+        $patient = Patient::create($this->set_defaults($request->input("patient"), Patient::get_defaults()));
+        $anamnesis = Anamnesis::create(['inherit_family' => $request->input("inherit_family", __('global.denied'))]);
+        $non_pathological = NonPathological::create($this->set_defaults($request->input("non_pathological"), NonPathological::get_defaults()));
+        $pathological_personal = PathologicalPersonal::create($this->set_defaults($request->input("pathological"), PathologicalPersonal::get_defaults()));
+        $gynecological_obstetric = GynecologicalObstetricHistory::create($this->set_defaults($request->input("gyneco_obstetrics"), GynecologicalObstetricHistory::get_defaults()));
+        $initial_clinical_history = InitialClinicalHistory::create($this->set_defaults($request->input("initial_clinical_history"), InitialClinicalHistory::get_defaults()));
 
         $anamnesis->non_pathological()->save($non_pathological);
         $anamnesis->pathological_personal()->save($pathological_personal);
         $anamnesis->gynecological_obstetric_history()->save($gynecological_obstetric);
 
-        $patient->anamnesis()->save($anamnesis);
+        $physical_exploration = PhysicalExploration::create($this->set_defaults($request->input("physical_exploration"), PhysicalExploration::get_defaults()));
+        $neurological_examination = NeurologicalExamination::create($this->set_defaults($request->input("neuro_exam"), NeurologicalExamination::get_defaults()));
+        
+        $physical_exploration->neurological_examination()->save($neurological_examination);
+    
+        $initial_clinical_history->anamnesis()->save($anamnesis);
+
+        $patient->initial_clinical_history()->save($initial_clinical_history);
 
         dd($patient);
     }
@@ -104,5 +113,22 @@ class PatientController extends Controller
     public function destroy(Patient $patient)
     {
         //
+    }
+
+    private function set_defaults($inputs, $defaults=[]) {
+        $data = [];
+        //if(!is_array($inputs)) $inputs = [];
+        foreach ($inputs as $key => $value) {
+            if(empty($value)) {
+                if(array_key_exists($key, $defaults)) {
+                    $data[$key] = $defaults[$key];
+                } else {
+                    $data[$key] = "";
+                }
+            } else {
+                $data[$key] = $value;
+            }
+        }
+        return $data;
     }
 }

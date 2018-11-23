@@ -11,4 +11,16 @@ class PathologicalPersonal extends Model
     public function anamnesis(){
         return $this->belongsTo('App\Anamnesis');
     }
+
+    public static function get_defaults() {
+        return array(
+            'childhood_diseases' => __('global.denied'),
+            'surgical_operations' => __('global.denied'),
+            'accidents' => __('global.denied'),
+            'traumatic_brain_injury' => __('global.denied'),
+            'allergies' => __('global.denied'),
+            'disabilities' => __('global.denied'),
+            'blood_transfusions' => __('global.denied')
+        );
+    }
 }

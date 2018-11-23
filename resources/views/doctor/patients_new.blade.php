@@ -428,7 +428,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="current_condition" id="current_condition" cols="30" rows="5"></textarea>
+                                    <textarea class="form-control" name="initial_clinical_history[current_condition]" id="current_condition" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -580,27 +580,27 @@
                                 <h5 class="c-grey-900">4.1 {{ __("global.superior_cognitive_functions") }}</h5>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-4">
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input type="hidden" style="display:none;" name="neuro_exam[superior_cognitive_functions[abstract]]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="neuro_exam[superior_cognitive_functions[abstract]]" id="scfa" value="1">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[abstract]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[abstract]" id="scfa" value="1">
                                         <label class="form-check-label" for="scfa">{{ __('global.abstract') }}</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="hidden" style="display:none;" name="neuro_exam[superior_cognitive_functions[concrete]]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="neuro_exam[superior_cognitive_functions[concrete]]" id="scfc" value="1">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[concrete]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[concrete]" id="scfc" value="1">
                                         <label class="form-check-label" for="scfc">{{ __('global.concrete') }}</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="hidden" style="display:none;" name="neuro_exam[superior_cognitive_functions[literal]]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="neuro_exam[superior_cognitive_functions[literal]]" id="scfl" value="1">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[literal]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[literal]" id="scfl" value="1">
                                         <label class="form-check-label" for="scfl">{{ __('global.literal') }}</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="hidden" style="display:none;" name="neuro_exam[superior_cognitive_functions[magical]]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="neuro_exam[superior_cognitive_functions[magical]]" id="scfm" value="1">
+                                        <input type="hidden" style="display:none;" name="superior_cognitive_functions[magical]" value="0">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[magical]" id="scfm" value="1">
                                         <label class="form-check-label" for="scfm">{{ __('global.magical') }}</label>
                                     </div>
                                 </div>
@@ -609,11 +609,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="arithmetic_calculation">{{ __("global.arithmetic_calculation") }}</label>
-                                        <textarea class="form-control" name="neuro_exam[arithmetic_calculation]" id="arithmetic_calculation" cols="30" rows="2"></textarea>
+                                        <textarea class="form-control" name="superior_cognitive_functions[arithmetic_calculation]" id="arithmetic_calculation" cols="30" rows="2"></textarea>
                                     </div>
                                     <div class="col-6">
                                         <label for="ability_to_draw">{{ __("global.ability_to_draw") }}</label>
-                                        <textarea class="form-control" name="neuro_exam[ability_to_draw]" id="ability_to_draw" cols="30" rows="2"></textarea>
+                                        <textarea class="form-control" name="superior_cognitive_functions[ability_to_draw]" id="ability_to_draw" cols="30" rows="2"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -730,7 +730,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="diagnostical_impression" id="diagnostical_impression" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[diagnostical_impression]" id="diagnostical_impression" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -746,7 +746,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="treatment_plan" id="treatment_plan" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[treatment_plan]" id="treatment_plan" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -762,7 +762,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="interconsultation" id="interconsultation" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[interconsultation]" id="interconsultation" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -778,7 +778,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="treatment" id="treatment" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[treatment]" id="treatment" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -786,7 +786,7 @@
             </div>
         </div>
 
-        <div class="row gap-20 masonry pos-r">
+        <div class="row sticky-footer">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">

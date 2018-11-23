@@ -3,6 +3,7 @@ return [
     'system' => [
         'name' => 'SISGEC'
     ],
+    'denied' => 'Denied',
     'desktop' => 'Desktop',
     'search' => 'Search...',
     'patients' => 'Pacientes',

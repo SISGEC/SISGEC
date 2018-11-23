@@ -80834,3 +80834,10 @@ table.dataTable.no-footer {
   border-bottom: 1px solid #000;
 }
 
+.sticky-footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  margin-top: 2rem;
+}
+

@@ -91935,9 +91935,9 @@ module.exports = function (options) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dropzone__ = __webpack_require__(219);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_dropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_dropzone__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_imask__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_imask__ = __webpack_require__(220);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_imask___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_imask__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devbridge_autocomplete__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devbridge_autocomplete__ = __webpack_require__(221);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_devbridge_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_devbridge_autocomplete__);
 
 
@@ -91971,27 +91971,39 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
     });
 
     var weightMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#weight").get(0), {
-        mask: '00[0] kg'
+        mask: '00[0] kg',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var heightMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#height").get(0), {
-        mask: '00[0] cm'
+        mask: '00[0] cm',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var temperatureMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#temperature").get(0), {
-        mask: '00[,0] ºC'
+        mask: '00 ºC',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var heartRateMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#heart_rate").get(0), {
-        mask: '00[0] BPM'
+        mask: '00[0] BPM',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var bloodPressureMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#blood_pressure").get(0), {
-        mask: '00[0]/00[0]'
+        mask: '00[0]/00[0]',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var BreathingFrequencyMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#breathing_frequency").get(0), {
-        mask: '00[0] RPM'
+        mask: '00[0] RPM',
+        lazy: false,
+        placeholderChar: '0'
     });
 
     var PhoneMask = new __WEBPACK_IMPORTED_MODULE_2_imask___default.a(__WEBPACK_IMPORTED_MODULE_0_jquery__("#phone").get(0), {
@@ -95574,21 +95586,7 @@ function __guardMethod__(obj, methodName, transform) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
 
 /***/ }),
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function (global, factory) {
@@ -99797,7 +99795,7 @@ function __guardMethod__(obj, methodName, transform) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 235 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**

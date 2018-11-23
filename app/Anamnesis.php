@@ -21,7 +21,7 @@ class Anamnesis extends Model
         return $this->hasOne('App\GynecologicalObstetricHistory');
     }
 
-    public function patients() {
-        return $this->belongsTo('App\Patient');
+    public function initial_clinical_history() {
+        return $this->belongsTo('App\InitialClinicalHistory');
     }
 }
