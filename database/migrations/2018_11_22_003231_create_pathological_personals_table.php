@@ -15,13 +15,13 @@ class CreatePathologicalPersonalsTable extends Migration
     {
         Schema::create('pathological_personals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('childhood_diseases');
-            $table->string('surgical_operations');
-            $table->string('accidents');
-            $table->string('traumatic_brain_injury');
-            $table->string('allergies');
-            $table->string('disabilities');
-            $table->string('blood_transfusions');
+            $table->string('childhood_diseases')->nullable();
+            $table->string('surgical_operations')->nullable();
+            $table->string('accidents')->nullable();
+            $table->string('traumatic_brain_injury')->nullable();
+            $table->string('allergies')->nullable();
+            $table->string('disabilities')->nullable();
+            $table->string('blood_transfusions')->nullable();
 
             $table->integer('anamnesis_id')->unsigned()->index()->nullable();
             $table->foreign('anamnesis_id')->references('id')->on('anamnesis');

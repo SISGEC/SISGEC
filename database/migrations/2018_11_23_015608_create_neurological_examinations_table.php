@@ -15,19 +15,19 @@ class CreateNeurologicalExaminationsTable extends Migration
     {
         Schema::create('neurological_examinations', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText("mental_examination");
+            $table->longText("mental_examination")->nullable();
             $table->integer("orientation_id")->unsigned()->index()->nullable();
-            $table->longText("language");
-            $table->longText("memory");
+            $table->longText("language")->nullable();
+            $table->longText("memory")->nullable();
             $table->integer("superior_cognitive_functions_id")->unsigned()->index()->nullable();
-            $table->longText("hallucinations");
-            $table->longText("delusions");
-            $table->longText("esape");
-            $table->longText("cranial_nerves");
-            $table->longText("actor_system");
-            $table->longText("sensitive_system");
-            $table->longText("vestibular_system");
-            $table->longText("meninges");
+            $table->longText("hallucinations")->nullable();
+            $table->longText("delusions")->nullable();
+            $table->longText("esape")->nullable();
+            $table->longText("cranial_nerves")->nullable();
+            $table->longText("actor_system")->nullable();
+            $table->longText("sensitive_system")->nullable();
+            $table->longText("vestibular_system")->nullable();
+            $table->longText("meninges")->nullable();
             $table->integer("physical_exploration_id")->unsigned()->index()->nullable();
             $table->timestamps();
 

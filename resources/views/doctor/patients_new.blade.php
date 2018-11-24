@@ -544,15 +544,15 @@
                             </div>
                             <div class="col-4">
                                 <label for="time">{{ __("global.time") }}</label>
-                                <textarea class="form-control" name="neuro_exam[time]" id="time" cols="30" rows="2"></textarea>
+                                <textarea class="form-control" name="orientation[time]" id="time" cols="30" rows="2"></textarea>
                             </div>
                             <div class="col-4">
                                 <label for="space">{{ __("global.space") }}</label>
-                                <textarea class="form-control" name="neuro_exam[space]" id="space" cols="30" rows="2"></textarea>
+                                <textarea class="form-control" name="orientation[space]" id="space" cols="30" rows="2"></textarea>
                             </div>
                             <div class="col-4">
                                 <label for="person">{{ __("global.person") }}</label>
-                                <textarea class="form-control" name="neuro_exam[person]" id="person" cols="30" rows="2"></textarea>
+                                <textarea class="form-control" name="orientation[person]" id="person" cols="30" rows="2"></textarea>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -717,6 +717,7 @@
                                 <input name="file" type="file" multiple />
                             </div>
                         </div>
+                        <div id="studies"></div>
                     </div>
                 </div>
             </div>

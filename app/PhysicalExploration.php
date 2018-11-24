@@ -18,7 +18,7 @@ class PhysicalExploration extends Model
 
     public static function get_defaults() {
         return array(
-            'general_appearance',
+            'general_appearance' => __("global.denied"),
             'head' => __("global.denied"),
             'neck' => __("global.denied"),
             'chest' => __("global.denied"),

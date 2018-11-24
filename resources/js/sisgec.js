@@ -99,7 +99,13 @@ $(document).ready(function() {
             'x-csrf-token': document.querySelectorAll('meta[name=csrf-token]')[0].getAttributeNode('content').value,
         },
         success: function (file, done) {
-            console.log(file);
+            if(file.xhr.status == 200) {
+                var el = $("#studies");
+                var re = JSON.parse(file.xhr.response);
+                var inp = $('<input type="hidden" name="studies[]">');
+                inp.val(re.study_id);
+                el.append(inp);
+            }
         }
     };
     var dz = new Dropzone("div#uploadFiles", options);

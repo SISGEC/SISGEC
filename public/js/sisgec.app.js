@@ -92040,7 +92040,13 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
             'x-csrf-token': document.querySelectorAll('meta[name=csrf-token]')[0].getAttributeNode('content').value
         },
         success: function success(file, done) {
-            console.log(file);
+            if (file.xhr.status == 200) {
+                var el = __WEBPACK_IMPORTED_MODULE_0_jquery__("#studies");
+                var re = JSON.parse(file.xhr.response);
+                var inp = __WEBPACK_IMPORTED_MODULE_0_jquery__('<input type="hidden" name="studies[]">');
+                inp.val(re.study_id);
+                el.append(inp);
+            }
         }
     };
     var dz = new __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a("div#uploadFiles", options);

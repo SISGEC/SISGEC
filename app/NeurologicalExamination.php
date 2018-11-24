@@ -22,17 +22,17 @@ class NeurologicalExamination extends Model
 
     public static function get_defaults() {
         return array(
-            'mental_examination' => '',
-            'language' => '',
-            'memory' => '',
-            'hallucinations' => '',
-            'delusions' => '',
-            'esape' => '',
-            'cranial_nerves' => '',
-            'actor_system' => '',
-            'sensitive_system' => '',
-            'vestibular_system' => '',
-            'meninges' => ''
+            'mental_examination' => "",
+            'language' => "",
+            'memory' => "",
+            'hallucinations' => "",
+            'delusions' => "",
+            'esape' => "",
+            'cranial_nerves' => "",
+            'actor_system' => "",
+            'sensitive_system' => "",
+            'vestibular_system' => "",
+            'meninges' => ""
         );
     }
 }

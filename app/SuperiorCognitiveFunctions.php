@@ -14,10 +14,10 @@ class SuperiorCognitiveFunctions extends Model
 
     public static function get_defaults() {
         return array(
-            'abstract' => '',
-            'concrete' => '',
-            'literal' => '',
-            'magical' => '',
+            'abstract' => 0,
+            'concrete' => 0,
+            'literal' => 0,
+            'magical' => 0,
             'arithmetic_calculation' => '',
             'ability_to_draw' => ''
         );

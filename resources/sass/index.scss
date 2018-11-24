@@ -88,7 +88,7 @@
       height: auto;
       margin: 6px 0;
       .dz-upload {
-        width: 100%;
+        width: 0;
         height: 6px;
         background-color: #2adb4be6;
         display: block;
@@ -96,8 +96,12 @@
       }
     }
 
+    &.dz-error .dz-progress .dz-upload {
+      background-color: #ff3e3e !important;
+    }
+
     .dz-error-message {
-      display: none;
+      //display: none;
     }
 
     .dz-success-mark, .dz-error-mark {

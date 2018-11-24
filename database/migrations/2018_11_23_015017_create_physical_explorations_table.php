@@ -15,14 +15,14 @@ class CreatePhysicalExplorationsTable extends Migration
     {
         Schema::create('physical_explorations', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText("general_appearance");
-            $table->longText("head");
-            $table->longText("neck");
-            $table->longText("chest");
-            $table->longText("abdomen");
-            $table->longText("back");
-            $table->longText("extremities");
-            $table->longText("genitals");
+            $table->longText("general_appearance")->nullable();
+            $table->longText("head")->nullable();
+            $table->longText("neck")->nullable();
+            $table->longText("chest")->nullable();
+            $table->longText("abdomen")->nullable();
+            $table->longText("back")->nullable();
+            $table->longText("extremities")->nullable();
+            $table->longText("genitals")->nullable();
             $table->integer("neurological_examination_id")->unsigned()->index()->nullable();
             $table->integer('initial_clinical_history_id')->unsigned()->index()->nullable();
             $table->timestamps();

@@ -21,6 +21,10 @@ class InitialClinicalHistory extends Model
         return $this->belongsTo('App\Patient');
     }
 
+    public function studies() {
+        return $this->hasMany('App\Study');
+    }
+
     public static function get_defaults() {
         return array(
             'current_condition' => "",

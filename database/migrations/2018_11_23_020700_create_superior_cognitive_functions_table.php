@@ -15,12 +15,12 @@ class CreateSuperiorCognitiveFunctionsTable extends Migration
     {
         Schema::create('superior_cognitive_functions', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('abstract');
-            $table->tinyInteger('concrete');
-            $table->tinyInteger('literal');
-            $table->tinyInteger('magical');
-            $table->string('arithmetic_calculation');
-            $table->string('ability_to_draw');
+            $table->tinyInteger('abstract')->nullable();
+            $table->tinyInteger('concrete')->nullable();
+            $table->tinyInteger('literal')->nullable();
+            $table->tinyInteger('magical')->nullable();
+            $table->string('arithmetic_calculation')->nullable();
+            $table->string('ability_to_draw')->nullable();
             $table->integer("neurological_examination_id")->unsigned()->index()->nullable();
             $table->timestamps();
 

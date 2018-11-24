@@ -15,13 +15,13 @@ class CreateOrientationsTable extends Migration
     {
         Schema::create('orientations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('time');
-            $table->string('space');
-            $table->string('person');
-            $table->integer("physical_exploration_id")->unsigned()->index()->nullable();
+            $table->string('time')->nullable();
+            $table->string('space')->nullable();
+            $table->string('person')->nullable();
+            $table->integer("neurological_examination_id")->unsigned()->index()->nullable();
             $table->timestamps();
 
-            $table->foreign('physical_exploration_id')->references('id')->on('physical_explorations');
+            $table->foreign('neurological_examination_id')->references('id')->on('neurological_examinations');
         });
     }
 

@@ -17,12 +17,12 @@ class CreateInitialClinicalHistoriesTable extends Migration
             $table->increments('id');
             $table->integer('anamnesis_id')->unsigned()->index()->nullable();
             $table->integer('patient_id')->unsigned()->index()->nullable();
-            $table->longText('current_condition');
+            $table->longText('current_condition')->nullable();
             $table->integer('physical_exploration_id')->unsigned()->index()->nullable();
-            $table->longText('diagnostical_impression');
-            $table->longText('treatment_plan');
-            $table->longText('interconsultation');
-            $table->longText('treatment');
+            $table->longText('diagnostical_impression')->nullable();
+            $table->longText('treatment_plan')->nullable();
+            $table->longText('interconsultation')->nullable();
+            $table->longText('treatment')->nullable();
             $table->timestamps();
 
             $table->foreign('anamnesis_id')->references('id')->on('anamnesis');

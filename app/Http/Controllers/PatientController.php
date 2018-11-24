@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Patient;
-use App\Anamnesis;
-use App\NonPathological;
-use App\PathologicalPersonal;
-use App\GynecologicalObstetricHistory;
-use App\InitialClinicalHistory;
+use App\Study;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -47,27 +42,42 @@ class PatientController extends Controller
             'patient.email' => 'email'
         ]);
 
-        $patient = Patient::create($this->set_defaults($request->input("patient"), Patient::get_defaults()));
-        $anamnesis = Anamnesis::create(['inherit_family' => $request->input("inherit_family", __('global.denied'))]);
-        $non_pathological = NonPathological::create($this->set_defaults($request->input("non_pathological"), NonPathological::get_defaults()));
-        $pathological_personal = PathologicalPersonal::create($this->set_defaults($request->input("pathological"), PathologicalPersonal::get_defaults()));
-        $gynecological_obstetric = GynecologicalObstetricHistory::create($this->set_defaults($request->input("gyneco_obstetrics"), GynecologicalObstetricHistory::get_defaults()));
-        $initial_clinical_history = InitialClinicalHistory::create($this->set_defaults($request->input("initial_clinical_history"), InitialClinicalHistory::get_defaults()));
+        $patient = $this->create_new("App\Patient", "patient");
+        $anamnesis = $this->create_new("App\Anamnesis", "inherit_family");
+        $non_pathological = $this->create_new("App\NonPathological", "non_pathological");
+        $pathological_personal = $this->create_new("App\PathologicalPersonal", "pathological");
+        $gynecological_obstetric = $this->create_new("App\GynecologicalObstetricHistory", "gyneco_obstetrics");
+        $initial_clinical_history = $this->create_new("App\InitialClinicalHistory", "initial_clinical_history");
 
         $anamnesis->non_pathological()->save($non_pathological);
         $anamnesis->pathological_personal()->save($pathological_personal);
         $anamnesis->gynecological_obstetric_history()->save($gynecological_obstetric);
 
-        $physical_exploration = PhysicalExploration::create($this->set_defaults($request->input("physical_exploration"), PhysicalExploration::get_defaults()));
-        $neurological_examination = NeurologicalExamination::create($this->set_defaults($request->input("neuro_exam"), NeurologicalExamination::get_defaults()));
+        $physical_exploration = $this->create_new("App\PhysicalExploration", "physical_exploration");
+        $neurological_examination = $this->create_new("App\NeurologicalExamination", "neuro_exam");
+
+        $orientation = $this->create_new("App\Orientation", "orientation");
+        $superior_cognitive_functions = $this->create_new("App\SuperiorCognitiveFunctions", "superior_cognitive_functions");
         
+        $neurological_examination->orientation()->save($orientation);
+        $neurological_examination->superior_cognitive_functions()->save($superior_cognitive_functions);
+
         $physical_exploration->neurological_examination()->save($neurological_examination);
     
         $initial_clinical_history->anamnesis()->save($anamnesis);
+        $initial_clinical_history->physical_exploration()->save($physical_exploration);
+
+        $studies = request()->input("studies", []);
+        if(is_array($studies)) {
+            $studies = Study::find(array_values($studies));
+            $initial_clinical_history->studies()->saveMany($studies);
+        }
 
         $patient->initial_clinical_history()->save($initial_clinical_history);
 
-        dd($patient);
+        $patient->save();
+
+        return redirect()->route('patient', ['id' => $patient->id]);
     }
 
     /**
@@ -78,7 +88,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        dd($patient);
     }
 
     /**
@@ -130,5 +140,12 @@ class PatientController extends Controller
             }
         }
         return $data;
+    }
+
+    private function create_new($model, $group) {
+        if($group === "inherit_family") {
+            return $model::create(['inherit_family' => request()->input("inherit_family", __('global.denied'))]);
+        }
+        return $model::create($this->set_defaults(request()->input($group, []), $model::get_defaults()));
     }
 }

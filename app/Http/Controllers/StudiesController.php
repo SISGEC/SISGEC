@@ -1,8 +1,8 @@
 <?php
  
 namespace App\Http\Controllers;
- 
-use App\Upload;
+
+use App\Study;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
@@ -24,8 +24,7 @@ class StudiesController extends Controller
      */
     public function index()
     {
-        $photos = Upload::all();
-        return view('uploaded-images', compact('photos'));
+        return view('uploaded-images');
     }
  
     /**
@@ -63,13 +62,15 @@ class StudiesController extends Controller
  
             $photo->move($this->photos_path, $save_name);
  
-            $upload = new Upload();
+            $upload = new Study();
             $upload->filename = $save_name;
             $upload->original_name = basename($photo->getClientOriginalName());
+            $upload->type = $photo->getClientMimeType();
             $upload->save();
         }
         return Response::json([
-            'message' => 'Image saved Successfully'
+            'message' => 'Image saved Successfully',
+            'study_id' => $upload->id
         ], 200);
     }
  
@@ -81,7 +82,7 @@ class StudiesController extends Controller
     public function destroy(Request $request)
     {
         $filename = $request->id;
-        $uploaded_image = Upload::where('original_name', basename($filename))->first();
+        $uploaded_image = Study::where('original_name', basename($filename))->first();
  
         if (empty($uploaded_image)) {
             return Response::json(['message' => 'Sorry file does not exist'], 400);
