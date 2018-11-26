@@ -95,5 +95,16 @@ return [
     'diagnostic' => 'Diagnostic',
     'treatment_plan_sub' => 'Subsequent Treatment Plan',
     'next_appointment_date' => 'Next Appointment Date',
-    'medical_appointments_new' => 'Medical Appointments'
+    'medical_appointments_new' => 'Medical Appointments',
+    'thought' => 'Thought',
+    'general' => 'General',
+    'tracing' => 'Tracing',
+    'studies' => 'Studies',
+    'patient' => 'Patient',
+    'new' => 'New',
+    'medical_appointment' => 'Medical Appointment',
+    'prescription' => 'Prescription',
+    'add_studies' => 'Add studies',
+    'add_tracing' => 'Add tracing',
+    'close' => 'Close'
 ];

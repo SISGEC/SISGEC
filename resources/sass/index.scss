@@ -137,3 +137,71 @@
   bottom: 0;
   margin-top: 2rem;
 }
+
+.profile-list-info, .profile-list-description, .profile-list-todo {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      border-bottom: 1px dotted transparent;
+
+      &:hover, &:focus {
+        border-bottom-color: rgb(177, 177, 177);
+      }
+    }
+  }
+}
+
+.bbt {
+  border-bottom: 2px solid rgb(206, 206, 206);
+  padding-bottom: 10px;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+}
+
+.profile-list-info {
+  ul {
+    columns: 3;
+    column-gap: 30px;
+
+    li {
+      flex: 1 1 100%;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      
+      strong {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.profile-list-description {
+  ul {
+    li {
+      margin-left: 15px;
+
+      strong {
+        display: block;
+        margin-left: -15px;
+      }
+    }
+  }
+}
+
+.patient-options {
+  position: sticky;
+  top: 80px;
+}
+
+.new-button {
+  .dropdown-toggle {
+    color: #fff !important;
+    border-radius: 0;
+  }
+}

@@ -684,7 +684,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[sist_vece]" id="sist_vece" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[vestibular_system]" id="vestibular_system" cols="30" rows="4"></textarea>
                                 </div>
                             </div>
                         </div>

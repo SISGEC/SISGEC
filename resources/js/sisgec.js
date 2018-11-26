@@ -108,6 +108,14 @@ $(document).ready(function() {
             }
         }
     };
-    var dz = new Dropzone("div#uploadFiles", options);
-    Dropzone.options.uploadFiles = options;
+    
+    if($("div#uploadFiles").length > 0) {
+        var dz = new Dropzone("div#uploadFiles", options);
+        Dropzone.options.uploadFiles = options;
+    }
+
+    $('data-target="#addStudies"').on("click", function() {
+        var dz = new Dropzone("div#uploadFiles", options);
+        Dropzone.options.uploadFiles = options;
+    });
 });
