@@ -25,7 +25,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view("doctor.patients_new");
+        return view("doctor.patients.new");
     }
 
     /**
@@ -87,9 +87,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show($patient=false)
     {
-        dd($patient);
+        if(!$patient) abort(404);
+        $patient = Patient::find($patient);
+        return view("doctor.patients.self", ["patient" => $patient]);
     }
 
     /**

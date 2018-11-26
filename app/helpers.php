@@ -10,3 +10,11 @@ function search_in_array($query, $array=[]) {
 
     return array_values($array);
 }
+
+function calcule_age($birthdate) {
+    $tz  = new DateTimeZone('America/Mexico_City');
+    $age = DateTime::createFromFormat('d/m/Y', $birthdate, $tz)
+     ->diff(new DateTime('now', $tz))
+     ->y;
+    return $age;
+}

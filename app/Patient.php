@@ -28,4 +28,13 @@ class Patient extends Model
             'phone' => ''
         );
     }
+
+    public function getFullNameAttribute() {
+        return ucfirst($this->name) . " " . ucfirst($this->lastname);
+    }
+
+    public function getAgeAttribute() {
+        if(is_null($this->birthdate)) return "";
+        return calcule_age($this->birthdate);
+    }
 }

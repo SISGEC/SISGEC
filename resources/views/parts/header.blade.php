@@ -1,22 +1,33 @@
 <div class="header navbar">
     <div class="header-container">
         <ul class="nav-left">
-        <li>
-            <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
-            <i class="ti-menu"></i>
-            </a>
-        </li>
-        <li class="search-box">
-            <a class="search-toggle no-pdd-right" href="javascript:void(0);">
-            <i class="search-icon ti-search pdd-right-10"></i>
-            <i class="search-icon-close ti-close pdd-right-10"></i>
-            </a>
-        </li>
-        <li class="search-input">
-            <input class="form-control" type="text" placeholder="{{ __("global.search") }}">
-        </li>
+            <li>
+                <a id='sidebar-toggle' class="sidebar-toggle" href="javascript:void(0);">
+                <i class="ti-menu"></i>
+                </a>
+            </li>
+            <li class="search-box">
+                <a class="search-toggle no-pdd-right" href="javascript:void(0);">
+                <i class="search-icon ti-search pdd-right-10"></i>
+                <i class="search-icon-close ti-close pdd-right-10"></i>
+                </a>
+            </li>
+            <li class="search-input">
+                <input class="form-control" type="text" placeholder="{{ __("global.search") }}">
+            </li>
         </ul>
         <ul class="nav-right">
+            <li class="dropdown new-button">
+                <a class="btn btn-primary dropdown-toggle no-after" id="newButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-plus"></i> {{ __("global.new") }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="newButton">
+                    <a class="dropdown-item" href="{{ route("patients.new") }}">{{ __("global.patient") }}</a>
+                    <a class="dropdown-item" href="#">{{ __("global.tracing") }}</a>
+                    <a class="dropdown-item" href="#">{{ __("global.medical_appointment") }}</a>
+                    <a class="dropdown-item" href="#">{{ __("global.prescription") }}</a>
+                </div>
+            </li>
             <li class="dropdown">
                 <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                     <div class="peer mR-10">
