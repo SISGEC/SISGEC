@@ -585,22 +585,22 @@
                                 <div class="form-group">
                                     <div class="form-check">
                                         <input type="hidden" style="display:none;" name="superior_cognitive_functions[abstract]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[abstract]" id="scfa" value="1">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[abstract]" id="scfa" {{ $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->abstract === "1" ? "checked" : "" }} value="1">
                                         <label class="form-check-label" for="scfa">{{ __('global.abstract') }}</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="hidden" style="display:none;" name="superior_cognitive_functions[concrete]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[concrete]" id="scfc" value="1">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[concrete]" id="scfc" {{ $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->concrete === "1" ? "checked" : "" }} value="1">
                                         <label class="form-check-label" for="scfc">{{ __('global.concrete') }}</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="hidden" style="display:none;" name="superior_cognitive_functions[literal]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[literal]" id="scfl" value="1">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[literal]" id="scfl" {{ $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->literal === "1" ? "checked" : "" }} value="1">
                                         <label class="form-check-label" for="scfl">{{ __('global.literal') }}</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="hidden" style="display:none;" name="superior_cognitive_functions[magical]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[magical]" id="scfm" value="1">
+                                        <input class="form-check-input" type="checkbox" name="superior_cognitive_functions[magical]" id="scfm" {{ $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->magical === "1" ? "checked" : "" }} value="1">
                                         <label class="form-check-label" for="scfm">{{ __('global.magical') }}</label>
                                     </div>
                                 </div>
@@ -609,11 +609,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="arithmetic_calculation">{{ __("global.arithmetic_calculation") }}</label>
-                                        <textarea class="form-control" name="superior_cognitive_functions[arithmetic_calculation]" id="arithmetic_calculation" cols="30" rows="2"></textarea>
+                                        <textarea class="form-control" name="superior_cognitive_functions[arithmetic_calculation]" id="arithmetic_calculation" cols="30" rows="2">{{ old("superior_cognitive_functions.arithmetic_calculation", $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->arithmetic_calculation) }}</textarea>
                                     </div>
                                     <div class="col-6">
                                         <label for="ability_to_draw">{{ __("global.ability_to_draw") }}</label>
-                                        <textarea class="form-control" name="superior_cognitive_functions[ability_to_draw]" id="ability_to_draw" cols="30" rows="2"></textarea>
+                                        <textarea class="form-control" name="superior_cognitive_functions[ability_to_draw]" id="ability_to_draw" cols="30" rows="2">{{ old("superior_cognitive_functions.ability_to_draw", $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions->ability_to_draw) }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -624,7 +624,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[hallucinations]" id="hallucinations" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[hallucinations]" id="hallucinations" cols="30" rows="4">{{ old("neuro_exam.hallucinations", $patient->initial_clinical_history->physical_exploration->neurological_examination->hallucinations) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -634,7 +634,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[delusions]" id="delusions" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[delusions]" id="delusions" cols="30" rows="4">{{ old("neuro_exam.delusions", $patient->initial_clinical_history->physical_exploration->neurological_examination->delusions) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -644,7 +644,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[esape]" id="esape" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[esape]" id="esape" cols="30" rows="4">{{ old("neuro_exam.esape", $patient->initial_clinical_history->physical_exploration->neurological_examination->esape) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -654,7 +654,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[cranial_nerves]" id="cranial_nerves" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[cranial_nerves]" id="cranial_nerves" cols="30" rows="4">{{ old("neuro_exam.cranial_nerves", $patient->initial_clinical_history->physical_exploration->neurological_examination->cranial_nerves) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -664,7 +664,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[actor_system]" id="actor_system" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[actor_system]" id="actor_system" cols="30" rows="4">{{ old("neuro_exam.actor_system", $patient->initial_clinical_history->physical_exploration->neurological_examination->actor_system) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -674,7 +674,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[sensitive_system]" id="sensitive_system" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[sensitive_system]" id="sensitive_system" cols="30" rows="4">{{ old("neuro_exam.sensitive_system", $patient->initial_clinical_history->physical_exploration->neurological_examination->sensitive_system) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -684,7 +684,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[vestibular_system]" id="vestibular_system" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[vestibular_system]" id="vestibular_system" cols="30" rows="4">{{ old("neuro_exam.vestibular_system", $patient->initial_clinical_history->physical_exploration->neurological_examination->vestibular_system) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -694,7 +694,7 @@
                             </div>
                             <div class="col-10">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="neuro_exam[meninges]" id="meninges" cols="30" rows="4"></textarea>
+                                    <textarea class="form-control" name="neuro_exam[meninges]" id="meninges" cols="30" rows="4">{{ old("neuro_exam.meninges", $patient->initial_clinical_history->physical_exploration->neurological_examination->meninges) }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -708,6 +708,14 @@
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
                     <h4 class="c-grey-900">5. {{ __("global.cabinet_studies") }}</h4>
+
+                    <div class="studies-loaded">
+                        @php
+                            $studies = $patient->initial_clinical_history->studies;
+                        @endphp
+                        
+                    </div>
+
                     <div>
                         <div id="uploadFiles" class="sigec__dropzone">
                             <div class="dz-message needsclick">    
@@ -731,7 +739,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="initial_clinical_history[diagnostical_impression]" id="diagnostical_impression" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[diagnostical_impression]" id="diagnostical_impression" cols="30" rows="4">{{ old("initial_clinical_history.diagnostical_impression", $patient->initial_clinical_history->diagnostical_impression) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -747,7 +755,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="initial_clinical_history[treatment_plan]" id="treatment_plan" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[treatment_plan]" id="treatment_plan" cols="30" rows="4">{{ old("initial_clinical_history.treatment_plan", $patient->initial_clinical_history->treatment_plan) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -763,7 +771,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="initial_clinical_history[interconsultation]" id="interconsultation" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[interconsultation]" id="interconsultation" cols="30" rows="4">{{ old("initial_clinical_history.interconsultation", $patient->initial_clinical_history->interconsultation) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -779,7 +787,7 @@
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="initial_clinical_history[treatment]" id="treatment" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="initial_clinical_history[treatment]" id="treatment" cols="30" rows="4">{{ old("initial_clinical_history.treatment", $patient->initial_clinical_history->treatment) }}</textarea>
                             </div>
                         </div>
                     </div>
