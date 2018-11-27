@@ -23,9 +23,9 @@
                           	</div>
  
                         	<div class="form-group">
-                            	<div class="row">
-                                	<div class="col-2">
-                                    	<label for="birthdate">{{ __("person.sex") }}</label>
+                <div class="row">
+                  <div class="col-2">
+                    <label for="birthdate">{{ __("person.sex") }}</label>
 									</div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="patient[sex]" id="sexm" checked value="0">
@@ -36,9 +36,9 @@
                                         <label class="form-check-label" for="sexw">{{ __("global.woman") }}</label>
 									</div>
 								</div>
-								<label for="date">{{ __("date") }}</label>
+								<label for="date">{{ __("Date") }}</label>
 									<div class="input-group">
-										<input type="text" href="javascript:void(0);" data-toggle="modal" data-target="#calendar-edit" class="form-control" id="date" name="date" placeholder="{{ __("date") }}" />
+										<input type="text"  data-provide="datepicker" class="form-control" id="date" name="date" placeholder="{{ __("Date") }}" />
 									</div>
 							</div>
                     	</div>

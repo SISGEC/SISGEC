@@ -11,6 +11,8 @@
 |
 */
 
+App::setLocale(config("app.locale"));
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
