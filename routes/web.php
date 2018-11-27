@@ -26,7 +26,11 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('/patients/save', 'PatientController@store')->name('patients.save');
 
+    Route::post('/patients/update', 'PatientController@update')->name('patients.update');
+
     Route::get('/patient/{id}', 'PatientController@show')->name('patient');
+
+    Route::get('/patient/delete/{id}', 'PatientController@destroy')->name('patient.remove');
 
     Route::get('/medical-appointments', function() {
         return view("doctor.medical_appointments");
@@ -36,20 +40,16 @@ Route::middleware(['auth'])->group(function () {
         //return view("doctor.medical_appointments_new");
     })->name('medical_appointments.new');
 
-    Route::get('/evolution-note/new', function() {
-        return view("doctor.new_evolution_note");
-    })->name('evolution_note.new');
-
-    Route::post('/evolution-note/new', function() {
-        return view("doctor.new_evolution_note");
-    })->name('evolution_note.save');
+    Route::get('/evolution-note/new/{id}', 'TracingController@create')->name('evolution_note.new');
+    Route::post('/evolution-note/save', 'TracingController@store')->name('evolution_note.save');
+    Route::get('/evolution-note/{id}', 'TracingController@show')->name('evolution_note');
 
     Route::get('/attachments', 'StudiesController@create');
     Route::post('/attachments/save', 'StudiesController@store');
-    Route::post('/attachments/delete', 'StudiesController@destroy');
+    Route::get('/attachments/delete/{id}', 'StudiesController@destroy');
     Route::get('/attachments/show/{filename}', 'StudiesController@show');
-    Route::get('/attachments/download/{filename}', 'StudiesController@index');
+    Route::get('/attachments/download/{filename}', 'StudiesController@download');
 
-    Route::get('/prescription/new', 'PrescriptionController@create');
+    Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');;
 });
 

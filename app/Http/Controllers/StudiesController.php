@@ -79,13 +79,12 @@ class StudiesController extends Controller
      *
      * @param Request $request
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, $id)
     {
-        $filename = $request->id;
-        $uploaded_image = Study::where('original_name', basename($filename))->first();
+        $uploaded_image = Study::find($id);
  
         if (empty($uploaded_image)) {
-            return Response::json(['message' => 'Sorry file does not exist'], 400);
+            return redirect()->back()->withErrors(['error', __("Sorry file does not exist")]);
         }
  
         $file_path = $this->photos_path . '/' . $uploaded_image->filename;
@@ -98,7 +97,7 @@ class StudiesController extends Controller
             $uploaded_image->delete();
         }
  
-        return Response::json(['message' => 'File successfully delete'], 200);
+        return redirect()->back();
     }
 
     public function show($filename) {

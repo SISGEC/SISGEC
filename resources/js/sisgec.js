@@ -114,8 +114,15 @@ $(document).ready(function() {
         Dropzone.options.uploadFiles = options;
     }
 
-    $('data-target="#addStudies"').on("click", function() {
-        var dz = new Dropzone("div#uploadFiles", options);
-        Dropzone.options.uploadFiles = options;
+    $(':input').focus(function(){
+        var center = ($(window).height()/2) - 100;
+        var top = $(this).offset().top ;
+        if (top > center){
+            $(window).scrollTop(top-center);
+        }
+    });
+
+    $('a.remove_this').on('click', function () {
+        return confirm(I18N.sure_remove);
     });
 });

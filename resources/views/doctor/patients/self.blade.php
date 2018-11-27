@@ -18,6 +18,7 @@
                 </a>
                 <a class="nav-link" id="patient-options-tracing-tab" data-toggle="pill" href="#patient-options-tracing" role="tab" aria-controls="patient-options-tracing" aria-selected="false">{{ __("global.tracing") }}</a>
                 <a class="nav-link" id="patient-options-studies-tab" data-toggle="pill" href="#patient-options-studies" role="tab" aria-controls="patient-options-studies" aria-selected="false">{{ __("global.studies") }}</a>
+                <a class="nav-link" id="patient-options-advanced-tab" data-toggle="pill" href="#patient-options-advanced" role="tab" aria-controls="patient-options-advanced" aria-selected="false">{{ __("global.advanced") }}</a>
             </div>
         </div>
         <div class="col-12 col-sm-10">
@@ -423,25 +424,33 @@
                 <div class="tab-pane fade" id="patient-options-tracing" role="tabpanel" aria-labelledby="patient-options-tracing-tab">
                     <div class="bgc-white p-20 bd d-flex justify-content-between">
                         <h4 class="c-grey-900 mb-0"><i class="fas fa-heartbeat"></i> {{ __("global.tracing") }}</h4>
-                        <a href="#" class="btn btn-primary">
+                        <a href="{{ route("evolution_note.new", ["patient" => $patient->id]) }}" class="btn btn-primary">
                             {{ __("global.add_tracing") }}
                         </a>
                     </div>
                     
                     @php
-                        $reports = [];
+                        $reports = $patient->initial_clinical_history->tracings;
                     @endphp
 
-                    @forelse ($reports as $report)
-
-                    @empty
-                        <div class="bd bgc-white mt-3 p-20">
-                            <div class="layer w-100 banner-message banner-message--error">
-                                <h4 class="mT-10 mB-30">{{ __("error.no_tracing_reports") }}</h4>
-                                <i class="ti-face-sad"></i>
+                    <div class="row mt-3">
+                        @forelse ($reports as $report)
+                            <div class="col-12 col-sm-3">
+                                <div class="bd bgc-white report report-{{ $report->id }}">
+                                    <h3>#{{ $report->created_at->timestamp }}/{{ $report->id }}</h3>
+                                    <p>{{ $report->created_at->format(__("global.report_date")) }}</p>
+                                    <a href="{{ route("evolution_note", ["id" => $report->id]) }}"></a>
+                                </div>
                             </div>
-                        </div>
-                    @endforelse
+                        @empty
+                            <div class="bd bgc-white mt-3 p-20">
+                                <div class="layer w-100 banner-message banner-message--error">
+                                    <h4 class="mT-10 mB-30">{{ __("error.no_tracing_reports") }}</h4>
+                                    <i class="ti-face-sad"></i>
+                                </div>
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
 
                 <div class="tab-pane fade" id="patient-options-studies" role="tabpanel" aria-labelledby="patient-options-studies-tab">
@@ -464,6 +473,7 @@
                                     <h3>{{ $study->original_name }}</h3>
                                     <p class="mb-0">{{ $study->type }}</p>
                                     <a href="{{ url("/attachments/download/$study->filename") }}" target="_blank"></a>
+                                    <a href="{{ url("/attachments/delete/$study->id") }}" class="btn btn-danger delete-study remove_this"><i class="fas fa-fw fa-trash-alt"></i></a>
                                 </div>
                             </div>
                         @empty
@@ -476,6 +486,20 @@
                                 </div>
                             </div>
                         @endforelse
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="patient-options-advanced" role="tabpanel" aria-labelledby="patient-options-advanced-tab">
+                    <div class="bgc-white p-20 bd d-flex justify-content-between">
+                        <h4 class="c-grey-900 mb-0"><i class="fas fa-cogs"></i> {{ __("global.advanced") }}</h4>
+                    </div>
+
+                    <div class="bgc-white p-20 bd mt-3">
+                        <div class="remove-container">
+                            <h5>{{ __("global.remove-patient") }}</h5>
+                            <p>{!! __("global.remove-patient-alet") !!}</p>
+                            <a class="btn btn-danger remove_this" href="{{ route("patient.remove", ["id" => $patient->id]) }}">{{ __("global.remove-patient-confirm") }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -493,7 +517,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <div id="uploadFiles" class="sigec__dropzone">
+                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id }}">
                             <div class="dz-message needsclick">    
                                 Drop files here or click to upload.
                             </div>
@@ -501,7 +525,6 @@
                                 <input name="file" type="file" multiple />
                             </div>
                         </div>
-                        <div id="studies"></div>
                     </div>
                 </div>
                 <div class="modal-footer">

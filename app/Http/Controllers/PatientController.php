@@ -118,9 +118,82 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request)
     {
-        //
+        if($request->has("id")) {
+            $patient = Patient::find($request->input("id"));
+            $patient->update( $this->set_defaults($request->input("patient"), Patient::get_defaults()) );
+
+            if($request->has("measure")) {
+                $patient->measures()->update(
+                    $this->set_defaults($request->input("measure"), \App\Measure::get_defaults())
+                );
+            }
+
+            if($request->has("initial_clinical_history")) {
+                $patient->initial_clinical_history()->update(
+                    $this->set_defaults($request->input("initial_clinical_history"), \App\InitialClinicalHistory::get_defaults())
+                );
+            }
+
+            if($request->has("inherit_family")) {
+                $patient->initial_clinical_history->anamnesis()->update([
+                    'inherit_family' => $request->input("inherit_family", \App\Anamnesis::get_defaults()["inherit_family"])
+                ]);
+            }
+
+            if($request->has("non_pathological")) {
+                $patient->initial_clinical_history->anamnesis->non_pathological()->update(
+                    $this->set_defaults($request->input("non_pathological"), \App\NonPathological::get_defaults())
+                );
+            }
+
+            if($request->has("pathological")) {
+                $patient->initial_clinical_history->anamnesis->pathological_personal()->update(
+                    $this->set_defaults($request->input("pathological"), \App\PathologicalPersonal::get_defaults())
+                );
+            }
+
+            if($request->has("gyneco_obstetrics")) {
+                $patient->initial_clinical_history->anamnesis->gynecological_obstetric_history()->update(
+                    $this->set_defaults($request->input("gyneco_obstetrics"), \App\GynecologicalObstetricHistory::get_defaults())
+                );
+            }
+
+            if($request->has("physical_exploration")) {
+                $patient->initial_clinical_history->physical_exploration()->update(
+                    $this->set_defaults($request->input("physical_exploration"), \App\PhysicalExploration::get_defaults())
+                );
+            }
+
+            if($request->has("neuro_exam")) {
+                $patient->initial_clinical_history->physical_exploration->neurological_examination()->update(
+                    $this->set_defaults($request->input("neuro_exam"), \App\NeurologicalExamination::get_defaults())
+                );
+            }
+
+            if($request->has("orientation")) {
+                $patient->initial_clinical_history->physical_exploration->neurological_examination->orientation()->update(
+                    $this->set_defaults($request->input("orientation"), \App\Orientation::get_defaults())
+                );
+            }
+
+            if($request->has("superior_cognitive_functions")) {
+                $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions()->update(
+                    $this->set_defaults($request->input("superior_cognitive_functions"), \App\SuperiorCognitiveFunctions::get_defaults())
+                );
+            }
+
+            $studies = $request->input("studies", []);
+            if(is_array($studies)) {
+                $studies = Study::find(array_values($studies));
+                $patient->initial_clinical_history->studies()->saveMany($studies);
+            }
+            
+            $patient->save();
+            return redirect()->route("patient", ["id" => $patient->id])->with('success', __("update_patient_done") );
+        }
+        return redirect()->back()->withErrors(['error', __("error.update_patient_fail")]);
     }
 
     /**
@@ -129,14 +202,20 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy($id)
     {
-        //
+        $patient = Patient::find($id);
+        if(!is_null($patient)) {
+            $patient_name = $patient->name;
+            $patient->delete();
+            return redirect()->route('patients')->with('success', __("remove_patient_done", ["name" => $patient_name]) );
+        }
+        return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
     }
 
     private function set_defaults($inputs, $defaults=[]) {
         $data = [];
-        //if(!is_array($inputs)) $inputs = [];
+        if(!is_array($inputs)) $inputs = [$inputs];
         foreach ($inputs as $key => $value) {
             if(empty($value)) {
                 if(array_key_exists($key, $defaults)) {

@@ -22,7 +22,13 @@ class InitialClinicalHistory extends Model
     }
 
     public function studies() {
-        return $this->hasMany('App\Study');
+        return $this->hasMany('App\Study')
+        ->orderBy('studies.id', 'desc');
+    }
+
+    public function tracings() {
+        return $this->hasMany('App\Tracing')
+        ->orderBy('tracings.id', 'desc');
     }
 
     public static function get_defaults() {

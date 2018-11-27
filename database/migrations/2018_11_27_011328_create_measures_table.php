@@ -22,8 +22,10 @@ class CreateMeasuresTable extends Migration
             $table->string("blood_pressure");
             $table->string("breathing_frequency");
             $table->integer("patient_id")->unsigned()->index()->nullable();
+            $table->integer("tracing_id")->unsigned()->index()->nullable();
 
             $table->foreign('patient_id')->references('id')->on('patient');
+            $table->foreign('tracing_id')->references('id')->on('tracings');
             $table->timestamps();
         });
     }

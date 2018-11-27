@@ -7,12 +7,13 @@
         </div>
     </div>
 
-    <form action="{{ route("patients.save") }}" method="POST">
+    <form action="{{ route("patients.update") }}" method="POST" class="inputs-auto-scroll">
         @csrf
+        <input type="hidden" name="id" value="{{ $patient->id }}">
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">1. {{ __("global.identification_card") }}</h4>
                     <div class="mT-30">
                         <div class="row">
@@ -161,7 +162,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">2. {{ __("global.anamnesis") }}</h4>
                     <div>
                         <div class="row">
@@ -422,7 +423,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">3. {{ __("global.current-condition") }}</h4>
                     <div>
                         <div class="row">
@@ -440,7 +441,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">4. {{ __("global.physical-exploration") }}</h4>
                     <div>
                         <div class="row">
@@ -734,7 +735,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">6. {{ __("global.diagnostical_impression") }}</h4>
                     <div>
                         <div class="col-12">
@@ -750,7 +751,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">6. {{ __("global.treatment_plan") }}</h4>
                     <div>
                         <div class="col-12">
@@ -766,7 +767,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">6. {{ __("global.interconsultation") }}</h4>
                     <div>
                         <div class="col-12">
@@ -782,7 +783,7 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">6. {{ __("global.treatment") }}</h4>
                     <div>
                         <div class="col-12">

@@ -55,7 +55,8 @@
         <script>
             var HOME_URL = "{{ url("") }}";
             var I18N = {
-                'years': "{{ __('years') }}"
+                'years': "{{ __('person.years') }}",
+                'sure_remove': "{{ __('global.sure_remove') }}"
             };
         </script>
     </head>

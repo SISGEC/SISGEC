@@ -3,16 +3,17 @@
 @section('content')
     <div class="row align-items-center">
         <div class="col text-left">
-            <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.new_evolution_note") }} </h2>
+            <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.new_evolution_note") }} > {{ $patient->full_name }}</h2>
         </div>
     </div>
 
     <form action="{{ route("evolution_note.save") }}" method="POST">
         @csrf
+        <input type="hidden" name="patient_id" value="{{ $patient->id }}">
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">1. {{ __("global.identification_card") }}</h4>
                     <div class="mT-30">
                         <div class="row">
@@ -20,9 +21,9 @@
                                 <div class="form-group">
                                     <label for="name">{{ __("person.full_name") }}</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="name" name="patient[name]" placeholder="{{ __("person.name") }}" />
-                                        <input type="text" class="form-control" id="lastname" name="patient[lastname]" placeholder="{{ __("person.lastname") }}" />
-                                        <input type="text" class="form-control" id="nickname" name="patient[nickname]" placeholder="{{ __("person.nickname") }}" />
+                                        <input type="text" class="form-control" id="name" name="patient[name]" value="{{ old("name", $patient->name) }}" placeholder="{{ __("person.name") }}" />
+                                        <input type="text" class="form-control" id="lastname" name="patient[lastname]" value="{{ old("patient.lastname", $patient->lastname) }}" placeholder="{{ __("person.lastname") }}" />
+                                        <input type="text" class="form-control" id="nickname" name="patient[nickname]" value="{{ old("patient.nickname", $patient->nickname) }}" placeholder="{{ __("person.nickname") }}" />
                                     </div>
                                 </div>
         
@@ -32,11 +33,11 @@
                                             <label for="birthdate">{{ __("person.sex") }}</label>
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="patient[sex]" id="sexm" checked value="0">
+                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexm" {{ old("patient.sex", $patient->sex) === 1 ? "" : "checked" }} value="0">
                                                     <label class="form-check-label" for="sexm">{{ __("global.man") }}</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="patient[sex]" id="sexw" value="1">
+                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexw" {{ old("patient.sex", $patient->sex) === 1 ? "checked" : "" }} value="1">
                                                     <label class="form-check-label" for="sexw">{{ __("global.woman") }}</label>
                                                 </div>
                                             </div>
@@ -45,10 +46,10 @@
                                             <label for="birthdate">{{ __("person.birthdate") }}</label>
                                             <div class="row">
                                                 <div class="col-9">
-                                                    <input type="text" class="form-control" id="birthdate" name="patient[birthdate]" placeholder="dd/mm/yyyy" />
+                                                    <input type="text" class="form-control" id="birthdate" name="patient[birthdate]" value="{{ old("patient.birthdate", $patient->birthdate) }}" placeholder="dd/mm/yyyy" />
                                                 </div>
                                                 <div class="col-3">
-                                                    <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="" />
+                                                    <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="{{ $patient->age." ".__("person.years") }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -59,11 +60,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="scholarship">{{ __("person.scholarship") }}</label>
-                                            <input type="text" class="form-control" id="scholarship" name="patient[scholarship]" value="" />
+                                            <input type="text" class="form-control" id="scholarship" name="patient[scholarship]" value="{{ old("patient.scholarship", $patient->scholarship) }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="occupation">{{ __("person.occupation") }}</label>
-                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="" />
+                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="{{ old("patient.occupation", $patient->occupation) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -72,11 +73,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="religion">{{ __("person.religion") }}</label>
-                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="" />
+                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="{{ old("patient.religion", $patient->religion) }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="civil_status">{{ __("person.civil_status") }}</label>
-                                            <input type="text" class="form-control" id="civil_status" name="patient[civil_status]" value="" />
+                                            <input type="text" class="form-control" id="civil_status" name="patient[civil_status]" value="{{ old("patient.civil_status", $patient->civil_status) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -87,11 +88,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="place_of_birth">{{ __("person.place_of_birth") }}</label>
-                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="" />
+                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="{{ old("patient.place_of_birth", $patient->place_of_birth) }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="place_of_residence">{{ __("person.place_of_residence") }}</label>
-                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="" />
+                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="{{ old("patient.place_of_residence", $patient->place_of_residence) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -100,15 +101,15 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="weight">{{ __("person.weight") }}</label>
-                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="" />
+                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="{{ old("measure.weight", $patient->measures->weight) }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="height">{{ __("person.height") }}</label>
-                                            <input type="text" class="form-control" id="height" name="measure[height]" value="" />
+                                            <input type="text" class="form-control" id="height" name="measure[height]" value="{{ old("measure.height", $patient->measures->height) }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="temperature">{{ __("person.temperature") }}</label>
-                                            <input type="text" class="form-control" id="temperature" name="measure[temperature]" value="" />
+                                            <input type="text" class="form-control" id="temperature" name="measure[temperature]" value="{{ old("measure.temperature", $patient->measures->temperature) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -117,15 +118,15 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="heart_rate">{{ __("person.heart_rate") }}</label>
-                                            <input type="text" class="form-control" id="heart_rate" name="measure[heart_rate]" value="" />
+                                            <input type="text" class="form-control" id="heart_rate" name="measure[heart_rate]" value="{{ old("measure.heart_rate", $patient->measures->heart_rate) }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="blood_pressure">{{ __("person.blood_pressure") }}</label>
-                                            <input type="text" class="form-control" id="blood_pressure" name="measure[blood_pressure]" value="" />
+                                            <input type="text" class="form-control" id="blood_pressure" name="measure[blood_pressure]" value="{{ old("measure.blood_pressure", $patient->measures->blood_pressure) }}" />
                                         </div>
                                         <div class="col-4">
                                             <label or="breathing_frequency">{{ __("person.breathing_frequency") }}</label>
-                                            <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="" />
+                                            <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="{{ old("measure.breathing_frequency", $patient->measures->breathing_frequency) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -134,11 +135,20 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="email">{{ __("person.email") }}</label>
-                                            <input type="email" class="form-control" id="email" name="patient[email]" value="" />
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", $patient->email) }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }}</label>
-                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="" />
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", $patient->phone) }}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="referred_by">{{ __("person.referred_by") }}</label>
+                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="{{ old("patient.referred_by", $patient->referred_by) }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -153,12 +163,12 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">2. {{ __("global.medication") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="medication" id="medication" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="tracings[medication]" id="medication" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -171,12 +181,12 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">3. {{ __("global.treatment_response") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="treatment_response" id="treatment_response" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="tracings[treatment_response]" id="treatment_response" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -189,12 +199,12 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">4. {{ __("global.physical_exploration") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="physical_exploration" id="physical_exploration" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="tracings[physical_exploration]" id="physical_exploration" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -218,6 +228,7 @@
                                 <input name="file" type="file" multiple />
                             </div>
                         </div>
+                        <div id="studies"></div>
                     </div>
                 </div>
             </div>
@@ -228,12 +239,12 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">6. {{ __("global.diagnostic") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="diagnostic" id="diagnostic" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="tracings[diagnostic]" id="diagnostic" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -246,12 +257,12 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">7. {{ __("global.treatment_plan_sub") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="treatment_plan_sub" id="treatment_plan_sub" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="tracings[treatment_plan_sub]" id="treatment_plan_sub" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -264,17 +275,14 @@
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd">
+                <div class="bgc-white p-20 bd input-block">
                     <h4 class="c-grey-900">8. {{ __("global.next_appointment_date") }}</h4>
                     <div>
                         <div class="col-8">
                             <label for="next_appointment_date"></label>
                             <div class="row">
                                 <div class="col-9">
-                                    <input type="text" class="form-control" id="next_appointment_date" name="Next Appointment Date" placeholder="dd/mm/yyyy" />
-                                </div>
-                                <div class="col-3">
-                                    <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="" />
+                                    <input type="text" class="form-control" id="next_appointment_date" name="tracings[next_appointment_date]" placeholder="dd/mm/yyyy" />
                                 </div>
                             </div>
                         </div>

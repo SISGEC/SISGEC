@@ -55,7 +55,8 @@
             @component('atom/sidebar-menu-item', [
                 'title' => __("sidebar.new_prescription"),
                 'icon' => 'ti-pencil-alt',
-                'color' => 'c-brown-500'
+                'color' => 'c-brown-500',
+                'url' => route("prescription.new")
             ])
             @endcomponent
         </ul>

@@ -110,5 +110,12 @@ return [
     'prescriptions_new' => 'New Prescription',
     'see_patient' => 'See Patient',
     'logout' => 'Logout',
-    'edit_patient' => 'Edit patient'
+    'edit_patient' => 'Edit patient',
+    'advanced' => 'Advanced',
+    'remove-patient' => 'Remove Patient',
+    'remove-patient-alet' => '<strong>Warning!</strong> If you delete the patient, all evidence of it will be erased and can not be reversed. We recommend doing this action only if necessarily necessary.',
+    'remove-patient-confirm' => 'I am aware of the dangers, I want to eliminate this patient.',
+    'see' => 'See tracing',
+    'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
+    'sure_remove' => 'Are you sure you want to delete this item?'
 ];

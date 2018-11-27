@@ -23,11 +23,13 @@ class CreateInitialClinicalHistoriesTable extends Migration
             $table->longText('treatment_plan')->nullable();
             $table->longText('interconsultation')->nullable();
             $table->longText('treatment')->nullable();
+            $table->integer('tracing_id')->unsigned()->index()->nullable();
             $table->timestamps();
 
             $table->foreign('anamnesis_id')->references('id')->on('anamnesis');
             $table->foreign('physical_exploration_id')->references('id')->on('physical_explorations');
             $table->foreign('patient_id')->references('id')->on('patient');
+            $table->foreign('tracing_id')->references('id')->on('tracings');
         });
     }
 

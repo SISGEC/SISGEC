@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'magallonj23@gmail.com',
             'password' => bcrypt('password'),
             'phone' => '(322) 1154 503',
-            'role' => 1
+            'role' => 1,
+            'title' => 'Dr.'
         ]);
     }
 }

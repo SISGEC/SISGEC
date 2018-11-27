@@ -24,4 +24,10 @@ class Anamnesis extends Model
     public function initial_clinical_history() {
         return $this->belongsTo('App\InitialClinicalHistory');
     }
+
+    public static function get_defaults() {
+        return [
+            'inherit_family' => __("global.denied")
+        ];
+    }
 }

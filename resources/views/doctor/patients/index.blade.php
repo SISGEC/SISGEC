@@ -13,7 +13,19 @@
         $patients = isset($patients) ?  $patients : [];
     @endphp
 
-    @if (!empty($patients))
+    @if(Session::has('success'))
+        {{Session::get('success')}}
+    @endif
+
+    @if($errors->has("error"))
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+    @endif
+
+    @if ($patients->isNotEmpty())
         <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
