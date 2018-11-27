@@ -15,7 +15,8 @@ class CreateAnamnesisTable extends Migration
     {
         Schema::create('anamnesis', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText('inherit_family');
+            $table->longText('inherit_family')->nullable();
+            $table->integer('initial_clinical_history_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
     }

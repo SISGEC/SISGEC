@@ -5,6 +5,7 @@ return [
     'name' => 'Name',
     'lastname' => 'Last Name',
     'birthdate' => 'Birthdate',
+    'years' => 'years',
     'nickname' => 'Nickname',
     'scholarship' => 'Scholarship',
     'occupation' => 'Occupation',

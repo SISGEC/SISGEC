@@ -15,16 +15,16 @@ class CreateNonPathologicalsTable extends Migration
     {
         Schema::create('non_pathologicals', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText("living_place");
-            $table->longText("personal_hygiene");
-            $table->longText("sport_activities");
-            $table->longText("hobbies");
-            $table->longText("immunizations");
-            $table->longText("smoking");
-            $table->longText("alcoholism");
-            $table->longText("drug");
-            $table->longText("work_activities");
-            $table->longText("feeding");
+            $table->longText("living_place")->nullable();
+            $table->longText("personal_hygiene")->nullable();
+            $table->longText("sport_activities")->nullable();
+            $table->longText("hobbies")->nullable();
+            $table->longText("immunizations")->nullable();
+            $table->longText("smoking")->nullable();
+            $table->longText("alcoholism")->nullable();
+            $table->longText("drug")->nullable();
+            $table->longText("work_activities")->nullable();
+            $table->longText("feeding")->nullable();
 
             $table->integer('anamnesis_id')->unsigned()->index()->nullable();
             $table->foreign('anamnesis_id')->references('id')->on('anamnesis');

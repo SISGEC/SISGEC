@@ -88,7 +88,7 @@
       height: auto;
       margin: 6px 0;
       .dz-upload {
-        width: 100%;
+        width: 0;
         height: 6px;
         background-color: #2adb4be6;
         display: block;
@@ -96,8 +96,12 @@
       }
     }
 
+    &.dz-error .dz-progress .dz-upload {
+      background-color: #ff3e3e !important;
+    }
+
     .dz-error-message {
-      display: none;
+      //display: none;
     }
 
     .dz-success-mark, .dz-error-mark {
@@ -114,5 +118,90 @@
     .dz-remove {
       color: red;
     }
+  }
+}
+
+#age {
+  pointer-events: none;
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+
+.sticky-footer {
+  position: sticky;
+  bottom: 0;
+  margin-top: 2rem;
+}
+
+.profile-list-info, .profile-list-description, .profile-list-todo {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      border-bottom: 1px dotted transparent;
+
+      &:hover, &:focus {
+        border-bottom-color: rgb(177, 177, 177);
+      }
+    }
+  }
+}
+
+.bbt {
+  border-bottom: 2px solid rgb(206, 206, 206);
+  padding-bottom: 10px;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+}
+
+.profile-list-info {
+  ul {
+    columns: 3;
+    column-gap: 30px;
+
+    li {
+      flex: 1 1 100%;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      
+      strong {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.profile-list-description {
+  ul {
+    li {
+      margin-left: 15px;
+
+      strong {
+        display: block;
+        margin-left: -15px;
+      }
+    }
+  }
+}
+
+.patient-options {
+  position: sticky;
+  top: 80px;
+}
+
+.new-button {
+  .dropdown-toggle {
+    color: #fff !important;
+    border-radius: 0;
   }
 }

@@ -18,7 +18,10 @@ class CreateStudiesTable extends Migration
             $table->text('filename');
             $table->text('original_name');
             $table->text('type');
+            $table->integer('initial_clinical_history_id')->unsigned()->index()->nullable();
             $table->timestamps();
+
+            $table->foreign('initial_clinical_history_id')->references('id')->on('initial_clinical_history');
         });
     }
 

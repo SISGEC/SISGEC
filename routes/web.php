@@ -25,6 +25,8 @@ Route::get('/patients/new', 'PatientController@create')->name('patients.new');
 
 Route::post('/patients/save', 'PatientController@store')->name('patients.save');
 
+Route::get('/patient/{id}', 'PatientController@show')->name('patient');
+
 Route::get('/medical-appointments', function() {
     return view("doctor.medical_appointments");
 })->name('medical_appointments');
