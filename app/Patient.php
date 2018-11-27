@@ -13,6 +13,10 @@ class Patient extends Model
         return $this->hasOne('App\InitialClinicalHistory');
     }
 
+    public function measures() {
+        return $this->hasOne('App\Measure');
+    }
+
     public static function get_defaults() {
         return array(
             'nickname' => '',

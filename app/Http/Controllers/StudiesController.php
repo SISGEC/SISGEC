@@ -100,4 +100,14 @@ class StudiesController extends Controller
  
         return Response::json(['message' => 'File successfully delete'], 200);
     }
+
+    public function show($filename) {
+        $file = Study::where('filename', $filename)->first();
+        return response()->file(asset("images/studies/$file->filename"));
+    }
+
+    public function download($filename) {
+        $file = Study::where('filename', $filename)->first();
+        return response()->download(asset("images/studies/$file->filename"));
+    }
 }

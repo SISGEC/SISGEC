@@ -12,19 +12,53 @@
     @php
         $patients = isset($patients) ?  $patients : [];
     @endphp
-    @forelse ($patients as $patient)
-        
-    @empty
-    <div class="row gap-20 masonry pos-r">
-        <div class="masonry-sizer col-md-6"></div>
-        <div class="masonry-item  w-100">
-            <div class="layers bd bgc-white p-20">
-                <div class="layer w-100 banner-message banner-message--error">
-                    <h4 class="mT-10 mB-30">{{ __("error.no_patients") }}</h4>
-                    <i class="ti-face-sad"></i>
+
+    @if (!empty($patients))
+        <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{{ __("person.name") }}</th>
+                    <th>{{ __("person.sex") }}</th>
+                    <th>{{ __("person.age") }}</th>
+                    <th>{{ __("person.phone") }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>{{ __("person.name") }}</th>
+                    <th>{{ __("person.sex") }}</th>
+                    <th>{{ __("person.age") }}</th>
+                    <th>{{ __("person.phone") }}</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach ($patients as $patient)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $patient->full_name }}</td>
+                        <td>{{ $patient->sex === 1 ? __("global.women") : __("global.man") }}</td>
+                        <td>{{ $patient->age }} {{ __("person.years") }}</td>
+                        <td>{{ $patient->phone }}</td>
+                        <td><a class="btn btn-primary" href="{{ route('patient', $patient->id) }}">{{ __("global.see_patient") }}</a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <div class="row gap-20 masonry pos-r">
+            <div class="masonry-sizer col-md-6"></div>
+            <div class="masonry-item  w-100">
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 banner-message banner-message--error">
+                        <h4 class="mT-10 mB-30">{{ __("error.no_patients") }}</h4>
+                        <i class="ti-face-sad"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    @endforelse
+    @endif
 @endsection
