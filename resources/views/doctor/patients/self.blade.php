@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="row align-items-center">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between align-items-center">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.patient") }} > {{ $patient->full_name }}</h2>
+            <a href="{{ route("patients.edit", $patient->id) }}" class="btn btn-secondary">
+                {{ __("global.edit_patient") }}
+            </a>
         </div>
     </div>
     
@@ -52,10 +55,28 @@
                                     <strong>{{ __("person.civil_status") }}:</strong> {{ $patient->civil_status }}
                                 </li>
                                 <li>
+                                    <strong>{{ __("person.place_of_birth") }}:</strong> {{ $patient->place_of_birth }}
+                                </li>
+                                <li>
                                     <strong>{{ __("person.place_of_residence") }}:</strong> {{ $patient->place_of_residence }}
                                 </li>
                                 <li>
-                                    <strong>{{ __("person.place_of_birth") }}:</strong> {{ $patient->place_of_birth }}
+                                    <strong>{{ __("person.weight") }}:</strong> {{ $patient->measures->weight }}
+                                </li>
+                                <li>
+                                    <strong>{{ __("person.height") }}:</strong> {{ $patient->measures->height }}
+                                </li>
+                                <li>
+                                    <strong>{{ __("person.temperature") }}:</strong> {{ $patient->measures->temperature }}
+                                </li>
+                                <li>
+                                    <strong>{{ __("person.heart_rate") }}:</strong> {{ $patient->measures->heart_rate }}
+                                </li>
+                                <li>
+                                    <strong>{{ __("person.blood_pressure") }}:</strong> {{ $patient->measures->blood_pressure }}
+                                </li>
+                                <li>
+                                    <strong>{{ __("person.breathing_frequency") }}:</strong> {{ $patient->measures->breathing_frequency }}
                                 </li>
                                 <li>
                                     <strong>{{ __("person.referred_by") }}:</strong> {{ $patient->referred_by }}
@@ -435,16 +456,27 @@
                         $studies = $patient->initial_clinical_history->studies;
                     @endphp
 
-                    @forelse ($studies as $study)
-
-                    @empty
-                        <div class="bd bgc-white mt-3 p-20">
-                            <div class="layer w-100 banner-message banner-message--error">
-                                <h4 class="mT-10 mB-30">{{ __("error.no_studies") }}</h4>
-                                <i class="ti-face-sad"></i>
+                    <div class="row mt-3">
+                        @forelse ($studies as $study)
+                            <div class="col-12 col-sm-3">
+                                <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}">
+                                    <img src="{{ get_screenshot(url("/attachments/show/$study->filename")) }}">
+                                    <h3>{{ $study->original_name }}</h3>
+                                    <p class="mb-0">{{ $study->type }}</p>
+                                    <a href="{{ url("/attachments/download/$study->filename") }}" target="_blank"></a>
+                                </div>
                             </div>
-                        </div>
-                    @endforelse
+                        @empty
+                            <div class="col-12">
+                                <div class="bd bgc-white mt-3 p-20">
+                                    <div class="layer w-100 banner-message banner-message--error">
+                                        <h4 class="mT-10 mB-30">{{ __("error.no_studies") }}</h4>
+                                        <i class="ti-face-sad"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>

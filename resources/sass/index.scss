@@ -205,3 +205,33 @@
     border-radius: 0;
   }
 }
+
+.study {
+  padding: 15px;
+  position: relative;
+  height: 100%;
+
+  img {
+    margin: 0 auto 15px;
+    display: block;
+    width: 64px;
+    height: auto;
+  }
+
+  h3 {
+    font-size: .8rem;
+    word-break: break-all;
+    font-weight: 700;
+    height: 40px;
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

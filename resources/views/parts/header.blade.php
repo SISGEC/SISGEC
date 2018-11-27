@@ -38,7 +38,7 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm">
-                    <li>
+                    {{--<li>
                         <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                         <i class="ti-settings mR-10"></i>
                         <span>Setting</span>
@@ -50,14 +50,17 @@
                         <span>Profile</span>
                         </a>
                     </li>
-                    <li role="separator" class="divider"></li>
+                    <li role="separator" class="divider"></li>--}}
                     <li>
-                        <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                        <i class="ti-power-off mR-10"></i>
-                        <span>Logout</span>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                            <i class="ti-power-off mR-10"></i>
+                            <span>{{ __("global.logout") }}</span>
                         </a>
                     </li>
                 </ul>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>

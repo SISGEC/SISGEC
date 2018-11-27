@@ -15,7 +15,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        
+        $patiens = Patient::all();
+        return view("doctor.patients.index", ["patients" => $patiens]);
     }
 
     /**
@@ -76,6 +77,9 @@ class PatientController extends Controller
 
         $patient->initial_clinical_history()->save($initial_clinical_history);
 
+        $measure = $this->create_new("App\Measure", "measure");
+        $patient->measures()->save($measure);
+
         $patient->save();
 
         return redirect()->route('patient', ['id' => $patient->id]);
@@ -100,9 +104,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit($patient=false)
     {
-        //
+        if(!$patient) abort(404);
+        $patient = Patient::find($patient);
+        return view("doctor.patients.edit", ["patient" => $patient]);
     }
 
     /**

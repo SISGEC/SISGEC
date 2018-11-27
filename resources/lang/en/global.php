@@ -106,5 +106,8 @@ return [
     'prescription' => 'Prescription',
     'add_studies' => 'Add studies',
     'add_tracing' => 'Add tracing',
-    'close' => 'Close'
+    'close' => 'Close',
+    'see_patient' => 'See Patient',
+    'logout' => 'Logout',
+    'edit_patient' => 'Edit patient'
 ];
