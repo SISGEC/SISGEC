@@ -107,5 +107,15 @@ return [
     'add_studies' => 'Añadir Estudios',
     'add_tracing' => 'Añadir Seguimiento',
     'close' => 'Cerrar',
-    'prescriptions_new' => 'Nueva Receta'
+    'prescriptions_new' => 'Nueva Receta',
+    'see_patient' => 'Ver Paciente',
+    'logout' => 'Logout',
+    'edit_patient' => 'Editar Paciente',
+    'advanced' => 'Advanced',
+    'remove-patient' => 'Eliminar Paciente',
+    'remove-patient-alet' => '<strong>Cuidado!</strong> Si borras el paciente, toda evidencia sera eliminada y no puede ser revertido. Solo se recomienda esta accion si es absolutamente necesaria.',
+    'remove-patient-confirm' => 'Estoy al tanto del riesgo, Quiero eliminar este paciente.',
+    'see' => 'Ver Seguimiento',
+    'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
+    'sure_remove' => 'Esta Seguro que quiere borrar esto?'
 ];
