@@ -15,7 +15,11 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->increments('id');
+            $table->
+            $table->integer('initial_clinical_history_id')->unsigned()->index()->nullable();
             $table->timestamps();
+
+            $table->foreign('initial_clinical_history_id')->references('id')->on('initial_clinical_history');
         });
     }
 

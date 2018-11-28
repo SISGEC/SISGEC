@@ -13,9 +13,9 @@ class AddRelationFromPrescriptionsToIch extends Migration
      */
     public function up()
     {
-        Schema::create('prescriptions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('initial_clinical_history', function (Blueprint $table) {
+            $table->integer('prescription_id')->unsigned()->index()->nullable();
+            $table->foreign('prescription_id')->references('id')->on('prescriptions');
         });
     }
 
@@ -26,6 +26,8 @@ class AddRelationFromPrescriptionsToIch extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prescriptions');
+        Schema::table('initial_clinical_history', function (Blueprint $table) {
+            $table->dropColumn('prescription_id');
+        });
     }
 }
