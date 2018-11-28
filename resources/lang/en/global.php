@@ -117,5 +117,6 @@ return [
     'remove-patient-confirm' => 'I am aware of the dangers, I want to eliminate this patient.',
     'see' => 'See tracing',
     'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
-    'sure_remove' => 'Are you sure you want to delete this item?'
+    'sure_remove' => 'Are you sure you want to delete this item?',
+    'save_tracing' => 'Save Tracing'
 ];

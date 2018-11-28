@@ -42,6 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/evolution-note/new/{id}', 'TracingController@create')->name('evolution_note.new');
     Route::post('/evolution-note/save', 'TracingController@store')->name('evolution_note.save');
+    Route::get('/evolution-note/edit/{$id}', 'TracingController@edit')->name('evolution_note.edit');
+    Route::post('/evolution-note/save', 'TracingController@update')->name('evolution_note.update');
     Route::get('/evolution-note/{id}', 'TracingController@show')->name('evolution_note');
 
     Route::get('/attachments', 'StudiesController@create');
@@ -50,6 +52,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attachments/show/{filename}', 'StudiesController@show');
     Route::get('/attachments/download/{filename}', 'StudiesController@download');
 
-    Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');;
+    Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');
 });
 

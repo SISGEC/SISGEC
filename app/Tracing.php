@@ -10,7 +10,11 @@ class Tracing extends Model
     protected $fillable = ['medication','treatment_response','physical_exploration','diagnostic','treatment_plan_sub','next_appointment_date'];
 
     public function initial_clinical_history() {
-        return $this->belongs('App\InitialClinicalHistory');
+        return $this->belongsToMany('App\InitialClinicalHistory');
+    }
+
+    public function getNameAttribute() {
+        return $report->created_at->timestamp."/".$report->id;
     }
 
     public static function get_defaults() {

@@ -790,7 +790,7 @@
         <div class="row sticky-footer">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
-                <div class="bgc-white p-20 bd input-block">
+                <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
                             <button class="btn btn-danger">{{ __("global.exit") }}</button>

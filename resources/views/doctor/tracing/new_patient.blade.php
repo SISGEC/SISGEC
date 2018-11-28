@@ -292,14 +292,14 @@
         </div>
         {{-- Fin bloque --}}
 
-        <div class="row gap-20 masonry pos-r">
+        <div class="row sticky-footer">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
                             <button class="btn btn-danger">{{ __("global.exit") }}</button>
-                            <button class="btn btn-success ml-2">{{ __("global.save_patient") }}</button>
+                            <button class="btn btn-success ml-2">{{ __("global.save_tracing") }}</button>
                         </div>
                     </div>
                 </div>

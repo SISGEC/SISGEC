@@ -80,9 +80,17 @@ class TracingController extends Controller
      * @param  \App\Tracing  $tracing
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $tracing)
+    public function show(Request $request, $id)
     {
-        return "TODO: Add this";
+        $tracing = Tracing::find($id);
+        if(!is_null($tracing)) {
+            $patient = $tracing->initial_clinical_history->patient;
+            return view("doctor.tracing.self", ["patient" => $patient, "tracing" => $tracing]);
+        }
+        /**
+         * @TODO Add error message
+         */
+        return response()->back();
     }
 
     /**
@@ -91,7 +99,7 @@ class TracingController extends Controller
      * @param  \App\Tracing  $tracing
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tracing $tracing)
+    public function edit(Request $request, $tracing)
     {
         //
     }

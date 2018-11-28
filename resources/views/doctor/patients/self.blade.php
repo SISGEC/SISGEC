@@ -437,16 +437,18 @@
                         @forelse ($reports as $report)
                             <div class="col-12 col-sm-3">
                                 <div class="bd bgc-white report report-{{ $report->id }}">
-                                    <h3>#{{ $report->created_at->timestamp }}/{{ $report->id }}</h3>
+                                    <h3>#{{ $report->name }}</h3>
                                     <p>{{ $report->created_at->format(__("global.report_date")) }}</p>
                                     <a href="{{ route("evolution_note", ["id" => $report->id]) }}"></a>
                                 </div>
                             </div>
                         @empty
-                            <div class="bd bgc-white mt-3 p-20">
-                                <div class="layer w-100 banner-message banner-message--error">
-                                    <h4 class="mT-10 mB-30">{{ __("error.no_tracing_reports") }}</h4>
-                                    <i class="ti-face-sad"></i>
+                            <div class="col-12">
+                                <div class="bd bgc-white mt-3 p-20">
+                                    <div class="layer w-100 banner-message banner-message--error">
+                                        <h4 class="mT-10 mB-30">{{ __("error.no_tracing_reports") }}</h4>
+                                        <i class="ti-face-sad"></i>
+                                    </div>
                                 </div>
                             </div>
                         @endforelse
