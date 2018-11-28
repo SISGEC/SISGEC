@@ -19,17 +19,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', 'HomeController@index')->name("dashboard");
 
     Route::get('/patients','PatientController@index')->name('patients');
-
     Route::get('/patients/new', 'PatientController@create')->name('patients.new');
-
     Route::get('/patients/edit/{id}', 'PatientController@edit')->name('patients.edit');
-    
     Route::post('/patients/save', 'PatientController@store')->name('patients.save');
-
     Route::post('/patients/update', 'PatientController@update')->name('patients.update');
-
     Route::get('/patient/{id}', 'PatientController@show')->name('patient');
-
     Route::get('/patient/delete/{id}', 'PatientController@destroy')->name('patient.remove');
 
     Route::get('/medical-appointments', function() {
@@ -52,5 +46,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');
     Route::post('/prescription/save', 'PrescriptionController@store')->name('prescription.save');
+    Route::get('/prescription/edit/{id}', 'PrescriptionController@edit')->name('prescription.edit');
+    Route::post('/prescription/update', 'PrescriptionController@update')->name('prescription.update');
+    Route::get('/prescription/{id}', 'PrescriptionController@index')->name('prescription');
+    Route::get('/prescription/remove/{id}', 'PrescriptionController@destroy')->name('prescription.remove');
 });
 

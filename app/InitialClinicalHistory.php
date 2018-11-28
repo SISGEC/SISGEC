@@ -31,6 +31,11 @@ class InitialClinicalHistory extends Model
         ->orderBy('tracings.id', 'desc');
     }
 
+    public function prescriptions() {
+        return $this->hasMany('App\Prescription')
+        ->orderBy('prescriptions.id', 'desc');
+    }
+
     public static function get_defaults() {
         return array(
             'current_condition' => "",

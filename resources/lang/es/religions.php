@@ -15,6 +15,6 @@ return [
     'Presbiterano',
     'Testigo de Jehovah',
     'Islam',
-    'Ateísta',
+    'Ateo',
     'Agnóstico'
 ];
