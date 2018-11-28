@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'Preschool',
-    'Primary',
-    'High school',
-    'General Baccalaureate',
-    'Technological baccalaureate',
-    'Technical professional',
-    'Bachelor\'s degree',
-    'Master\'s degree',
-    'Doctorate'
+    'Preescolar',
+    'Primaria',
+    'Secundaria',
+    'Preparatoria',
+    'Técnico de Bachillerato Tecnológico',
+    'Profesional Técnico',
+    'Licenciatura',
+    'Maestría',
+    'Doctorado'
 ];

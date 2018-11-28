@@ -1,20 +1,20 @@
 <?php
 
 return [
-    'Jew',
-    'Catholic',
-    'Orthodox',
-    'Evangelical',
-    'Menonite',
-    'Pentecostal',
-    'Baptist',
-    'Methodist',
-    'Adventist',
-    'Buddhist',
+    'Judío',
+    'Católico',
+    'Ortodoxo',
+    'Evangélico',
+    'Menonita',
+    'Pentecostés',
+    'Baptista',
+    'Metodista',
+    'Adventista',
+    'Budista',
     'Krishna',
-    'Presbyterian',
-    'Jehovahs Witness',
-    'Islamic',
-    'Atheist',
-    'Agnostic'
+    'Presbiterano',
+    'Testigo de Jehovah',
+    'Islam',
+    'Ateo',
+    'Agnóstico'
 ];

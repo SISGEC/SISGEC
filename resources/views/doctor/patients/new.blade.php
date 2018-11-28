@@ -793,7 +793,7 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <button class="btn btn-danger">{{ __("global.exit") }}</button>
+                            <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.exit") }}</a>
                             <button class="btn btn-success ml-2">{{ __("global.save_patient") }}</button>
                         </div>
                     </div>

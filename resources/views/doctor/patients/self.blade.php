@@ -17,6 +17,7 @@
                     {{ __("global.general") }}
                 </a>
                 <a class="nav-link" id="patient-options-tracing-tab" data-toggle="pill" href="#patient-options-tracing" role="tab" aria-controls="patient-options-tracing" aria-selected="false">{{ __("global.tracing") }}</a>
+                <a class="nav-link" id="patient-options-prescriptions-tab" data-toggle="pill" href="#patient-options-prescriptions" role="tab" aria-controls="patient-options-prescriptions" aria-selected="false">{{ __("global.prescriptions") }}</a>
                 <a class="nav-link" id="patient-options-studies-tab" data-toggle="pill" href="#patient-options-studies" role="tab" aria-controls="patient-options-studies" aria-selected="false">{{ __("global.studies") }}</a>
                 <a class="nav-link" id="patient-options-advanced-tab" data-toggle="pill" href="#patient-options-advanced" role="tab" aria-controls="patient-options-advanced" aria-selected="false">{{ __("global.advanced") }}</a>
             </div>
@@ -447,6 +448,40 @@
                                 <div class="bd bgc-white mt-3 p-20">
                                     <div class="layer w-100 banner-message banner-message--error">
                                         <h4 class="mT-10 mB-30">{{ __("error.no_tracing_reports") }}</h4>
+                                        <i class="ti-face-sad"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="patient-options-prescriptions" role="tabpanel" aria-labelledby="patient-options-prescriptions-tab">
+                    <div class="bgc-white p-20 bd d-flex justify-content-between">
+                        <h4 class="c-grey-900 mb-0"><i class="fas fa-file-medical"></i> {{ __("global.prescriptions") }}</h4>
+                        <a href="{{ route("prescription.new", ["patient_id" => $patient->id]) }}" class="btn btn-primary">
+                            {{ __("global.add_prescription") }}
+                        </a>
+                    </div>
+                    
+                    @php
+                        $prescriptions = $patient->initial_clinical_history->prescriptions;
+                    @endphp
+
+                    <div class="row mt-3">
+                        @forelse ($prescriptions as $prescription)
+                            <div class="col-12 col-sm-3">
+                                <div class="bd bgc-white report report-{{ $prescription->id }}">
+                                    <h3>Folio #{{ $prescription->folio }}</h3>
+                                    <p>{{ $prescription->created_at->format(__("global.report_date")) }}</p>
+                                    <a href="{{ route("prescription", ["id" => $prescription->id]) }}"></a>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12">
+                                <div class="bd bgc-white mt-3 p-20">
+                                    <div class="layer w-100 banner-message banner-message--error">
+                                        <h4 class="mT-10 mB-30">{{ __("error.no_prescriptions") }}</h4>
                                         <i class="ti-face-sad"></i>
                                     </div>
                                 </div>

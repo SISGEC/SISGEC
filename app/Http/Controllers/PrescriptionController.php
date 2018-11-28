@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
+use App\Prescription;
+use App\Measure;
 use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
@@ -11,9 +14,11 @@ class PrescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        
+        if(!$id) abort(404);
+        $prescription = Prescription::find($id);
+        return view("doctor.prescriptions.self", ["prescription" => $prescription]);
     }
 
     /**
@@ -21,9 +26,17 @@ class PrescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view("doctor.prescriptions_new");
+        if($request->has("patient_id")) {
+            $patient = Patient::find($request->input("patient_id"));
+            $new_folio = Prescription::next_folio();
+            return view("doctor.prescriptions.new", [
+                "patient" => $patient,
+                "new_folio" => $new_folio
+            ]);
+        }
+        return view("doctor.prescriptions.select_patient");
     }
 
     /**
@@ -34,11 +47,115 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'patient.name' => 'required',
-            'patient.lastname' => 'required',
-            'patient.sex' => 'required',
-            'patient.email' => 'email'
-        ]);
+        $patient = Patient::find($request->input("patient_id"));
+        $last = Prescription::all();
+        $last = $last->last();
+        $folio = 0;
+        if(!is_null($last)) {
+            $folio = $last->folio + 1;
+        }
+        $prescription = new Prescription;
+        $prescription->date = $request->input("date", date("d/m/Y"));
+        $prescription->prescription = $request->input("prescription", "");
+        $prescription->folio = $folio;
+
+        $measure = Measure::create($this->set_defaults($request->input("measure"), Measure::get_defaults()));
+        $measure->patient_id = $patient->id;
+
+        $prescription->measures()->save($measure);
+
+        $patient->initial_clinical_history->prescriptions()->save($prescription);
+
+        return redirect()->route("prescription", ["id" => $prescription->id]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Prescription  $patient
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id=false)
+    {
+        if(!$id) abort(404);
+        $prescription = Prescription::find($id);
+        return view("doctor.prescriptions.edit", ["prescription" => $prescription]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Prescription  $patient
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
+        $prescription = Prescription::find($request->input("prescription_id"));
+        if(!is_null($prescription)) {
+            if($request->has("date")) {
+                $prescription->date = $request->input("date");
+            }
+
+            if($request->has("measure")) {
+                if($prescription->measures()->exists()) {
+                    $prescription->measures()->update(
+                        $this->set_defaults($request->input("measure"), Measure::get_defaults())
+                    );
+                } else {
+                    $measure = Measure::create($this->set_defaults($request->input("measure"), Measure::get_defaults()));
+                    $measure->patient_id = $prescription->initial_clinical_history->patient->id;
+                    $prescription->measures()->save($measure);
+                }
+            }
+
+            if($request->has("prescription")) {
+                $prescription->prescription = $request->input("prescription");
+            }
+
+            $prescription->save();
+
+            return redirect()->route("prescription", ["id" => $prescription->id]);
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Prescription  $patient
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $prescription = Prescription::find($id);
+        if(!is_null($prescription)) {
+            $prescription_folio = $prescription->folio;
+            $patient = $prescription->initial_clinical_history->patient->id;
+            $prescription->delete();
+            return redirect()->route('patient', ["id" => $patient])->with('success', __("remove_patient_done", ["prescription_folio" => $prescription_folio]) );
+        }
+        return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
+    }
+
+    private function set_defaults($inputs, $defaults=[]) {
+        $data = [];
+        if(!is_array($inputs)) $inputs = [$inputs];
+        foreach ($inputs as $key => $value) {
+            if(empty($value)) {
+                if(array_key_exists($key, $defaults)) {
+                    $data[$key] = $defaults[$key];
+                } else {
+                    $data[$key] = "";
+                }
+            } else {
+                $data[$key] = $value;
+            }
+        }
+        return $data;
     }
 }

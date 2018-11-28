@@ -13,6 +13,10 @@ class Measure extends Model
         return $this->belongsTo('App\Patient');
     }
 
+    public function prescription() {
+        return $this->belongsTo('App\Prescription');
+    }
+
     public static function get_defaults() {
         return [
             'weight' => '0',
