@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attachments/show/{filename}', 'StudiesController@show');
     Route::get('/attachments/download/{filename}', 'StudiesController@download');
 
-    Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');;
+    Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');
+    Route::post('/prescription/save', 'PrescriptionController@store')->name('prescription.save');
 });
 

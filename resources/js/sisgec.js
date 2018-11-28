@@ -19,71 +19,109 @@ function calcAge(dateString) {
 }
 
 $(document).ready(function() {
-    $('input.sex').on("change", function() {
+    if($('input.sex').length > 0) {
+        $('input.sex').on("change", function() {
+            $(".hide-if-sex-is-male").toggle();
+        });
         $(".hide-if-sex-is-male").toggle();
-    });
-    $(".hide-if-sex-is-male").toggle();
+    }
 
-    $("#birthdate").change(function() {
-        var birt = $(this).val();
-        $("#age").val(calcAge(birt) + " " + I18N.years);
-    });
+    if($("#birthdate").length > 0) {
+        $("#birthdate").change(function() {
+            var birt = $(this).val();
+            $("#age").val(calcAge(birt) + " " + I18N.years);
+        });
+    }
 
-    var weightMask = new IMask($("#weight").get(0), {
-        mask: '00[0] kg',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#weight").length > 0) {
+        var weightMask = new IMask($("#weight").get(0), {
+            mask: '00[0] kg',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var heightMask = new IMask($("#height").get(0), {
-        mask: '00[0] cm',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#height").length > 0) {
+        var heightMask = new IMask($("#height").get(0), {
+            mask: '00[0] cm',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var temperatureMask = new IMask($("#temperature").get(0), {
-        mask: '00 ºC',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#temperature").length > 0) {
+        var temperatureMask = new IMask($("#temperature").get(0), {
+            mask: '00 ºC',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var heartRateMask = new IMask($("#heart_rate").get(0), {
-        mask: '00[0] BPM',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#heart_rate").length > 0) {
+        var heartRateMask = new IMask($("#heart_rate").get(0), {
+            mask: '00[0] BPM',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var bloodPressureMask = new IMask($("#blood_pressure").get(0), {
-        mask: '00[0]/00[0]',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#blood_pressure").length > 0) {
+        var bloodPressureMask = new IMask($("#blood_pressure").get(0), {
+            mask: '00[0]/00[0]',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var BreathingFrequencyMask = new IMask($("#breathing_frequency").get(0), {
-        mask: '00[0] RPM',
-        lazy: false,
-        placeholderChar: '0'
-    });
+    if($("#breathing_frequency").length > 0) {
+        var BreathingFrequencyMask = new IMask($("#breathing_frequency").get(0), {
+            mask: '00[0] RPM',
+            lazy: false,
+            placeholderChar: '0'
+        });
+    }
 
-    var PhoneMask = new IMask($("#phone").get(0), {
-        mask: '(000) 000 0000'
-    });
+    if($("#phone").length > 0) {
+        var PhoneMask = new IMask($("#phone").get(0), {
+            mask: '(000) 000 0000'
+        });
+    }
 
-    $('#scholarship').autocomplete({
-        serviceUrl: '/api/fragments/scholarships/list'
-    });
+    if($('#scholarship').length > 0) {
+        $('#scholarship').autocomplete({
+            serviceUrl: '/api/fragments/scholarships/list'
+        });
+    }
 
-    $('#occupation').autocomplete({
-        serviceUrl: '/api/fragments/occupations/list'
-    });
+    if($('#occupation').length > 0) {
+        $('#occupation').autocomplete({
+            serviceUrl: '/api/fragments/occupations/list'
+        });
+    }
 
-    $('#religion').autocomplete({
-        serviceUrl: '/api/fragments/religions/list'
-    });
+    if($('#religion').length > 0) {
+        $('#religion').autocomplete({
+            serviceUrl: '/api/fragments/religions/list'
+        });
+    }
 
-    $('#civil_status').autocomplete({
-        serviceUrl: '/api/fragments/civil-status/list'
-    });
+    if($('#civil_status').length > 0) {
+        $('#civil_status').autocomplete({
+            serviceUrl: '/api/fragments/civil-status/list'
+        });
+    }
+
+    if($('#searched').length > 0) {
+        $('#searched').autocomplete({
+            serviceUrl: '/api/search',
+            formatResult: function (suggestion, currentValue) {
+                return '<a href="' + suggestion.data + '">'+ suggestion.value +'</a>';
+            },
+            onSelect: function (suggestion) {
+                window.location.replace(suggestion.data);
+            }
+        });
+    }
 
     var options = {
         url: HOME_URL + "/attachments/save",
@@ -114,15 +152,19 @@ $(document).ready(function() {
         Dropzone.options.uploadFiles = options;
     }
 
-    $(':input').focus(function(){
-        var center = ($(window).height()/2) - 100;
-        var top = $(this).offset().top ;
-        if (top > center){
-            $(window).scrollTop(top-center);
-        }
-    });
+    if($(':input').length > 0) {
+        $(':input').focus(function(){
+            var center = ($(window).height()/2) - 100;
+            var top = $(this).offset().top ;
+            if (top > center){
+                $(window).scrollTop(top-center);
+            }
+        });
+    }
 
-    $('a.remove_this').on('click', function () {
-        return confirm(I18N.sure_remove);
-    });
+    if($('a.remove_this').length > 0) {
+        $('a.remove_this').on('click', function () {
+            return confirm(I18N.sure_remove);
+        });
+    }
 });

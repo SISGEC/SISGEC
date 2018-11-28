@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
 use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
@@ -21,9 +22,15 @@ class PrescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view("doctor.prescriptions_new");
+        if($request->has("patient_id")) {
+            $patient = Patient::find($request->input("patient_id"));
+            return view("doctor.prescriptions.new", [
+                "patient" => $patient
+            ]);
+        }
+        return view("doctor.prescriptions.select_patient");
     }
 
     /**
@@ -34,11 +41,6 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'patient.name' => 'required',
-            'patient.lastname' => 'required',
-            'patient.sex' => 'required',
-            'patient.email' => 'email'
-        ]);
+        dd($request->all());
     }
 }

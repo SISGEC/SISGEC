@@ -1,5 +1,6 @@
 <?php
 
+use App\Patient;
 use Illuminate\Http\Request;
 
 /*
@@ -25,16 +26,30 @@ Route::get('/fragments/{fragment}/list', function(Request $request, $fragment=fa
     ];
     switch ($fragment) {
         case 'scholarships':
-            $resp['suggestions'] = search_in_array($query, __("scholarships"));
+            $resp['suggestions'] = filter_array_by($query, __("scholarships"));
             break;
         case 'occupations':
-            $resp['suggestions'] = search_in_array($query, __("occupations"));
+            $resp['suggestions'] = filter_array_by($query, __("occupations"));
             break;
         case 'religions':
-            $resp['suggestions'] = search_in_array($query, __("religions"));
+            $resp['suggestions'] = filter_array_by($query, __("religions"));
             break;
         case 'civil-status':
-            $resp['suggestions'] = search_in_array($query, __("civil_status"));
+            $resp['suggestions'] = filter_array_by($query, __("civil_status"));
+    }
+    return response()->json($resp);
+});
+
+Route::get('/search', function(Request $request) {
+    $query = $request->query('query', 'all');
+    $resp = [
+        'query' => $query,
+        'suggestions' => []
+    ];
+    if($query === "all") {
+        $resp['suggestions'] = Patient::all_in_suggestion_format();
+    } else {
+        $resp['suggestions'] = Patient::find_in_suggestion_format($query);
     }
     return response()->json($resp);
 });

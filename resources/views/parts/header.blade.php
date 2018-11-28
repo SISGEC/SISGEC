@@ -6,14 +6,8 @@
                 <i class="ti-menu"></i>
                 </a>
             </li>
-            <li class="search-box">
-                <a class="search-toggle no-pdd-right" href="javascript:void(0);">
-                <i class="search-icon ti-search pdd-right-10"></i>
-                <i class="search-icon-close ti-close pdd-right-10"></i>
-                </a>
-            </li>
-            <li class="search-input">
-                <input class="form-control" type="text" placeholder="{{ __("global.search") }}">
+            <li class="search-input active">
+                <input id="searched" class="form-control" type="text" placeholder="{{ __("global.search") }}">
             </li>
         </ul>
         <ul class="nav-right">

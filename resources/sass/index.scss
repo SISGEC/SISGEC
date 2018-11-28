@@ -272,3 +272,13 @@
   border: 4px dashed #ff3e3e;
   background-color: rgba(255, 62, 62, 0.233);
 }
+
+.autocomplete-suggestions {
+  .autocomplete-suggestion {
+    a {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
