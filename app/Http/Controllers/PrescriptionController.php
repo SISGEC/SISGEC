@@ -58,7 +58,6 @@ class PrescriptionController extends Controller
         $prescription = new Prescription;
         $prescription->date = $request->input("date", date("d/m/Y"));
         $prescription->prescription = $request->input("prescription", "");
-        $prescription->folio = $folio;
 
         $measure = Measure::create($this->set_defaults($request->input("measure"), Measure::get_defaults()));
         $measure->patient_id = $patient->id;

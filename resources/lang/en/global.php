@@ -123,5 +123,7 @@ return [
     'use_this_patient' => 'Use this patient',
     'no_patients_created' => 'There is no registered patients.',
     'please_create_one' => 'Please create one.',
-    'save_tracing' => 'Save Tracing'
+    'save_tracing' => 'Save Tracing',
+    'prescriptions' => 'Prescriptions',
+    'add_prescription' => 'Add prescription'
 ];

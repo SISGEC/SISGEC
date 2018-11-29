@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <form action="{{ route("evolution_note.update") }}" method="POST">
+    <form action="{{ route("evolution_note.save") }}" method="POST">
         @csrf
         <input type="hidden" name="patient_id" value="{{ $patient->id }}">
         <div class="row gap-20 masonry pos-r">
@@ -282,7 +282,7 @@
                             <label for="next_appointment_date"></label>
                             <div class="row">
                                 <div class="col-9">
-                                    <input type="text" class="form-control" id="next_appointment_date" name="tracings[next_appointment_date]" placeholder="dd/mm/yyyy" />
+                                    <input type="text" class="form-control" id="next_appointment_date" data-provide="datepicker" name="tracings[next_appointment_date]" placeholder="dd/mm/yyyy" />
                                 </div>
                             </div>
                         </div>
@@ -298,7 +298,7 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <button class="btn btn-danger">{{ __("global.exit") }}</button>
+                            <a href="{{ route("patient", ["id" => $patient->id]) }}" class="btn btn-danger">{{ __("global.exit") }}</a>
                             <button class="btn btn-success ml-2">{{ __("global.save_tracing") }}</button>
                         </div>
                     </div>

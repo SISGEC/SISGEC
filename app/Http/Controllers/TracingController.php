@@ -29,7 +29,7 @@ class TracingController extends Controller
     {
         $patient = Patient::find($id);
         if(!is_null($patient)) {
-            return view("doctor.tracing.new_patient", ["patient" => $patient]);
+            return view("doctor.tracing.new", ["patient" => $patient]);
         }
 
         $patients = Patient::all();
@@ -100,9 +100,17 @@ class TracingController extends Controller
      * @param  \App\Tracing  $tracing
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $tracing)
+    public function edit(Request $request, $id)
     {
-        //
+        $tracing = Tracing::find($id);
+        if(!is_null($tracing)) {
+            $patient = $tracing->initial_clinical_history->patient;
+            return view("doctor.tracing.edit", ["patient" => $patient, "tracing" => $tracing]);
+        }
+        /**
+         * @TODO Add error message
+         */
+        return response()->back();
     }
 
     /**
@@ -112,9 +120,44 @@ class TracingController extends Controller
      * @param  \App\Tracing  $tracing
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tracing $tracing)
+    public function update(Request $request)
     {
-        //
+        if($request->has("tracing_id")) {
+            $tracing = Tracing::find($request->input("tracing_id"));
+
+            if($request->has("patient") && $request->has("patient_id")) {
+                $patient = Patient::find($request->input("patient_id"));
+                $patient->update( $this->set_defaults($request->input("patient"), Patient::get_defaults()) );
+            }
+
+            if($request->has("measure")) {
+                if(is_null($patient)) {
+                    $patient = $tracing->initial_clinical_history->patient;
+                }
+
+                if($patient->measures()->exists()) {
+                    $patient->measures()->update(
+                        $this->set_defaults($request->input("measure"), Measure::get_defaults()) 
+                    );
+                } else {
+                    $measure = Measure::create($this->set_defaults($request->input("measure"), Measure::get_defaults()));
+                    $patient->measures()->save($measure);
+                }
+            }
+
+            if($request->has("tracings")) {
+                $tracing->update(
+                    $this->set_defaults($request->input("tracings"), Tracing::get_defaults()) 
+                );
+            }
+
+            return redirect()->route("evolution_note", ["id" => $tracing->id]);
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
     }
 
     /**
