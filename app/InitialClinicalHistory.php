@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class InitialClinicalHistory extends Model
 {
     protected $table = 'initial_clinical_history';
+    protected $dates = ['created_at', 'updated_at'];
     protected $fillable = ['current_condition','diagnostical_impression','treatment_plan','interconsultation','treatment'];
 
     public function anamnesis() {
@@ -34,6 +35,10 @@ class InitialClinicalHistory extends Model
     public function prescriptions() {
         return $this->hasMany('App\Prescription')
         ->orderBy('prescriptions.id', 'desc');
+    }
+
+    public function getFolioAttribute() {
+        return str_pad($this->id, 5, '0', STR_PAD_LEFT);
     }
 
     public static function get_defaults() {

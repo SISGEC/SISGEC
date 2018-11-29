@@ -50,3 +50,11 @@ function remove_accents($str) {
                             'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
     return strtr( $str, $unwanted_array );
 }
+
+function get_doctor_logo($doctor) {
+    /**
+     * @TODO add logic for this
+     */
+
+    return '<img src="'.asset("images/sisgec-logo.png").'" />';
+}

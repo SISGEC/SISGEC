@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/patient/{id}', 'PatientController@show')->name('patient');
     Route::get('/patient/delete/{id}', 'PatientController@destroy')->name('patient.remove');
 
+    Route::get('/patient/{id}/download', 'PatientController@download')->name('patient.download');
+
     Route::get('/medical-appointments', function() {
         return view("doctor.medical_appointments");
     })->name('medical_appointments');

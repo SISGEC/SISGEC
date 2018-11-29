@@ -3,7 +3,7 @@ return [
     'system' => [
         'name' => 'SISGEC'
     ],
-    'denied' => 'Denegado',
+    'denied' => 'Negado',
     'desktop' => 'Escritorio',
     'search' => 'Busqueda...',
     'patients' => 'Pacientes',
@@ -128,5 +128,19 @@ return [
     'add_prescription' => 'Añadir Prescripción',
     'evolution_note' => 'Notas de Evolución',
     'remove_tracing' => 'Eliminar Seguimiento',
-    'edit_tracing' => 'Editar Seguimiento'
+    'edit_tracing' => 'Editar Seguimiento',
+
+    'download' => 'Descargar',
+    'download_options' => 'Opciones de descarga',
+    'download_identification_card' => 'Solo Ficha de identificación',
+    'professional_license' => 'Cedula',
+    'folio' => 'Folio',
+    'of' => 'de',
+    'yes' => 'Si',
+    'no' => 'No',
+
+    'informed_consent' => 'Consentimiento Informado',
+    'informed_consent_line_1' => 'YO O REPRESENTANTE LEGAL ___________________________________________________ DE ____________ AÑOS DE EDAD, RECONOZCO QUE SE ME EXPLICÓ Y ENTENDÍ EL PROCEDIMIENTO QUE SE PROPONE, ESTOY ENTERADO DE LOS BENEFICIOS, RIESGOS, PROBABLES COMPLICACIONES Y DE OTRAS ALTERNATIVAS QUE PUDIERAN SERME ÚTILES; SIN EMBARGO, CONCIENTE DE QUE SE BUSCA MI BENEFICIO, DOY MI CONSENTIMIENTO SIN OBLIGACIÓN Y POR DECISIÓN PROPIA PARA QUE SE EFECTUÉ. ASI MISMO DOY LA AUTORIZACIÓN PARA ATENDER LAS CONTINGENCIAS Y URGENCIAS DERIVADAS DEL ACTO AUTORIZADO, CON BASE EN EL PRINCIPIO DE LIBERTAD PRESCRIPTIVA QUE TIENE EL PERSONAL DE SALUD. ASIMISMO ACEPTO SER ATENDIDO POR PERSONAL MÉDICO EN FORMACIÓN QUIÉN ESTARÁ SUPERVISADO DIRECTAMENTE POR EL MÉDICO TRATANTE, DE ACUERDO A LO ESTABLECIDO EN LAS NORMAS OFICIALES MEXICANAS APLICABLES (NOM 001 Y NOM 234)',
+    
+    'page' => 'Página'
 ];
