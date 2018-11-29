@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <form action="{{ route("evolution_note.save") }}" method="POST">
+    <form action="{{ route("evolution_note.update") }}" method="POST">
         @csrf
         <input type="hidden" name="patient_id" value="{{ $patient->id }}">
         <div class="row gap-20 masonry pos-r">

@@ -167,4 +167,11 @@ $(document).ready(function() {
             return confirm(I18N.sure_remove);
         });
     }
+
+    if($("#patient_list").length > 0 && $("#patient_list_send").length > 0) {
+        $("#patient_list_send").on("click", function() {
+            var url = $("#patient_list").val();
+            window.location.replace(url);
+        });
+    }
 });

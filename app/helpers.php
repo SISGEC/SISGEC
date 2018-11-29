@@ -21,6 +21,7 @@ function filter_array_by($query, $array=[]) {
 }
 
 function calcule_age($birthdate) {
+    if(empty($birthdate)) return 0;
     $tz  = new DateTimeZone('America/Mexico_City');
     $age = DateTime::createFromFormat('d/m/Y', $birthdate, $tz)
      ->diff(new DateTime('now', $tz))

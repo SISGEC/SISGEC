@@ -92108,6 +92108,13 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
             return confirm(I18N.sure_remove);
         });
     }
+
+    if (__WEBPACK_IMPORTED_MODULE_0_jquery__("#patient_list").length > 0 && __WEBPACK_IMPORTED_MODULE_0_jquery__("#patient_list_send").length > 0) {
+        __WEBPACK_IMPORTED_MODULE_0_jquery__("#patient_list_send").on("click", function () {
+            var url = __WEBPACK_IMPORTED_MODULE_0_jquery__("#patient_list").val();
+            window.location.replace(url);
+        });
+    }
 });
 
 /***/ }),

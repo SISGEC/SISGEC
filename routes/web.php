@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
         //return view("doctor.medical_appointments_new");
     })->name('medical_appointments.new');
 
-    Route::get('/evolution-note/new/{id}', 'TracingController@create')->name('evolution_note.new');
+    Route::get('/evolution-note/new/{id?}', 'TracingController@create')->name('evolution_note.new');
     Route::post('/evolution-note/save', 'TracingController@store')->name('evolution_note.save');
     Route::get('/evolution-note/edit/{$id}', 'TracingController@edit')->name('evolution_note.edit');
     Route::post('/evolution-note/save', 'TracingController@update')->name('evolution_note.update');

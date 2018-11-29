@@ -22,7 +22,7 @@ class Prescription extends Model
 
     public static function next_folio() {
         $last = Prescription::orderBy('created_at', 'desc')->first();
-        $folio = 0;
+        $folio = 1;
         if(!is_null($last)) {
             $folio = $last->id + 1;
         }

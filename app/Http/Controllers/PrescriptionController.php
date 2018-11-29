@@ -36,7 +36,8 @@ class PrescriptionController extends Controller
                 "new_folio" => $new_folio
             ]);
         }
-        return view("doctor.prescriptions.select_patient");
+        $patients = Patient::all();
+        return view("doctor.select_patient", ["patients" => $patients, "route" => "prescription.new"]);
     }
 
     /**

@@ -32,7 +32,8 @@ class TracingController extends Controller
             return view("doctor.tracing.new_patient", ["patient" => $patient]);
         }
 
-        return view("doctor.tracing.new_blank");
+        $patients = Patient::all();
+        return view("doctor.select_patient", ["patients" => $patients, "route" => "evolution_note.new"]);
     }
 
     /**

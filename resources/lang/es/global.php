@@ -111,11 +111,16 @@ return [
     'see_patient' => 'Ver Paciente',
     'logout' => 'Logout',
     'edit_patient' => 'Editar Paciente',
-    'advanced' => 'Advanced',
+    'advanced' => 'Avanzado',
     'remove-patient' => 'Eliminar Paciente',
     'remove-patient-alet' => '<strong>Cuidado!</strong> Si borras el paciente, toda evidencia sera eliminada y no puede ser revertido. Solo se recomienda esta accion si es absolutamente necesaria.',
-    'remove-patient-confirm' => 'Estoy al tanto del riesgo, Quiero eliminar este paciente.',
+    'remove-patient-confirm' => 'Estoy al tanto del riesgo, quiero eliminar este paciente.',
     'see' => 'Ver Seguimiento',
     'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
-    'sure_remove' => 'Esta Seguro que quiere borrar esto?'
+    'sure_remove' => '¿Estas seguro que quieres borrar esto?',
+    'select_an_patient' => 'Select a patient',
+    'select_an_patient_description' => 'Before continuing please select a patient.',
+    'use_this_patient' => 'Use this patient',
+    'no_patients_created' => 'There are no registered patients.',
+    'please_create_one' => 'Please create one.'
 ];
