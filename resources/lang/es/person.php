@@ -22,5 +22,6 @@ return [
     'sex' => 'Sexo',
     'email' => 'E-mail',
     'phone' => 'Teléfono',
+    'age' => 'Edad',
     'referred_by' => 'Referido por'
 ];

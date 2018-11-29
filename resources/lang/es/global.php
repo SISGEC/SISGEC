@@ -10,7 +10,7 @@ return [
     'new_patient' => 'Nuevo paciente',
     'identification_card' => 'Ficha de Identificación',
     'man' => 'Masculino',
-    'woman' => 'Fememino',
+    'woman' => 'Femenino',
     'anamnesis' => 'Antecedentes',
     'inherit_family' => 'Heredo-Familiares',
     'not_pathological' => 'Personal No Patológico',
@@ -123,5 +123,10 @@ return [
     'use_this_patient' => 'Usar este paciente',
     'no_patients_created' => 'No hay pacientes registrados.',
     'please_create_one' => 'Por favor crea uno.',
-    'save_tracing' => 'Guardar Seguimiento'
+    'save_tracing' => 'Guardar Seguimiento',
+    'prescriptions' => 'Prescripciones',
+    'add_prescription' => 'Añadir Prescripción',
+    'evolution_note' => 'Notas de Evolución',
+    'remove_tracing' => 'Eliminar Seguimiento',
+    'edit_tracing' => 'Editar Seguimiento'
 ];
