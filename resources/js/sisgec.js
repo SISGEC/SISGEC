@@ -141,13 +141,22 @@ $(document).ready(function() {
                 var el = $("#studies");
                 var re = JSON.parse(file.xhr.response);
                 var inp = $('<input type="hidden" name="studies[]">');
-                inp.val(re.study_id);
-                el.append(inp);
+                $.each(re.studies, function(key, val) {
+                    inp.val(val.id);
+                    el.append(inp);
+
+                    $(".studies-list").prepend(val.template);
+                });
             }
         }
     };
     
     if($("div#uploadFiles").length > 0) {
+        if(typeof $("div#uploadFiles").data("patient_id") !== 'undefined' ) {
+            var ext = "?patient_id=" + $("div#uploadFiles").data("patient_id");
+            options.url = options.url + ext;
+        }
+        console.log(options.url);
         var dz = new Dropzone("div#uploadFiles", options);
         Dropzone.options.uploadFiles = options;
     }

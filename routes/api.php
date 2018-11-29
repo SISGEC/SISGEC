@@ -40,6 +40,27 @@ Route::get('/fragments/{fragment}/list', function(Request $request, $fragment=fa
     return response()->json($resp);
 });
 
+Route::get('/fragments/study/{id}/template', function(Request $request, $id) {
+    $template = '<div class="col-12 col-sm-3">
+                    <div class="bd bgc-white study study-%s type-%s">
+                        <img src="%s">
+                        <h3>%s</h3>
+                        <p class="mb-0">%s</p>
+                        <a href="%s" target="_blank"></a>
+                        <a href="%s" class="btn btn-danger delete-study remove_this"><i class="fas fa-fw fa-trash-alt"></i></a>
+                    </div>
+                </div>';
+    $study = App\Study::find($id);
+    if(!is_null($study)) {
+        $out = sprintf($template, $study->id, str_slug($study->type),
+            get_screenshot(url("/attachments/show/$study->filename")),
+            $study->original_name, $study->type, url("/attachments/download/$study->filename"),
+            url("/attachments/delete/$study->id"));
+        return response()->json(["template" => $out]);
+    }
+    return response()->json([]);
+});
+
 Route::get('/search', function(Request $request) {
     $query = $request->query('query', 'all');
     $resp = [

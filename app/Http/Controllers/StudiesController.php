@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Study;
+use App\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
@@ -46,6 +47,10 @@ class StudiesController extends Controller
     public function store(Request $request)
     {
         $photos = $request->file('file');
+
+        if($request->has("patient_id")) {
+            $patient = Patient::find($request->query("patient_id"));
+        }
  
         if (!is_array($photos)) {
             $photos = [$photos];
@@ -54,6 +59,11 @@ class StudiesController extends Controller
         if (!is_dir($this->photos_path)) {
             mkdir($this->photos_path, 0777);
         }
+
+        $resp = [
+            'message' => 'Image saved Successfully',
+            'studies' => []
+        ];
  
         for ($i = 0; $i < count($photos); $i++) {
             $photo = $photos[$i];
@@ -67,11 +77,30 @@ class StudiesController extends Controller
             $upload->original_name = basename($photo->getClientOriginalName());
             $upload->type = $photo->getClientMimeType();
             $upload->save();
+
+            $arr_study = ['id' => $upload->id, 'template' => ''];
+
+            if($request->has("patient_id")) {
+                $patient->initial_clinical_history->studies()->saveMany([$upload]);
+                $template = '<div class="col-12 col-sm-3 mb-3">
+                                <div class="bd bgc-white study study-%s type-%s">
+                                    <img src="%s">
+                                    <h3>%s</h3>
+                                    <p class="mb-0">%s</p>
+                                    <a href="%s" target="_blank"></a>
+                                    <a href="%s" class="btn btn-danger delete-study remove_this"><i class="fas fa-fw fa-trash-alt"></i></a>
+                                </div>
+                            </div>';
+                $out = sprintf($template, $upload->id, str_slug($upload->type),
+                    get_screenshot(url("/attachments/show/$upload->filename")),
+                    $upload->original_name, $upload->type, url("/attachments/download/$upload->filename"),
+                    url("/attachments/delete/$upload->id"));
+                $arr_study['template'] = $out;
+            }
+
+            $resp['studies'][] = $arr_study;
         }
-        return Response::json([
-            'message' => 'Image saved Successfully',
-            'study_id' => $upload->id
-        ], 200);
+        return Response::json($resp, 200);
     }
  
     /**

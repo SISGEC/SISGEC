@@ -92082,13 +92082,22 @@ __WEBPACK_IMPORTED_MODULE_0_jquery__(document).ready(function () {
                 var el = __WEBPACK_IMPORTED_MODULE_0_jquery__("#studies");
                 var re = JSON.parse(file.xhr.response);
                 var inp = __WEBPACK_IMPORTED_MODULE_0_jquery__('<input type="hidden" name="studies[]">');
-                inp.val(re.study_id);
-                el.append(inp);
+                __WEBPACK_IMPORTED_MODULE_0_jquery__["each"](re.studies, function (key, val) {
+                    inp.val(val.id);
+                    el.append(inp);
+
+                    __WEBPACK_IMPORTED_MODULE_0_jquery__(".studies-list").prepend(val.template);
+                });
             }
         }
     };
 
     if (__WEBPACK_IMPORTED_MODULE_0_jquery__("div#uploadFiles").length > 0) {
+        if (typeof __WEBPACK_IMPORTED_MODULE_0_jquery__("div#uploadFiles").data("patient_id") !== 'undefined') {
+            var ext = "?patient_id=" + __WEBPACK_IMPORTED_MODULE_0_jquery__("div#uploadFiles").data("patient_id");
+            options.url = options.url + ext;
+        }
+        console.log(options.url);
         var dz = new __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a("div#uploadFiles", options);
         __WEBPACK_IMPORTED_MODULE_1_dropzone___default.a.options.uploadFiles = options;
     }

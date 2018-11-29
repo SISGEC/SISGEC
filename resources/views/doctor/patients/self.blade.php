@@ -502,9 +502,9 @@
                         $studies = $patient->initial_clinical_history->studies;
                     @endphp
 
-                    <div class="row mt-3">
+                    <div class="row mt-3 studies-list">
                         @forelse ($studies as $study)
-                            <div class="col-12 col-sm-3">
+                            <div class="col-12 col-sm-3 mb-3">
                                 <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}">
                                     <img src="{{ get_screenshot(url("/attachments/show/$study->filename")) }}">
                                     <h3>{{ $study->original_name }}</h3>
@@ -554,7 +554,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id }}">
+                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id === 1 ? "1" : $patient->id }}">
                             <div class="dz-message needsclick">    
                                 Drop files here or click to upload.
                             </div>
