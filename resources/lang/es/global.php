@@ -118,9 +118,10 @@ return [
     'see' => 'Ver Seguimiento',
     'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
     'sure_remove' => '¿Estas seguro que quieres borrar esto?',
-    'select_an_patient' => 'Select a patient',
-    'select_an_patient_description' => 'Before continuing please select a patient.',
-    'use_this_patient' => 'Use this patient',
-    'no_patients_created' => 'There are no registered patients.',
-    'please_create_one' => 'Please create one.'
+    'select_an_patient' => 'Seleccionar un paciente',
+    'select_an_patient_description' => 'Antes de continuar por favor seleccione un paciente.',
+    'use_this_patient' => 'Usar este paciente',
+    'no_patients_created' => 'No hay pacientes registrados.',
+    'please_create_one' => 'Por favor crea uno.',
+    'save_tracing' => 'Guardar Seguimiento'
 ];

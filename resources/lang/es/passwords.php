@@ -14,7 +14,7 @@ return [
     */
 
     'password' => 'La contraseña debe tener al menos seis caracteres y debe coincidir.',
-    'reset' => 'T contraseña ha sido restablecida!',
+    'reset' => 'Tu contraseña ha sido restablecida!',
     'sent' => 'Un e-mail para recuperar tu contraseña fue enviado!',
     'token' => 'El token de recuperación de contraseña es invalido.',
     'user' => "No se encontro ningun usuario con ese correo.",
