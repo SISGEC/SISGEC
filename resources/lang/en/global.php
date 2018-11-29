@@ -125,5 +125,8 @@ return [
     'please_create_one' => 'Please create one.',
     'save_tracing' => 'Save Tracing',
     'prescriptions' => 'Prescriptions',
-    'add_prescription' => 'Add prescription'
+    'add_prescription' => 'Add prescription',
+    'evolution_note' => 'Evolution Note',
+    'remove_tracing' => 'Remove Tracing',
+    'edit_tracing' => 'Edit Tracing'
 ];
