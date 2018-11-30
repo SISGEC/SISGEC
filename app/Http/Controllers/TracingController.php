@@ -67,7 +67,7 @@ class TracingController extends Controller
 
             $patient->save();
 
-            return redirect()->route("patient", ["id" => $patient->id]);
+            return redirect()->route("evolution_note", ["id" => $tracing->id]);
         }
         /**
          * @TODO Add error message
@@ -166,9 +166,38 @@ class TracingController extends Controller
      * @param  \App\Tracing  $tracing
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tracing $tracing)
+    public function destroy($id)
     {
-        //
+        $tracing = Tracing::find($id);
+        if(!is_null($tracing)) {
+            $tracing_name = $tracing->folio;
+            $patient = $tracing->initial_clinical_history->patient->id;
+            $tracing->delete();
+            return redirect()->route('patient', ["id" => $patient])->with('success', __("remove_tracing_done", ["tracing_name" => $tracing_name]) );
+        }
+        return redirect()->route('patient', ["id" => $patient])->withErrors(['error', __("error.remove_tracing_not_exist")]);
+    }
+
+    public function download(Request $request, $id) {
+        $doc = $request->query("doc", "tracing");
+        if (\View::exists("pdf.$doc")) {
+            $tracing = Tracing::find($id);
+            if(!is_null($tracing)) {
+                $patient = $tracing->initial_clinical_history->patient;
+                $pdf_name = str_slug($patient->full_name)."-".str_slug($tracing->name)."-".date('d-m-Y_h_i_a');
+                $pdf = \PDF::loadView("pdf.$doc", [
+                    "patient" => $patient,
+                    "tracing" => $tracing
+                ]);
+                //return view("pdf.$doc", ["patient" => $patient, "tracing" => $tracing]);
+                return $pdf->download("$pdf_name.pdf");
+            }
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
     }
 
     private function set_defaults($inputs, $defaults=[]) {

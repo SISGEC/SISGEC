@@ -801,4 +801,22 @@
             </div>
         </div>
     </form>
+
+    <div class="modal fade informed_consent_modal" tabindex="-1" role="dialog" aria-labelledby="informed_consent_modal_title" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="informed_consent_modal_title">{{ __("global.informed_consent") }}</h5>
+                </div>
+                <div class="modal-body">
+                    {!! __("global.informed_consent_description") !!}
+                    <h6>{{ __("global.informed_consent_description_button") }}</h6>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.informed_consent_denied_button") }}</a>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">{{ __("global.informed_consent_accepted_button") }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

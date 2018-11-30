@@ -3,7 +3,7 @@
 @section('content')
     <div class="columns mt-h">
         <div class="column1 mw-100">
-            <h2>{{ __("global.patient") }} > {{ $patient->full_name }}</h2>
+            <h1>{{ __("global.initial_clinical_history") }}</h1>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
                             <strong>{{ __("global.folio") }}</strong> <span class="bold red mt-1">#{{ $patient->initial_clinical_history->folio }}</span>
                         </li>
                         <li>
-                            <strong>{{ __("global.printing_date") }}</strong> {{ today()->format("d/m/Y h:i a") }}
+                            <strong>{{ __("global.printing_date") }}</strong> {{ date('d/m/Y h:i a') }}
                         </li>
                     </ul>
                 </div>

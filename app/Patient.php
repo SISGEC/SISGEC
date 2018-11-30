@@ -24,17 +24,17 @@ class Patient extends Model
 
     public static function get_defaults() {
         return array(
-            'nickname' => '',
-            'birthdate' => '',
-            'scholarship' => '',
-            'occupation' => '',
-            'religion' => '',
-            'civil_status' => '',
-            'place_of_residence' => '',
-            'place_of_birth' => '',
-            'referred_by' => '',
-            'email' => '',
-            'phone' => ''
+            'nickname' => '-',
+            'birthdate' => '-',
+            'scholarship' => '-',
+            'occupation' => '-',
+            'religion' => '-',
+            'civil_status' => '-',
+            'place_of_residence' => '-',
+            'place_of_birth' => '-',
+            'referred_by' => '-',
+            'email' => '-',
+            'phone' => '-'
         );
     }
 

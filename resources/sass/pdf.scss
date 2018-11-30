@@ -90,6 +90,10 @@ body {
     @extend .container;
     padding: 1rem;
 
+    h1 {
+        margin-bottom: 1.3rem;
+    }
+
     h2, h3, h4, h5 {
         margin-bottom: 1rem;
     }
@@ -193,8 +197,27 @@ body {
     margin-left: 1rem;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .signature {
     text-align: justify;
+
+    &.v2 {
+        width: 100%;
+        margin-bottom: 2rem;
+        margin-top: 8rem;
+
+        .line {
+            border-top: 1px solid #000;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 1rem;
+            text-align: center;
+        }
+    }
 }
 
 footer {
@@ -219,4 +242,13 @@ footer {
         font-size: .8rem;
         line-height: 1rem;
     }
+}
+
+h1 > small {
+    color: #585858;
+    font-size: .7rem;
+}
+
+.prescription-footer-note {
+    font-size: .6rem;
 }

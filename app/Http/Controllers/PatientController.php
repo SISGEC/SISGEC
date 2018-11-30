@@ -215,15 +215,17 @@ class PatientController extends Controller
 
     public function download(Request $request, $id) {
         $doc = $request->query("doc", "initial");
-        $patient = Patient::find($id);
-        if(!is_null($patient)) {
-            $pdf_name = str_slug($patient->full_name)."-$doc-".date('d-m-Y_H_m_a');
-            $pdf = \PDF::loadView("pdf.$doc", [
-                "patient" => $patient
-            ]);
-            //return $pdf->download("$pdf_name.pdf");
-            return $pdf->stream("$pdf_name.pdf");
-            //return view("pdf.$doc", ["patient" => $patient]);
+        if (\View::exists("pdf.$doc")) {
+            $patient = Patient::find($id);
+            if(!is_null($patient)) {
+                $pdf_name = str_slug($patient->full_name)."-$doc-".date('d-m-Y_h_i_a');
+                $pdf = \PDF::loadView("pdf.$doc", [
+                    "patient" => $patient
+                ]);
+                return $pdf->download("$pdf_name.pdf");
+                //return $pdf->stream("$pdf_name.pdf");
+                //return view("pdf.$doc", ["patient" => $patient]);
+            }
         }
 
         /**

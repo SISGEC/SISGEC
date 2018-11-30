@@ -33,15 +33,6 @@ function is_image($uri) {
     return @is_array(getimagesize($mediapath));
 }
 
-function get_screenshot($file) {
-    if(ends_with($file, ".pdf")) {
-        return asset("/images/icons/pdf.png");
-    } else if(is_image($file)) {
-        return $file;
-    }
-    return asset("/images/icons/raw.png");
-}
-
 function remove_accents($str) {
     $unwanted_array = array('Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
                             'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
@@ -57,4 +48,8 @@ function get_doctor_logo($doctor) {
      */
 
     return '<img src="'.asset("images/sisgec-logo.png").'" />';
+}
+
+function get_viewer_url($local_url) {
+    return sprintf("https://docs.google.com/a/1/viewer?url=%s", url("/"), $local_url);
 }
