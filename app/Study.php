@@ -18,7 +18,7 @@ class Study extends Model
     public function getPathAttribute() {
         $path = url("/attachments/show/$this->filename");
         if($this->is_rendereable()) {
-            return sprintf("https://docs.google.com/a/1/viewer?url=%s", $path);
+            return sprintf("https://docs.google.com/viewer?url=%s", $path);
         }
         return $path;
     }
