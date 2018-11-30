@@ -213,6 +213,25 @@ class PatientController extends Controller
         return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
     }
 
+    public function download(Request $request, $id) {
+        $doc = $request->query("doc", "initial");
+        $patient = Patient::find($id);
+        if(!is_null($patient)) {
+            $pdf_name = str_slug($patient->full_name)."-$doc-".date('d-m-Y_H_m_a');
+            $pdf = \PDF::loadView("pdf.$doc", [
+                "patient" => $patient
+            ]);
+            //return $pdf->download("$pdf_name.pdf");
+            return $pdf->stream("$pdf_name.pdf");
+            //return view("pdf.$doc", ["patient" => $patient]);
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
+    }
+
     private function set_defaults($inputs, $defaults=[]) {
         $data = [];
         if(!is_array($inputs)) $inputs = [$inputs];

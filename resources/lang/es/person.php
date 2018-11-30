@@ -2,8 +2,8 @@
 
 return [
     'full_name' => 'Nombre Completo',
-    'name' => 'Nombre',
-    'lastname' => 'Apellido',
+    'name' => 'Nombre(s)',
+    'lastname' => 'Apellido(s)',
     'birthdate' => 'Fecha de Nacimiento',
     'years' => 'Años',
     'nickname' => 'Apodo',

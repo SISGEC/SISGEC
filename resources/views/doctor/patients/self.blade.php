@@ -4,9 +4,20 @@
     <div class="row align-items-center">
         <div class="col-12 d-flex justify-content-between align-items-center">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.patient") }} > {{ $patient->full_name }}</h2>
-            <a href="{{ route("patients.edit", $patient->id) }}" class="btn btn-secondary">
-                {{ __("global.edit_patient") }}
-            </a>
+            <div>
+                <a href="{{ route("patients.edit", $patient->id) }}" class="btn btn-secondary">
+                    {{ __("global.edit_patient") }}
+                </a>
+                <div class="btn-group">
+                    <a href="{{ route("patient.download", ["id" => $patient->id]) }}" target="_blank" class="btn btn-info">{{ __("global.download") }}</a>
+                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">{{ __("download.download_options") }}</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ route("patient.download", ["doc" => "identification_card", "id" => $patient->id]) }}">{{ __("global.download_identification_card") }}</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     

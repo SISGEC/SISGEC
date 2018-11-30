@@ -128,5 +128,22 @@ return [
     'add_prescription' => 'Add prescription',
     'evolution_note' => 'Evolution Note',
     'remove_tracing' => 'Remove Tracing',
-    'edit_tracing' => 'Edit Tracing'
+    'edit_tracing' => 'Edit Tracing',
+
+    'download' => 'Download',
+    'download_options' => 'Download options',
+    'download_identification_card' => 'Only identification card',
+    'professional_license' => 'Professional License',
+    'folio' => 'Folio',
+    'of' => 'of',
+    'yes' => 'Yes',
+    'no' => 'No',
+
+    'informed_consent' => 'Informed Consent',
+    'informed_consent_line_1' => 'I OR LEGAL REPRESENTATIVE ___________________________________________________ OF ____________ YEARS OF AGE, I ACKNOWLEDGE THAT I EXPLAINED AND UNDERSTOOD THE PROPOSED PROCEDURE, I AM AWARE OF THE BENEFITS, RISKS, PROBABLE COMPLICATIONS AND OTHER ALTERNATIVES THAT COULD BE USEFUL; HOWEVER, AWARE THAT MY BENEFIT IS LOOKING FOR, I GIVE MY CONSENT NO OBLIGATION AND BY OWN DECISION TO BE CARRIED OUT. I HEREBY GIVE THE AUTHORIZATION TO ADDRESS THE CONTINGENCIES AND EMERGENCIES DERIVED FROM THE AUTHORIZED ACT, BASED ON THE PRINCIPLE OF PRESCRIPTIVE FREEDOM THAT HEALTH PERSONNEL HAS. I ALSO ACCEPT TO BE HELD BY MEDICAL PERSONNEL IN TRAINING WHO WILL BE SUPERVISED DIRECTLY BY THE DOCTOR, IN ACCORDANCE WITH WHAT IS ESTABLISHED IN THE APPLICABLE MEXICAN OFFICIAL RULES (NOM 001 AND NOM 234)',
+
+    'page' => 'Page',
+    'creation_date' => 'Creation date',
+    'updated_date' => 'Updated date',
+    'printing_date' => 'Printing date'
 ];
