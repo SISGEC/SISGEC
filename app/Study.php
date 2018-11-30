@@ -92,7 +92,7 @@ class Study extends Model
     }
 
     public function is_rendereable() {
-        return !($this->is_image() || $this->is_video());
+        return !($this->is_image() || $this->is_video() || $this->is_spreadsheet());
     }
 
     public function is($type_name) {
