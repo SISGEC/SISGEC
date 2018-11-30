@@ -519,8 +519,8 @@
                                 <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}">
                                     <img src="{{ $study->screenshot }}">
                                     <h3>{{ $study->original_name }}</h3>
-                                    <p class="mb-0">{{ $study->type }}</p>
-                                    <a href="{{ get_viewer_url($study->path) }}" target="_blank"></a>
+                                    <p class="mb-0">{{ $study->type_name }}</p>
+                                    <a href="{{ $study->path }}" target="_blank"></a>
                                     <a href="{{ url("/attachments/delete/$study->id") }}" class="btn btn-danger delete-study remove_this"><i class="fas fa-fw fa-trash-alt"></i></a>
                                 </div>
                             </div>

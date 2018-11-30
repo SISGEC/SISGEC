@@ -93,7 +93,7 @@ class StudiesController extends Controller
                             </div>';
                 $out = sprintf($template, $upload->id, str_slug($upload->type),
                     $upload->screenshot, $upload->original_name,
-                    $upload->type, get_viewer_url($upload->path), url("/attachments/delete/$upload->id"));
+                    $upload->type_name, $upload->path, url("/attachments/delete/$upload->id"));
                 $arr_study['template'] = $out;
             }
 

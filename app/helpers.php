@@ -30,7 +30,7 @@ function calcule_age($birthdate) {
 }
 
 function is_image($uri) {
-    return @is_array(getimagesize($mediapath));
+    return @is_array(getimagesize($uri));
 }
 
 function remove_accents($str) {
@@ -48,8 +48,4 @@ function get_doctor_logo($doctor) {
      */
 
     return '<img src="'.asset("images/sisgec-logo.png").'" />';
-}
-
-function get_viewer_url($local_url) {
-    return sprintf("https://docs.google.com/a/1/viewer?url=%s", $local_url);
 }
