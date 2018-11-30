@@ -48,7 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attachments', 'StudiesController@create');
     Route::post('/attachments/save', 'StudiesController@store');
     Route::get('/attachments/delete/{id}', 'StudiesController@destroy');
-    Route::get('/attachments/show/{filename}', 'StudiesController@show');
     Route::get('/attachments/download/{filename}', 'StudiesController@download');
 
     Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');
@@ -61,3 +60,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/prescription/{id}/download', 'PrescriptionController@download')->name('prescription.download');
 });
 
+Route::get('/attachments/show/{filename}', 'StudiesController@show');
