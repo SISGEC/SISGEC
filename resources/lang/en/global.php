@@ -145,5 +145,11 @@ return [
     'page' => 'Page',
     'creation_date' => 'Creation date',
     'updated_date' => 'Updated date',
-    'printing_date' => 'Printing date'
+    'printing_date' => 'Printing date',
+
+    'content' => 'Content',
+    'remove_prescription' => 'Remove Prescription',
+    'edit_prescription' => 'Edit Prescription',
+    'save_prescription' => 'Save Prescription',
+    'general_info' => 'General Information'
 ];

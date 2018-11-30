@@ -12,20 +12,20 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = DB::table('users')->insert([
-            'name' => 'Jesús',
-            'lastname' => 'Magallón',
-            'email' => 'magallonj23@gmail.com',
-            'password' => bcrypt('password'),
-            'phone' => '(322) 1154 503',
+            'name' => 'Administrador',
+            'lastname' => '',
+            'email' => 'admin@nidiasoft.com',
+            'password' => bcrypt('admin'),
+            'phone' => '',
             'role' => 1,
-            'title' => 'Dr.'
+            'title' => ''
         ]);
 
         DB::table('doctors')->insert([
-            'user_id' => $user->id,
-            'specialty' => 'Psicologia',
-            'university' => 'Universidad de Guadalajara',
-            'professional_license' => '12345678'
+            'user_id' => 1,
+            'specialty' => '',
+            'university' => '',
+            'professional_license' => ''
         ]);
     }
 }
