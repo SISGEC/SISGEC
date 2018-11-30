@@ -51,5 +51,5 @@ function get_doctor_logo($doctor) {
 }
 
 function get_viewer_url($local_url) {
-    return sprintf("https://docs.google.com/a/1/viewer?url=%s", url("/"), $local_url);
+    return sprintf("https://docs.google.com/a/1/viewer?url=%s", $local_url);
 }

@@ -30,6 +30,8 @@ class Study extends Model
             case 'application/pdf':
                 $screenshot = asset("/images/icons/pdf.png");
                 break;
+            case 'image/jpg':
+            case 'image/jpeg':
             case 'image/png':
                 $screenshot = $this->path;
                 break;
