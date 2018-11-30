@@ -29,7 +29,7 @@ class PrescriptionController extends Controller
     public function create(Request $request)
     {
         if($request->has("patient_id")) {
-            $patient = Patient::find($request->input("patient_id"));
+            $patient = Patient::find($request->query("patient_id"));
             $new_folio = Prescription::next_folio();
             return view("doctor.prescriptions.new", [
                 "patient" => $patient,
