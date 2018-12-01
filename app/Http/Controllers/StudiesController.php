@@ -15,7 +15,7 @@ class StudiesController extends Controller
  
     public function __construct()
     {
-        $this->photos_path = public_path('/images/studies');
+        $this->photos_path = public_path('/studies');
     }
  
     /**
@@ -92,9 +92,8 @@ class StudiesController extends Controller
                                 </div>
                             </div>';
                 $out = sprintf($template, $upload->id, str_slug($upload->type),
-                    get_screenshot(url("/attachments/show/$upload->filename")),
-                    $upload->original_name, $upload->type, url("/attachments/download/$upload->filename"),
-                    url("/attachments/delete/$upload->id"));
+                    $upload->screenshot, $upload->original_name,
+                    $upload->type_name, $upload->path, url("/attachments/delete/$upload->id"));
                 $arr_study['template'] = $out;
             }
 
@@ -131,11 +130,11 @@ class StudiesController extends Controller
 
     public function show($filename) {
         $file = Study::where('filename', $filename)->first();
-        return response()->file(asset("images/studies/$file->filename"));
+        return response()->file($file->real_path);
     }
 
     public function download($filename) {
         $file = Study::where('filename', $filename)->first();
-        return response()->download(asset("images/studies/$file->filename"));
+        return response()->download($file->real_path);
     }
 }

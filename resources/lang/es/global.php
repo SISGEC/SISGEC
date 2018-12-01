@@ -127,8 +127,9 @@ return [
     'prescriptions' => 'Prescripciones',
     'add_prescription' => 'Añadir Prescripción',
     'evolution_note' => 'Notas de Evolución',
-    'remove_tracing' => 'Eliminar Seguimiento',
-    'edit_tracing' => 'Editar Seguimiento',
+    'remove_tracing' => 'Eliminar',
+    'edit_tracing' => 'Editar',
+    'open_options' => 'Abrir opciones',
 
     'download' => 'Descargar',
     'download_options' => 'Opciones de descarga',
@@ -143,9 +144,21 @@ return [
     'informed_consent_line_1' => 'YO O REPRESENTANTE LEGAL ___________________________________________________ DE ____________ AÑOS DE EDAD, RECONOZCO QUE SE ME EXPLICÓ Y ENTENDÍ EL PROCEDIMIENTO QUE SE PROPONE, ESTOY ENTERADO DE LOS BENEFICIOS, RIESGOS, PROBABLES COMPLICACIONES Y DE OTRAS ALTERNATIVAS QUE PUDIERAN SERME ÚTILES; SIN EMBARGO, CONCIENTE DE QUE SE BUSCA MI BENEFICIO, DOY MI CONSENTIMIENTO SIN OBLIGACIÓN Y POR DECISIÓN PROPIA PARA QUE SE EFECTUÉ. ASI MISMO DOY LA AUTORIZACIÓN PARA ATENDER LAS CONTINGENCIAS Y URGENCIAS DERIVADAS DEL ACTO AUTORIZADO, CON BASE EN EL PRINCIPIO DE LIBERTAD PRESCRIPTIVA QUE TIENE EL PERSONAL DE SALUD. ASIMISMO ACEPTO SER ATENDIDO POR PERSONAL MÉDICO EN FORMACIÓN QUIÉN ESTARÁ SUPERVISADO DIRECTAMENTE POR EL MÉDICO TRATANTE, DE ACUERDO A LO ESTABLECIDO EN LAS NORMAS OFICIALES MEXICANAS APLICABLES (NOM 001 Y NOM 234)',
     
     'page' => 'Página',
+    'page' => 'Page',
+    'creation_date' => 'Fecha de creación',
+    'updated_date' => 'Última actualización',
+    'printing_date' => 'Fecha de impresión',
+
     'content' => 'Contenido',
     'remove_prescription' => 'Eliminar prescripción',
     'edit_prescription' => 'Editar prescripción',
     'save_prescription' => 'Guardar prescripción',
-    'general_info' => 'Información General'
+    'general_info' => 'Información General',
+
+    'initial_clinical_history' => 'Historia Clinica Inicial',
+    'rx' => 'Rx',
+    'prescription_copy_0' => 'Copia del expediente',
+    'prescription_copy_1' => 'Copia del paciente',
+    'prescription_copy_2' => 'Copia de la farmacia',
+    'prescription-footer-note' => 'FAVOR DE TRAER SU RECETA EN LA PRÓXIMA CITA'
 ];

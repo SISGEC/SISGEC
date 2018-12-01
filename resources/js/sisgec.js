@@ -183,4 +183,12 @@ $(document).ready(function() {
             window.location.replace(url);
         });
     }
+
+    if($(".informed_consent_modal").length > 0) {
+        $(".informed_consent_modal").modal({
+            keyboard: false,
+            show: true,
+            backdrop: 'static'
+        });
+    }
 });

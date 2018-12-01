@@ -5,13 +5,13 @@
         <div class="col-12 d-flex justify-content-between align-items-center">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.patient") }} > {{ $patient->full_name }}</h2>
             <div>
-                <a href="{{ route("patients.edit", $patient->id) }}" class="btn btn-secondary">
+                <a href="{{ route("patients.edit", $patient->id) }}" class="btn btn-success">
                     {{ __("global.edit_patient") }}
                 </a>
                 <div class="btn-group">
-                    <a href="{{ route("patient.download", ["id" => $patient->id]) }}" target="_blank" class="btn btn-info">{{ __("global.download") }}</a>
-                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">{{ __("download.download_options") }}</span>
+                    <a href="{{ route("patient.download", ["id" => $patient->id]) }}" class="btn btn-secondary">{{ __("global.download") }}</a>
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">{{ __("global.download_options") }}</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="{{ route("patient.download", ["doc" => "identification_card", "id" => $patient->id]) }}">{{ __("global.download_identification_card") }}</a>
@@ -517,10 +517,10 @@
                         @forelse ($studies as $study)
                             <div class="col-12 col-sm-3 mb-3">
                                 <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}">
-                                    <img src="{{ get_screenshot(url("/attachments/show/$study->filename")) }}">
+                                    <img src="{{ $study->screenshot }}">
                                     <h3>{{ $study->original_name }}</h3>
-                                    <p class="mb-0">{{ $study->type }}</p>
-                                    <a href="{{ url("/attachments/download/$study->filename") }}" target="_blank"></a>
+                                    <p class="mb-0">{{ $study->type_name }}</p>
+                                    <a href="{{ $study->path }}" target="_blank"></a>
                                     <a href="{{ url("/attachments/delete/$study->id") }}" class="btn btn-danger delete-study remove_this"><i class="fas fa-fw fa-trash-alt"></i></a>
                                 </div>
                             </div>

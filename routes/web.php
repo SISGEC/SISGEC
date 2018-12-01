@@ -43,10 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/evolution-note/remove/{id}', 'TracingController@destroy')->name('evolution_note.remove');
     Route::get('/evolution-note/{id}', 'TracingController@show')->name('evolution_note');
 
+    Route::get('/evolution-note/{id}/download', 'TracingController@download')->name('evolution_note.download');
+
     Route::get('/attachments', 'StudiesController@create');
     Route::post('/attachments/save', 'StudiesController@store');
     Route::get('/attachments/delete/{id}', 'StudiesController@destroy');
-    Route::get('/attachments/show/{filename}', 'StudiesController@show');
     Route::get('/attachments/download/{filename}', 'StudiesController@download');
 
     Route::get('/prescription/new', 'PrescriptionController@create')->name('prescription.new');
@@ -55,5 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/prescription/update', 'PrescriptionController@update')->name('prescription.update');
     Route::get('/prescription/{id}', 'PrescriptionController@index')->name('prescription');
     Route::get('/prescription/remove/{id}', 'PrescriptionController@destroy')->name('prescription.remove');
+
+    Route::get('/prescription/{id}/download', 'PrescriptionController@download')->name('prescription.download');
 });
 
+Route::get('/attachments/show/{filename}', 'StudiesController@show');

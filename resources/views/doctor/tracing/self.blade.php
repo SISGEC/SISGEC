@@ -4,13 +4,16 @@
     <div class="row align-items-center">
         <div class="col-12 d-flex justify-content-between align-items-center">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.evolution_note") }} > <a href="{{ route("patient", ["id" => $patient->id]) }}">{{ $patient->name }}</a> > {{ $tracing->name }}</h2>
-            <div>
-                <a href="{{ route("evolution_note.remove", $tracing->id) }}" class="btn btn-danger remove_this">
-                    {{ __("global.remove_tracing") }}
-                </a>
-                <a href="{{ route("evolution_note.edit", $tracing->id) }}" class="btn btn-secondary">
-                    {{ __("global.edit_tracing") }}
-                </a>
+            <div class="btn-group">
+                <a class="btn btn-success" href="{{ route("evolution_note.edit", $tracing->id) }}">{{ __("global.edit_tracing") }}</a>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">{{ __("global.open_options") }}</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{{ route("evolution_note.download", ["id" => $tracing->id]) }}">{{ __("global.download") }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger remove_this" href="{{ route("evolution_note.remove", $tracing->id) }}">{{ __("global.remove_tracing") }}</a>
+                </div>
             </div>
         </div>
     </div>

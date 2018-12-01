@@ -232,8 +232,9 @@
   img {
     margin: 0 auto 15px;
     display: block;
-    width: 64px;
-    height: auto;
+    width: auto;
+    max-height: 64px;
+    height: 100%;
   }
 
   h3 {

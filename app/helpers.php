@@ -30,16 +30,7 @@ function calcule_age($birthdate) {
 }
 
 function is_image($uri) {
-    return @is_array(getimagesize($mediapath));
-}
-
-function get_screenshot($file) {
-    if(ends_with($file, ".pdf")) {
-        return asset("/images/icons/pdf.png");
-    } else if(is_image($file)) {
-        return $file;
-    }
-    return asset("/images/icons/raw.png");
+    return @is_array(getimagesize($uri));
 }
 
 function remove_accents($str) {

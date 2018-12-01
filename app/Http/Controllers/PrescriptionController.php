@@ -142,6 +142,28 @@ class PrescriptionController extends Controller
         return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
     }
 
+    public function download(Request $request, $id) {
+        $doc = $request->query("doc", "prescription");
+        if (\View::exists("pdf.$doc")) {
+            $prescription = Prescription::find($id);
+            if(!is_null($prescription)) {
+                $patient = $prescription->initial_clinical_history->patient;
+                $pdf_name = str_slug($patient->full_name)."-".str_slug($prescription->folio)."-".date('d-m-Y_h_i_a');
+                $pdf = \PDF::loadView("pdf.$doc", [
+                    "patient" => $patient,
+                    "prescription" => $prescription
+                ]);
+                //return view("pdf.$doc", ["patient" => $patient, "prescription" => $prescription]);
+                return $pdf->download("$pdf_name.pdf");
+            }
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
+    }
+
     private function set_defaults($inputs, $defaults=[]) {
         $data = [];
         if(!is_array($inputs)) $inputs = [$inputs];

@@ -129,6 +129,7 @@ return [
     'evolution_note' => 'Evolution Note',
     'remove_tracing' => 'Remove Tracing',
     'edit_tracing' => 'Edit Tracing',
+    'open_options' => 'Open options',
 
     'download' => 'Download',
     'download_options' => 'Download options',
@@ -141,6 +142,10 @@ return [
 
     'informed_consent' => 'Informed Consent',
     'informed_consent_line_1' => 'I OR LEGAL REPRESENTATIVE ___________________________________________________ OF ____________ YEARS OF AGE, I ACKNOWLEDGE THAT I EXPLAINED AND UNDERSTOOD THE PROPOSED PROCEDURE, I AM AWARE OF THE BENEFITS, RISKS, PROBABLE COMPLICATIONS AND OTHER ALTERNATIVES THAT COULD BE USEFUL; HOWEVER, AWARE THAT MY BENEFIT IS LOOKING FOR, I GIVE MY CONSENT NO OBLIGATION AND BY OWN DECISION TO BE CARRIED OUT. I HEREBY GIVE THE AUTHORIZATION TO ADDRESS THE CONTINGENCIES AND EMERGENCIES DERIVED FROM THE AUTHORIZED ACT, BASED ON THE PRINCIPLE OF PRESCRIPTIVE FREEDOM THAT HEALTH PERSONNEL HAS. I ALSO ACCEPT TO BE HELD BY MEDICAL PERSONNEL IN TRAINING WHO WILL BE SUPERVISED DIRECTLY BY THE DOCTOR, IN ACCORDANCE WITH WHAT IS ESTABLISHED IN THE APPLICABLE MEXICAN OFFICIAL RULES (NOM 001 AND NOM 234)',
+    'informed_consent_description' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend nec nibh at convallis. Nam cursus nisi eget tristique viverra. In tellus massa, tristique eu dignissim ut, vestibulum tincidunt tortor. Curabitur sit amet augue hendrerit, pulvinar est non, vestibulum odio. Mauris vehicula molestie lectus, et faucibus risus semper vel. Curabitur sollicitudin tellus leo, ac auctor lectus interdum ut. Integer sit amet erat ipsum.</p> <p>Nullam odio enim, dignissim quis ullamcorper id, tincidunt vitae arcu. Nam accumsan euismod blandit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla erat nunc, dictum in vulputate eget, aliquam nec nunc. Duis sit amet elit vitae quam pulvinar efficitur ut et metus. Aenean at lectus suscipit, iaculis arcu nec, posuere erat. Proin congue enim ut hendrerit viverra. Donec nec volutpat massa. Nulla sem quam, aliquet vel porta sed, ultrices eget magna. Aliquam pharetra lacinia tincidunt. Nullam eget porta dui. Morbi sit amet dapibus tortor. Nam id ultrices sapien, eget pretium tellus.</p>',
+    'informed_consent_description_button' => 'I have informed the patient and he...',
+    'informed_consent_denied_button' => 'Has not accepted the consent',
+    'informed_consent_accepted_button' => 'Has accepted the consent',
 
     'page' => 'Page',
     'creation_date' => 'Creation date',
@@ -151,5 +156,12 @@ return [
     'remove_prescription' => 'Remove Prescription',
     'edit_prescription' => 'Edit Prescription',
     'save_prescription' => 'Save Prescription',
-    'general_info' => 'General Information'
+    'general_info' => 'General Information',
+
+    'initial_clinical_history' => 'Initial Clinical History',
+    'rx' => 'Rx',
+    'prescription_copy_0' => 'Copy of the file',
+    'prescription_copy_1' => 'Patient copy',
+    'prescription_copy_2' => 'Pharmacy copy',
+    'prescription-footer-note' => 'PLEASE BRING YOUR RECIPE IN THE NEXT APPOINTMENT'
 ];
