@@ -38,7 +38,7 @@ class PrescriptionController extends Controller
         }
         $patients = Patient::all();
         return view("doctor.select_patient", ["patients" => $patients, "route" => "prescription.new"]);
-    }
+    }//este texto es inutil
 
     /**
      * Store a newly created resource in storage.

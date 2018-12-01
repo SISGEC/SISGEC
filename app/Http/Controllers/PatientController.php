@@ -41,7 +41,6 @@ class PatientController extends Controller
             'patient.name' => 'required',
             'patient.lastname' => 'required',
             'patient.sex' => 'required',
-            'patient.email' => 'email'
         ]);
 
         $patient = $this->create_new("App\Patient", "patient");
