@@ -160,5 +160,10 @@ return [
     'prescription_copy_0' => 'Copia del expediente',
     'prescription_copy_1' => 'Copia del paciente',
     'prescription_copy_2' => 'Copia de la farmacia',
-    'prescription-footer-note' => 'FAVOR DE TRAER SU RECETA EN LA PRÓXIMA CITA'
+    'prescription-footer-note' => 'FAVOR DE TRAER SU RECETA EN LA PRÓXIMA CITA',
+
+    'event_title' => 'Título del evento',
+    'date' => 'Fecha',
+    'description' => 'Descripción',
+    'save' => 'Guardar'
 ];

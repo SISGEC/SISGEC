@@ -165,5 +165,10 @@ return [
     'prescription_copy_2' => 'Pharmacy copy',
     'prescription-footer-note' => 'PLEASE BRING YOUR RECIPE IN THE NEXT APPOINTMENT',
 
-    'loading' => 'Loading...'
+    'loading' => 'Loading...',
+
+    'event_title' => 'Event title',
+    'date' => 'Date',
+    'description' => 'Description',
+    'save' => 'Save'
 ];
