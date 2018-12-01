@@ -28,13 +28,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/patient/{id}/download', 'PatientController@download')->name('patient.download');
 
-    Route::get('/medical-appointments', function() {
-        return view("doctor.medical_appointments");
-    })->name('medical_appointments');
-
-    Route::get('/medical-appointments/new', function() {
-        //return view("doctor.medical_appointments_new");
-    })->name('medical_appointments.new');
+    Route::get('/medical-appointments', 'MedicalAppointmentController@index')->name('medical_appointments');
+    Route::post('/medical-appointments/save', 'MedicalAppointmentController@store')->name('medical_appointments.save');
 
     Route::get('/evolution-note/new/{id?}', 'TracingController@create')->name('evolution_note.new');
     Route::post('/evolution-note/save', 'TracingController@store')->name('evolution_note.save');
@@ -61,3 +56,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/attachments/show/{filename}', 'StudiesController@show');
+Route::get('/medical-appointments.json', 'MedicalAppointmentController@json')->name('medical_appointments.json');

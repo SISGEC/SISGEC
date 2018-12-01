@@ -22,6 +22,10 @@ class Patient extends Model
         return $this->hasOne('App\Measure');
     }
 
+    public function medical_appointments() {
+        return $this->hasMany('App\MedicalAppointment');
+    }
+
     public static function get_defaults() {
         return array(
             'nickname' => '-',

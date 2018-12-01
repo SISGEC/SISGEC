@@ -49,3 +49,13 @@ function get_doctor_logo($doctor) {
 
     return '<img src="'.asset("images/sisgec-logo.png").'" />';
 }
+
+function doctor() {
+    $user = auth()->user();
+    if($user->is_doctor()) {
+        return $user;
+    } else if($user->is_assistant()) {
+        // @TODO add this
+    }
+    return (object) [];
+}

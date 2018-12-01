@@ -18,7 +18,7 @@
                 <div class="dropdown-menu" aria-labelledby="newButton">
                     <a class="dropdown-item" href="{{ route("patients.new") }}">{{ __("global.patient") }}</a>
                     <a class="dropdown-item" href="{{ route("evolution_note.new") }}">{{ __("global.tracing") }}</a>
-                    <a class="dropdown-item" href="#">{{ __("global.medical_appointment") }}</a>
+                    <a class="dropdown-item" href="{{ route("medical_appointments") }}">{{ __("global.medical_appointment") }}</a>
                     <a class="dropdown-item" href="{{ route("prescription.new") }}">{{ __("global.prescription") }}</a>
                 </div>
             </li>

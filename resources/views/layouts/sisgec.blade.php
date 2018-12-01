@@ -55,6 +55,7 @@
         <script>
             var HOME_URL = "{{ url("") }}";
             var I18N = {
+                'lang': "{{ config('app.locale') }}",
                 'years': "{{ __('person.years') }}",
                 'sure_remove': "{{ __('global.sure_remove') }}"
             };

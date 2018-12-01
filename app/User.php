@@ -41,6 +41,14 @@ class User extends Authenticatable
         return $this->role === "1";
     }
 
+    public function is_admin() {
+        return $this->role === "0";
+    }
+
+    public function is_assistant() {
+        return $this->role === "2";
+    }
+
     public function getFullNameAttribute() {
         return ucfirst($this->name) . " " . ucfirst($this->lastname);
     }
@@ -68,5 +76,17 @@ class User extends Authenticatable
             return $this->doctor->professional_license;
         }
         return false;
+    }
+
+    public function getMedicalAppointmentsAttribute() {
+        return $this->doctor->medical_appointments;
+    }
+
+    public function getDoctorIdAttribute() {
+        return $this->doctor->id;
+    }
+
+    public function medical_appointments() {
+        return $this->doctor->medical_appointments();
     }
 }

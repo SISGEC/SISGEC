@@ -2,58 +2,53 @@ import * as $ from 'jquery';
 import 'fullcalendar/dist/fullcalendar.min.js';
 import 'fullcalendar/dist/fullcalendar.min.css';
 
-export default (function () {
-  const date = new Date();
-  const d    = date.getDate();
-  const m    = date.getMonth();
-  const y    = date.getFullYear();
+function loadModal(event) {
+  var template = `
+  <div class="modal fade event-modal-${event.id}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${event.title}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>${event.description}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+  $("body").append($(template));
+  $(".event-modal-"+event.id).modal('show');
+  $(".event-modal-"+event.id).on('hidden.bs.modal', function (e) {
+    $(".event-modal-"+event.id).remove();
+  });
+}
 
-  const events = [{
-    title  : 'All Day Event',
-    start  : new Date(y, m, 1),
-    desc   : 'Meetings',
-    bullet : 'success',
-  }, {
-    title  : 'Long Event',
-    start  : new Date(y, m, d - 5),
-    end    : new Date(y, m, d - 2),
-    desc   : 'Hangouts',
-    bullet : 'success',
-  }, {
-    title  : 'Repeating Event',
-    start  : new Date(y, m, d - 3, 16, 0),
-    allDay : false,
-    desc   : 'Product Checkup',
-    bullet : 'warning',
-  }, {
-    title  : 'Repeating Event',
-    start  : new Date(y, m, d + 4, 16, 0),
-    allDay : false,
-    desc   : 'Conference',
-    bullet : 'danger',
-  }, {
-    title  : 'Birthday Party',
-    start  : new Date(y, m, d + 1, 19, 0),
-    end    : new Date(y, m, d + 1, 22, 30),
-    allDay : false,
-    desc   : 'Gathering',
-  }, {
-    title  : 'Click for Google',
-    start  : new Date(y, m, 28),
-    end    : new Date(y, m, 29),
-    url    : 'http ://google.com/',
-    desc   : 'Google',
-    bullet : 'success',
-  }];
+export default (function () {
 
   $('#full-calendar').fullCalendar({
-    events,
+    events: {
+      url: '/medical-appointments.json',
+      type: 'GET',
+      error: function() {
+        alert('there was an error while fetching events!');
+      },
+    },
     height   : 800,
-    editable : true,
+    editable : false,
+    locale: I18N.locale,
     header: {
       left   : 'month,agendaWeek,agendaDay',
       center : 'title',
       right  : 'today prev,next',
     },
+    eventClick: function(calEvent, jsEvent, view) {
+      loadModal(calEvent);
+    }
   });
 }())

@@ -163,5 +163,7 @@ return [
     'prescription_copy_0' => 'Copy of the file',
     'prescription_copy_1' => 'Patient copy',
     'prescription_copy_2' => 'Pharmacy copy',
-    'prescription-footer-note' => 'PLEASE BRING YOUR RECIPE IN THE NEXT APPOINTMENT'
+    'prescription-footer-note' => 'PLEASE BRING YOUR RECIPE IN THE NEXT APPOINTMENT',
+
+    'loading' => 'Loading...'
 ];

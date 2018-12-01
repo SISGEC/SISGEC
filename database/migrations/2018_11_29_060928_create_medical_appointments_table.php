@@ -18,7 +18,12 @@ class CreateMedicalAppointmentsTable extends Migration
             $table->dateTime('date');
             $table->string('title');
             $table->string('description');
+            $table->integer('patient_id')->unsigned()->index()->nullable();
+            $table->integer('doctor_id')->unsigned()->index()->nullable();
             $table->timestamps();
+
+            $table->foreign('patient_id')->references('id')->on('patient');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
         });
     }
 
