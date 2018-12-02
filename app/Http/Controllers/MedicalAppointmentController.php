@@ -79,9 +79,28 @@ class MedicalAppointmentController extends Controller
      * @param  \App\MedicalAppointment  $medicalAppointment
      * @return \Illuminate\Http\Response
      */
-    public function show(MedicalAppointment $medicalAppointment)
+    public function show(Request $request, $id)
     {
-        //
+        $appointment = MedicalAppointment::find($id);
+        if(!is_null($appointment)) {
+            if($request->ajax()) {
+                return response()->json($this->compact($appointment));
+            }
+
+            /**
+             * @TODO add this
+             */
+        }
+
+        /**
+         * @TODO add error message this
+         */
+
+        if($request->ajax()) {
+            return response()->json([
+            ]);
+        }
+        return response()->back();
     }
 
     /**
@@ -102,9 +121,31 @@ class MedicalAppointmentController extends Controller
      * @param  \App\MedicalAppointment  $medicalAppointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedicalAppointment $medicalAppointment)
+    public function update(Request $request)
     {
-        //
+        if($request->has("appointment_id")) {
+            $appointment = MedicalAppointment::find($request->input("appointment_id"));
+            if(!is_null($appointment)) {
+                $date = $request->input("date", date("d/m/Y h:i a"));
+                if($request->has("date")) {
+                    $date .= " ".$request->input("hour", "08").":".$request->input("minutes", "00")." ".$request->input("a", "am");
+                }
+                $appointment->title = $request->input("title", $appointment->title);
+                $appointment->date = Carbon::createFromFormat('d/m/Y h:i a', $date);
+                $appointment->description = $request->input("description", $appointment->description);
+                $appointment->save();
+
+                /**
+                 * @TODO add successfull message
+                 */
+                return redirect()->back();
+            }
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
     }
 
     /**
@@ -128,22 +169,31 @@ class MedicalAppointmentController extends Controller
         return redirect()->back();
     }
 
+    public function compact($item) {
+        return [
+            'id' => $item->id,
+            'title' => $item->title,
+            'start' => $item->date->format("c"),
+            'end' => $item->date->format("c"),
+            'formated_date' => $item->date->format("d/m/Y h:i a"),
+            'a' => $item->date->format("a"),
+            'date' => $item->date->format("d/m/Y"),
+            'h' => $item->date->format("h"),
+            'i' => $item->date->format("i"),
+            'editable' => false,
+            'description' => $item->description,
+            'links' => [
+                'update' => route("medical_appointments.update"),
+                'remove' => route("medical_appointments.remove", ["id" => $item->id])
+            ]
+        ];
+    }
+
     public function to_calendar_format($items) {
         if(is_null($items)) $items = [];
         $response = [];
         foreach ($items as $item) {
-            $response[] = [
-                'id' => $item->id,
-                'title' => $item->title,
-                'start' => $item->date->format("c"),
-                'end' => $item->date->format("c"),
-                'formated_date' => $item->date->format("d/m/Y h:i a"),
-                'editable' => false,
-                'description' => $item->description,
-                'links' => [
-                    'remove' => route("medical_appointments.remove", ["id" => $item->id])
-                ]
-            ];
+            $response[] = $this->compact($item);
         }
         return $response;
     }

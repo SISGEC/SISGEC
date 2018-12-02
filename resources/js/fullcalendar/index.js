@@ -10,11 +10,13 @@ function loadModal(event) {
   modal.find(".modal-title").text(event.title);
   modal.find("span.date").text(event.formated_date);
   modal.find("p.desc").text(event.description);
+  modal.find("[data-appointment_id]").data("appointment_id", event.id);
   modal.find("a.remove_this").attr("href", event.links.remove);
   modal.on('hidden.bs.modal', function (e) {
     modal.find(".modal-title").text("");
     modal.find("span.date").text("");
     modal.find("p.desc").text("");
+    modal.find("[data-appointment_id]").data("appointment_id", "");
     modal.find("a.remove_this").attr("href", "");
   });
 }

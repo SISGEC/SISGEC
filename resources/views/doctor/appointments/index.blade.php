@@ -104,6 +104,7 @@
             </div>
             <div class="modal-footer">
               <a href="#" class="btn btn-danger remove_this">{{ __("global.remove") }}</a>
+              <a href="javascript:" class="btn btn-primary appointment_edit_button" data-dismiss="modal" data-appointment_id="">{{ __("global.edit") }}</a>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __("global.close") }}</button>
             </div>
         </div>
@@ -111,7 +112,7 @@
   </div>
 
   <div class="modal fade edit-appointment" tabindex="-1" role="dialog">
-    <form action="" mathod="POST">
+    <form action="" method="POST">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

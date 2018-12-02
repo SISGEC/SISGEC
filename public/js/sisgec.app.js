@@ -91662,11 +91662,13 @@ function loadModal(event) {
   modal.find(".modal-title").text(event.title);
   modal.find("span.date").text(event.formated_date);
   modal.find("p.desc").text(event.description);
+  modal.find("[data-appointment_id]").data("appointment_id", event.id);
   modal.find("a.remove_this").attr("href", event.links.remove);
   modal.on('hidden.bs.modal', function (e) {
     modal.find(".modal-title").text("");
     modal.find("span.date").text("");
     modal.find("p.desc").text("");
+    modal.find("[data-appointment_id]").data("appointment_id", "");
     modal.find("a.remove_this").attr("href", "");
   });
 }
@@ -101178,18 +101180,58 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert__);
 
+var axios = __webpack_require__(15);
+
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found.');
+}
 
 function loadEditAppointmentModal(apid) {
     var modal = __WEBPACK_IMPORTED_MODULE_0_jquery__(".edit-appointment");
-    modal.modal('show');
-    modal.find(".modal-title, span.title").text(event.title);
-    modal.find("span.date").text(event.formated_date);
-    modal.find("p.desc").text(event.description);
-    modal.on('hidden.bs.modal', function (e) {
-        modal.find(".modal-title, span.title").text("");
-        modal.find("span.date").text("");
-        modal.find("p.desc").text("");
+
+    axios.get("/medical-appointment/" + apid).then(function (response) {
+        if (response.status === 200) {
+            var event = response.data;
+            modal.modal('show');
+            modal.find("form").attr("action", event.links.update);
+            modal.find("input[name=appointment_id]").val(event.id);
+            modal.find("input[name=title]").val(event.title);
+            modal.find("input[name=date]").datepicker("setDate", event.date);
+            modal.find("select[name=hour]").val(event.h);
+            modal.find("select[name=minutes]").val(event.i);
+            modal.find("select[name=a]").val(event.a);
+            modal.find("textarea[name=description]").text(event.description);
+            modal.on('hidden.bs.modal', function (e) {
+                modal.find("input[name=title]").val("");
+                modal.find("input[name=date]").val("");
+                modal.find("select[name=hour]").val("");
+                modal.find("select[name=minutes]").val("");
+                modal.find("select[name=a]").val("");
+                modal.find("textarea[name=description]").text("");
+            });
+        } else {
+            __WEBPACK_IMPORTED_MODULE_1_sweetalert___default()({
+                title: I18N.sorry,
+                text: I18N.an_error_has_occurred + "\n (" + response.status + ") " + response.statusText,
+                icon: "error"
+            });
+        }
+    }).catch(function (error) {
+        __WEBPACK_IMPORTED_MODULE_1_sweetalert___default()({
+            title: I18N.sorry,
+            text: I18N.an_error_has_occurred + "\n" + error,
+            icon: "error"
+        });
     });
 }
 

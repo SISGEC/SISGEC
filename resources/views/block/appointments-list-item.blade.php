@@ -13,7 +13,7 @@
     </a>
     <div class="peers mR-15">
         <div class="peer">
-            <a href="javascript:return" data-appointment_id="{{ $appointment->id }}" class="appointment_edit_button td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+            <a href="javascript:" data-appointment_id="{{ $appointment->id === 1 ? "1" : $appointment->id }}" class="appointment_edit_button td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
                 <i class="ti-pencil"></i>
             </a>
         </div>

@@ -65,7 +65,9 @@
                 'date': "{{ __('global.date') }}",
                 'cancel': "{{ __('global.cancel') }}",
                 'ok': "{{ __('global.ok') }}",
-                'processing': "{{ __('global.processing') }}"
+                'processing': "{{ __('global.processing') }}",
+                'sorry': "{{ __('error.sorry') }}",
+                'an_error_has_occurred': "{{ __('error.an_error_has_occurred') }}"
             };
         </script>
     </head>

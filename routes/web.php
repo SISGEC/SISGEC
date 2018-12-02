@@ -28,8 +28,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/patient/{id}/download', 'PatientController@download')->name('patient.download');
 
+    Route::get('/medical-appointment/{id}', 'MedicalAppointmentController@show')->name('medical_appointment');
     Route::get('/medical-appointments', 'MedicalAppointmentController@index')->name('medical_appointments');
     Route::post('/medical-appointments/save', 'MedicalAppointmentController@store')->name('medical_appointments.save');
+    Route::post('/medical-appointments/update', 'MedicalAppointmentController@update')->name('medical_appointments.update');
     Route::get('/medical-appointment/{id}/remove', 'MedicalAppointmentController@destroy')->name('medical_appointments.remove');
 
     Route::get('/evolution-note/new/{id?}', 'TracingController@create')->name('evolution_note.new');
