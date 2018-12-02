@@ -2,6 +2,8 @@ import * as $ from 'jquery';
 import Dropzone from 'dropzone';
 import IMask from 'imask'
 import 'devbridge-autocomplete';
+import './appointment_edit';
+import swal from 'sweetalert';
 
 Dropzone.autoDiscover = false;
 
@@ -172,8 +174,23 @@ $(document).ready(function() {
     }
 
     if($('a.remove_this').length > 0) {
-        $('a.remove_this').on('click', function () {
-            return confirm(I18N.sure_remove);
+        $('a.remove_this').on('click', function (e) {
+            var rlink = $(this).attr("href");
+            swal({
+                title: I18N.are_your_sure,
+                text: I18N.sure_remove,
+                icon: "warning",
+                buttons: [I18N.cancel, I18N.ok],
+                dangerMode: true,
+              }).then((willDelete) => {
+                if(willDelete) {
+                    swal("", I18N.processing, "success");
+                    window.location.replace(rlink);
+                }
+            });
+
+            e.preventDefault();
+            return false;
         });
     }
 

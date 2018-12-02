@@ -57,7 +57,15 @@
             var I18N = {
                 'lang': "{{ config('app.locale') }}",
                 'years': "{{ __('person.years') }}",
-                'sure_remove': "{{ __('global.sure_remove') }}"
+                'are_your_sure': "{{ __('global.are_your_sure') }}",
+                'sure_remove': "{{ __('global.sure_remove') }}",
+                'close': "{{ __('global.close') }}",
+                'description': "{{ __('global.description') }}",
+                'title': "{{ __('global.title') }}",
+                'date': "{{ __('global.date') }}",
+                'cancel': "{{ __('global.cancel') }}",
+                'ok': "{{ __('global.ok') }}",
+                'processing': "{{ __('global.processing') }}"
             };
         </script>
     </head>

@@ -26,8 +26,20 @@ class MedicalAppointmentController extends Controller
         return view("doctor.appointments.index", compact('appointments', 'now'));
     }
 
-    public function json() {
-        $appointments = doctor()->medical_appointments;
+    public function json(Request $request) {
+        if($request->has("start") && $request->has("end")) {
+            $appointments = MedicalAppointment::whereHas('doctor', function($query) use ($request) {
+                $start = $request->query("start", date("Y-m-d"));
+                $end = $request->query("end", date("Y-m-d"));
+                $query->where([
+                    ["id", "=", doctor()->doctor_id],
+                    ["date", ">=", Carbon::createFromFormat('Y-m-d', $start)],
+                    ["date", "<=", Carbon::createFromFormat('Y-m-d', $end)]
+                ]);
+            })->get();
+        } else {
+            $appointments = doctor()->medical_appointments;
+        }
         return response()->json($this->to_calendar_format($appointments));
     }
 
@@ -101,9 +113,19 @@ class MedicalAppointmentController extends Controller
      * @param  \App\MedicalAppointment  $medicalAppointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MedicalAppointment $medicalAppointment)
+    public function destroy(Request $request, $id)
     {
-        //
+        $appointment = MedicalAppointment::find($id);
+        if(!is_null($appointment)) {
+            $appointment->delete();
+
+            return redirect()->back();
+        }
+
+        /**
+         * @TODO Add error message
+         */
+        return redirect()->back();
     }
 
     public function to_calendar_format($items) {
@@ -115,8 +137,12 @@ class MedicalAppointmentController extends Controller
                 'title' => $item->title,
                 'start' => $item->date->format("c"),
                 'end' => $item->date->format("c"),
+                'formated_date' => $item->date->format("d/m/Y h:i a"),
                 'editable' => false,
-                'description' => $item->description
+                'description' => $item->description,
+                'links' => [
+                    'remove' => route("medical_appointments.remove", ["id" => $item->id])
+                ]
             ];
         }
         return $response;

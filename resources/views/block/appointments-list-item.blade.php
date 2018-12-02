@@ -13,12 +13,12 @@
     </a>
     <div class="peers mR-15">
         <div class="peer">
-            <a href="#" class="td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+            <a href="javascript:return" data-appointment_id="{{ $appointment->id }}" class="appointment_edit_button td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
                 <i class="ti-pencil"></i>
             </a>
         </div>
         <div class="peer">
-            <a href="#" class="td-n c-red-500 cH-blue-500 fsz-md p-5 remove_this">
+            <a href="{{ route("medical_appointments.remove", ["id" => $appointment->id]) }}" class="td-n c-red-500 cH-blue-500 fsz-md p-5 remove_this">
                 <i class="ti-trash"></i>
             </a>
         </div>

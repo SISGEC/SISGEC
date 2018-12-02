@@ -298,6 +298,7 @@
   .peers {
     &.content {
       max-width: 380px;
+      width: 100%;
     }
     .peer {
       &.description {
@@ -307,8 +308,23 @@
       }
     }
   }
+
+  .not-appointments {
+    padding: 1rem;
+    text-align: center;
+
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 1rem;
+    }
+  }
 }
 
 .appointment-inputs-list {
   list-style: none;
+}
+
+.swal-text {
+  text-align: center;
 }

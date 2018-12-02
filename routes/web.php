@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/medical-appointments', 'MedicalAppointmentController@index')->name('medical_appointments');
     Route::post('/medical-appointments/save', 'MedicalAppointmentController@store')->name('medical_appointments.save');
+    Route::get('/medical-appointment/{id}/remove', 'MedicalAppointmentController@destroy')->name('medical_appointments.remove');
 
     Route::get('/evolution-note/new/{id?}', 'TracingController@create')->name('evolution_note.new');
     Route::post('/evolution-note/save', 'TracingController@store')->name('evolution_note.save');

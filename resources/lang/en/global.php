@@ -117,6 +117,7 @@ return [
     'remove-patient-confirm' => 'I am aware of the dangers, I want to eliminate this patient.',
     'see' => 'See tracing',
     'report_date' => "C\\r\\e\\a\\t\\e\\d \\o\\n M d, Y \\a\\t H:m a",
+    'are_your_sure' => 'Are you sure?',
     'sure_remove' => '¿Are you sure you want to delete this?',
     'select_an_patient' => 'Select a patient',
     'select_an_patient_description' => 'Please select a patient.',
@@ -170,5 +171,6 @@ return [
     'event_title' => 'Event title',
     'date' => 'Date',
     'description' => 'Description',
-    'save' => 'Save'
+    'save' => 'Save',
+    'not_appointments_today' => 'There are no registered medical appointments for today.'
 ];
