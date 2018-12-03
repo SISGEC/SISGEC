@@ -11,23 +11,23 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('configs')->insert(
+        DB::table('configs')->insert([
             [
                 'key' => 'app.name',
                 'value' => 'SISGEC'
             ],
             [
-                'key' => 'lang',
+                'key' => 'app.lang',
                 'value' => 'es'
             ],
             [
-                'key' => 'office_logo',
+                'key' => 'app.office_logo',
                 'value' => asset("images/sisgec-logo.png")
             ],
             [
-                'key' => 'office_brand',
+                'key' => 'app.office_brand',
                 'value' => asset("images/sisgec-brand.png")
             ]
-        );
+        ]);
     }
 }

@@ -24,18 +24,18 @@
     <div class="row">
         <div class="col-12 col-sm-2">
             <div class="nav flex-column nav-pills patient-options" id="patient-options" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="patient-options-general-tab" data-toggle="pill" href="#patient-options-general" role="tab" aria-controls="patient-options-general" aria-selected="true">
+                <a class="nav-link active" id="general-tab" data-toggle="pill" href="#general" role="tab" aria-controls="general" aria-selected="true">
                     {{ __("global.general") }}
                 </a>
-                <a class="nav-link" id="patient-options-tracing-tab" data-toggle="pill" href="#patient-options-tracing" role="tab" aria-controls="patient-options-tracing" aria-selected="false">{{ __("global.tracing") }}</a>
-                <a class="nav-link" id="patient-options-prescriptions-tab" data-toggle="pill" href="#patient-options-prescriptions" role="tab" aria-controls="patient-options-prescriptions" aria-selected="false">{{ __("global.prescriptions") }}</a>
-                <a class="nav-link" id="patient-options-studies-tab" data-toggle="pill" href="#patient-options-studies" role="tab" aria-controls="patient-options-studies" aria-selected="false">{{ __("global.studies") }}</a>
-                <a class="nav-link" id="patient-options-advanced-tab" data-toggle="pill" href="#patient-options-advanced" role="tab" aria-controls="patient-options-advanced" aria-selected="false">{{ __("global.advanced") }}</a>
+                <a class="nav-link" id="tracing-tab" data-toggle="pill" href="#tracing" role="tab" aria-controls="tracing" aria-selected="false">{{ __("global.tracing") }}</a>
+                <a class="nav-link" id="prescriptions-tab" data-toggle="pill" href="#prescriptions" role="tab" aria-controls="prescriptions" aria-selected="false">{{ __("global.prescriptions") }}</a>
+                <a class="nav-link" id="studies-tab" data-toggle="pill" href="#studies" role="tab" aria-controls="studies" aria-selected="false">{{ __("global.studies") }}</a>
+                <a class="nav-link" id="advanced-tab" data-toggle="pill" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">{{ __("global.advanced") }}</a>
             </div>
         </div>
         <div class="col-12 col-sm-10">
             <div class="tab-content" id="patient-options-tabContent">
-                <div class="tab-pane fade show active" id="patient-options-general" role="tabpanel" aria-labelledby="patient-options-general-tab">
+                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
                     <div class="bgc-white p-20 bd">
                         <h4 class="c-grey-900"><i class="fa fa-user"></i> {{ __("global.identification_card") }}</h4>
                         <div class="profile-list-info">
@@ -433,7 +433,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="patient-options-tracing" role="tabpanel" aria-labelledby="patient-options-tracing-tab">
+                <div class="tab-pane fade" id="tracing" role="tabpanel" aria-labelledby="tracing-tab">
                     <div class="bgc-white p-20 bd d-flex justify-content-between">
                         <h4 class="c-grey-900 mb-0"><i class="fas fa-heartbeat"></i> {{ __("global.tracing") }}</h4>
                         <a href="{{ route("evolution_note.new", ["patient" => $patient->id]) }}" class="btn btn-primary">
@@ -467,7 +467,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="patient-options-prescriptions" role="tabpanel" aria-labelledby="patient-options-prescriptions-tab">
+                <div class="tab-pane fade" id="prescriptions" role="tabpanel" aria-labelledby="prescriptions-tab">
                     <div class="bgc-white p-20 bd d-flex justify-content-between">
                         <h4 class="c-grey-900 mb-0"><i class="fas fa-file-medical"></i> {{ __("global.prescriptions") }}</h4>
                         <a href="{{ route("prescription.new", ["patient_id" => $patient->id]) }}" class="btn btn-primary">
@@ -501,7 +501,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="patient-options-studies" role="tabpanel" aria-labelledby="patient-options-studies-tab">
+                <div class="tab-pane fade" id="studies" role="tabpanel" aria-labelledby="studies-tab">
                     <div class="bgc-white p-20 bd d-flex justify-content-between">
                         <h4 class="c-grey-900 mb-0"><i class="fas fa-file-medical"></i> {{ __("global.studies") }}</h4>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudies">
@@ -537,7 +537,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="patient-options-advanced" role="tabpanel" aria-labelledby="patient-options-advanced-tab">
+                <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
                     <div class="bgc-white p-20 bd d-flex justify-content-between">
                         <h4 class="c-grey-900 mb-0"><i class="fas fa-cogs"></i> {{ __("global.advanced") }}</h4>
                     </div>

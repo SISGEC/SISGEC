@@ -16,9 +16,9 @@ class CreateDoctorsTable extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index()->nullable();
-            $table->string('specialty');
-            $table->string('university');
-            $table->string('professional_license');
+            $table->string('specialty')->nullable();
+            $table->string('university')->nullable();
+            $table->string('professional_license')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

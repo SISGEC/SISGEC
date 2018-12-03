@@ -77984,6 +77984,7 @@ table.dataTable.no-footer {
 .appointments-list .not-appointments {
   padding: 1rem;
   text-align: center;
+  width: 100%;
 }
 
 .appointments-list .not-appointments button {
