@@ -60,6 +60,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/prescription/remove/{id}', 'PrescriptionController@destroy')->name('prescription.remove');
 
     Route::get('/prescription/{id}/download', 'PrescriptionController@download')->name('prescription.download');
+
+    Route::prefix('statistics')->group(function() {
+        Route::get("/patients/{metric?}/{lapse?}", 'PatientController@statistics')->name('statistics.patients');
+        Route::get("/appointments/{metric?}/{lapse?}", 'MedicalAppointmentController@statistics')->name('statistics.appointments');
+    });
 });
 
 Route::get('/attachments/show/{filename}', 'StudiesController@show');

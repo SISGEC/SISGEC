@@ -7,33 +7,33 @@
             <div class="row gap-20">
                 <div class='col-md-4'>
                     @component('block.simple-statistics', [
-                        'sparklinedash' => 'sparklinedash',
+                        'sparklinedash' => 'patients_treated_last_week',
                         'color' => 'green'
                     ])
                         @slot("title")
-                            Pacientes atendidos esta semana
+                            {{ __("global.patients_treated_this_week") }}
                         @endslot
                     @endcomponent    
                 </div>
 
                 <div class='col-md-4'>
                     @component('block.simple-statistics', [
-                        'sparklinedash' => 'sparklinedash',
+                        'sparklinedash' => 'scheduled_appointments_last_week',
                         'color' => 'red'
                     ])
                         @slot("title")
-                            Citas agendadas esta semana
+                            {{ __("global.appointments_scheduled_this_week") }}
                         @endslot
                     @endcomponent
                 </div>
 
                 <div class='col-md-4'>
                     @component('block.simple-statistics', [
-                        'sparklinedash' => 'sparklinedash',
+                        'sparklinedash' => 'unique_patients_last_week',
                         'color' => 'purple'
                     ])
                         @slot("title")
-                            Paciente únicos esta semana
+                            {{ __("global.unique_patients_this_week") }}
                         @endslot
                     @endcomponent
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MedicalAppointment;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 
 class MedicalAppointmentController extends Controller
@@ -167,6 +168,64 @@ class MedicalAppointmentController extends Controller
          * @TODO Add error message
          */
         return redirect()->back();
+    }
+
+    private function get_lapse($lapse) {
+        if($lapse === "last_week") {
+            $end = Carbon::now();
+            $start = Carbon::now()->subDays(7);
+        } else if($lapse === "last_month") {
+            $end = Carbon::now();
+            $start = Carbon::now()->subMonth();
+        } else {
+            $end = Carbon::now();
+            $start = Carbon::now()->subYear();
+        }
+        return (object) [
+            "start" => $start,
+            "end" => $end
+        ];
+    }
+
+    private function get_appointments_treated($lapse) {
+        return MedicalAppointment::where([
+            ["updated_at", ">=", $lapse->start],
+            ["updated_at", "<=", $lapse->end]
+        ])->get();
+    }
+
+    private function get_appointments_treated_in_date($date) {
+        return MedicalAppointment::whereDate('created_at', '=', $date)->get();
+    }
+
+    private function get_dates_in_lapse($lapse) {
+        $period = CarbonPeriod::create($lapse->start->format("Y-m-d"), $lapse->end->format("Y-m-d"));
+        $response = [];
+        foreach ($period as $date) {
+            $response[] = $date->format('Y-m-d');
+        }
+        return $response;
+    }
+
+    public function statistics(Request $request, $metric, $lapse) {
+        if(empty($metric)) $metric = "scheduled_appointments";
+        if(empty($lapse)) $metric = "last_week";
+        $lapse = $this->get_lapse($lapse);
+        $period = $this->get_dates_in_lapse($lapse);
+        $appointments = [];
+        $total = 0;
+
+        foreach ($period as $date) {
+            $appointments[$date] = $this->get_appointments_treated_in_date($date)->count();
+            $total += $appointments[$date];
+        }
+
+        $response["count"] = count($appointments);
+        $response["total"] = $total;
+        $response["data"] = $appointments;
+        $response["sparkline"] = array_values($appointments);
+
+        return response()->json($response);
     }
 
     public function compact($item) {

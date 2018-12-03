@@ -8,7 +8,7 @@
                 <span id="{{ $sparklinedash ?? "sparklinedash" }}"></span>
             </div>
             <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-{{ $color ?? "gray" }}-50 c-{{ $color ?? "gray" }}-500">{{ $percent ?? "0%" }}</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-{{ $color ?? "gray" }}-50 c-{{ $color ?? "gray" }}-500 {{ $sparklinedash ?? "sparklinedash"}}-percent">{{ $percent ?? "0" }}</span>
             </div>
         </div>
     </div>

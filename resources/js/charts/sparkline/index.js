@@ -2,6 +2,17 @@ import * as $ from 'jquery';
 import 'jquery-sparkline/jquery.sparkline.js';
 import { debounce } from 'lodash';
 import { COLORS } from '../../constants/colors';
+const axios = require('axios');
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found.');
+}
 
 export default (function () {
   // ------------------------------------------------------
@@ -9,36 +20,54 @@ export default (function () {
   // ------------------------------------------------------
 
   const drawSparklines = () => {
-    if ($('#sparklinedash').length > 0) {
-      $('#sparklinedash').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
-        type: 'bar',
-        height: '20',
-        barWidth: '3',
-        resize: true,
-        barSpacing: '3',
-        barColor: '#4caf50',
+    if ($('#patients_treated_last_week').length > 0) {
+      axios.get("/statistics/patients/patients_treated/last_week")
+      .then(function (response) {
+          if(response.status === 200) {
+            $('#patients_treated_last_week').sparkline(response.data.sparkline, {
+              type: 'bar',
+              height: '20',
+              barWidth: '3',
+              resize: true,
+              barSpacing: '3',
+              barColor: '#4caf50',
+            });
+            $('.patients_treated_last_week-percent').text(response.data.total);
+          }
       });
     }
 
-    if ($('#sparklinedash2').length > 0) {
-      $('#sparklinedash2').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
-        type: 'bar',
-        height: '20',
-        barWidth: '3',
-        resize: true,
-        barSpacing: '3',
-        barColor: '#9675ce',
+    if ($('#scheduled_appointments_last_week').length > 0) {
+      axios.get("/statistics/appointments/scheduled_appointments/last_week")
+      .then(function (response) {
+          if(response.status === 200) {
+            $('#scheduled_appointments_last_week').sparkline(response.data.sparkline, {
+              type: 'bar',
+              height: '20',
+              barWidth: '3',
+              resize: true,
+              barSpacing: '3',
+              barColor: '#f96262',
+            });
+            $('.scheduled_appointments_last_week-percent').text(response.data.total);
+          }
       });
     }
 
-    if ($('#sparklinedash3').length > 0) {
-      $('#sparklinedash3').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
-        type: 'bar',
-        height: '20',
-        barWidth: '3',
-        resize: true,
-        barSpacing: '3',
-        barColor: '#03a9f3',
+    if ($('#unique_patients_last_week').length > 0) {
+      axios.get("/statistics/patients/unique_patients/last_week")
+      .then(function (response) {
+          if(response.status === 200) {
+            $('#unique_patients_last_week').sparkline(response.data.sparkline, {
+              type: 'bar',
+              height: '20',
+              barWidth: '3',
+              resize: true,
+              barSpacing: '3',
+              barColor: '#03a9f3',
+            });
+            $('.unique_patients_last_week-percent').text(response.data.total);
+          }
       });
     }
 

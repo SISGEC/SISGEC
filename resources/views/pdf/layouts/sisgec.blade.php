@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{{ config("site.name", "SISGEC") }} | {{ __("global.desktop") }}</title>
         <link rel="stylesheet" href="{{ asset("css/pdf.css") }}">
+        @stack('header_scripts')
     </head>
     <body class="app">
         @php
