@@ -19,4 +19,12 @@ return [
     'token' => 'El token de recuperación de contraseña es invalido.',
     'user' => "No se encontro ningun usuario con ese correo.",
 
+    'recommendations' => [
+        'Seleccione al menos 6 carácteres para su nueva contraseña.',
+        'Combine letras en minúsculas, mayúsculas, números y símbolos.',
+        '<b>No</b> use la misma contraseña que usa en otros dispositivos.',
+        '<b>No</b> use cumpleaños, su primer nombre o apellidos, direcciones, nombres de mascotas o familia.',
+        '<b>No</b> guarde su contraseña en dispositivos que no sean de su confianza.'
+    ]
+
 ];
