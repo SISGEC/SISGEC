@@ -182,7 +182,7 @@ return [
 
     'settings' => 'Settings',
     'security' => 'Security',
-    'system_label' => 'System Label',
+    'system_label' => 'System',
     'medical_information' => 'Medic Information',
     'new_password' => 'New password',
     'repeat_password' => 'Repeat password',
@@ -195,7 +195,15 @@ return [
     'choose_file' => 'Choose File',
     'save_options' => 'Save Options',
     'perfil' => 'Profile',
-    'specialty' => 'Specialty'
+    'specialty' => 'Specialty',
+
+    'patients_treated_this_week' => 'Patients treated this week',
+    'appointments_scheduled_this_week' => 'Appointments scheduled this week',
+    'unique_patients_this_week' => 'Unique patients this week',
+
+    'remove' => 'Remove',
+    'edit' => 'Edit',
+
 
 
 

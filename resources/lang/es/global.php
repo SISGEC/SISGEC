@@ -177,7 +177,7 @@ return [
 
     'settings' => 'Opciones',
     'security' => 'Seguridad',
-    'system_label' => 'Etiqueta del Sistema',
+    'system_label' => 'Sistema',
     'medical_information' => 'Información del Médico',
     'new_password' => 'Nueva contraseña',
     'repeat_password' => 'Repetir contraseña',
@@ -190,5 +190,12 @@ return [
     'choose_file' => 'Seleccionar Archivo',
     'save_options' => 'Guardar Opciones',
     'perfil' => 'Perfil',
-    'specialty' => 'Especialidad'
+    'specialty' => 'Especialidad',
+
+    'patients_treated_this_week' => 'Pacientes atendidos esta semana',
+    'appointments_scheduled_this_week' => 'Citas agendadas esta semana',
+    'unique_patients_this_week' => 'Pacientes unicos de esta semana',
+
+    'remove' => 'Eliminar',
+    'edit' => 'Editar',
 ];
