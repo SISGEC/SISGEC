@@ -163,8 +163,13 @@ return [
     'prescription_copy_2' => 'Copia de la farmacia',
     'prescription-footer-note' => 'FAVOR DE TRAER SU RECETA EN LA PRÓXIMA CITA',
 
+    'loading' => 'Cargando...',
+
     'event_title' => 'Título del evento',
     'date' => 'Fecha',
     'description' => 'Descripción',
-    'save' => 'Guardar'
+    'save' => 'Guardar',
+    'not_appointments_today' => 'No hay citas medicas para hoy.',
+    'cancel' => 'Cancelar',
+    'ok' => 'Si'
 ];

@@ -175,4 +175,6 @@ return [
     'not_appointments_today' => 'There are no registered medical appointments for today.',
 
     'change_password_info' => 'This option allows you to change the password with which you enter the system. For your safety we recommend the following:',
+    'cancel' => 'Cancel',
+    'ok' => 'Ok'
 ];
