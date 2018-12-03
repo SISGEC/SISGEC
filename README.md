@@ -39,6 +39,29 @@ SISGEC trabaja con el [framework Laravel](https://laravel.com/docs/5.7/mix), sig
 4. Ejecute el comando `npm install` y espere a que finalice.
 5. Listo, ¡ya puedes comenzar a contribuir! :)
 
+#### Base de datos
+
+SISGEC por default esta pensado para trabajar con SQLite sin embargo, puede llegar a trabajar con MySQL/MariaDB, PostgreSQL y SQL Server. Tenga en cuenta que utilizar cualquier otro sistema de gestión de base de datos diferente a SQLite puede conllevar a fallas en el software.
+
+Para configurar SQLite siga los siguientes pasos:
+
+1. Cree el archivo `database.sqlite` en la siguiente ruta `/direccion/de/su/carpeta/htdocs/sisgec/database`.
+2. Abra el archivo `.env` con el editor de su preferencia y configure las siguientes opciones:
+```
+DB_CONNECTION=sqlite
+DB_DATABASE=sisgec.sqlite
+```
+3. Ingrese a la carpeta de su instalación por consola y ejecute los siguientes comandos:
+```
+  $ php artisan migrate
+  $ php artisan db:seed
+```
+4. Con esto ya estará funcionando la base de datos correctamente. Por default podra ingresar al sistema usando los siguientes datos:
+```
+email: admin@nidiasoft.com
+password: admin
+```
+
 ## Contribuir
 
 SISGEC es un proyecto Open Source por lo que esta abierto a recibir solicitudes, por favor lea la [documentación](https://github.com/SISGEC/SISGEC/wiki) para familiarizarse con nuestra filosofía antes de enviar su solicitud.
