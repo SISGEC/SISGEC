@@ -176,5 +176,27 @@ return [
 
     'change_password_info' => 'This option allows you to change the password with which you enter the system. For your safety we recommend the following:',
     'cancel' => 'Cancel',
-    'ok' => 'Ok'
+    'ok' => 'Ok',
+
+    'settings' => 'Settings',
+    'security' => 'Security',
+    'system_label' => 'System Label',
+    'medical_information' => 'Medic Information',
+    'new_password' => 'New password',
+    'repeat_password' => 'Repeat password',
+    'change_password' => 'Change Password',
+    'sitename' => 'Site Name',
+    'office_address' => 'Office Address',
+    'office_logo' => 'Office Logo',
+    'office_phone' => 'Office Phone',
+    'office_brand' => 'Office Brand',
+    'choose_file' => 'Choose File',
+    'save_options' => 'Save Options',
+    'perfil' => 'Profile',
+    'specialty' => 'Specialty'
+
+
+
+
+
 ];
