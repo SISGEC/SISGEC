@@ -49,7 +49,7 @@ Para configurar SQLite siga los siguientes pasos:
 2. Abra el archivo `.env` con el editor de su preferencia y configure las siguientes opciones:
 ```
 DB_CONNECTION=sqlite
-DB_DATABASE=sisgec.sqlite
+DB_DATABASE=database.sqlite
 ```
 3. Ingrese a la carpeta de su instalación por consola y ejecute los siguientes comandos:
 ```
