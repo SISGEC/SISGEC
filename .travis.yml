@@ -7,6 +7,7 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - mv .env.travis .env
+  - touch database/database.sqlite
   - php artisan key:generate
 
 script:
