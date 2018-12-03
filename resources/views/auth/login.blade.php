@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ config("site.name", "SISGEC") }} | Login</title>
+    <title>{{ config("app.name", "SISGEC") }} | Login</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset("css/sisgec.app.css") }}">
     <style>
@@ -68,7 +68,7 @@
       <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("{{ asset("images/medical-background.jpg") }}")'>
         <div class="pos-a centerXY">
           <div class="bdrs-50p pos-r" style='width: 120px; height: 120px;'>
-            <img class="pos-a centerXY" src="{{ asset("images/sisgec-logo.png") }}" width="350" height="auto" alt="">
+            <img class="pos-a centerXY" src="{{ config("app.office_logo") }}" width="350" height="auto" alt="">
           </div>
         </div>
       </div>

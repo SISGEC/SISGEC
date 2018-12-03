@@ -43,11 +43,11 @@ function remove_accents($str) {
 }
 
 function get_doctor_logo($doctor) {
-    /**
-     * @TODO add logic for this
-     */
-
-    return '<img src="'.asset("images/sisgec-logo.png").'" />';
+    $logo = config("app.office_logo");
+    if(!is_image($logo)) {
+        $logo = asset("images/sisgec-logo.png");
+    }
+    return '<img src="'.$logo.'" />';
 }
 
 function doctor() {

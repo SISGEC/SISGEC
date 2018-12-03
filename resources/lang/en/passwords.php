@@ -19,4 +19,11 @@ return [
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that e-mail address.",
 
+    'recommendations' => [
+        'Choose at least 6 characters for your password.',
+        'Mix lowercase letters, capital letters, numbers and symbols.',
+        '<b>Do not</b> use the same password that you use for other services.',
+        '<b>Do not</b> use birthdays, your first or last name, address, pet\'s name or family member\'s name.',
+        '<b>Do not</b> save your password on third-party computers.'
+    ]
 ];

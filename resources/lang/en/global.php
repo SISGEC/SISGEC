@@ -143,7 +143,7 @@ return [
 
     'informed_consent' => 'Informed Consent',
     'informed_consent_line_1' => 'I OR LEGAL REPRESENTATIVE ___________________________________________________ OF ____________ YEARS OF AGE, I ACKNOWLEDGE THAT I EXPLAINED AND UNDERSTOOD THE PROPOSED PROCEDURE, I AM AWARE OF THE BENEFITS, RISKS, PROBABLE COMPLICATIONS AND OTHER ALTERNATIVES THAT COULD BE USEFUL; HOWEVER, AWARE THAT MY BENEFIT IS LOOKING FOR, I GIVE MY CONSENT NO OBLIGATION AND BY OWN DECISION TO BE CARRIED OUT. I HEREBY GIVE THE AUTHORIZATION TO ADDRESS THE CONTINGENCIES AND EMERGENCIES DERIVED FROM THE AUTHORIZED ACT, BASED ON THE PRINCIPLE OF PRESCRIPTIVE FREEDOM THAT HEALTH PERSONNEL HAS. I ALSO ACCEPT TO BE HELD BY MEDICAL PERSONNEL IN TRAINING WHO WILL BE SUPERVISED DIRECTLY BY THE DOCTOR, IN ACCORDANCE WITH WHAT IS ESTABLISHED IN THE APPLICABLE MEXICAN OFFICIAL RULES (NOM 001 AND NOM 234)',
-    'informed_consent_description' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend nec nibh at convallis. Nam cursus nisi eget tristique viverra. In tellus massa, tristique eu dignissim ut, vestibulum tincidunt tortor. Curabitur sit amet augue hendrerit, pulvinar est non, vestibulum odio. Mauris vehicula molestie lectus, et faucibus risus semper vel. Curabitur sollicitudin tellus leo, ac auctor lectus interdum ut. Integer sit amet erat ipsum.</p> <p>Nullam odio enim, dignissim quis ullamcorper id, tincidunt vitae arcu. Nam accumsan euismod blandit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla erat nunc, dictum in vulputate eget, aliquam nec nunc. Duis sit amet elit vitae quam pulvinar efficitur ut et metus. Aenean at lectus suscipit, iaculis arcu nec, posuere erat. Proin congue enim ut hendrerit viverra. Donec nec volutpat massa. Nulla sem quam, aliquet vel porta sed, ultrices eget magna. Aliquam pharetra lacinia tincidunt. Nullam eget porta dui. Morbi sit amet dapibus tortor. Nam id ultrices sapien, eget pretium tellus.</p>',
+    'informed_consent_description' => '<p>Medical partner: remember to inform the patient about informed consent and get his signature when printing the clinical history.</p>',
     'informed_consent_description_button' => 'I have informed the patient and he...',
     'informed_consent_denied_button' => 'Has not accepted the consent',
     'informed_consent_accepted_button' => 'Has accepted the consent',
@@ -172,5 +172,7 @@ return [
     'date' => 'Date',
     'description' => 'Description',
     'save' => 'Save',
-    'not_appointments_today' => 'There are no registered medical appointments for today.'
+    'not_appointments_today' => 'There are no registered medical appointments for today.',
+
+    'change_password_info' => 'This option allows you to change the password with which you enter the system. For your safety we recommend the following:',
 ];

@@ -20,6 +20,19 @@ function calcAge(dateString) {
     return Math.abs(ageDate.getFullYear() - 1970);
 }
 
+function readURL(input, img_tag, label_tag) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $(img_tag).attr('src', e.target.result);
+            $(label_tag).html(e.target.fileName);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 $(document).ready(function() {
     if($('input.sex').length > 0) {
         $('input.sex').on("change", function() {
@@ -85,6 +98,12 @@ $(document).ready(function() {
 
     if($("#phone").length > 0) {
         var PhoneMask = new IMask($("#phone").get(0), {
+            mask: '(000) 000 0000'
+        });
+    }
+
+    if($("#phone2").length > 0) {
+        var PhoneMask = new IMask($("#phone2").get(0), {
             mask: '(000) 000 0000'
         });
     }
@@ -208,4 +227,54 @@ $(document).ready(function() {
             backdrop: 'static'
         });
     }
+
+    if($(".edit_block").length > 0) {
+        $(".edit_block").on("click", function() {
+            var block = $(this).closest(".block");
+            if(block.hasClass("editing")) {
+                block.removeClass("editing");
+                block.find(".save_block").addClass("d-none");
+                $(this).addClass("btn-primary").removeClass("btn-danger").find("i").addClass("fa-edit").removeClass("fa-times");
+                block.find(".form-control").addClass("form-control-plaintext").removeClass("form-control").attr("readonly", "readonly");
+            } else {
+                block.addClass("editing");
+                block.find(".save_block").removeClass("d-none");
+                $(this).addClass("btn-danger").removeClass("btn-primary").find("i").addClass("fa-times").removeClass("fa-edit");
+                block.find(".form-control-plaintext").addClass("form-control").removeClass("form-control-plaintext").removeAttr("readonly");
+            }
+        });
+    }
+
+    if($(".chage_password_button").length > 0) {
+        $("#user_new_password, #user_password_confirm").on("keyup", function() {
+            var p = $("#user_new_password").val();
+            var r = $("#user_password_confirm").val();
+            if( (p!=="" && r!== "") && p === r ) {
+                $(".chage_password_button").removeAttr("disabled");
+            } else {
+                $(".chage_password_button").attr("disabled", "disabled");
+            }
+        });
+    }
+
+    if($("#option_office_logo").length > 0) {
+        $("#option_office_logo").on("change", function() {
+            readURL(this, "#option_office_logo_preview", '[for="option_office_logo"]');
+        });
+    }
+
+    if($("#option_office_brand").length > 0) {
+        $("#option_office_brand").on("change", function() {
+            readURL(this, "#option_office_brand_preview", '[for="option_office_brand"]');
+        });
+    }
+
+    if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
+    $('a[data-toggle="tab"], a[data-toggle="pill"]').on('shown.bs.tab', function(e) {
+       if(history.pushState) {
+            history.pushState(null, null, '#'+$(e.target).attr('href').substr(1));
+       } else {
+            location.hash = '#'+$(e.target).attr('href').substr(1);
+       }
+    });
 });

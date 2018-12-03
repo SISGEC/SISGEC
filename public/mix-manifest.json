@@ -3,5 +3,7 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/sisgec.app.css": "/css/sisgec.app.css",
-    "/css/pdf.css": "/css/pdf.css"
+    "/css/pdf.css": "/css/pdf.css",
+    "/js/password.min.js": "/js/password.min.js",
+    "/css/password.min.css": "/css/password.min.css"
 }

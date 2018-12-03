@@ -77636,6 +77636,18 @@ table.dataTable.no-footer {
   padding-left: 0;
 }
 
+.sidebar-logo .logo {
+  width: 70px;
+  max-height: 67px;
+  text-align: center;
+}
+
+.sidebar-logo .logo img {
+  width: auto;
+  height: 100%;
+  max-height: 67px;
+}
+
 .banner-message {
   text-align: center;
   color: #868686;
@@ -77986,5 +77998,13 @@ table.dataTable.no-footer {
 
 .swal-text {
   text-align: center;
+}
+
+#option_office_logo_preview,
+#option_office_brand_preview {
+  max-width: 100%;
+  width: auto;
+  max-height: 200px;
+  height: auto;
 }
 

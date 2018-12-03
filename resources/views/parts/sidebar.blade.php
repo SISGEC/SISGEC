@@ -7,7 +7,7 @@
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
-                                    <img src="{{ asset("/images/sisgec-brand.png") }}" alt="">
+                                    <img src="{{ config("app.office_brand") }}" alt="">
                                 </div>
                             </div>
                             <div class="peer peer-greed">

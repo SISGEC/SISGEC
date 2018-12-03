@@ -11,12 +11,16 @@
 |
 */
 
-App::setLocale(config("app.locale"));
-
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', 'HomeController@index')->name("dashboard");
+    Route::post('/options/save', 'HomeController@options')->name('options.save');
+
+    Route::prefix('settings')->group(function() {
+        Route::get('/', 'DoctorController@settings')->name('doctor.settings');
+        Route::post('/update', 'DoctorController@update')->name('doctor.update');
+    });
 
     Route::get('/patients','PatientController@index')->name('patients');
     Route::get('/patients/new', 'PatientController@create')->name('patients.new');
