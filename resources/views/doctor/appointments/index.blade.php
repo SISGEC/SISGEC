@@ -159,7 +159,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __("global.cancel") }}</button>
-                <button type="submit" class="btn btn-success">{{ __("global.sanve") }}</button>
+                <button type="submit" class="btn btn-success">{{ __("global.save") }}</button>
             </div>
         </div>
       </div>
