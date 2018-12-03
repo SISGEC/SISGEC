@@ -40,19 +40,19 @@
             </div>
         </div>
 
-        <div class="masonry-item col-md-6">
+        <div class="masonry-item col-md-12">
             @component('block.line-chart', [
-                'title' => 'Estadísticas Mensuales',
-                'chart_id' => 'line-chart',
+                'title' => __("global.monthly_statistics"),
+                'chart_id' => 'monthly_statistics',
                 'peers' => [
                     [
-                        'title' => 'Pacientes únicos',
+                        'title' => __("global.unique_patients"),
                         'color' => 'green',
                         'icon' => 'fa-level-up',
                         'percent' => '10%'
                     ],
                     [
-                        'title' => 'Citas',
+                        'title' => __("global.appointments"),
                         'color' => 'red',
                         'icon' => 'fa-level-down',
                         'percent' => '2%'

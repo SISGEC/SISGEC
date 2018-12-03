@@ -1,44 +1,63 @@
 import Chart from 'chart.js';
 import { COLORS } from '../../constants/colors';
+const axios = require('axios');
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+    console.error('CSRF token not found.');
+}
 
 export default (function () {
   // ------------------------------------------------------
   // @Line Charts
   // ------------------------------------------------------
 
-  const lineChartBox = document.getElementById('line-chart');
+  const lineChartBox = document.getElementById('monthly_statistics');
 
   if (lineChartBox) {
     const lineCtx = lineChartBox.getContext('2d');
-    lineChartBox.height = 80;
+    lineChartBox.height = 60;
 
-    new Chart(lineCtx, {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label                : 'Series A',
-          backgroundColor      : 'rgba(237, 231, 246, 0.5)',
-          borderColor          : COLORS['deep-purple-500'],
-          pointBackgroundColor : COLORS['deep-purple-700'],
-          borderWidth          : 2,
-          data                 : [60, 50, 70, 60, 50, 70, 60],
-        }, {
-          label                : 'Series B',
-          backgroundColor      : 'rgba(232, 245, 233, 0.5)',
-          borderColor          : COLORS['blue-500'],
-          pointBackgroundColor : COLORS['blue-700'],
-          borderWidth          : 2,
-          data                 : [70, 75, 85, 70, 75, 85, 70],
-        }],
-      },
-
-      options: {
-        legend: {
-          display: false,
-        },
-      },
-
+    axios.get("/statistics/monthly_statistics/last_month")
+    .then(function (response) {
+        console.log(response);
+        if(response.status === 200) {
+          new Chart(lineCtx, {
+            type: 'line',
+            data: {
+              labels: response.data.dates,
+              datasets: [{
+                label                : response.data.labels.A,
+                backgroundColor      : 'rgba(237, 231, 246, 0.5)',
+                borderColor          : COLORS['deep-purple-500'],
+                pointBackgroundColor : COLORS['deep-purple-700'],
+                borderWidth          : 2,
+                data                 : response.data.data.patients,
+              }, {
+                label                : response.data.labels.B,
+                backgroundColor      : 'rgba(232, 245, 233, 0.5)',
+                borderColor          : COLORS['blue-500'],
+                pointBackgroundColor : COLORS['blue-700'],
+                borderWidth          : 2,
+                data                 : response.data.data.appointments,
+              }],
+            },
+      
+            options: {
+              legend: {
+                display: false,
+              },
+            },
+      
+          });
+          $('.monthly_statistics-percent').text(response.data.total);
+          $(document).resize();
+        }
     });
   }
 

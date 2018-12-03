@@ -1,7 +1,7 @@
 <div class="bd bgc-white">
     <div class="layers">
         <div class="layer w-100 pX-20 pT-20">
-            <h6 class="lh-1">{{ $title or "" }}</h6>
+            <h6 class="lh-1">{{ $title ?? "" }}</h6>
         </div>
         <div class="layer w-100 p-20">
             <canvas id="{{ $chart_id ?? "line-chart" }}" height="220"></canvas>

@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('statistics')->group(function() {
         Route::get("/patients/{metric?}/{lapse?}", 'PatientController@statistics')->name('statistics.patients');
         Route::get("/appointments/{metric?}/{lapse?}", 'MedicalAppointmentController@statistics')->name('statistics.appointments');
+        Route::get("/monthly_statistics/{lapse}", 'HomeController@monthly_statistics')->name("statistics.monthly_statistics");
     });
 });
 
