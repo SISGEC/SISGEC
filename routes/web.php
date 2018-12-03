@@ -69,3 +69,11 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/attachments/show/{filename}', 'StudiesController@show');
 Route::get('/medical-appointments.json', 'MedicalAppointmentController@json')->name('medical_appointments.json');
+
+/**
+ * Test Routes
+ **/
+
+Route::get('/test', function() {
+    return response("Ok", 200);
+});
