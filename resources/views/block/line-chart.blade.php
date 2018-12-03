@@ -4,7 +4,7 @@
             <h6 class="lh-1">{{ $title or "" }}</h6>
         </div>
         <div class="layer w-100 p-20">
-            <canvas id="{{ $chart_id or "line-chart" }}" height="220"></canvas>
+            <canvas id="{{ $chart_id ?? "line-chart" }}" height="220"></canvas>
         </div>
         <div class="layer bdT p-20 w-100">
             <div class="peers ai-c jc-c gapX-20">

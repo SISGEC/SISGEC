@@ -1,4 +1,4 @@
-import Chart from 'chart.js/src/chart.js';
+import Chart from 'chart.js';
 import { COLORS } from '../../constants/colors';
 
 export default (function () {

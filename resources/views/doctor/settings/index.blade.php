@@ -111,7 +111,7 @@
                                     <div class="form-row">
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
-                                                <label for="doctor_specialty">{{ __("doctor.specialty") }}</label>
+                                                <label for="doctor_specialty">{{ __("person.specialty") }}</label>
                                                 <input type="text" class="form-control-plaintext" id="doctor_specialty" name="doctor[specialty]" value="{{ old("doctor.specialty", doctor()->specialty) }}" readonly>
                                             </div>
                                         </div>
