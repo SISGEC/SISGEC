@@ -11,7 +11,7 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('settings')->insert(
+        DB::table('configs')->insert(
             [
                 'key' => 'app.name',
                 'value' => 'SISGEC'
