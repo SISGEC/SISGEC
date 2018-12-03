@@ -172,5 +172,7 @@ return [
     'date' => 'Date',
     'description' => 'Description',
     'save' => 'Save',
-    'not_appointments_today' => 'There are no registered medical appointments for today.'
+    'not_appointments_today' => 'There are no registered medical appointments for today.',
+    'cancel' => 'Cancel',
+    'ok' => 'Ok'
 ];
