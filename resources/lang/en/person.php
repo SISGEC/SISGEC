@@ -23,5 +23,7 @@ return [
     'email' => 'E-mail',
     'phone' => 'Phone',
     'referred_by' => 'Referred by',
-    'age' => 'Age'
+    'age' => 'Age',
+    'title' => 'Title',
+    'university' => 'University',
 ];

@@ -171,5 +171,22 @@ return [
     'save' => 'Guardar',
     'not_appointments_today' => 'No hay citas medicas para hoy.',
     'cancel' => 'Cancelar',
-    'ok' => 'Si'
+    'ok' => 'Si',
+
+    'settings' => 'Opciones',
+    'security' => 'Seguridad',
+    'system_label' => 'Etiqueta del Sistema',
+    'medical_information' => 'Información del Médico',
+    'new_password' => 'Nueva contraseña',
+    'repeat_password' => 'Repetir contraseña',
+    'change_password' => 'Cambiar Contraseña',
+    'sitename' => 'Nombre del Sitio',
+    'office_address' => 'Dirección de la Oficina',
+    'office_logo' => 'Logo de la Oficina',
+    'office_phone' => 'Teléfono de la Oficina',
+    'office_brand' => 'Marca de la Oficina',
+    'choose_file' => 'Seleccionar Archivo',
+    'save_options' => 'Guardar Opciones',
+    'perfil' => 'Perfil',
+    'specialty' => 'Especialidad'
 ];
