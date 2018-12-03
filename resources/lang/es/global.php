@@ -165,11 +165,13 @@ return [
 
     'loading' => 'Cargando...',
 
+    'add_event' => 'Añadir Cita',
     'event_title' => 'Título del evento',
     'date' => 'Fecha',
     'description' => 'Descripción',
     'save' => 'Guardar',
     'not_appointments_today' => 'No hay citas medicas para hoy.',
+    'add_one'=> 'Añadir Una',
     'cancel' => 'Cancelar',
     'ok' => 'Si',
 
