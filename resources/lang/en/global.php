@@ -204,6 +204,16 @@ return [
     'remove' => 'Remove',
     'edit' => 'Edit',
 
+    'monthly_statistics' => 'Monthly Statistics',
+    'unique_patients' => 'Unique Patients',
+    'appointments' => 'Apointments',
+    'processing' => 'Processing',
+    
+
+
+
+
+
 
 
 

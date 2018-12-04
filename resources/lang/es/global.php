@@ -198,4 +198,9 @@ return [
 
     'remove' => 'Eliminar',
     'edit' => 'Editar',
+
+    'monthly_statistics' => 'Estadisticas Mensuales',
+    'unique_patients' => 'Pacientes Únicos',
+    'appointments' => 'CItas',
+    'processing' => 'Procesando',
 ];
