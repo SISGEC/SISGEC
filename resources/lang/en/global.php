@@ -195,7 +195,7 @@ return [
     'choose_file' => 'Choose File',
     'save_options' => 'Save Options',
     'perfil' => 'Profile',
-    'specialty' => 'Specialty',
+    
 
     'patients_treated_this_week' => 'Patients treated this week',
     'appointments_scheduled_this_week' => 'Appointments scheduled this week',

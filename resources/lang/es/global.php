@@ -190,7 +190,7 @@ return [
     'choose_file' => 'Seleccionar Archivo',
     'save_options' => 'Guardar Opciones',
     'perfil' => 'Perfil',
-    'specialty' => 'Especialidad',
+    
 
     'patients_treated_this_week' => 'Pacientes atendidos esta semana',
     'appointments_scheduled_this_week' => 'Citas agendadas esta semana',

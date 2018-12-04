@@ -26,4 +26,5 @@ return [
     'age' => 'Age',
     'title' => 'Title',
     'university' => 'University',
+    'specialty' => 'Specialty',
 ];
