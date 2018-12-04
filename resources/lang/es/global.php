@@ -175,6 +175,7 @@ return [
     'cancel' => 'Cancelar',
     'ok' => 'Si',
 
+    'change_password_info' => 'Esta opción cambia la contraseña del sistema. Para su seguridad recomendamos lo siguiente:',
     'settings' => 'Opciones',
     'security' => 'Seguridad',
     'system_label' => 'Sistema',
@@ -190,7 +191,7 @@ return [
     'choose_file' => 'Seleccionar Archivo',
     'save_options' => 'Guardar Opciones',
     'perfil' => 'Perfil',
-    'specialty' => 'Especialidad',
+    
 
     'patients_treated_this_week' => 'Pacientes atendidos esta semana',
     'appointments_scheduled_this_week' => 'Citas agendadas esta semana',
@@ -198,4 +199,10 @@ return [
 
     'remove' => 'Eliminar',
     'edit' => 'Editar',
+
+    'monthly_statistics' => 'Estadisticas Mensuales',
+    'unique_patients' => 'Pacientes Únicos',
+    'appointments' => 'CItas',
+    'processing' => 'Procesando',
+    'edit_appointment' => 'Editar Cita'
 ];

@@ -26,4 +26,5 @@ return [
     'referred_by' => 'Referido por',
     'title' => 'Título',
     'university' => 'Universidad',
+    'specialty' => 'Especialidad',
 ];
