@@ -193,6 +193,12 @@
       }
     }
   }
+
+  &.two-columns {
+    ul {
+      columns: 2;
+    }
+  }
 }
 
 .profile-list-description {

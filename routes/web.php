@@ -32,6 +32,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/patient/{id}/download', 'PatientController@download')->name('patient.download');
 
+    Route::get('/assistants','AssistantController@index')->name('assistants');
+    Route::get('/assistants/new', 'AssistantController@create')->name('assistants.new');
+    Route::get('/assistants/edit/{id}', 'AssistantController@edit')->name('assistants.edit');
+    Route::post('/assistants/save', 'AssistantController@store')->name('assistants.save');
+    Route::post('/assistants/update', 'AssistantController@update')->name('assistants.update');
+    Route::get('/assistant/{id}', 'AssistantController@show')->name('assistant');
+    Route::get('/assistant/delete/{id}', 'AssistantController@destroy')->name('assistant.remove');
+
     Route::get('/medical-appointment/{id}', 'MedicalAppointmentController@show')->name('medical_appointment');
     Route::get('/medical-appointments', 'MedicalAppointmentController@index')->name('medical_appointments');
     Route::post('/medical-appointments/save', 'MedicalAppointmentController@store')->name('medical_appointments.save');

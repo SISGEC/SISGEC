@@ -55,7 +55,7 @@ function doctor() {
     if($user->is_doctor()) {
         return $user;
     } else if($user->is_assistant()) {
-        // @TODO add this
+        return $user->assistant->doctor;
     }
     return (object) [];
 }

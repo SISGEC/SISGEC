@@ -37,6 +37,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Doctor');
     }
 
+    public function assistant() {
+        return $this->hasOne('App\Assistant');
+    }
+
     public function is_doctor() {
         return $this->role === "1";
     }
