@@ -175,6 +175,7 @@ return [
     'cancel' => 'Cancelar',
     'ok' => 'Si',
 
+    'change_password_info' => 'Esta opción cambia la contraseña del sistema. Para su seguridad recomendamos lo siguiente:',
     'settings' => 'Opciones',
     'security' => 'Seguridad',
     'system_label' => 'Sistema',
@@ -203,4 +204,5 @@ return [
     'unique_patients' => 'Pacientes Únicos',
     'appointments' => 'CItas',
     'processing' => 'Procesando',
+    'edit_appointment' => 'Editar Cita'
 ];

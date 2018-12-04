@@ -208,6 +208,7 @@ return [
     'unique_patients' => 'Unique Patients',
     'appointments' => 'Apointments',
     'processing' => 'Processing',
+    'edit_appointment' => 'Edit Appointment',
     
 
 
