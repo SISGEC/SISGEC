@@ -6,7 +6,7 @@
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.prescription") }} > <a href="{{ route("patient", ["id" => $prescription->initial_clinical_history->patient->id]) }}">{{ $prescription->initial_clinical_history->patient->full_name }}</a></h2>
             <div class="btn-group">
                 <a class="btn btn-success" href="{{ route("prescription.edit", $prescription->id) }}">{{ __("global.edit_prescription") }}</a>
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">{{ __("global.open_options") }}</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">

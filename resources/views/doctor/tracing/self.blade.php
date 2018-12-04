@@ -6,7 +6,7 @@
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.evolution_note") }} > <a href="{{ route("patient", ["id" => $patient->id]) }}">{{ $patient->name }}</a> > {{ $tracing->name }}</h2>
             <div class="btn-group">
                 <a class="btn btn-success" href="{{ route("evolution_note.edit", $tracing->id) }}">{{ __("global.edit_tracing") }}</a>
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">{{ __("global.open_options") }}</span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">

@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
-                                            <label for="user_title">{{ "person.title" }}</label>
+                                            <label for="user_title">{{ __("person.title") }}</label>
                                             <input type="text" class="form-control-plaintext" id="user_title" name="user[title]" value="{{ old("user.email", doctor()->title) }}" readonly>
                                         </div>
                                     </div>
