@@ -11,12 +11,12 @@
                 @php
                     $peers = isset($peers) && is_array($peers) ? $peers : [];
                 @endphp
-                @foreach ($peers as $peer)
+                {{--@foreach ($peers as $peer)
                     <div class="peer">
                         <span class="fsz-def fw-600 mR-10 c-{{ array_get($peer, "color", "gray") }}-800">{{ array_get($peer, "percent", "0%") }} <i class="fa {{ array_get($peer, "icon", "fa-minus") }} c-{{ array_get($peer, "color", "gray") }}-500"></i></span>
                         <small class="c-grey-500 fw-600">{{ array_get($peer, "title", "") }}</small>
                     </div>    
-                @endforeach
+                @endforeach--}}
             </div>
         </div>
     </div>

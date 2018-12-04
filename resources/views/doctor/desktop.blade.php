@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="masonry-item col-md-12">
+        <div class="masonry-item h348 col-md-12">
             @component('block.line-chart', [
                 'title' => __("global.monthly_statistics"),
                 'chart_id' => 'monthly_statistics',

@@ -50,12 +50,12 @@ export default (function () {
       
             options: {
               legend: {
-                display: false,
+                display: true,
+                position: "bottom"
               },
             },
       
           });
-          $('.monthly_statistics-percent').text(response.data.total);
           $(document).resize();
         }
     });
