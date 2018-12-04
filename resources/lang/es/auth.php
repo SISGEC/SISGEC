@@ -15,5 +15,5 @@ return [
 
     'failed' => 'Esta credencial no fue encontrada.',
     'throttle' => 'Demasiados intentos incorrectos. Por favor intentelo de nuevo en :seconds segundos.',
-
+    'forgot_your_password' => 'Do not you remember your password?'
 ];

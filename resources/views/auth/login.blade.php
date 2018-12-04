@@ -108,6 +108,11 @@
                 <button class="btn btn-primary">Login</button>
               </div>
             </div>
+            <div class="peers ai-c jc-sb fxw-nw mt-5">
+              <div class="peer text-center w-100">
+                <a class="btn btn-link" href="{{ url("/password/reset") }}">{{ __("auth.forgot_your_password") }}</a>
+              </div>
+            </div>
           </div>
         </form>
       </div>
