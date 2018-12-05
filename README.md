@@ -1,5 +1,6 @@
 # SISGEC (Sistema Gestor de Expedientes Clínicos)
 [![Build Status](https://travis-ci.org/SISGEC/SISGEC.svg?branch=master)](https://travis-ci.org/SISGEC/SISGEC)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSISGEC%2FSISGEC.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSISGEC%2FSISGEC?ref=badge_shield)
 
 Este proyecto aborda la problemática actual concerniente a la eficiencia y a la gestión de la información de los pacientes, que enfrentan los médicos en los consultorios médicos pequeños, de los encuadrados en el nivel uno de la atención médica en México.
 
@@ -72,3 +73,6 @@ Si descubre una vulnerabilidad de seguridad dentro de SISGEC, por favor envíe u
 
 ## Licencia
 SISGEC es un proyecto Open Source bajo la licencia [GNU General Public License v3.0](https://github.com/SISGEC/SISGEC/blob/master/LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSISGEC%2FSISGEC.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSISGEC%2FSISGEC?ref=badge_large)
