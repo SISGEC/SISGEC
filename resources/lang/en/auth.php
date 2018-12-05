@@ -20,4 +20,7 @@ return [
     'email_address' => 'Email Adress',
     'send_password_reset_link' => 'Send password reset link',
     'login' => 'Login',
+    'remember_me' => 'Remember me',
+    'email' => 'E-mail',
+    'password' => 'Password'
 ];

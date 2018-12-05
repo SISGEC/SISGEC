@@ -20,4 +20,7 @@ return [
     'email_address' => 'Dirección de correo electrónico',
     'send_password_reset_link' => 'Enviar enlace de reinicio de contraseña',
     'login' => 'Inicio de sesión',
+    'remember_me' => 'Recuérdame',
+    'email' => 'Correo Electrónico',
+    'password' => 'Contraseña'
 ];
