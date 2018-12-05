@@ -516,7 +516,7 @@
                     <div class="row mt-3 studies-list">
                         @forelse ($studies as $study)
                             <div class="col-12 col-sm-3 mb-3">
-                                <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}">
+                                <div class="bd bgc-white study study-{{ $study->id }} type-{{ str_slug($study->type) }}" data-tippy="{{$study->original_name}}" data-tippy-arrow="true">
                                     <img src="{{ $study->screenshot }}">
                                     <h3>{{ $study->original_name }}</h3>
                                     <p class="mb-0">{{ $study->type_name }}</p>
