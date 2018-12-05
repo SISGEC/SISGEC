@@ -41,8 +41,8 @@
                                 <input type="hidden" name="doctor_id" value="{{ doctor()->doctor_id }}">
                                 <div class="row">
                                     <div class="col-3 order-1 order-md-2 text-right">
-                                        <button type="button" class="btn btn-primary edit_block"><i class="fas fa-w fa-edit"></i></button>
-                                        <button type="submit" class="btn btn-success save_block d-none"><i class="fas fa-w fa-save"></i></button>
+                                        <button type="button" class="btn btn-primary edit_block" data-tippy="{{ __("global.edit_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-edit"></i></button>
+                                        <button type="submit" class="btn btn-success save_block d-none" data-tippy="{{ __("global.save_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-save"></i></button>
                                     </div>
                                     <div class="col-9">
                                         <h4 class="c-grey-900"><i class="fas fa-w fa-user"></i> {{ __("global.general_info") }}</h4>
@@ -100,8 +100,8 @@
                                     <input type="hidden" name="doctor_id" value="{{ doctor()->doctor_id }}">
                                     <div class="row">
                                         <div class="col-3 order-1 order-md-2 text-right">
-                                            <button type="button" class="btn btn-primary edit_block"><i class="fas fa-w fa-edit"></i></button>
-                                            <button type="submit" class="btn btn-success save_block d-none"><i class="fas fa-w fa-save"></i></button>
+                                            <button type="button" class="btn btn-primary edit_block" data-tippy="{{ __("global.edit_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-edit"></i></button>
+                                            <button type="submit" class="btn btn-success save_block d-none" data-tippy="{{ __("global.edit_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-save"></i></button>
                                         </div>
                                         <div class="col-9">
                                             <h4 class="c-grey-900"><i class="fas fa-w fa-user-md"></i> {{ __("global.medical_information") }}</h4>

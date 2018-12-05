@@ -236,4 +236,7 @@ return [
     'prescriptions_edit' => 'Edit Medical Prescription',
     'click_to_add_a_new_medical_appointment' => 'Add medical appointment',
     'delete_appointment' => 'Delete appointment',
+
+    'edit_settings' => 'Edit settings',
+    'save_settings' => 'Save settings'
 ];

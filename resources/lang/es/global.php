@@ -237,4 +237,7 @@ return [
     'prescriptions_edit' => 'Editar Prescripción Médica',
     'click_to_add_a_new_medical_appointment' => 'Añadir cita médica',
     'delete_appointment' => 'Eliminar cita',
+
+    'edit_settings' => 'Editar opciones',
+    'save_settings' => 'Guardar opciones'
 ];
