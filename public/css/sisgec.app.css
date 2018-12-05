@@ -78018,7 +78018,8 @@ table.dataTable.no-footer {
   min-height: 348px;
 }
 
-label > span {
+label > span,
+span.cred {
   color: #ff3e3e;
 }
 

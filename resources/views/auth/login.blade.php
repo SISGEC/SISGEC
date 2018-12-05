@@ -73,12 +73,12 @@
         </div>
       </div>
       <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
-        <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
+        <h4 class="fw-300 c-grey-900 mB-40">{{ __("auth.login") }}</h4>
         <form method="POST" action="{{ route('login') }}">
             @csrf
           <div class="form-group">
-            <label class="text-normal text-dark">Email</label>
-            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="John Doe" value="{{ old('email') }}" required autofocus>
+            <label class="text-normal text-dark">{{ __("auth.email") }}</label>
+            <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="example@example.com" value="{{ old('email') }}" required autofocus>
             @if ($errors->has('email'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -86,8 +86,8 @@
             @endif
           </div>
           <div class="form-group">
-            <label class="text-normal text-dark">Password</label>
-            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+            <label class="text-normal text-dark">{{ __("auth.password") }}</label>
+            <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __("auth.password") }}" required>
             @if ($errors->has('password'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('password') }}</strong>
@@ -97,15 +97,15 @@
           <div class="form-group">
             <div class="peers ai-c jc-sb fxw-nw">
               <div class="peer">
-                <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                <div class="checkbox checkbox-info peers ai-c">
                   <input type="checkbox" id="inputCall1" name="remember" {{ old('remember') ? 'checked' : '' }} class="peer">
                   <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
-                    <span class="peer peer-greed">Remember Me</span>
+                    <span class="peer peer-greed">{{ __("auth.remember_me") }}</span>
                   </label>
                 </div>
               </div>
               <div class="peer">
-                <button class="btn btn-primary">Login</button>
+                <button class="btn btn-primary">{{ __("auth.login") }}</button>
               </div>
             </div>
             <div class="peers ai-c jc-sb fxw-nw mt-5">

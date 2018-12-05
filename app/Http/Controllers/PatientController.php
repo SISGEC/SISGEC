@@ -45,7 +45,7 @@ class PatientController extends Controller
             'patient.lastname' => 'required',
             'patient.sex' => 'required',
         ]);
-
+    
         $patient = $this->create_new("App\Patient", "patient");
         $anamnesis = $this->create_new("App\Anamnesis", "inherit_family");
         $non_pathological = $this->create_new("App\NonPathological", "non_pathological");
@@ -126,8 +126,8 @@ class PatientController extends Controller
     {
         if($request->has("id")) {
             $patient = Patient::find($request->input("id"));
+            
             $patient->update( $this->set_defaults($request->input("patient"), Patient::get_defaults()) );
-
             if($request->has("measure")) {
                 $patient->measures()->update(
                     $this->set_defaults($request->input("measure"), \App\Measure::get_defaults())

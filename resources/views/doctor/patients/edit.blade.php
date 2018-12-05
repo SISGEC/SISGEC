@@ -33,11 +33,11 @@
                                             <label for="birthdate">{{ __("person.sex") }} <span>*</span></label>
                                             <div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexm" {{ old("patient.sex", $patient->sex) === 1 ? "" : "checked" }} value="0">
+                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexm" {{ old("patient.sex", $patient->sex) == 1 ? "" : "checked" }} value="0">
                                                     <label class="form-check-label" for="sexm">{{ __("global.man") }}</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexw" {{ old("patient.sex", $patient->sex) === 1 ? "checked" : "" }} value="1">
+                                                    <input class="form-check-input sex" type="radio" name="patient[sex]" id="sexw" {{ old("patient.sex", $patient->sex) == 1 ? "checked" : "" }} value="1">
                                                     <label class="form-check-label" for="sexw">{{ __("global.woman") }}</label>
                                                 </div>
                                             </div>

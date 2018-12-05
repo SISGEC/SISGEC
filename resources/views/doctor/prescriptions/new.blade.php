@@ -14,7 +14,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h4 class="c-grey-900">1. {{ __("global.general_info") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.general_info") }}</h4>
                     <div class="mT-30">
                         <div class="row">
                             <div class="col-6">
@@ -36,9 +36,9 @@
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
-                                            <label for="date">{{ __("Date") }}</label>
+                                            <label for="date">{{ __("Date") }} <span>*</span></label>
                                             <div class="input-group">
-                                                <input type="text" data-provide="datepicker" class="form-control" id="date" name="date" placeholder="dd/mm/yyyy" value="{{ old("date", date("d/m/Y")) }}" />
+                                                <input type="text" data-provide="datepicker" class="form-control" id="date" name="date" placeholder="dd/mm/yyyy" value="{{ old("date", date("d/m/Y")) }}" required />
                                             </div>
                                         </div>
                                     </div>
@@ -89,12 +89,12 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd">
-                    <h4 class="c-grey-900">2. {{ __("global.content") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.content") }} <span class="cred">*</span></h4>
                     <div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" name="prescription" id="prescription" cols="30" rows="10">{{ old("prescription", "") }}</textarea>
+                                    <textarea class="form-control" name="prescription" id="prescription" cols="30" rows="10" required>{{ old("prescription", "") }}</textarea>
                                 </div>
                             </div>
                         </div>

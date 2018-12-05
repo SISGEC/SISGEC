@@ -52,7 +52,7 @@
                     <div class="profile-list-info">
                         <ul>
                             <li>
-                                <strong>{{ __("person.sex") }}:</strong> {{ $patient->sex === 1 ? __("global.women") : __("global.man") }}
+                                <strong>{{ __("person.sex") }}:</strong> {{ $patient->sex == 1 ? __("global.woman") : __("global.man") }}
                             </li>
                             <li>
                                 <strong>{{ __("person.age") }}:</strong> {{ $patient->age . " " . __("person.years") }}
