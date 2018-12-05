@@ -239,5 +239,7 @@ return [
     'delete_appointment' => 'Eliminar cita',
 
     'edit_settings' => 'Editar opciones',
-    'save_settings' => 'Guardar opciones'
+    'save_settings' => 'Guardar opciones',
+
+    'options_saved_correctly' => 'Cambios guardados correctamente'
 ];

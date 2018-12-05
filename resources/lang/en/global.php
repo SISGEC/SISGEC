@@ -238,5 +238,7 @@ return [
     'delete_appointment' => 'Delete appointment',
 
     'edit_settings' => 'Edit settings',
-    'save_settings' => 'Save settings'
+    'save_settings' => 'Save settings',
+
+    'options_saved_correctly' => 'Options saved correctly'
 ];
