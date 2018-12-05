@@ -6,6 +6,7 @@ use App\User;
 use App\Doctor;
 use App\Assistant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AssistantController extends Controller
 {
@@ -147,8 +148,30 @@ class AssistantController extends Controller
             if($request->has("user.title")) {
                 $assistant->user->title = $request->input("user.title");
             }
+            if($request->has("password")) {
+                $request->validate([
+                    'password.new' => 'required|min:6|',
+                    'password.confirm' => 'required|same:password.new',
+                ]);
+                $assistant->user->password = bcrypt($request->input("password.new"));
+            }
             $assistant->user->save();
 
+            if($request->has("password")) {
+                Auth::logout();
+                return redirect()->route("login");
+            }
+
+            if(auth()->user()->is_assistant()) {
+                /**
+                 * @todo add successful message
+                 */
+                return redirect()->back();
+            }
+
+            /**
+             * @todo add successful message
+             */
             return redirect()->route("assistant", ["id" => $assistant->id]);
         }
 

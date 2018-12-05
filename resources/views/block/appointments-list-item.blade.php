@@ -13,12 +13,12 @@
     </a>
     <div class="peers mR-15">
         <div class="peer">
-            <a href="javascript:" data-appointment_id="{{ $appointment->id === 1 ? "1" : $appointment->id }}" class="appointment_edit_button td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+            <a href="javascript:" data-tippy="{{ __("global.edit_appointment") }}" data-tippy-arrow="true" data-tippy-placement="right" data-appointment_id="{{ $appointment->id === 1 ? "1" : $appointment->id }}" class="appointment_edit_button td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
                 <i class="ti-pencil"></i>
             </a>
         </div>
         <div class="peer">
-            <a href="{{ route("medical_appointments.remove", ["id" => $appointment->id]) }}" class="td-n c-red-500 cH-blue-500 fsz-md p-5 remove_this">
+            <a href="{{ route("medical_appointments.remove", ["id" => $appointment->id]) }}" data-tippy="{{ __("global.delete_appointment") }}" data-tippy-arrow="true" data-tippy-placement="right" class="td-n c-red-500 cH-blue-500 fsz-md p-5 remove_this">
                 <i class="ti-trash"></i>
             </a>
         </div>

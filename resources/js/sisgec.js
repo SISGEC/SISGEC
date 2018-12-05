@@ -4,6 +4,8 @@ import IMask from 'imask'
 import 'devbridge-autocomplete';
 import './appointment_edit';
 import swal from 'sweetalert';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 
 Dropzone.autoDiscover = false;
 
@@ -277,4 +279,8 @@ $(document).ready(function() {
             location.hash = '#'+$(e.target).attr('href').substr(1);
        }
     });
+
+    if($("a[title]").length > 0) {
+        tippy('a[title]');
+    }
 });

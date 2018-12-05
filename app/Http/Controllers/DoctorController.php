@@ -130,6 +130,7 @@ class DoctorController extends Controller
     }
 
     public function settings(Request $request) {
-        return view("doctor.settings.index");
+        $role = auth()->user()->get_role();
+        return view("$role.settings.index");
     }
 }

@@ -13,7 +13,7 @@
                         <h3 class="c-white">{{ __($now->format('l')) }}</h3>
                       </div>
                       <div class="pos-r">
-                        <button type="button" data-toggle="modal" data-target="#calendar-edit" class="mT-nv-50 pos-a r-10 t-2 btn cur-p bdrs-50p p-0 w-3r h-3r btn-warning">
+                        <button type="button" data-tippy="{{ __("global.click_to_add_a_new_medical_appointment") }}" data-tippy-arrow="true" data-toggle="modal" data-target="#calendar-edit" class="mT-nv-50 pos-a r-10 t-2 btn cur-p bdrs-50p p-0 w-3r h-3r btn-warning">
                           <i class="ti-plus"></i>
                         </button>
                         <ul class="m-0 p-0 mT-20 appointments-list">
