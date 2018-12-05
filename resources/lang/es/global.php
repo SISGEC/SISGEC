@@ -219,4 +219,18 @@ return [
     'see_assistant' => 'Ver Asistente',
     'edit_assistant' => 'Editar Asistente',
     'remove_assistant' => 'Remover Asistente',
+
+    'edit_evolution_note' => 'Editar Nota de Evolución ',
+
+    'example_place_of_birth' => 'Nombre de la ciudad o pueblo',
+    'example_place_of_residence' => 'Nombre de la ciudad o pueblo',
+    'select_an_option' => 'Seleccione una opción de la lista',
+    'example_religion' => 'p. ej. Católico',
+    'drop_files_here_or_click_to_upload' => 'Arrastre sus archivos aqui o haga clic aqui para subir un nuevo archivo',
+    'example_occupation' => 'p. ej. Pescador',
+    'example_referred_by' => 'Medico, amigo, familia or publicidad',
+    'example_email' => 'Ejemplo@ejemplo.com',
+    'example_event_title' => 'p. ej. Cita del Sr. Juan Márquez',
+    'scheduler' => 'Hora de la cita',
+    'example_event_description' => 'p. ej. Revisión médica de rutina con el Sr. Márquez',
 ];

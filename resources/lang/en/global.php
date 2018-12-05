@@ -226,9 +226,12 @@ return [
     'select_an_option' => 'Select an option',
     'example_religion' => 'E.g. Christian',
     'drop_files_here_or_click_to_upload' => 'Drop files here or click to upload',
-    'example_occupation' => 'E.g. fisherman',
+    'example_occupation' => 'E.g. Fisherman',
     'example_referred_by' => 'Medic, friend, family or publicity',
     'example_email' => 'Example@example.com',
+    'example_event_title' => 'E.g. Mr. John Shepard',
+    'scheduler' => 'Appointment Schedule',
+    'example_event_description' => 'E.g. Medical appointment with Shepard',
 
 
 ];
