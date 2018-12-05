@@ -233,5 +233,5 @@ return [
     'scheduler' => 'Appointment Schedule',
     'example_event_description' => 'E.g. Medical appointment with Shepard',
 
-
+    'prescriptions_edit' => 'Edit Medical Prescription'
 ];
