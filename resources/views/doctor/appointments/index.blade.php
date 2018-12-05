@@ -9,8 +9,8 @@
                   <div class="col-md-4">
                     <div class="bdrs-3 ov-h bgc-white bd">
                       <div class="bgc-deep-purple-500 ta-c p-30">
-                        <h1 class="fw-300 mB-5 lh-1 c-white">{{ $now->format('d') }}<span class="fsz-def">{{ $now->format('S') }}</span></h1>
-                        <h3 class="c-white">{{ $now->format('l') }}</h3>
+                        <h1 class="fw-300 mB-5 lh-1 c-white">{{ $now->format('d') }}{{--<span class="fsz-def">{{ $now->format('S') }}</span>--}}</h1>
+                        <h3 class="c-white">{{ __($now->format('l')) }}</h3>
                       </div>
                       <div class="pos-r">
                         <button type="button" data-toggle="modal" data-target="#calendar-edit" class="mT-nv-50 pos-a r-10 t-2 btn cur-p bdrs-50p p-0 w-3r h-3r btn-warning">
@@ -35,7 +35,7 @@
                     <div id='full-calendar'></div>
                   </div>
                 </div>
-                <div class="modal fade" id="calendar-edit">
+                <div class="modal new-appointment fade" id="calendar-edit">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -65,17 +65,17 @@
                                     <div class="form-group">
                                       <label for="nchour" class="fw-500">{{ __("global.scheduler") }}</label>
                                       <div class="input-group">
-                                        <select class="form-control custom-select" name="hour">
+                                        <select class="form-control custom-select nchour" id="nchour" name="hour">
                                             @for ($i = 1; $i <= 12; $i++)
                                                 <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
                                             @endfor
                                           </select>
-                                          <select class="form-control custom-select" name="minutes">
+                                          <select class="form-control custom-select ncminutes" id="ncminutes" name="minutes">
                                             @for ($i = 0; $i < 60; $i+=30)
                                                 <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
                                             @endfor
                                           </select>
-                                          <select class="form-control custom-select" name="a">
+                                          <select class="form-control custom-select nca" id="nca" name="a">
                                               <option value="am">A.M</option>
                                               <option value="pm">P.M</option>
                                           </select>

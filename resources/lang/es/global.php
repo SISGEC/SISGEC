@@ -229,7 +229,7 @@ return [
     'drop_files_here_or_click_to_upload' => 'Arrastre sus archivos aqui o haga clic aqui para subir un nuevo archivo',
     'example_occupation' => 'p. ej. Pescador',
     'example_referred_by' => 'Medico, amigo, familia, publicidad, etc.',
-    'example_email' => 'Ejemplo@ejemplo.com',
+    'example_email' => 'ejemplo@ejemplo.com',
     'example_event_title' => 'p. ej. Cita del Sr. Juan Márquez',
     'scheduler' => 'Hora de la cita',
     'example_event_description' => 'p. ej. Revisión médica de rutina con el Sr. Márquez',

@@ -21,7 +21,7 @@ class AssistantController extends Controller
                 $query->where([
                     ["id", "=", doctor()->doctor_id]
                 ]);
-            })->orderBy('created_at', 'asc')->get();
+            })->orderBy('created_at', 'desc')->get();
 
             return view("doctor.assistants.index", [
                 "assistants" => $assistants

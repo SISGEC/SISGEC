@@ -3,5 +3,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/sisgec.app.css": "/css/sisgec.app.css",
-    "/css/pdf.css": "/css/pdf.css"
+    "/css/pdf.css": "/css/pdf.css",
+    "/js/full-calendar/locale.js": "/js/full-calendar/locale.js"
 }
