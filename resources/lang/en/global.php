@@ -174,7 +174,7 @@ return [
     'description' => 'Description',
     'save' => 'Save',
     'not_appointments_today' => 'There are no registered medical appointments for today.',
-    'add_one'=> 'Add One',
+    'add_one'=> 'Add',
 
     'change_password_info' => 'This option allows you to change the password with which you enter the system. For your safety we recommend the following:',
     'cancel' => 'Cancel',
@@ -209,5 +209,14 @@ return [
     'appointments' => 'Apointments',
     'processing' => 'Processing',
     'edit_appointment' => 'Edit Appointment',
-    'records' => 'Records'
+    'records' => 'Records',
+
+    'assistants' => 'Assistants',
+    'new_assistants' => 'New Assistants',
+    'new_assistant' => 'New Assistant',
+    'save_assistant' => 'Save Assistant',
+    'see_assistant' => 'See Assistant',
+    'edit_assistant' => 'Edit Assistant',
+    'remove_assistant' => 'Remove Assistant',
+
 ];

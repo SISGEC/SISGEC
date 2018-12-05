@@ -9,5 +9,7 @@ return [
     "remove_patient_not_exist" => "The patient who wants to eliminate does not exist.",
 
     "sorry" => "We are sorry",
-    "an_error_has_occurred" => "An unknown error has occurred and your request could not be processed, please try again later."
+    "an_error_has_occurred" => "An unknown error has occurred and your request could not be processed, please try again later.",
+
+    'no_assistant' => 'No Assistants'
 ];

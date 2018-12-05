@@ -25,5 +25,6 @@ return [
         '<b>Do not</b> use the same password that you use for other services.',
         '<b>Do not</b> use birthdays, your first or last name, address, pet\'s name or family member\'s name.',
         '<b>Do not</b> save your password on third-party computers.'
+
     ]
 ];

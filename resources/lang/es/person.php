@@ -6,7 +6,7 @@ return [
     'lastname' => 'Apellido(s)',
     'birthdate' => 'Fecha de Nacimiento',
     'years' => 'Años',
-    'nickname' => 'Apodo',
+    'nickname' => 'Seudónimo',
     'scholarship' => 'Escolaridad',
     'occupation' => 'Ocupación',
     'religion' => 'Religión',
@@ -27,4 +27,5 @@ return [
     'title' => 'Título',
     'university' => 'Universidad',
     'specialty' => 'Especialidad',
+    'password' => 'Contraseña',
 ];

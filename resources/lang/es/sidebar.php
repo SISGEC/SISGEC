@@ -1,10 +1,11 @@
 <?php
 
 return [
-    'dashboard' => 'Tablero',
+    'dashboard' => 'Inicio',
     'patients' => 'Pacientes',
     'medical-appointments' => 'Citas Médicas',
     'all' => 'Todos',
     'new' => 'Nuevo',
-    'new_prescription' => 'Nueva Prescripción Médica'
+    'new_prescription' => 'Nueva Prescripción Médica',
+    'assistants' => 'Asistente'
 ];
