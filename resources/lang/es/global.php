@@ -240,5 +240,7 @@ return [
 
     'edit_settings' => 'Editar opciones',
     'save_settings' => 'Guardar opciones',
-    'cancel_edit' => 'Cancelar edición'
+    'cancel_edit' => 'Cancelar edición',
+
+    'options_saved_correctly' => 'Cambios guardados correctamente'
 ];
