@@ -219,4 +219,16 @@ return [
     'edit_assistant' => 'Edit Assistant',
     'remove_assistant' => 'Remove Assistant',
 
+    'edit_evolution_note' => 'Edit Evolution Note',
+
+    'example_place_of_birth' => 'City or town name',
+    'example_place_of_residence' => 'City or town name',
+    'select_an_option' => 'Select an option',
+    'example_religion' => 'E.g. Christian',
+    'drop_files_here_or_click_to_upload' => 'Drop files here or click to upload',
+    'example_occupation' => 'E.g. fisherman',
+    'example_referred_by' => 'Medic, friend, family or publicity',
+    'example_email' => 'Example@example.com',
+
+
 ];
