@@ -1,3 +1,9 @@
+@php
+    $notify = [];
+    if(\Session::has("notify")) {
+        $notify = \Session::get("notify");
+    }
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -18,6 +24,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script>
+        var Notifications = '{!! json_encode($notify) !!}';
+    </script>
 </head>
 <body>
     <div id="app">

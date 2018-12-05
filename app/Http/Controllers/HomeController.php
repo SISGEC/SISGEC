@@ -46,10 +46,13 @@ class HomeController extends Controller
             }
         }
 
-        /**
-         * @TODO Add return message
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.options_saved_correctly")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     public function saveSettingOrCreateNewIfNotExist($key, $value) {

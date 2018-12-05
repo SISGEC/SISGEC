@@ -1,3 +1,9 @@
+@php
+    $notify = [];
+    if(\Session::has("notify")) {
+        $notify = \Session::get("notify");
+    }
+@endphp
 <!DOCTYPE html>
 <html>
     <head>
@@ -67,8 +73,11 @@
                 'ok': "{{ __('global.ok') }}",
                 'processing': "{{ __('global.processing') }}",
                 'sorry': "{{ __('error.sorry') }}",
-                'an_error_has_occurred': "{{ __('error.an_error_has_occurred') }}"
+                'an_error_has_occurred': "{{ __('error.an_error_has_occurred') }}",
+                'edit_settings': "{{ __('global.edit_settings') }}",
+                'cancel_edit': "{{ __('global.cancel_edit') }}"
             };
+            var Notifications = '{!! json_encode($notify) !!}';
         </script>
     </head>
     <body class="app">

@@ -6,6 +6,7 @@ import './appointment_edit';
 import swal from 'sweetalert';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+import 'notifyjs-browser';
 
 Dropzone.autoDiscover = false;
 
@@ -36,6 +37,17 @@ function readURL(input, img_tag, label_tag) {
 }
 
 $(document).ready(function() {
+    $.notify.defaults({ position: "top right" });
+    
+    if(typeof Notifications !== "undefined") {
+        Notifications = JSON.parse(Notifications);
+        if(Notifications.length > 0) {
+            $.each(Notifications, function(i, notify) {
+                $.notify(notify.message, notify.type);
+            });
+        }
+    }
+
     if($('input.sex').length > 0) {
         $('input.sex').on("change", function() {
             $(".hide-if-sex-is-male").toggle();
@@ -237,11 +249,13 @@ $(document).ready(function() {
                 block.removeClass("editing");
                 block.find(".save_block").addClass("d-none");
                 $(this).addClass("btn-primary").removeClass("btn-danger").find("i").addClass("fa-edit").removeClass("fa-times");
+                this._tippy.setContent(I18N.edit_settings);
                 block.find(".form-control").addClass("form-control-plaintext").removeClass("form-control").attr("readonly", "readonly");
             } else {
                 block.addClass("editing");
                 block.find(".save_block").removeClass("d-none");
                 $(this).addClass("btn-danger").removeClass("btn-primary").find("i").addClass("fa-times").removeClass("fa-edit");
+                this._tippy.setContent(I18N.cancel_edit);
                 block.find(".form-control-plaintext").addClass("form-control").removeClass("form-control-plaintext").removeAttr("readonly");
             }
         });

@@ -38,7 +38,7 @@ class PrescriptionController extends Controller
         }
         $patients = Patient::all();
         return view("doctor.select_patient", ["patients" => $patients, "route" => "prescription.new"]);
-    }//este texto es inutil
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +66,14 @@ class PrescriptionController extends Controller
 
         $patient->initial_clinical_history->prescriptions()->save($prescription);
 
-        return redirect()->route("prescription", ["id" => $prescription->id]);
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.prescription_created_successfully")
+            ]
+        ];
+
+        return redirect()->route("prescription", ["id" => $prescription->id])->with("notify", $notify);
     }
 
     /**
@@ -115,13 +122,24 @@ class PrescriptionController extends Controller
 
             $prescription->save();
 
-            return redirect()->route("prescription", ["id" => $prescription->id]);
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.the_prescription_has_been_updated_correctly")
+                ]
+            ];
+
+            return redirect()->route("prescription", ["id" => $prescription->id])->with("notify", $notify);
         }
 
-        /**
-         * @TODO Add error message
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_prescription_does_not_exist")
+            ]
+        ];
+
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -137,9 +155,23 @@ class PrescriptionController extends Controller
             $prescription_folio = $prescription->folio;
             $patient = $prescription->initial_clinical_history->patient->id;
             $prescription->delete();
-            return redirect()->route('patient', ["id" => $patient])->with('success', __("remove_patient_done", ["prescription_folio" => $prescription_folio]) );
+
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.the_prescription_has_been_removed_correctly")
+                ]
+            ];
+            return redirect()->route('patient', ["id" => $patient])->with("notify", $notify);
         }
-        return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_prescription_does_not_exist")
+            ]
+        ];
+
+        return redirect()->back()->with("notify", $notify);
     }
 
     public function download(Request $request, $id) {

@@ -238,5 +238,31 @@ return [
     'delete_appointment' => 'Delete appointment',
 
     'edit_settings' => 'Edit settings',
-    'save_settings' => 'Save settings'
+    'save_settings' => 'Save settings',
+    'cancel_edit' => 'Cancel edit',
+
+    'your_password_has_been_changed_correctly_please_sign_in_again' => 'Your password has been changed correctly. Please sign in again.',
+    'options_saved_correctly' => 'Options saved correctly.',
+    'an_error_occurred_while_saving' => 'An error occurred while saving.',
+    'assistant_created_successfully' => 'Assistant created successfully.',
+    'sorry_the_selected_assistant_does_not_exist' => 'Sorry the selected assistant does not exist.',
+    'your_information_has_been_changed_correctly' => 'Your information has been changed correctly.',
+    'the_assistant_information_has_been_edited_correctly' => 'The assistant information has been edited correctly.',
+    'assistant_deleted_successfully' => 'Assistant deleted successfully.',
+    'appointment_scheduled_correctly' => 'Appointment scheduled correctly.',
+    'appointment_updated_correctly' => 'Appointment updated correctly.',
+    'the_selected_appointment_does_not_exist' => 'The selected appointment does not exist.',
+    'appointment_deleted_correctly' => 'Appointment deleted correctly.',
+    'patient_created_correctly' => 'Patient created correctly.',
+    'the_patients_history_has_been_updated_correctly' => 'The patients history has been updated correctly.',
+    'the_selected_patient_does_not_exist' => 'The selected patient does not exist.',
+    'remove_patient_done' => 'The patient has been removed correctly.',
+    'prescription_created_successfully' => 'Prescription created successfully.',
+    'the_prescription_has_been_updated_correctly' => 'The prescription has been updated correctly.',
+    'the_selected_prescription_does_not_exist' => 'The selected prescription does not exist.',
+    'the_prescription_has_been_removed_correctly' => 'The prescription has been removed correctly.',
+    'the_tracing_has_been_updated_correctly' => 'The tracing has been updated correctly.',
+    'the_selected_tracing_does_not_exist' => 'The selected tracing does not exist.',
+    'the_tracing_has_been_updated_successfully' => 'The tracing has been updated successfully.',
+    'tracing_has_been_removed_successfully' => 'Tracing has been removed successfully.'
 ];

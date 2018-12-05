@@ -103,19 +103,31 @@ class DoctorController extends Controller
 
             if($request->has("password")) {
                 Auth::logout();
-                return redirect()->route("login");
+                $notify = [
+                    [
+                        "type" => "success",
+                        "message" => __("global.your_password_has_been_changed_correctly_please_sign_in_again")
+                    ]
+                ];
+                return redirect()->route("login")->with("notify", $notify);
             }
 
-            /**
-             * @TODO Add successfull message here
-             */
-            return redirect()->back();
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.options_saved_correctly")
+                ]
+            ];
+            return redirect()->back()->with("notify", $notify);
         }
 
-        /**
-         * @TODO add error message here
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.an_error_occurred_while_saving")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**

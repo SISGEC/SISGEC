@@ -71,7 +71,14 @@ class MedicalAppointmentController extends Controller
         $appointment->date = Carbon::createFromFormat('d/m/Y h:i a', $date);
         $appointment->description = $request->input("description", "");
         doctor()->medical_appointments()->save($appointment);
-        return redirect()->back();
+
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.appointment_scheduled_correctly")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -136,17 +143,23 @@ class MedicalAppointmentController extends Controller
                 $appointment->description = $request->input("description", $appointment->description);
                 $appointment->save();
 
-                /**
-                 * @TODO add successfull message
-                 */
-                return redirect()->back();
+                $notify = [
+                    [
+                        "type" => "success",
+                        "message" => __("global.appointment_updated_correctly")
+                    ]
+                ];
+                return redirect()->back()->with("notify", $notify);
             }
         }
 
-        /**
-         * @TODO Add error message
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_appointment_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -161,13 +174,22 @@ class MedicalAppointmentController extends Controller
         if(!is_null($appointment)) {
             $appointment->delete();
 
-            return redirect()->back();
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.appointment_deleted_correctly")
+                ]
+            ];
+            return redirect()->back()->with("notify", $notify);
         }
 
-        /**
-         * @TODO Add error message
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_appointment_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     private function get_lapse($lapse) {

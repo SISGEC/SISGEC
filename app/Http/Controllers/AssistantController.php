@@ -74,10 +74,13 @@ class AssistantController extends Controller
         $assistant->user_id = $user->id;
         $doctor->assistants()->save($assistant);
         
-        /**
-         * @TODO add successfull message here
-         */
-        return redirect()->route("assistants");
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.assistant_created_successfully")
+            ]
+        ];
+        return redirect()->route("assistants")->with("notify", $notify);
     }
 
     /**
@@ -95,10 +98,13 @@ class AssistantController extends Controller
             ]);
         }
 
-        /**
-         * @TODO add error message here
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.sorry_the_selected_assistant_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -116,10 +122,13 @@ class AssistantController extends Controller
             ]);
         }
 
-        /**
-         * @TODO add error message here
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.sorry_the_selected_assistant_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -159,26 +168,41 @@ class AssistantController extends Controller
 
             if($request->has("password")) {
                 Auth::logout();
-                return redirect()->route("login");
+                $notify = [
+                    [
+                        "type" => "success",
+                        "message" => __("global.your_password_has_been_changed_correctly_please_sign_in_again")
+                    ]
+                ];
+                return redirect()->route("login")->with("notify", $notify);
             }
 
             if(auth()->user()->is_assistant()) {
-                /**
-                 * @todo add successful message
-                 */
-                return redirect()->back();
+                $notify = [
+                    [
+                        "type" => "success",
+                        "message" => __("global.your_information_has_been_changed_correctly")
+                    ]
+                ];
+                return redirect()->back()->with("notify", $notify);
             }
 
-            /**
-             * @todo add successful message
-             */
-            return redirect()->route("assistant", ["id" => $assistant->id]);
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.the_assistant_information_has_been_edited_correctly")
+                ]
+            ];
+            return redirect()->route("assistant", ["id" => $assistant->id])->with("notify", $notify);
         }
 
-        /**
-         * @TODO add error message here
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.sorry_the_selected_assistant_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify)->withInput();
     }
 
     /**
@@ -193,15 +217,21 @@ class AssistantController extends Controller
         if(!is_null($assistant)) {
             $assistant->delete();
 
-            /**
-             * @todo add successfull message here
-             */
-            return redirect()->route("assistants");
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.assistant_deleted_successfully")
+                ]
+            ];
+            return redirect()->route("assistants")->with("notify", $notify);
         }
 
-        /**
-         * @todo add error message here
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.sorry_the_selected_assistant_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 }

@@ -565,9 +565,9 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id === 1 ? "1" : $patient->id }}">
+                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id == 1 ? "1" : $patient->id }}">
                             <div class="dz-message needsclick">    
-                                Drop files here or click to upload.
+                                {{ __("global.drop_files_here_or_click_to_upload") }}
                             </div>
                             <div class="fallback">
                                 <input name="file" type="file" multiple />

@@ -1,3 +1,9 @@
+@php
+    $notify = [];
+    if(\Session::has("notify")) {
+        $notify = \Session::get("notify");
+    }
+@endphp
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,6 +56,10 @@
         }
       }
     </style>
+
+    <script>
+        var Notifications = '{!! json_encode($notify) !!}';
+    </script>
   </head>
   <body class="app">
     <div id='loader'>

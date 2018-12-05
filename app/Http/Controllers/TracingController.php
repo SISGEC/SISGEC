@@ -67,12 +67,23 @@ class TracingController extends Controller
 
             $patient->save();
 
-            return redirect()->route("evolution_note", ["id" => $tracing->id]);
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.the_tracing_has_been_updated_correctly")
+                ]
+            ];
+
+            return redirect()->route("evolution_note", ["id" => $tracing->id])->with("notify", $notify);
         }
-        /**
-         * @TODO Add error message
-         */
-        return redirect()->back();
+        
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_tracing_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -88,10 +99,13 @@ class TracingController extends Controller
             $patient = $tracing->initial_clinical_history->patient;
             return view("doctor.tracing.self", ["patient" => $patient, "tracing" => $tracing]);
         }
-        /**
-         * @TODO Add error message
-         */
-        return response()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_tracing_does_not_exist")
+            ]
+        ];
+        return response()->back()->with("notify", $notify);
     }
 
     /**
@@ -107,10 +121,13 @@ class TracingController extends Controller
             $patient = $tracing->initial_clinical_history->patient;
             return view("doctor.tracing.edit", ["patient" => $patient, "tracing" => $tracing]);
         }
-        /**
-         * @TODO Add error message
-         */
-        return response()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_tracing_does_not_exist")
+            ]
+        ];
+        return response()->back()->with("notify", $notify);
     }
 
     /**
@@ -151,13 +168,23 @@ class TracingController extends Controller
                 );
             }
 
-            return redirect()->route("evolution_note", ["id" => $tracing->id]);
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.the_tracing_has_been_updated_successfully")
+                ]
+            ];
+
+            return redirect()->route("evolution_note", ["id" => $tracing->id])->with("notify", $notify);
         }
 
-        /**
-         * @TODO Add error message
-         */
-        return redirect()->back();
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_tracing_does_not_exist")
+            ]
+        ];
+        return response()->back()->with("notify", $notify);
     }
 
     /**
@@ -173,9 +200,21 @@ class TracingController extends Controller
             $tracing_name = $tracing->folio;
             $patient = $tracing->initial_clinical_history->patient->id;
             $tracing->delete();
-            return redirect()->route('patient', ["id" => $patient])->with('success', __("remove_tracing_done", ["tracing_name" => $tracing_name]) );
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.tracing_has_been_removed_successfully")
+                ]
+            ];
+            return redirect()->route('patient', ["id" => $patient])->with("notify", $notify);
         }
-        return redirect()->route('patient', ["id" => $patient])->withErrors(['error', __("error.remove_tracing_not_exist")]);
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_tracing_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     public function download(Request $request, $id) {

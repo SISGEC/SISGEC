@@ -84,7 +84,14 @@ class PatientController extends Controller
 
         $patient->save();
 
-        return redirect()->route('patient', ['id' => $patient->id]);
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.patient_created_correctly")
+            ]
+        ];
+
+        return redirect()->route('patient', ['id' => $patient->id])->with("notify", $notify);
     }
 
     /**
@@ -127,77 +134,91 @@ class PatientController extends Controller
         if($request->has("id")) {
             $patient = Patient::find($request->input("id"));
             
-            $patient->update( $this->set_defaults($request->input("patient"), Patient::get_defaults()) );
-            if($request->has("measure")) {
-                $patient->measures()->update(
-                    $this->set_defaults($request->input("measure"), \App\Measure::get_defaults())
-                );
-            }
+            if(!is_null($patient)) {
+                $patient->update( $this->set_defaults($request->input("patient"), Patient::get_defaults()) );
+                if($request->has("measure")) {
+                    $patient->measures()->update(
+                        $this->set_defaults($request->input("measure"), \App\Measure::get_defaults())
+                    );
+                }
 
-            if($request->has("initial_clinical_history")) {
-                $patient->initial_clinical_history()->update(
-                    $this->set_defaults($request->input("initial_clinical_history"), \App\InitialClinicalHistory::get_defaults())
-                );
-            }
+                if($request->has("initial_clinical_history")) {
+                    $patient->initial_clinical_history()->update(
+                        $this->set_defaults($request->input("initial_clinical_history"), \App\InitialClinicalHistory::get_defaults())
+                    );
+                }
 
-            if($request->has("inherit_family")) {
-                $patient->initial_clinical_history->anamnesis()->update([
-                    'inherit_family' => $request->input("inherit_family", \App\Anamnesis::get_defaults()["inherit_family"])
-                ]);
-            }
+                if($request->has("inherit_family")) {
+                    $patient->initial_clinical_history->anamnesis()->update([
+                        'inherit_family' => $request->input("inherit_family", \App\Anamnesis::get_defaults()["inherit_family"])
+                    ]);
+                }
 
-            if($request->has("non_pathological")) {
-                $patient->initial_clinical_history->anamnesis->non_pathological()->update(
-                    $this->set_defaults($request->input("non_pathological"), \App\NonPathological::get_defaults())
-                );
-            }
+                if($request->has("non_pathological")) {
+                    $patient->initial_clinical_history->anamnesis->non_pathological()->update(
+                        $this->set_defaults($request->input("non_pathological"), \App\NonPathological::get_defaults())
+                    );
+                }
 
-            if($request->has("pathological")) {
-                $patient->initial_clinical_history->anamnesis->pathological_personal()->update(
-                    $this->set_defaults($request->input("pathological"), \App\PathologicalPersonal::get_defaults())
-                );
-            }
+                if($request->has("pathological")) {
+                    $patient->initial_clinical_history->anamnesis->pathological_personal()->update(
+                        $this->set_defaults($request->input("pathological"), \App\PathologicalPersonal::get_defaults())
+                    );
+                }
 
-            if($request->has("gyneco_obstetrics")) {
-                $patient->initial_clinical_history->anamnesis->gynecological_obstetric_history()->update(
-                    $this->set_defaults($request->input("gyneco_obstetrics"), \App\GynecologicalObstetricHistory::get_defaults())
-                );
-            }
+                if($request->has("gyneco_obstetrics")) {
+                    $patient->initial_clinical_history->anamnesis->gynecological_obstetric_history()->update(
+                        $this->set_defaults($request->input("gyneco_obstetrics"), \App\GynecologicalObstetricHistory::get_defaults())
+                    );
+                }
 
-            if($request->has("physical_exploration")) {
-                $patient->initial_clinical_history->physical_exploration()->update(
-                    $this->set_defaults($request->input("physical_exploration"), \App\PhysicalExploration::get_defaults())
-                );
-            }
+                if($request->has("physical_exploration")) {
+                    $patient->initial_clinical_history->physical_exploration()->update(
+                        $this->set_defaults($request->input("physical_exploration"), \App\PhysicalExploration::get_defaults())
+                    );
+                }
 
-            if($request->has("neuro_exam")) {
-                $patient->initial_clinical_history->physical_exploration->neurological_examination()->update(
-                    $this->set_defaults($request->input("neuro_exam"), \App\NeurologicalExamination::get_defaults())
-                );
-            }
+                if($request->has("neuro_exam")) {
+                    $patient->initial_clinical_history->physical_exploration->neurological_examination()->update(
+                        $this->set_defaults($request->input("neuro_exam"), \App\NeurologicalExamination::get_defaults())
+                    );
+                }
 
-            if($request->has("orientation")) {
-                $patient->initial_clinical_history->physical_exploration->neurological_examination->orientation()->update(
-                    $this->set_defaults($request->input("orientation"), \App\Orientation::get_defaults())
-                );
-            }
+                if($request->has("orientation")) {
+                    $patient->initial_clinical_history->physical_exploration->neurological_examination->orientation()->update(
+                        $this->set_defaults($request->input("orientation"), \App\Orientation::get_defaults())
+                    );
+                }
 
-            if($request->has("superior_cognitive_functions")) {
-                $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions()->update(
-                    $this->set_defaults($request->input("superior_cognitive_functions"), \App\SuperiorCognitiveFunctions::get_defaults())
-                );
-            }
+                if($request->has("superior_cognitive_functions")) {
+                    $patient->initial_clinical_history->physical_exploration->neurological_examination->superior_cognitive_functions()->update(
+                        $this->set_defaults($request->input("superior_cognitive_functions"), \App\SuperiorCognitiveFunctions::get_defaults())
+                    );
+                }
 
-            $studies = $request->input("studies", []);
-            if(is_array($studies)) {
-                $studies = Study::find(array_values($studies));
-                $patient->initial_clinical_history->studies()->saveMany($studies);
+                $studies = $request->input("studies", []);
+                if(is_array($studies)) {
+                    $studies = Study::find(array_values($studies));
+                    $patient->initial_clinical_history->studies()->saveMany($studies);
+                }
+                
+                $patient->save();
+                $notify = [
+                    [
+                        "type" => "success",
+                        "message" => __("global.the_patients_history_has_been_updated_correctly")
+                    ]
+                ];
+                return redirect()->route("patient", ["id" => $patient->id])->with("notify", $notify);
             }
-            
-            $patient->save();
-            return redirect()->route("patient", ["id" => $patient->id])->with('success', __("update_patient_done") );
         }
-        return redirect()->back()->withErrors(['error', __("error.update_patient_fail")]);
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_patient_does_not_exist")
+            ]
+        ];
+        return redirect()->back()->with("notify", $notify);
     }
 
     /**
@@ -212,9 +233,21 @@ class PatientController extends Controller
         if(!is_null($patient)) {
             $patient_name = $patient->name;
             $patient->delete();
-            return redirect()->route('patients')->with('success', __("remove_patient_done", ["name" => $patient_name]) );
+            $notify = [
+                [
+                    "type" => "success",
+                    "message" => __("global.remove_patient_done")
+                ]
+            ];
+            return redirect()->route('patients')->with("notify", $notify);
         }
-        return redirect()->route('patients')->withErrors(['error', __("error.remove_patient_not_exist")]);
+        $notify = [
+            [
+                "type" => "error",
+                "message" => __("global.the_selected_patient_does_not_exist")
+            ]
+        ];
+        return redirect()->route('patients')->with("notify", $notify);
     }
 
     public function download(Request $request, $id) {
