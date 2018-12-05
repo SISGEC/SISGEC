@@ -173,13 +173,13 @@
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label for="user_new_password">{{ __("global.new_password") }}</label>
-                                            <input type="password" class="form-control" id="user_new_password" name="password[new]" placeholder="********" required>
+                                            <input type="password" class="form-control" id="user_new_password" name="password[new]" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label for="user_password_confirm">{{ __("global.repeat_password") }}</label>
-                                            <input type="password" class="form-control" id="user_password_confirm" name="password[confirm]" placeholder="********" required>
+                                            <input type="password" class="form-control" id="user_password_confirm" name="password[confirm]" placeholder="" required>
                                         </div>
                                     </div>
                                 </div>

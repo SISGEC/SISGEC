@@ -5,7 +5,7 @@ return [
     ],
     'denied' => 'Negado',
     'desktop' => 'Escritorio',
-    'search' => 'Busqueda...',
+    'search' => 'Buscar paciente...',
     'patients' => 'Pacientes',
     'new_patient' => 'Nuevo paciente',
     'identification_card' => 'Ficha de Identificación',

@@ -47,7 +47,7 @@
                                         </div>
                                         {{--<div class="col-6">
                                             <label for="password">{{ __("person.password") }}</label>
-                                            <input type="password" class="form-control" id="password" name="user[password]" value="{{ old("user.password", "********") }}" required />
+                                            <input type="password" class="form-control" id="password" name="user[password]" value="{{ old("user.password", "") }}" required />
                                         </div>--}}
                                     </div>
                                 </div>

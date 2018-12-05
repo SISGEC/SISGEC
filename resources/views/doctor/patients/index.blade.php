@@ -52,7 +52,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $patient->full_name }}</td>
-                        <td>{{ $patient->sex === 1 ? __("global.women") : __("global.man") }}</td>
+                        <td>{{ $patient->sex == 1 ? __("global.woman") : __("global.man") }}</td>
                         <td>{{ $patient->age }} {{ __("person.years") }}</td>
                         <td>{{ $patient->phone }}</td>
                         <td><a class="btn btn-primary" href="{{ route('patient', $patient->id) }}">{{ __("global.see_patient") }}</a></td>

@@ -50,7 +50,7 @@
                                     <strong>{{ __("person.nickname") }}:</strong> {{ $patient->nickname }}
                                 </li>
                                 <li>
-                                    <strong>{{ __("person.sex") }}:</strong> {{ $patient->sex === 1 ? __("global.women") : __("global.man") }}
+                                    <strong>{{ __("person.sex") }}:</strong> {{ $patient->sex == 1 ? __("global.woman") : __("global.man") }}
                                 </li>
                                 <li>
                                     <strong>{{ __("person.birthdate") }}:</strong> {{ $patient->birthdate }} ({{ $patient->age . " " . __("person.years") }})
