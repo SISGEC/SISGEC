@@ -26,7 +26,7 @@ function loadModal(event) {
 function loadModalNewEvent(date, h, m, a) {
   var modal  = $(".new-appointment");
   modal.modal('show');
-  modal.find("input#ncdate").val(date);
+  modal.find("input#ncdate").datepicker("setDate", date);
   modal.find("input.nchour").val(h);
   modal.find("input.ncminutes").val(m);
   modal.find("input.nca").val(a);
