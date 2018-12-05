@@ -55,7 +55,7 @@ function doctor() {
     if($user->is_doctor()) {
         return $user;
     } else if($user->is_assistant()) {
-        return $user->assistant->doctor;
+        return $user->assistant->doctor->user;
     }
     return (object) [];
 }

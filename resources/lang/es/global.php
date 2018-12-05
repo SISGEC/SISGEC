@@ -204,5 +204,6 @@ return [
     'unique_patients' => 'Pacientes Únicos',
     'appointments' => 'CItas',
     'processing' => 'Procesando',
-    'edit_appointment' => 'Editar Cita'
+    'edit_appointment' => 'Editar Cita',
+    'records' => 'Registros'
 ];

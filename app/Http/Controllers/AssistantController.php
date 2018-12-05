@@ -16,15 +16,18 @@ class AssistantController extends Controller
      */
     public function index()
     {
-        $assistants = Assistant::whereHas('doctor', function($query) {
-            $query->where([
-                ["id", "=", doctor()->doctor_id]
-            ]);
-        })->orderBy('created_at', 'asc')->get();
+        if(auth()->user()->is_doctor()) {
+            $assistants = Assistant::whereHas('doctor', function($query) {
+                $query->where([
+                    ["id", "=", doctor()->doctor_id]
+                ]);
+            })->orderBy('created_at', 'asc')->get();
 
-        return view("doctor.assistants.index", [
-            "assistants" => $assistants
-        ]);
+            return view("doctor.assistants.index", [
+                "assistants" => $assistants
+            ]);
+        }
+        return redirect(404);
     }
 
     /**

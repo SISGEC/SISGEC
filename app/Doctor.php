@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     public function user() {
-        return $this->belongs('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function medical_appointments() {

@@ -38,8 +38,11 @@
                 <div class="modal fade" id="calendar-edit">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="bd p-15">
-                        <h5 class="m-0">{{ __("global.add_event") }}</h5>
+                      <div class="modal-header">
+                          <h5>{{ __("global.add_event") }}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="{{ __("global.close") }}">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
                       </div>
                       <div class="modal-body">
                         <form action="{{ route("medical_appointments.save") }}" method="POST">
@@ -77,7 +80,8 @@
                             <textarea name="description" class="form-control bdc-grey-200" rows='5' required></textarea>
                           </div>
                           <div class="text-right">
-                            <button type="submit" class="btn btn-primary cur-p">{{ __("global.save") }}</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __("global.cancel") }}</button>
+                            <button type="submit" class="btn btn-success cur-p">{{ __("global.save") }}</button>
                           </div>
                         </form>
                       </div>

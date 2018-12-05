@@ -209,15 +209,5 @@ return [
     'appointments' => 'Apointments',
     'processing' => 'Processing',
     'edit_appointment' => 'Edit Appointment',
-    
-
-
-
-
-
-
-
-
-
-
+    'records' => 'Records'
 ];

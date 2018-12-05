@@ -28,7 +28,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view("doctor.patients.new");
+        $role = auth()->user()->get_role();
+        return view("$role.patients.new");
     }
 
     /**
@@ -96,7 +97,8 @@ class PatientController extends Controller
     {
         if(!$patient) abort(404);
         $patient = Patient::find($patient);
-        return view("doctor.patients.self", ["patient" => $patient]);
+        $role = auth()->user()->get_role();
+        return view("$role.patients.self", ["patient" => $patient]);
     }
 
     /**
@@ -109,7 +111,8 @@ class PatientController extends Controller
     {
         if(!$patient) abort(404);
         $patient = Patient::find($patient);
-        return view("doctor.patients.edit", ["patient" => $patient]);
+        $role = auth()->user()->get_role();
+        return view("$role.patients.edit", ["patient" => $patient]);
     }
 
     /**
