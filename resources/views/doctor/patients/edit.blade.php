@@ -135,7 +135,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="email">{{ __("person.email") }}</label>
-                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", $patient->email) }}" />
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", ($patient->email === "-" ? "" : $patient->email)) }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }}</label>

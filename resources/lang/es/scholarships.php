@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Analfabeta',
     'Preescolar',
     'Primaria',
     'Secundaria',

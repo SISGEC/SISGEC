@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Illiterate',
     'Preschool',
     'Primary',
     'High school',

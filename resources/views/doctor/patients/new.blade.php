@@ -13,15 +13,15 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">1. {{ __("global.identification_card") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.identification_card") }}</h4>
                     <div class="mT-30">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="name">{{ __("person.full_name") }} <span>*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="name" name="patient[name]" placeholder="{{ __("person.name") }} *" value="{{ old("patient.name", "") }}" required />
-                                        <input type="text" class="form-control" id="lastname" name="patient[lastname]" placeholder="{{ __("person.lastname") }} *" value="{{ old("patient.lastname", "") }}" required />
+                                        <input type="text" class="form-control" id="name" name="patient[name]" placeholder="{{ __("person.name") }}" value="{{ old("patient.name", "") }}" required />
+                                        <input type="text" class="form-control" id="lastname" name="patient[lastname]" placeholder="{{ __("person.lastname") }}" value="{{ old("patient.lastname", "") }}" required />
                                         <input type="text" class="form-control" id="nickname" name="patient[nickname]" placeholder="{{ __("person.nickname") }}" value="{{ old("patient.nickname", "") }}" />
                                     </div>
                                 </div>
@@ -59,11 +59,20 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="scholarship">{{ __("person.scholarship") }}</label>
-                                            <input type="text" class="form-control" id="scholarship" name="patient[scholarship]" value="{{ old("patient.scholarship", "") }}" />
+                                            @php
+                                                $scholarships = is_array(__("scholarships")) ? __("scholarships") : [];
+                                            @endphp
+
+                                            <select name="patient[scholarship]" id="scholarship" class="form-control custom-select">
+                                                <option value="">{{ __("global.select_an_option") }}</option>
+                                                @foreach ($scholarships as $scholarship)
+                                                    <option value="{{ $scholarship }}"{{ old("patient.scholarship", "") === $scholarship ? " selected" : "" }}>{{ $scholarship }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="col-6">
                                             <label for="occupation">{{ __("person.occupation") }}</label>
-                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="{{ old("patient.occupation", "") }}" />
+                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="{{ old("patient.occupation", "") }}" placeholder="{{ __("global.example_occupation") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -72,11 +81,20 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="religion">{{ __("person.religion") }}</label>
-                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="{{ old("patient.religion", "") }}" />
+                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="{{ old("patient.religion", "") }}" placeholder="{{ __("global.example_religion") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="civil_status">{{ __("person.civil_status") }} <span>*</span></label>
-                                            <input type="text" class="form-control" id="civil_status" name="patient[civil_status]" value="{{ old("patient.civil_status", "") }}" required />
+                                            @php
+                                                $civil_statuses = is_array(__("civil_status")) ? __("civil_status") : [];
+                                            @endphp
+
+                                            <select name="patient[civil_status]" id="civil_status" class="form-control custom-select" required>
+                                                <option value="">{{ __("global.select_an_option") }}</option>
+                                                @foreach ($civil_statuses as $civil_status)
+                                                    <option value="{{ $civil_status }}"{{ old("patient.civil_status", "") === $civil_status ? " selected" : "" }}>{{ $civil_status }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -87,11 +105,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="place_of_birth">{{ __("person.place_of_birth") }}</label>
-                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="{{ old("patient.place_of_birth", "") }}" />
+                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="{{ old("patient.place_of_birth", "") }}" placeholder="{{ __("global.example_place_of_birth") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="place_of_residence">{{ __("person.place_of_residence") }}</label>
-                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="{{ old("patient.place_of_residence", "") }}" />
+                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="{{ old("patient.place_of_residence", "") }}" placeholder="{{ __("global.example_place_of_residence") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -134,11 +152,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="email">{{ __("person.email") }}</label>
-                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", "") }}" />
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", "") }}" placeholder="{{ __("global.example_email") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }} <span>*</span></label>
-                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" required/>
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" placeholder="(123) 456 789" required/>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +165,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="referred_by">{{ __("person.referred_by") }}</label>
-                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="{{ old("patient.referred_by", "") }}" />
+                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="{{ old("patient.referred_by", "") }}" placeholder="{{ __("global.example_referred_by") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +180,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">2. {{ __("global.anamnesis") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.anamnesis") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col-2 text-right">
@@ -176,7 +194,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h5 class="c-grey-900">2.1 {{ __("global.not_pathological") }}</h5>
+                                <h5 class="c-grey-900">{{ __("global.not_pathological") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -256,7 +274,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h5 class="c-grey-900">2.2 {{ __("global.pathological_personal") }}</h5>
+                                <h5 class="c-grey-900">{{ __("global.pathological_personal") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -423,7 +441,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">3. {{ __("global.current-condition") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.current-condition") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col">
@@ -441,7 +459,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">4. {{ __("global.physical-exploration") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.physical-exploration") }}</h4>
                     <div>
                         <div class="row">
                             <div class="col-2 text-right">
@@ -525,7 +543,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h5 class="c-grey-900">4.1 {{ __("global.neurological_examination") }}</h5>
+                                <h5 class="c-grey-900">{{ __("global.neurological_examination") }}</h5>
                             </div>
                         </div>
                         <div class="row">
@@ -540,7 +558,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <h5 class="c-grey-900">4.2 {{ __("global.orientation") }}</h5>
+                                <h5 class="c-grey-900">{{ __("global.orientation") }}</h5>
                             </div>
                             <div class="col-4">
                                 <label for="time">{{ __("global.time") }}</label>
@@ -577,7 +595,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h5 class="c-grey-900">4.1 {{ __("global.superior_cognitive_functions") }}</h5>
+                                <h5 class="c-grey-900">{{ __("global.superior_cognitive_functions") }}</h5>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -707,11 +725,11 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">5. {{ __("global.cabinet_studies") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.cabinet_studies") }}</h4>
                     <div>
                         <div id="uploadFiles" class="sigec__dropzone">
                             <div class="dz-message needsclick">    
-                                Drop files here or click to upload.
+                                {{ __("global.drop_files_here_or_click_to_upload") }}
                             </div>
                             <div class="fallback">
                                 <input name="file" type="file" multiple />
@@ -727,7 +745,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">6. {{ __("global.diagnostical_impression") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.diagnostical_impression") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -743,7 +761,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">6. {{ __("global.treatment_plan") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.treatment_plan") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -759,7 +777,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">6. {{ __("global.interconsultation") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.interconsultation") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
@@ -775,7 +793,7 @@
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
                 <div class="bgc-white p-20 bd input-block">
-                    <h4 class="c-grey-900">6. {{ __("global.treatment") }}</h4>
+                    <h4 class="c-grey-900">{{ __("global.treatment") }}</h4>
                     <div>
                         <div class="col-12">
                             <div class="form-group">
