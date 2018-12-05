@@ -207,9 +207,9 @@ return [
 
     'monthly_statistics' => 'Estadisticas Mensuales',
     'unique_patients' => 'Pacientes Únicos',
-    'appointments' => 'CItas',
+    'appointments' => 'Citas',
     'processing' => 'Procesando',
-    'edit_appointment' => 'Editar Cita',
+    'edit_appointment' => 'Editar cita',
     'records' => 'Registros',
 
     'assistants' => 'Asistentes',
@@ -235,4 +235,6 @@ return [
     'example_event_description' => 'p. ej. Revisión médica de rutina con el Sr. Márquez',
 
     'prescriptions_edit' => 'Editar Prescripción Médica',
+    'click_to_add_a_new_medical_appointment' => 'Añadir cita médica',
+    'delete_appointment' => 'Eliminar cita',
 ];
