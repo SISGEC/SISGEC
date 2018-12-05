@@ -6,7 +6,7 @@ return [
     'lastname' => 'Last Name',
     'birthdate' => 'Birthdate',
     'years' => 'years',
-    'nickname' => 'Nickname',
+    'nickname' => 'Alias',
     'scholarship' => 'Scholarship',
     'occupation' => 'Occupation',
     'religion' => 'Religion',
@@ -27,4 +27,5 @@ return [
     'title' => 'Title',
     'university' => 'University',
     'specialty' => 'Specialty',
+    'password' => 'Password',
 ];

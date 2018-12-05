@@ -6,5 +6,7 @@ return [
     'medical-appointments' => 'Medical Appointments',
     'all' => 'All',
     'new' => 'New',
-    'new_prescription' => 'New Medical Prescription'
+    'new_prescription' => 'New Medical Prescription',
+    'assistants' => 'Assistants'
+    
 ];

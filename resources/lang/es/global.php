@@ -143,6 +143,10 @@ return [
 
     'informed_consent' => 'Consentimiento Informado',
     'informed_consent_line_1' => 'YO O REPRESENTANTE LEGAL ___________________________________________________ DE ____________ AÑOS DE EDAD, RECONOZCO QUE SE ME EXPLICÓ Y ENTENDÍ EL PROCEDIMIENTO QUE SE PROPONE, ESTOY ENTERADO DE LOS BENEFICIOS, RIESGOS, PROBABLES COMPLICACIONES Y DE OTRAS ALTERNATIVAS QUE PUDIERAN SERME ÚTILES; SIN EMBARGO, CONCIENTE DE QUE SE BUSCA MI BENEFICIO, DOY MI CONSENTIMIENTO SIN OBLIGACIÓN Y POR DECISIÓN PROPIA PARA QUE SE EFECTUÉ. ASI MISMO DOY LA AUTORIZACIÓN PARA ATENDER LAS CONTINGENCIAS Y URGENCIAS DERIVADAS DEL ACTO AUTORIZADO, CON BASE EN EL PRINCIPIO DE LIBERTAD PRESCRIPTIVA QUE TIENE EL PERSONAL DE SALUD. ASIMISMO ACEPTO SER ATENDIDO POR PERSONAL MÉDICO EN FORMACIÓN QUIÉN ESTARÁ SUPERVISADO DIRECTAMENTE POR EL MÉDICO TRATANTE, DE ACUERDO A LO ESTABLECIDO EN LAS NORMAS OFICIALES MEXICANAS APLICABLES (NOM 001 Y NOM 234)',
+    'informed_consent_description' => '<p>Compañero médico: recuerde informar al paciente acerca del consentimiento informado y de su firma cuando imprima su historial médico.</p>',
+    'informed_consent_description_button' => 'He informado al paciente y el...',
+    'informed_consent_denied_button' => 'No ha aceptado',
+    'informed_consent_accepted_button' => 'Ha aceptado',
     
     'page' => 'Página',
     'page' => 'Page',
@@ -171,7 +175,7 @@ return [
     'description' => 'Descripción',
     'save' => 'Guardar',
     'not_appointments_today' => 'No hay citas medicas para hoy.',
-    'add_one'=> 'Añadir Una',
+    'add_one'=> 'Añadir',
     'cancel' => 'Cancelar',
     'ok' => 'Si',
 
@@ -205,5 +209,13 @@ return [
     'appointments' => 'CItas',
     'processing' => 'Procesando',
     'edit_appointment' => 'Editar Cita',
-    'records' => 'Registros'
+    'records' => 'Registros',
+
+    'assistants' => 'Asistentes',
+    'new_assistants' => 'Nuevo Asistente',
+    'new_assistant' => 'Nuevo Asistente',
+    'save_assistant' => 'Guardar Asistente',
+    'see_assistant' => 'Ver Asistente',
+    'edit_assistant' => 'Editar Asistente',
+    'remove_assistant' => 'Remover Asistente',
 ];
