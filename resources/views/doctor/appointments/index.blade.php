@@ -49,35 +49,46 @@
                             @csrf
                           <div class="form-group">
                             <label class="fw-500">{{ __("global.event_title") }}</label>
-                            <input class="form-control bdc-grey-200" name="title" required>
+                            <input class="form-control bdc-grey-200" name="title" placeholder="{{ __("global.example_event_title") }}" required>
                           </div>
                           <div class="row">
                             <div class="col-md-12">
-                              <label class="fw-500">{{ __("global.date") }}</label>
                               <div class="timepicker-input input-icon form-group">
-                                <div class="input-group">
-                                  <input type="text" name="date" class="form-control bdc-grey-200 start-date" placeholder="mm/dd/yyyy" data-provide="datepicker" required>
-                                    <select class="form-control custom-select" name="hour">
-                                        @for ($i = 1; $i <= 12; $i++)
-                                            <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
-                                        @endfor
-                                    </select>
-                                    <select class="form-control custom-select" name="minutes">
-                                        @for ($i = 0; $i < 60; $i+=30)
-                                            <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
-                                        @endfor
-                                    </select>
-                                    <select class="form-control custom-select" name="a">
-                                        <option value="am">A.M</option>
-                                        <option value="pm">P.M</option>
-                                    </select>
+                                <div class="row">
+                                  <div class="col-6">
+                                    <div class="form-group">
+                                      <label for="ncdate" class="fw-500">{{ __("global.date") }}</label>
+                                      <input type="text" id="ncdate" name="date" class="form-control bdc-grey-200 start-date" placeholder="mm/dd/yyyy" data-provide="datepicker" required>
+                                    </div>
+                                  </div>
+                                  <div class="col-6">
+                                    <div class="form-group">
+                                      <label for="nchour" class="fw-500">{{ __("global.scheduler") }}</label>
+                                      <div class="input-group">
+                                        <select class="form-control custom-select" name="hour">
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
+                                            @endfor
+                                          </select>
+                                          <select class="form-control custom-select" name="minutes">
+                                            @for ($i = 0; $i < 60; $i+=30)
+                                                <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
+                                            @endfor
+                                          </select>
+                                          <select class="form-control custom-select" name="a">
+                                              <option value="am">A.M</option>
+                                              <option value="pm">P.M</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="fw-500">{{ __("global.description") }}</label>
-                            <textarea name="description" class="form-control bdc-grey-200" rows='5' required></textarea>
+                            <textarea name="description" class="form-control bdc-grey-200" rows='5' placeholder="{{ __("global.example_event_description") }}" required></textarea>
                           </div>
                           <div class="text-right">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __("global.cancel") }}</button>
@@ -130,28 +141,39 @@
                 <input type="hidden" name="appointment_id" value="">
                 <div class="form-group">
                   <label class="fw-500">{{ __("global.event_title") }}</label>
-                  <input class="form-control bdc-grey-200" name="title" required>
+                  <input class="form-control bdc-grey-200" name="title" placeholder="{{ __("global.example_event_title") }}" required>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <label class="fw-500">{{ __("global.date") }}</label>
                     <div class="timepicker-input input-icon form-group">
-                      <div class="input-group">
-                        <input type="text" name="date" class="form-control bdc-grey-200 start-date" placeholder="mm/dd/yyyy" data-provide="datepicker" required>
-                          <select class="form-control custom-select" name="hour">
-                              @for ($i = 1; $i <= 12; $i++)
-                                  <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
-                              @endfor
-                          </select>
-                          <select class="form-control custom-select" name="minutes">
-                              @for ($i = 0; $i < 60; $i+=30)
-                                  <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
-                              @endfor
-                          </select>
-                          <select class="form-control custom-select" name="a">
-                              <option value="am">A.M</option>
-                              <option value="pm">P.M</option>
-                          </select>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="ncdate" class="fw-500">{{ __("global.date") }}</label>
+                            <input type="text" id="ncdate" name="date" class="form-control bdc-grey-200 start-date" placeholder="mm/dd/yyyy" data-provide="datepicker" required>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="nchour" class="fw-500">{{ __("global.scheduler") }}</label>
+                            <div class="input-group">
+                              <select class="form-control custom-select" name="hour">
+                                  @for ($i = 1; $i <= 12; $i++)
+                                      <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
+                                  @endfor
+                                </select>
+                                <select class="form-control custom-select" name="minutes">
+                                  @for ($i = 0; $i < 60; $i+=30)
+                                      <option value="{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}">{{ str_pad($i, 2, "0", STR_PAD_LEFT) }}</option>
+                                  @endfor
+                                </select>
+                                <select class="form-control custom-select" name="a">
+                                    <option value="am">A.M</option>
+                                    <option value="pm">P.M</option>
+                                </select>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
