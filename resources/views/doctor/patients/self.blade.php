@@ -525,7 +525,7 @@
                                 </div>
                             </div>
                         @empty
-                            <div class="col-12">
+                            <div class="col-12 no-results-banner">
                                 <div class="bd bgc-white mt-3 p-20">
                                     <div class="layer w-100 banner-message banner-message--error">
                                         <h4 class="mT-10 mB-30">{{ __("error.no_studies") }}</h4>
@@ -565,7 +565,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{ $patient->id == 1 ? "1" : $patient->id }}">
+                        <div id="uploadFiles" class="sigec__dropzone" data-patient_id="{{$patient->id.""}}">
                             <div class="dz-message needsclick">    
                                 {{ __("global.drop_files_here_or_click_to_upload") }}
                             </div>

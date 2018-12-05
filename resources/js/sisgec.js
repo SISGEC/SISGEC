@@ -181,6 +181,9 @@ $(document).ready(function() {
                     el.append(inp);
 
                     $(".studies-list").prepend(val.template);
+                    if($(".no-results-banner").length > 0) {
+                        $(".no-results-banner").remove();
+                    }
                 });
             }
         }
