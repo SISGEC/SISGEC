@@ -15,5 +15,9 @@ return [
 
     'failed' => 'Esta credencial no fue encontrada.',
     'throttle' => 'Demasiados intentos incorrectos. Por favor intentelo de nuevo en :seconds segundos.',
-    'forgot_your_password' => 'No recuerda su contraseña?'
+    'forgot_your_password' => 'Olvidó su contraseña?',
+    'reset_password' => 'Reiniciar Contraseña',
+    'email_address' => 'Dirección de correo electrónico',
+    'send_password_reset_link' => 'Enviar enlace de reinicio de contraseña',
+    'login' => 'Inicio de sesión',
 ];
