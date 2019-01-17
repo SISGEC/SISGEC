@@ -27,7 +27,7 @@
         "dropzone": "^5.5.1",
         "easy-pie-chart": "^2.1.7",
         "fullcalendar": "^3.9.0",
-        "imagemin-webpack-plugin": "^2.3.0",
+        "imagemin-webpack-plugin": "^2.4.0",
         "imask": "^4.1.1",
         "jquery-sparkline": "^2.4.0",
         "jvectormap": "^2.0.4",
