@@ -105,7 +105,6 @@
                 <main class='main-content bgc-grey-100'>
                     <div id='mainContent'>
                         @section('content')
-                            
                         @show
                     </div>
                 </main>

@@ -18,3 +18,11 @@ import './fullcalendar';
 import './googleMaps';
 import './utils';
 import './sisgec';
+
+window.Vue = require('vue');
+
+Vue.component('rich-editor', require('./components/RichEditorComponent.vue'));
+
+const app = new Vue({
+    el: '.app'
+});
