@@ -29,6 +29,7 @@ class CreatePatientsTable extends Migration
             //$table->string("photo");
             $table->string("referred_by")->nullable();
             $table->string("email");
+            $table->string("rfc");
             $table->string("phone");
             $table->timestamps();
         });

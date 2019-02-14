@@ -75,15 +75,15 @@
                         <li>
                             <strong>{{ __("person.place_of_birth") }}:</strong> {{ $patient->place_of_birth }}
                         </li>
+                        <li>
+                            <strong>{{ __("person.place_of_residence") }}:</strong> {{ $patient->place_of_residence }}
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="column2">
                 <div class="profile-list-info">
                 <ul>
-                    <li>
-                        <strong>{{ __("person.place_of_residence") }}:</strong> {{ $patient->place_of_residence }}
-                    </li>
                     <li>
                         <strong>{{ __("person.weight") }}:</strong> {{ $patient->measures->weight }}
                     </li>
@@ -107,6 +107,9 @@
                     </li>
                     <li>
                         <strong>{{ __("person.email") }}:</strong> {{ $patient->email }}
+                    </li>
+                    <li>
+                        <strong>{{ __("person.rfc") }}:</strong> {{ $patient->rfc }}
                     </li>
                     <li>
                         <strong>{{ __("person.phone") }}:</strong> {{ $patient->phone }}

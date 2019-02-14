@@ -25,7 +25,7 @@
                 @endphp
                 <div class="info">
                     <h4>{{ $doctor->title }} {{ $doctor->formal_name}}</h4>
-                    <p>{{ $doctor->specialty }}, {{ __("global.professional_license") }}: {{ $doctor->professional_license }}</p>
+                    <p>{{ $doctor->specialty }}, {{ __("global.professional_license") }}: {{ $doctor->professional_license }}, {{ $doctor->university }}</p>
                     <p>{{ config("app.office_address") }}</p>
                     <p>{{ implode(" - ", $contact_data) }}</p>
                 </div>

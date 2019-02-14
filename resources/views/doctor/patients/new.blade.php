@@ -98,9 +98,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-6">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-6">
@@ -113,7 +111,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
+                            <div class="col-6">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-4">
@@ -157,6 +157,15 @@
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }} <span>*</span></label>
                                             <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" placeholder="(123) 456 789" required/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label for="rfc">{{ __("person.rfc") }}</label>
+                                            <input type="text" class="form-control" id="rfc" name="patient[rfc]" value="{{ old("patient.rfc", "") }}" placeholder="{{ __("global.optional") }}">
                                         </div>
                                     </div>
                                 </div>

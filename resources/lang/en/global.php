@@ -266,5 +266,6 @@ return [
     'the_tracing_has_been_updated_successfully' => 'The tracing has been updated successfully.',
     'tracing_has_been_removed_successfully' => 'Tracing has been removed successfully.',
 
-    'options_saved_correctly' => 'Options saved correctly'
+    'options_saved_correctly' => 'Options saved correctly',
+    'optional' => 'Optional'
 ];

@@ -28,4 +28,5 @@ return [
     'university' => 'University',
     'specialty' => 'Specialty',
     'password' => 'Password',
+    'rfc' => 'RFC'
 ];

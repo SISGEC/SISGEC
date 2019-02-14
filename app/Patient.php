@@ -12,7 +12,7 @@ class Patient extends Model
         'lastname' => ''
     ];
 
-    protected $fillable = ['name', 'lastname', 'nickname', 'sex', 'birthdate', 'scholarship', 'occupation', 'religion', 'civil_status', 'place_of_residence', 'place_of_birth', 'referred_by', 'email', 'phone'];
+    protected $fillable = ['name', 'lastname', 'nickname', 'sex', 'birthdate', 'scholarship', 'occupation', 'religion', 'civil_status', 'place_of_residence', 'place_of_birth', 'referred_by', 'email', 'rfc', 'phone'];
 
     public function initial_clinical_history() {
         return $this->hasOne('App\InitialClinicalHistory');
@@ -38,6 +38,7 @@ class Patient extends Model
             'place_of_birth' => '-',
             'referred_by' => '-',
             'email' => '-',
+            'rfc' => '-',
             'phone' => '-'
         );
     }

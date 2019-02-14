@@ -98,6 +98,9 @@
                                     <strong>{{ __("person.email") }}:</strong> {{ $patient->email }}
                                 </li>
                                 <li>
+                                    <strong>{{ __("person.rfc") }}:</strong> {{ $patient->rfc }}
+                                </li>
+                                <li>
                                     <strong>{{ __("person.phone") }}:</strong> {{ $patient->phone }}
                                 </li>
                             </ul>

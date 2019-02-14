@@ -267,5 +267,6 @@ return [
     'the_tracing_has_been_updated_successfully' => 'El seguimiento fue actualizado.',
     'tracing_has_been_removed_successfully' => 'El seguimiento fue eliminado correctamente.',
 
-    'options_saved_correctly' => 'Cambios guardados correctamente'
+    'options_saved_correctly' => 'Cambios guardados correctamente',
+    'optional' => 'Opcional'
 ];
