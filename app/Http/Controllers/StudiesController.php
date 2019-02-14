@@ -44,9 +44,15 @@ class StudiesController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $photos = $request->file('file');
+
+        if(config("app.demo_mode")) {
+            return Response::json([
+                'message' => 'Demo mode is enabled, please disable this mode to allow uploading files to the server.',
+                'studies' => []
+            ], 401);
+        }
 
         if($request->has("patient_id")) {
             $patient = Patient::find($request->query("patient_id"));

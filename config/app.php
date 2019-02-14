@@ -43,6 +43,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Demo Mode
+    |--------------------------------------------------------------------------
+    |
+    | When your application is in demonstration mode, it will not
+    | be possible to upload files or change access to the application
+    | (username and password).
+    |
+    */
+
+    'demo_mode' => env('APP_DEMO_MODE', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application URL
     |--------------------------------------------------------------------------
     |

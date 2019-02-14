@@ -29,6 +29,12 @@ class HomeController extends Controller
     }
 
     public function options(Request $request) {
+        $notify = [
+            [
+                "type" => "success",
+                "message" => __("global.options_saved_correctly")
+            ]
+        ];
 
         if($request->has("options")) {
             foreach ($request->input("options") as $okey => $setting) {
@@ -36,22 +42,30 @@ class HomeController extends Controller
             }
 
             if($request->has("options.office_logo")) {
-                $image = $request->file("options.office_logo");
-                $this->saveSettingOrCreateNewIfNotExist("app.office_logo", $this->saveImage($image));
+                if(!config("app.demo_mode")) {
+                    $image = $request->file("options.office_logo");
+                    $this->saveSettingOrCreateNewIfNotExist("app.office_logo", $this->saveImage($image));
+                } else {
+                    $notify[] = [
+                        "type" => "warning",
+                        "message" => "Uploading files in demo mode is not allowed."
+                    ];
+                }
             }
 
             if($request->has("options.office_brand")) {
-                $image = $request->file("options.office_brand");
-                $this->saveSettingOrCreateNewIfNotExist("app.office_brand", $this->saveImage($image));
+                if(!config("app.demo_mode")) {
+                    $image = $request->file("options.office_brand");
+                    $this->saveSettingOrCreateNewIfNotExist("app.office_brand", $this->saveImage($image));
+                } else {
+                    $notify[] = [
+                        "type" => "warning",
+                        "message" => "Uploading files in demo mode is not allowed."
+                    ];
+                }
             }
         }
 
-        $notify = [
-            [
-                "type" => "success",
-                "message" => __("global.options_saved_correctly")
-            ]
-        ];
         return redirect()->back()->with("notify", $notify);
     }
 
