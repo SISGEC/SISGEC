@@ -31,6 +31,3 @@ mix.js('resources/js/index.js', 'public/js/sisgec.app.js')
     .sass('resources/sass/pdf.scss', 'public/css/pdf.css')
     .copy('resources/images', 'public/images', false )
     .copy('node_modules/fullcalendar/dist/locale-all.js', 'public/js/full-calendar/locale.js');
-
-mix.sass('resources/sass/v2/app.scss', 'public/css/sisgec-v2.0.css')
-    .js('resources/js/v2/app.js', 'public/js/sisgec-v2.0.js');

@@ -161,7 +161,7 @@ $(document).ready(function() {
     var options = {
         url: HOME_URL + "/attachments/save",
         paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 5, // MB
+        maxFilesize: 1000, // MB
         autoProcessQueue: true,
         uploadMultiple: true,
         parallelUploads: 5,

@@ -19,12 +19,6 @@ class AppServiceProvider extends ServiceProvider
                 $setting->loadInMemory();
             }
         }
-
-        view()->composer('*', function($view){
-            $view_name = str_replace('.', '-', $view->getName());
-            config(['view_name' => $view_name]);
-            view()->share('view_name', $view_name);
-        });
     }
 
     /**
