@@ -86,3 +86,8 @@ Route::get('/medical-appointments.json', 'MedicalAppointmentController@json')->n
 Route::get('/test', function() {
     return response("Ok", 200);
 });
+
+
+Route::get('/v2/desktop', function() {
+    return view("v20");
+});

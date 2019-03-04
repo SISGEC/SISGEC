@@ -95,12 +95,10 @@
         </script>
 
         <div>
-            @component('parts.sidebar')
-            @endcomponent
+            @include('parts.sidebar')
         
             <div class="page-container">
-                @component('parts.header')
-                @endcomponent
+                @include('parts.header')
 
                 <main class='main-content bgc-grey-100'>
                     <div id='mainContent'>

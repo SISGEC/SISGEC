@@ -194,7 +194,7 @@ $(document).ready(function() {
             var ext = "?patient_id=" + $("div#uploadFiles").data("patient_id");
             options.url = options.url + ext;
         }
-        console.log(options.url);
+        //console.log(options.url);
         var dz = new Dropzone("div#uploadFiles", options);
         Dropzone.options.uploadFiles = options;
     }

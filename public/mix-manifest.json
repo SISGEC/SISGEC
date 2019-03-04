@@ -3,6 +3,8 @@
     "/css/app.css": "/css/app.css",
     "/css/sisgec.app.css": "/css/sisgec.app.css",
     "/css/pdf.css": "/css/pdf.css",
+    "/css/sisgec-v2.0.css": "/css/sisgec-v2.0.css",
+    "/js/sisgec-v2.0.js": "/js/sisgec-v2.0.js",
     "/js/sisgec.app.js": "/js/sisgec.app.js",
     "/js/full-calendar/locale.js": "/js/full-calendar/locale.js"
 }

@@ -1,0 +1,63 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Raleway', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$white: #fff;
+
+// Custom Colors
+$black-russian: #161b26;
+$nero: #292929;
+$summer-sky: #32b5ec;
+$cornflower-blue: #4787fb;
+$ghost-white: #F1F1F3;
+$nobel: #A1A1A1;
+
+// Theme Colors
+$primary: $cornflower-blue;
+//$secondary: $gray-600;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+//$light: $gray-100;
+$dark: $black-russian;
+
+$border-radius: 0;
+
+// Sidebar vars
+$sidebar-background-color: $black-russian;
+$sidebar-foreground-color: $white;
+$sidebar-links-color: $sidebar-foreground-color;
+$sidebar-menu-item-border-bottom-color: $nero;
+$sidebar-menu-item-selector-background-color: $sidebar-foreground-color;
+
+$btn-primary-gradient: linear-gradient(to bottom right, $summer-sky, $cornflower-blue);
+
+// Dropdown
+$dropdown-bg: $white;
+$dropdown-min-width: 14rem;
+$dropdown-item-padding-y: 1rem;
+$dropdown-item-padding-x: 1.5rem;
+$dropdown-item-bottom-border-color: $ghost-white;
+$dropdown-item-bottom-border-width: $dropdown-item-padding-x * 2;
+$dropdown-item-shortcut-color: $nobel;
+$dropdown-item-shortcut-active-color: $white;
+$dropdown-item-shortcut-hover-color: $white;
+$dropdown-link-active-bg-image: $btn-primary-gradient;
+$dropdown-link-hover-bg-image: $btn-primary-gradient;
+$dropdown-link-hover-color: $white;
