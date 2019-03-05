@@ -80,8 +80,8 @@
             var Notifications = '{!! json_encode($notify) !!}';
         </script>
     </head>
-    <body class="app">
-        <div id='loader'>
+    <body>
+        <div id="loader">
             <div class="spinner"></div>
         </div>
 
@@ -94,7 +94,7 @@
             });
         </script>
 
-        <div>
+        <div class="app">
             @include('parts.sidebar')
         
             <div class="page-container">

@@ -75,7 +75,7 @@ return [
     'delusions' => 'Delirios',
     'esape' => 'Estado Anímico y de Personalidades (ESAPE)',
     'cranial_nerves' => 'Pares Craneales',
-    'actor_system' => 'Sistema Actor',
+    'actor_system' => 'Sistema Motor',
     'sensitive_system' => 'Sistema Sensitivo',
     'sist_vece' => 'Sistema Vestibulo-Cerebeloso',
     'meninges' => 'Meninges',

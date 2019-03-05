@@ -365,3 +365,45 @@
 label > span, span.cred {
   color: #ff3e3e;
 }
+
+
+@keyframes progress-circle {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(365deg);
+  }
+}
+
+.saved-info {
+  #local-save {
+    width: 40px;
+    height: 40px;
+    transition: all .4s;
+    #a {
+      transform-box: view-box;
+      transform-origin: 50% 60%;
+      transform-style: preserve-3d;
+      animation-timing-function: cubic-bezier(.55,.09,.68,.53);
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.no-saved {
+    #local-save {
+      fill: #ccc;
+    }
+  }
+
+  &.saved {
+    #local-save {
+      fill: #3399FF;
+      #a {
+        animation-name: progress-circle;
+      }
+    }
+  }
+}

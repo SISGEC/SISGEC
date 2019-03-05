@@ -7,6 +7,8 @@ import swal from 'sweetalert';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'notifyjs-browser';
+import './autosave';
+var moment = require('moment');
 
 Dropzone.autoDiscover = false;
 
@@ -200,12 +202,18 @@ $(document).ready(function() {
     }
 
     if($(':input').length > 0) {
-        $(':input').focus(function(){
-            var center = ($(window).height()/2) - 100;
-            var top = $(this).offset().top ;
-            if (top > center){
-                $(window).scrollTop(top-center);
-            }
+        $(':input').focus(function(e){
+            var $el = $(this);
+            $(window).keyup(function (e) {
+                var code = (e.keyCode ? e.keyCode : e.which);
+                if (code == 9 && $(':input:focus').length) {
+                    var center = ($(window).height()/2) - 100;
+                    var top = $el.offset().top;
+                    if (top > center){
+                        $(window).scrollTop(top-center);
+                    }
+                }
+            });
         });
     }
 
@@ -300,4 +308,34 @@ $(document).ready(function() {
     if($("a[title]").length > 0) {
         tippy('a[title]');
     }
+
+    if($(".auto-save-fields").length > 0) {
+        var onSave = false;
+        $( ".auto-save-fields" ).sisyphus({
+            locationBased: true,
+            excludeFields: $( ".fallback input" ),
+            timeout: 30,
+            onBeforeSave: function() {
+                if(!onSave) {
+                    $(".saved-info").removeClass("no-saved").addClass("saved");
+                    onSave = true;
+                }
+            },
+            onSave: function() {
+                setTimeout(() => {
+                    onSave = false;
+                    $(".saved-info").removeClass("saved").addClass("no-saved");
+                }, 1000);
+            },
+        });
+    }
+
+    /*if($(".ci-cache-button").length > 0) {
+        $(".ci-cache-button").on("click", function() {
+            $(".ci-cache").val("true");
+        });
+        if($(".ci-cache").val() === "true") {
+            $(".informed_consent_modal").remove();
+        }
+    }*/
 });
