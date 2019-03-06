@@ -75,12 +75,14 @@
                 'sorry': "{{ __('error.sorry') }}",
                 'an_error_has_occurred': "{{ __('error.an_error_has_occurred') }}",
                 'edit_settings': "{{ __('global.edit_settings') }}",
-                'cancel_edit': "{{ __('global.cancel_edit') }}"
+                'cancel_edit': "{{ __('global.cancel_edit') }}",
+                'saving_draft': "{{ __('global.saving_draft') }}",
+                'saved_draft': "{{ __('global.saved_draft') }}"
             };
             var Notifications = '{!! json_encode($notify) !!}';
         </script>
     </head>
-    <body>
+    <body class="app">
         <div id="loader">
             <div class="spinner"></div>
         </div>
@@ -94,7 +96,7 @@
             });
         </script>
 
-        <div class="app">
+        <div class="app-sisgec">
             @include('parts.sidebar')
         
             <div class="page-container">

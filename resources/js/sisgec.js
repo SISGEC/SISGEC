@@ -204,6 +204,7 @@ $(document).ready(function() {
     if($(':input').length > 0) {
         $(':input').focus(function(e){
             var $el = $(this);
+            console.log("Test");
             $(window).keyup(function (e) {
                 var code = (e.keyCode ? e.keyCode : e.which);
                 if (code == 9 && $(':input:focus').length) {
@@ -311,23 +312,47 @@ $(document).ready(function() {
 
     if($(".auto-save-fields").length > 0) {
         var onSave = false;
-        $( ".auto-save-fields" ).sisyphus({
+        var si = $(".saved-info"),
+            sp = $("<span></span>"),
+        autosave = $( ".auto-save-fields" ).sisyphus({
             locationBased: true,
             excludeFields: $( ".fallback input" ),
-            timeout: 30,
+            timeout: 60,
             onBeforeSave: function() {
                 if(!onSave) {
-                    $(".saved-info").removeClass("no-saved").addClass("saved");
+                    si.removeClass("no-saved").addClass("saved");
                     onSave = true;
                 }
             },
             onSave: function() {
+                if(si.children("span").length < 1) {
+                    sp.text(I18N.saving_draft).css("opacity", "0");
+                    si.prepend(sp);
+                    sp.animate({opacity: 1}, 1000);
+                }
                 setTimeout(() => {
                     onSave = false;
-                    $(".saved-info").removeClass("saved").addClass("no-saved");
+                    si.removeClass("saved").addClass("no-saved");
+                    sp.text(I18N.saved_draft);
+                    setTimeout(() => {
+                        sp.animate({opacity: 0}, 500, function() {
+                            $(this).remove();
+                        });
+                    }, 5000);
                 }, 1000);
             },
+            onRestore: function() {
+                if($("#onRestoreDataAlert").length > 0) {
+                    $("#onRestoreDataAlert").show();
+                }
+            }
         });
+        
+        if($(".resetDataButton").length > 0) {
+            $(".resetDataButton").on("click", function() {
+                autosave.manuallyReleaseData();
+            });
+        }
     }
 
     /*if($(".ci-cache-button").length > 0) {

@@ -29,6 +29,34 @@
   }
 }
 
+.sidebar-menu {
+  & > li.dropdown {
+    a {
+      .arrow {
+        i {
+          display: inline-block;
+          transform: rotate(0deg);
+          transition: all .2s;
+        }
+      }
+    }
+    &.show {
+      a {
+        .arrow {
+          i {
+            transform: rotate(90deg);
+            transition: all .2s;
+          }
+        }
+      }
+    }
+    ul.dropdown-menu {
+      position: relative !important;
+      transform: translate(0) !important;
+    }
+  }
+}
+
 .banner-message {
     text-align: center;
     color: #868686;
@@ -378,6 +406,12 @@ label > span, span.cred {
 }
 
 .saved-info {
+  float: right;
+  margin: 1px 10px 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   #local-save {
     width: 40px;
     height: 40px;

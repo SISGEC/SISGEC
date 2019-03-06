@@ -268,5 +268,7 @@ return [
     'tracing_has_been_removed_successfully' => 'El seguimiento fue eliminado correctamente.',
 
     'options_saved_correctly' => 'Cambios guardados correctamente',
-    'optional' => 'Opcional'
+    'optional' => 'Opcional',
+    'saving_draft' => 'Guardando borrador...',
+    'saved_draft' => '¡Borrador guardado!'
 ];

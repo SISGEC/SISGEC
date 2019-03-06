@@ -267,5 +267,7 @@ return [
     'tracing_has_been_removed_successfully' => 'Tracing has been removed successfully.',
 
     'options_saved_correctly' => 'Options saved correctly',
-    'optional' => 'Optional'
+    'optional' => 'Optional',
+    'saving_draft' => 'Saving draft...',
+    'saved_draft' => 'Saved draft!'
 ];

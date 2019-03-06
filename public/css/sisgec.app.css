@@ -76651,6 +76651,25 @@ table.dataTable.no-footer {
   max-height: 67px;
 }
 
+.sidebar-menu > li.dropdown a .arrow i {
+  display: inline-block;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all 0.2s;
+}
+
+.sidebar-menu > li.dropdown.show a .arrow i {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  transition: all 0.2s;
+}
+
+.sidebar-menu > li.dropdown ul.dropdown-menu {
+  position: relative !important;
+  -webkit-transform: translate(0) !important;
+          transform: translate(0) !important;
+}
+
 .banner-message {
   text-align: center;
   color: #868686;
@@ -77022,6 +77041,15 @@ span.cred {
     -webkit-transform: rotate(365deg);
             transform: rotate(365deg);
   }
+}
+
+.saved-info {
+  float: right;
+  margin: 1px 10px 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .saved-info #local-save {

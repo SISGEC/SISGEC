@@ -1,6 +1,12 @@
 @extends('layouts.sisgec')
 
 @section('content')
+
+    <div id="onRestoreDataAlert" class="alert alert-warning" style="display:none;" role="alert">
+        <h4 class="alert-heading">¡Advertencia!</h4>
+        <p>Estas viendo el borrador del último paciente registrado. Asegúrese de guardar los cambios antes de cerrar esta ventana. Si no desea restaurar este borrador y en su lugar quiere agregar un paciente nuevo, <a href="{{route("patients.new")}}" class="resetDataButton">haga clic aquí</a>.</p>
+    </div>
+
     <div class="row align-items-center">
         <div class="col text-left">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.new_patient") }} </h2>
@@ -841,7 +847,7 @@
                     <h6>{{ __("global.informed_consent_description_button") }}</h6>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.informed_consent_denied_button") }}</a>
+                    <a href="{{ route("patients") }}" class="btn btn-danger resetDataButton">{{ __("global.informed_consent_denied_button") }}</a>
                     <button type="button" class="btn btn-success ci-cache-button" data-dismiss="modal">{{ __("global.informed_consent_accepted_button") }}</button>
                 </div>
             </div>

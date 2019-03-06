@@ -24,5 +24,5 @@ window.Vue = require('vue');
 Vue.component('rich-editor', require('./components/RichEditorComponent.vue'));
 
 const app = new Vue({
-    el: '.app'
+    el: '.app-sisgec'
 });

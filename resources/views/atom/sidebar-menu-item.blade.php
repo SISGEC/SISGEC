@@ -1,6 +1,8 @@
 @php
     $item_class = "";
+    $dropdown_id = uniqid("dropdown-");
     $a_class = "sidebar-link";
+    $a_attr = "";
     if(!empty($li_class)) {
         $item_class .= " ".$li_class;
     }
@@ -10,10 +12,11 @@
         $item_class .= " dropdown";
         $link = "javascript:void(0);";
         $a_class = "dropdown-toggle";
+        $a_attr = 'role="button" id="'.$dropdown_id.'-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"';
     }
 @endphp
 <li class="nav-item{{ $item_class }}">
-    <a class="{{ $a_class }}" href="{{ $link }}">
+    <a id="{{$dropdown_id}}" class="{{ $a_class }}" href="{{ $link }}" {!!$a_attr!!}>
         <span class="icon-holder">
             <i class="{{ $color ?? "c-blue-500" }} {{ $icon ?? "" }}"></i>
         </span>
@@ -25,7 +28,7 @@
         @endif
     </a>
     @if ($has_child)
-        <ul class="dropdown-menu">
+        <ul id="{{$dropdown_id}}-menu" class="dropdown-menu" aria-labelledby="{{$dropdown_id}}">
             @foreach ($children as $child)
                 <li>
                     <a class='sidebar-link' href="{{ array_get($child, "url", "#") }}">{{ array_get($child, "title", "") }}</a>
