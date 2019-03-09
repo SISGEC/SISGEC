@@ -1,14 +1,21 @@
 @extends('layouts.sisgec')
 
 @section('content')
+
+    <div id="onRestoreDataAlert" class="alert alert-warning" style="display:none;" role="alert">
+        <h4 class="alert-heading">{{__("global.warning")}}</h4>
+        <p>{!!sprintf(__("global.restore_data_alert"), '<a href="'.route("patients.new").'" class="resetDataButton">', '</a>')!!}</p>
+    </div>
+
     <div class="row align-items-center">
         <div class="col text-left">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.new_patient") }} </h2>
         </div>
     </div>
 
-    <form action="{{ route("patients.save") }}" method="POST" class="inputs-auto-scroll">
+    <form action="{{ route("patients.save") }}" method="POST" class="inputs-auto-scroll auto-save-fields">
         @csrf
+        <input type="hidden" class="ci-cache" name="ci-cache" value="false">
         <div class="row gap-20 masonry pos-r">
             <div class="masonry-sizer col-md-12"></div>
             <div class="masonry-item col-md-12">
@@ -84,12 +91,12 @@
                                             <input type="text" class="form-control" id="religion" name="patient[religion]" value="{{ old("patient.religion", "") }}" placeholder="{{ __("global.example_religion") }}" />
                                         </div>
                                         <div class="col-6">
-                                            <label for="civil_status">{{ __("person.civil_status") }} <span>*</span></label>
+                                            <label for="civil_status">{{ __("person.civil_status") }}</label>
                                             @php
                                                 $civil_statuses = is_array(__("civil_status")) ? __("civil_status") : [];
                                             @endphp
 
-                                            <select name="patient[civil_status]" id="civil_status" class="form-control custom-select" required>
+                                            <select name="patient[civil_status]" id="civil_status" class="form-control custom-select">
                                                 <option value="">{{ __("global.select_an_option") }}</option>
                                                 @foreach ($civil_statuses as $civil_status)
                                                     <option value="{{ $civil_status }}"{{ old("patient.civil_status", "") === $civil_status ? " selected" : "" }}>{{ $civil_status }}</option>
@@ -820,7 +827,7 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.exit") }}</a>
+                            <a href="{{ route("patients") }}" class="btn btn-danger cancel_this">{{ __("global.exit") }}</a>
                             <button class="btn btn-success ml-2">{{ __("global.save_patient") }}</button>
                         </div>
                     </div>
@@ -840,8 +847,8 @@
                     <h6>{{ __("global.informed_consent_description_button") }}</h6>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.informed_consent_denied_button") }}</a>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">{{ __("global.informed_consent_accepted_button") }}</button>
+                    <a href="{{ route("patients") }}" class="btn btn-danger resetDataButton">{{ __("global.informed_consent_denied_button") }}</a>
+                    <button type="button" class="btn btn-success ci-cache-button" data-dismiss="modal">{{ __("global.informed_consent_accepted_button") }}</button>
                 </div>
             </div>
         </div>

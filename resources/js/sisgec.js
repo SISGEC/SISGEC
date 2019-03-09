@@ -7,6 +7,9 @@ import swal from 'sweetalert';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'notifyjs-browser';
+import './autosave';
+import './checkConnection';
+var moment = require('moment');
 
 Dropzone.autoDiscover = false;
 
@@ -59,6 +62,13 @@ $(document).ready(function() {
         $("#birthdate").change(function() {
             var birt = $(this).val();
             $("#age").val(calcAge(birt) + " " + I18N.years);
+        });
+        var birthdateMask = new IMask($("#birthdate").get(0), {
+            mask: Date,
+            pattern: '`d/`m/`Y',
+            min: new Date(1900, 0, 1),
+            max: new Date(),
+            lazy: false,
         });
     }
 
@@ -200,12 +210,19 @@ $(document).ready(function() {
     }
 
     if($(':input').length > 0) {
-        $(':input').focus(function(){
-            var center = ($(window).height()/2) - 100;
-            var top = $(this).offset().top ;
-            if (top > center){
-                $(window).scrollTop(top-center);
-            }
+        $(':input').focus(function(e){
+            var $el = $(this);
+            console.log("Test");
+            $(window).keyup(function (e) {
+                var code = (e.keyCode ? e.keyCode : e.which);
+                if (code == 9 && $(':input:focus').length) {
+                    var center = ($(window).height()/2) - 100;
+                    var top = $el.offset().top;
+                    if (top > center){
+                        $(window).scrollTop(top-center);
+                    }
+                }
+            });
         });
     }
 
@@ -220,6 +237,28 @@ $(document).ready(function() {
                 dangerMode: true,
               }).then((willDelete) => {
                 if(willDelete) {
+                    swal("", I18N.processing, "success");
+                    window.location.replace(rlink);
+                }
+            });
+
+            e.preventDefault();
+            return false;
+        });
+    }
+
+    if($('a.cancel_this').length > 0) {
+        $('a.cancel_this').on('click', function (e) {
+            var rlink = $(this).attr("href");
+            swal({
+                title: I18N.cancel_alert_title,
+                text: I18N.cancel_alert_text,
+                icon: "warning",
+                buttons: [I18N.cancel, I18N.ok],
+                dangerMode: true,
+            }).then((willDelete) => {
+                if(willDelete) {
+                    autosave.manuallyReleaseData();
                     swal("", I18N.processing, "success");
                     window.location.replace(rlink);
                 }
@@ -299,5 +338,50 @@ $(document).ready(function() {
 
     if($("a[title]").length > 0) {
         tippy('a[title]');
+    }
+
+    if($(".auto-save-fields").length > 0) {
+        var onSave = false;
+        var si = $(".saved-info"),
+            sp = $("<span></span>"),
+        autosave = $( ".auto-save-fields" ).sisyphus({
+            locationBased: true,
+            excludeFields: $( ".fallback input" ),
+            timeout: 60,
+            onBeforeSave: function() {
+                if(!onSave) {
+                    si.removeClass("no-saved").addClass("saved");
+                    onSave = true;
+                }
+            },
+            onSave: function() {
+                if(si.children("span").length < 1) {
+                    sp.text(I18N.saving_draft).css("opacity", "0");
+                    si.prepend(sp);
+                    sp.animate({opacity: 1}, 1000);
+                }
+                setTimeout(() => {
+                    onSave = false;
+                    si.removeClass("saved").addClass("no-saved");
+                    sp.text(I18N.saved_draft);
+                    setTimeout(() => {
+                        sp.animate({opacity: 0}, 500, function() {
+                            $(this).remove();
+                        });
+                    }, 5000);
+                }, 1000);
+            },
+            onRestore: function() {
+                if($("#onRestoreDataAlert").length > 0) {
+                    $("#onRestoreDataAlert").show();
+                }
+            }
+        });
+        
+        if($(".resetDataButton").length > 0) {
+            $(".resetDataButton").on("click", function() {
+                autosave.manuallyReleaseData();
+            });
+        }
     }
 });

@@ -75,7 +75,7 @@ return [
     'delusions' => 'Delirios',
     'esape' => 'Estado Anímico y de Personalidades (ESAPE)',
     'cranial_nerves' => 'Pares Craneales',
-    'actor_system' => 'Sistema Actor',
+    'actor_system' => 'Sistema Motor',
     'sensitive_system' => 'Sistema Sensitivo',
     'sist_vece' => 'Sistema Vestibulo-Cerebeloso',
     'meninges' => 'Meninges',
@@ -268,5 +268,12 @@ return [
     'tracing_has_been_removed_successfully' => 'El seguimiento fue eliminado correctamente.',
 
     'options_saved_correctly' => 'Cambios guardados correctamente',
-    'optional' => 'Opcional'
+    'optional' => 'Opcional',
+    'saving_draft' => 'Guardando borrador...',
+    'saved_draft' => '¡Borrador guardado!',
+
+    'warning' => '¡Advertencia!',
+    'restore_data_alert' => 'Estas viendo el borrador del último paciente registrado. Asegúrese de guardar los cambios antes de cerrar esta ventana. Si no desea restaurar este borrador y en su lugar quiere agregar un paciente nuevo, %shaga clic aquí%s.',
+    'cancel_alert_title' => '¿Seguro que quieres cancelar?',
+    'cancel_alert_text' => 'Si cancelas esta acción no se podrá deshacer y la información introducida sera perdida.'
 ];

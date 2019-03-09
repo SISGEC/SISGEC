@@ -1,4 +1,5 @@
 import * as $ from 'jquery';
+import browserStorage from './../browserStorage';
 
 export default (function () {
   // Sidebar links
@@ -56,9 +57,12 @@ export default (function () {
     })
     .addClass('active');
 
+  var sidebar_key = "sidebar_collapsed",
+      app = $('.app'), clzz = "is-collapsed";;
   // ٍSidebar Toggle
   $('.sidebar-toggle').on('click', e => {
-    $('.app').toggleClass('is-collapsed');
+    app.toggleClass(clzz);
+    browserStorage.set(sidebar_key, app.hasClass(clzz));
     e.preventDefault();
   });
 
@@ -73,4 +77,8 @@ export default (function () {
       window.dispatchEvent(window.EVENT);
     }, 300);
   });
+
+  if(browserStorage.get(sidebar_key)) {
+    app.toggleClass(clzz);
+  }
 }());

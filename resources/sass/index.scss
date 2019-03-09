@@ -3,6 +3,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import 'spec/index';
 @import 'vendor/index';
+@import '~offline-js/sass/offline-language-spanish';
+//@import "~offline-js/sass/offline-theme-chrome-indicator";
+@import '~offline-js/sass/offline-theme-chrome';
 
 .no-gutters {
     margin-right: 0;
@@ -25,6 +28,34 @@
       width: auto;
       height: 100%;
       max-height: 67px;
+    }
+  }
+}
+
+.sidebar-menu {
+  & > li.dropdown {
+    a {
+      .arrow {
+        i {
+          display: inline-block;
+          transform: rotate(0deg);
+          transition: all .2s;
+        }
+      }
+    }
+    &.show {
+      a {
+        .arrow {
+          i {
+            transform: rotate(90deg);
+            transition: all .2s;
+          }
+        }
+      }
+    }
+    ul.dropdown-menu {
+      position: relative !important;
+      transform: translate(0) !important;
     }
   }
 }
@@ -114,9 +145,9 @@
       background-color: #ff3e3e !important;
     }
 
-    .dz-error-message {
+    //.dz-error-message {
       //display: none;
-    }
+    //}
 
     .dz-success-mark, .dz-error-mark {
       width: 54px;
@@ -364,4 +395,52 @@
 
 label > span, span.cred {
   color: #ff3e3e;
+}
+
+
+@keyframes progress-circle {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(365deg);
+  }
+}
+
+.saved-info {
+  float: right;
+  margin: 1px 10px 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  #local-save {
+    width: 30px;
+    height: 30px;
+    transition: all .4s;
+    #a {
+      transform-box: view-box;
+      transform-origin: 50% 60%;
+      transform-style: preserve-3d;
+      animation-timing-function: cubic-bezier(.55,.09,.68,.53);
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.no-saved {
+    #local-save {
+      fill: #ccc;
+    }
+  }
+
+  &.saved {
+    #local-save {
+      fill: #3399FF;
+      #a {
+        animation-name: progress-circle;
+      }
+    }
+  }
 }
