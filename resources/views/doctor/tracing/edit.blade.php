@@ -1,13 +1,18 @@
 @extends('layouts.sisgec')
 
 @section('content')
+    <div id="onRestoreDataAlert" class="alert alert-warning" style="display:none;" role="alert">
+        <h4 class="alert-heading">{{__("global.warning")}}</h4>
+        <p>{!!sprintf(__("global.restore_data_alert"), '<a href="'.route("patients.new").'" class="resetDataButton">', '</a>')!!}</p>
+    </div>
+
     <div class="row align-items-center">
         <div class="col text-left">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.edit_evolution_note") }} > {{ $tracing->name }}</h2>
         </div>
     </div>
 
-    <form action="{{ route("evolution_note.update") }}" method="POST">
+    <form action="{{ route("evolution_note.update") }}" method="POST" class="auto-save-fields">
         @csrf
         <input type="hidden" name="tracing_id" value="{{ $tracing->id }}">
         <input type="hidden" name="patient_id" value="{{ $patient->id }}">
@@ -317,7 +322,7 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <a href="{{ route("evolution_note", ["id" => $tracing->id]) }}" class="btn btn-danger">{{ __("global.exit") }}</a>
+                            <a href="{{ route("evolution_note", ["id" => $tracing->id]) }}" class="btn btn-danger resetDataButton">{{ __("global.exit") }}</a>
                             <button class="btn btn-success ml-2">{{ __("global.save_tracing") }}</button>
                         </div>
                     </div>

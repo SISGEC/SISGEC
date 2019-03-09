@@ -8,6 +8,7 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'notifyjs-browser';
 import './autosave';
+import './checkConnection';
 var moment = require('moment');
 
 Dropzone.autoDiscover = false;
@@ -61,6 +62,13 @@ $(document).ready(function() {
         $("#birthdate").change(function() {
             var birt = $(this).val();
             $("#age").val(calcAge(birt) + " " + I18N.years);
+        });
+        var birthdateMask = new IMask($("#birthdate").get(0), {
+            mask: Date,
+            pattern: '`d/`m/`Y',
+            min: new Date(1900, 0, 1),
+            max: new Date(),
+            lazy: false,
         });
     }
 
@@ -239,6 +247,28 @@ $(document).ready(function() {
         });
     }
 
+    if($('a.cancel_this').length > 0) {
+        $('a.cancel_this').on('click', function (e) {
+            var rlink = $(this).attr("href");
+            swal({
+                title: I18N.cancel_alert_title,
+                text: I18N.cancel_alert_text,
+                icon: "warning",
+                buttons: [I18N.cancel, I18N.ok],
+                dangerMode: true,
+            }).then((willDelete) => {
+                if(willDelete) {
+                    autosave.manuallyReleaseData();
+                    swal("", I18N.processing, "success");
+                    window.location.replace(rlink);
+                }
+            });
+
+            e.preventDefault();
+            return false;
+        });
+    }
+
     if($("#patient_list").length > 0 && $("#patient_list_send").length > 0) {
         $("#patient_list_send").on("click", function() {
             var url = $("#patient_list").val();
@@ -354,13 +384,4 @@ $(document).ready(function() {
             });
         }
     }
-
-    /*if($(".ci-cache-button").length > 0) {
-        $(".ci-cache-button").on("click", function() {
-            $(".ci-cache").val("true");
-        });
-        if($(".ci-cache").val() === "true") {
-            $(".informed_consent_modal").remove();
-        }
-    }*/
 });

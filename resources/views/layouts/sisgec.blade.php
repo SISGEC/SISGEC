@@ -77,7 +77,9 @@
                 'edit_settings': "{{ __('global.edit_settings') }}",
                 'cancel_edit': "{{ __('global.cancel_edit') }}",
                 'saving_draft': "{{ __('global.saving_draft') }}",
-                'saved_draft': "{{ __('global.saved_draft') }}"
+                'saved_draft': "{{ __('global.saved_draft') }}",
+                'cancel_alert_title': "{{__('global.cancel_alert_title')}}",
+                'cancel_alert_text': "{{__('global.cancel_alert_text')}}"
             };
             var Notifications = '{!! json_encode($notify) !!}';
         </script>

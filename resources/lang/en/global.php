@@ -269,5 +269,10 @@ return [
     'options_saved_correctly' => 'Options saved correctly',
     'optional' => 'Optional',
     'saving_draft' => 'Saving draft...',
-    'saved_draft' => 'Saved draft!'
+    'saved_draft' => 'Saved draft!',
+
+    'warning' => 'Warning!',
+    'restore_data_alert' => 'You are looking at the draft of the last registered patient. Be sure to save the changes before closing this window. If you do not want to restore this draft and instead want to add a new patient, %sclick here%s.',
+    'cancel_alert_title' => 'Are you sure you want to cancel?',
+    'cancel_alert_text' => 'If you cancel this action, it can not be undone and the information entered will be lost.'
 ];

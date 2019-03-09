@@ -270,5 +270,10 @@ return [
     'options_saved_correctly' => 'Cambios guardados correctamente',
     'optional' => 'Opcional',
     'saving_draft' => 'Guardando borrador...',
-    'saved_draft' => '¡Borrador guardado!'
+    'saved_draft' => '¡Borrador guardado!',
+
+    'warning' => '¡Advertencia!',
+    'restore_data_alert' => 'Estas viendo el borrador del último paciente registrado. Asegúrese de guardar los cambios antes de cerrar esta ventana. Si no desea restaurar este borrador y en su lugar quiere agregar un paciente nuevo, %shaga clic aquí%s.',
+    'cancel_alert_title' => '¿Seguro que quieres cancelar?',
+    'cancel_alert_text' => 'Si cancelas esta acción no se podrá deshacer y la información introducida sera perdida.'
 ];

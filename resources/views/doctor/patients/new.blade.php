@@ -3,8 +3,8 @@
 @section('content')
 
     <div id="onRestoreDataAlert" class="alert alert-warning" style="display:none;" role="alert">
-        <h4 class="alert-heading">¡Advertencia!</h4>
-        <p>Estas viendo el borrador del último paciente registrado. Asegúrese de guardar los cambios antes de cerrar esta ventana. Si no desea restaurar este borrador y en su lugar quiere agregar un paciente nuevo, <a href="{{route("patients.new")}}" class="resetDataButton">haga clic aquí</a>.</p>
+        <h4 class="alert-heading">{{__("global.warning")}}</h4>
+        <p>{!!sprintf(__("global.restore_data_alert"), '<a href="'.route("patients.new").'" class="resetDataButton">', '</a>')!!}</p>
     </div>
 
     <div class="row align-items-center">
@@ -827,7 +827,7 @@
                 <div class="bgc-white p-20 bd">
                     <div>
                         <div class="row justify-content-center">
-                            <a href="{{ route("patients") }}" class="btn btn-danger">{{ __("global.exit") }}</a>
+                            <a href="{{ route("patients") }}" class="btn btn-danger cancel_this">{{ __("global.exit") }}</a>
                             <button class="btn btn-success ml-2">{{ __("global.save_patient") }}</button>
                         </div>
                     </div>
