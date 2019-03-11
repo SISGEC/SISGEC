@@ -37,6 +37,22 @@
             <div class="tab-content" id="patient-options-tabContent">
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
                     <div class="bgc-white p-20 bd">
+                        <h4 class="c-grey-900"><i class="fa fa-chart-line"></i> {{ __("global.statistics") }}</h4>
+                        <div class="profile-list-info">
+                            <ul>
+                                <li title="{{$patient->created_at->diffForHumans()}}">
+                                    <strong>{{__('global.first_visit')}}:</strong> {{$patient->initial_clinical_history->created_at->format("d/m/Y")}}
+                                </li>
+                                <li title="{{$patient->last_update->diffForHumans()}}">
+                                    <strong>{{__('global.last_visit')}}:</strong> {{$patient->last_update->format("d/m/Y")}}
+                                </li>
+                                <li>
+                                    <strong>{{__('global.total_visits')}}:</strong> {{$patient->total_visits}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bgc-white p-20 bd mt-3">
                         <h4 class="c-grey-900"><i class="fa fa-user"></i> {{ __("global.identification_card") }}</h4>
                         <div class="profile-list-info">
                             <ul>

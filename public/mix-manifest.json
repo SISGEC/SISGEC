@@ -4,5 +4,6 @@
     "/css/sisgec.app.css": "/css/sisgec.app.css",
     "/css/pdf.css": "/css/pdf.css",
     "/js/sisgec.app.js": "/js/sisgec.app.js",
-    "/js/full-calendar/locale.js": "/js/full-calendar/locale.js"
+    "/js/full-calendar/locale.js": "/js/full-calendar/locale.js",
+    "/js/tippy.standalone.js.map": "/js/tippy.standalone.js.map"
 }

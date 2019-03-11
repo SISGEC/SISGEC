@@ -34,7 +34,7 @@
 
 .sidebar-menu {
   & > li.dropdown {
-    a {
+    /*a {
       .arrow {
         i {
           display: inline-block;
@@ -52,7 +52,7 @@
           }
         }
       }
-    }
+    }*/
     ul.dropdown-menu {
       position: relative !important;
       transform: translate(0) !important;
@@ -218,9 +218,11 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      text-align: right;
       
       strong {
         margin-right: 15px;
+        text-align: left;
       }
     }
   }

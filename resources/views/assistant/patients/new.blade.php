@@ -51,7 +51,7 @@
                                             <label for="birthdate">{{ __("person.birthdate") }}</label>
                                             <div class="row">
                                                 <div class="col-9">
-                                                    <input type="text" class="form-control" id="birthdate" name="patient[birthdate]" placeholder="dd/mm/yyyy" />
+                                                    <input type="text" class="form-control birthdate" id="birthdate" name="patient[birthdate]" placeholder="dd/mm/yyyy" />
                                                 </div>
                                                 <div class="col-3">
                                                     <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="" />
@@ -65,11 +65,20 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="scholarship">{{ __("person.scholarship") }}</label>
-                                            <input type="text" class="form-control" id="scholarship" name="patient[scholarship]" value="" />
+                                            @php
+                                                $scholarships = is_array(__("scholarships")) ? __("scholarships") : [];
+                                            @endphp
+
+                                            <select name="patient[scholarship]" id="scholarship" class="form-control custom-select">
+                                                <option value="">{{ __("global.select_an_option") }}</option>
+                                                @foreach ($scholarships as $scholarship)
+                                                    <option value="{{ $scholarship }}"{{ old("patient.scholarship", "") === $scholarship ? " selected" : "" }}>{{ $scholarship }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="col-6">
                                             <label for="occupation">{{ __("person.occupation") }}</label>
-                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="" />
+                                            <input type="text" class="form-control" id="occupation" name="patient[occupation]" value="{{ old("patient.occupation", "") }}" placeholder="{{ __("global.example_occupation") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -78,11 +87,20 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="religion">{{ __("person.religion") }}</label>
-                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="" />
+                                            <input type="text" class="form-control" id="religion" name="patient[religion]" value="{{ old("patient.religion", "") }}" placeholder="{{ __("global.example_religion") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="civil_status">{{ __("person.civil_status") }}</label>
-                                            <input type="text" class="form-control" id="civil_status" name="patient[civil_status]" value="" />
+                                            @php
+                                                $civil_statuses = is_array(__("civil_status")) ? __("civil_status") : [];
+                                            @endphp
+
+                                            <select name="patient[civil_status]" id="civil_status" class="form-control custom-select">
+                                                <option value="">{{ __("global.select_an_option") }}</option>
+                                                @foreach ($civil_statuses as $civil_status)
+                                                    <option value="{{ $civil_status }}"{{ old("patient.civil_status", "") === $civil_status ? " selected" : "" }}>{{ $civil_status }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -91,11 +109,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="place_of_birth">{{ __("person.place_of_birth") }}</label>
-                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="" />
+                                            <input type="text" class="form-control" id="place_of_birth" name="patient[place_of_birth]" value="{{ old("patient.place_of_birth", "") }}" placeholder="{{ __("global.example_place_of_birth") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="place_of_residence">{{ __("person.place_of_residence") }}</label>
-                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="" />
+                                            <input type="text" class="form-control" id="place_of_residence" name="patient[place_of_residence]" value="{{ old("patient.place_of_residence", "") }}" placeholder="{{ __("global.example_place_of_residence") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -106,15 +124,15 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="weight">{{ __("person.weight") }}</label>
-                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="" />
+                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="{{ old("measure.weight", "") }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="height">{{ __("person.height") }}</label>
-                                            <input type="text" class="form-control" id="height" name="measure[height]" value="" />
+                                            <input type="text" class="form-control" id="height" name="measure[height]" value="{{ old("measure.height", "") }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="temperature">{{ __("person.temperature") }}</label>
-                                            <input type="text" class="form-control" id="temperature" name="measure[temperature]" value="" />
+                                            <input type="text" class="form-control" id="temperature" name="measure[temperature]" value="{{ old("measure.temperature", "") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -123,15 +141,15 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="heart_rate">{{ __("person.heart_rate") }}</label>
-                                            <input type="text" class="form-control" id="heart_rate" name="measure[heart_rate]" value="" />
+                                            <input type="text" class="form-control" id="heart_rate" name="measure[heart_rate]" value="{{ old("measure.heart_rate", "") }}" />
                                         </div>
                                         <div class="col-4">
                                             <label for="blood_pressure">{{ __("person.blood_pressure") }}</label>
-                                            <input type="text" class="form-control" id="blood_pressure" name="measure[blood_pressure]" value="" />
+                                            <input type="text" class="form-control" id="blood_pressure" name="measure[blood_pressure]" value="{{ old("measure.blood_pressure", "") }}" />
                                         </div>
                                         <div class="col-4">
                                             <label or="breathing_frequency">{{ __("person.breathing_frequency") }}</label>
-                                            <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="" />
+                                            <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="{{ old("measure.breathing_frequency", "") }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -140,11 +158,11 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="email">{{ __("person.email") }}</label>
-                                            <input type="email" class="form-control" id="email" name="patient[email]" value="" />
+                                            <input type="email" class="form-control" id="email" name="patient[email]" value="{{ old("patient.email", "") }}" placeholder="{{ __("global.example_email") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }}</label>
-                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="" />
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" placeholder="(123) 456 789" required />
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +180,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <label for="referred_by">{{ __("person.referred_by") }}</label>
-                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="" />
+                                            <input type="text" class="form-control" id="referred_by" name="patient[referred_by]" value="{{ old("patient.rfc", "") }}" placeholder="{{ __("global.optional") }}" />
                                         </div>
                                     </div>
                                 </div>

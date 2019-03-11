@@ -52,6 +52,23 @@ class Patient extends Model
         return calcule_age($this->birthdate);
     }
 
+    public function getLastUpdateAttribute() {
+        $lv = $this->updated_at;
+        $ltc = $this->initial_clinical_history->tracings()->count();
+        if($ltc > 0) {
+            $ltv = $this->initial_clinical_history->tracings->last()->updated_at;
+            if($ltv > $lv) {
+                return $ltv;
+            }
+        }
+        return $lv;
+    }
+
+    public function getTotalVisitsAttribute() {
+        $tv = $this->initial_clinical_history->tracings()->count() + 1; // tracings + 1rst visit
+        return trans_choice("global.visits", $tv);
+    }
+
     public static function all_in_suggestion_format() {
         $patients = Patient::all();
         $result = [];

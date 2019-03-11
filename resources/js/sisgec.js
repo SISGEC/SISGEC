@@ -63,13 +63,33 @@ $(document).ready(function() {
             var birt = $(this).val();
             $("#age").val(calcAge(birt) + " " + I18N.years);
         });
-        var birthdateMask = new IMask($("#birthdate").get(0), {
+        var cyear = new Date();
+        cyear = cyear.getFullYear();
+        /*var birthdateMask = new IMask($("#birthdate").get(0), {
             mask: Date,
-            pattern: '`d/`m/`Y',
-            min: new Date(1900, 0, 1),
-            max: new Date(),
-            lazy: false,
+            pattern: 'Y-`m-`d',
+            blocks: {
+                d: {
+                  mask: IMask.MaskedRange,
+                  from: 1,
+                  to: 31,
+                  maxLength: 2,
+                },
+                m: {
+                  mask: IMask.MaskedRange,
+                  from: 1,
+                  to: 12,
+                  maxLength: 2,
+                },
+                Y: {
+                  mask: IMask.MaskedRange,
+                  from: 1900,
+                  to: cyear
+                }
+            },
+            lazy: true,
         });
+        birthdateMask.updateValue();*/
     }
 
     if($("#weight").length > 0) {
@@ -134,31 +154,31 @@ $(document).ready(function() {
 
     if($('#scholarship').length > 0) {
         $('#scholarship').autocomplete({
-            serviceUrl: '/api/fragments/scholarships/list'
+            serviceUrl: HOME_URL + '/api/fragments/scholarships/list'
         });
     }
 
     if($('#occupation').length > 0) {
         $('#occupation').autocomplete({
-            serviceUrl: '/api/fragments/occupations/list'
+            serviceUrl: HOME_URL + '/api/fragments/occupations/list'
         });
     }
 
     if($('#religion').length > 0) {
         $('#religion').autocomplete({
-            serviceUrl: '/api/fragments/religions/list'
+            serviceUrl: HOME_URL + '/api/fragments/religions/list'
         });
     }
 
     if($('#civil_status').length > 0) {
         $('#civil_status').autocomplete({
-            serviceUrl: '/api/fragments/civil-status/list'
+            serviceUrl: HOME_URL + '/api/fragments/civil-status/list'
         });
     }
 
     if($('#searched').length > 0) {
         $('#searched').autocomplete({
-            serviceUrl: '/api/search',
+            serviceUrl: HOME_URL + '/api/search',
             formatResult: function (suggestion, currentValue) {
                 return '<a href="' + suggestion.data + '">'+ suggestion.value +'</a>';
             },
@@ -212,7 +232,6 @@ $(document).ready(function() {
     if($(':input').length > 0) {
         $(':input').focus(function(e){
             var $el = $(this);
-            console.log("Test");
             $(window).keyup(function (e) {
                 var code = (e.keyCode ? e.keyCode : e.which);
                 if (code == 9 && $(':input:focus').length) {

@@ -52,7 +52,7 @@
                                             <label for="birthdate">{{ __("person.birthdate") }} <span>*</span></label>
                                             <div class="row">
                                                 <div class="col-9">
-                                                    <input type="text" class="form-control" id="birthdate" name="patient[birthdate]" placeholder="dd/mm/yyyy" value="{{ old("patient.birthdate", "") }}" required />
+                                                    <input type="text" class="form-control birthdate" id="birthdate" name="patient[birthdate]" placeholder="dd/mm/yyyy" value="{{ old("patient.birthdate", "") }}" required />
                                                 </div>
                                                 <div class="col-3">
                                                     <input class="form-control-plaintext" type="text" readonly id="age" tabindex="-1" value="" />
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="phone">{{ __("person.phone") }} <span>*</span></label>
-                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" placeholder="(123) 456 789" required/>
+                                            <input type="text" class="form-control" id="phone" name="patient[phone]" value="{{ old("patient.phone", "") }}" placeholder="(123) 456 789" required />
                                         </div>
                                     </div>
                                 </div>

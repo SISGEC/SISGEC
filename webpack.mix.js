@@ -32,4 +32,5 @@ mix.js('resources/js/index.js', 'public/js/sisgec.app.js')
     })
     .sass('resources/sass/pdf.scss', 'public/css/pdf.css')
     .copy('resources/images', 'public/images', false )
-    .copy('node_modules/fullcalendar/dist/locale-all.js', 'public/js/full-calendar/locale.js');
+    .copy('node_modules/fullcalendar/dist/locale-all.js', 'public/js/full-calendar/locale.js')
+    .copy('node_modules/tippy.js/dist/tippy.standalone.js.map', 'public/js/tippy.standalone.js.map');

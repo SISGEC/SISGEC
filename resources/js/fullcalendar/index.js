@@ -47,7 +47,7 @@ export default (function () {
   if($("#full-calendar").length > 0) {
     $('#full-calendar').fullCalendar({
       events: {
-        url: '/medical-appointments.json',
+        url: HOME_URL + '/medical-appointments.json',
         type: 'GET',
         error: function() {
           alert('there was an error while fetching events!');
@@ -71,9 +71,8 @@ export default (function () {
       viewRender: function(view, element) {
         //note: this is a hack, i don't know why the view title keep showing "undefined" text in it.
         //probably bugs in jquery fullcalendar
-        $('.fc-center')[0].children[0].innerText = view.title.replace(new RegExp("undefined", 'g'), ""); ;
-        
-      },
+        $('.fc-center')[0].children[0].innerText = view.title.replace(new RegExp("undefined", 'g'), "");
+      }
     });
   }
 }())

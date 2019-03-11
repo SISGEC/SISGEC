@@ -16,7 +16,7 @@
                             <strong>{{ __("global.creation_date") }}</strong> {{ $patient->initial_clinical_history->created_at->format("d/m/Y h:i a") }}
                         </li>
                         <li>
-                            <strong>{{ __("global.updated_date") }}</strong> {{ $patient->initial_clinical_history->updated_at->format("d/m/Y h:i a") }}
+                            <strong>{{ __("global.updated_date") }}</strong> {{ $patient->last_update->format("d/m/Y h:i a") }}
                         </li>
                     </ul>
                 </div>

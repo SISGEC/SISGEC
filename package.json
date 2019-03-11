@@ -4,7 +4,13 @@
     "private": true,
     "description": "Clinical File Management System",
     "keywords": [
-        "medical", "system", "clinical", "expedientes", "medicos", "gestor", "management"
+        "medical",
+        "system",
+        "clinical",
+        "expedientes",
+        "medicos",
+        "gestor",
+        "management"
     ],
     "homepage": "https://github.com/sisgec/sisgec",
     "bugs": "https://github.com/sisgec/sisgec/issues",

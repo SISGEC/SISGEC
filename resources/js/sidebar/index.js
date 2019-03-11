@@ -78,7 +78,7 @@ export default (function () {
     }, 300);
   });
 
-  if(browserStorage.get(sidebar_key)) {
-    app.toggleClass(clzz);
+  if(browserStorage.get(sidebar_key) === "true") {
+    app.addClass(clzz);
   }
 }());

@@ -25,7 +25,7 @@ export default (function () {
 
     axios.get("/statistics/monthly_statistics/last_month")
     .then(function (response) {
-        console.log(response);
+        //console.log(response);
         if(response.status === 200) {
           new Chart(lineCtx, {
             type: 'line',
