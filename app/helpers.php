@@ -59,3 +59,25 @@ function doctor() {
     }
     return (object) [];
 }
+
+function is_json($string) {
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
+}   
+
+function get_package_data() {
+    $file = base_path("package.json");
+    $data = cache('package_data', false);
+    if(!$data && File::exists($file)) { 
+        $package = File::get($file);
+        if(is_json($package)) {
+            $data = $package;
+            cache(['package_data' => $package], 60 * 12);
+        }
+    }
+    return json_decode($data);
+}
+
+function version() {
+    return data_get(get_package_data(), "version", "1.0.0");
+}

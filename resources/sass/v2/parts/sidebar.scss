@@ -29,6 +29,9 @@
         height: 100%;
         overflow-x: hidden;
         overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
     }
 
     .sidebar--header {
@@ -100,6 +103,22 @@
                     }
                 }
             }
+        }
+    }
+
+    .sidebar--footer {
+        margin-top: auto;
+        padding-bottom: 1rem;
+        text-align: center;
+
+        p {
+            color: $nobel;
+            margin: 0;
+        }
+
+        a {
+            color: $nobel;
+            font-size: .8rem;
         }
     }
 }

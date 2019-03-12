@@ -36,5 +36,9 @@
                 </ul>
             </nav>
         </div>
+        <div class="sidebar--footer">
+            <p><abbr title="Sistema Gestor de Expedientes Clinicos">SISGEC</abbr> v{{version()}}</p>
+            <p><a href="https://github.com/SISGEC/SISGEC" target="_blank"><i class="fab fa-github"></i> Github</a> | <a href="https://github.com/SISGEC/SISGEC/issues" target="_blank"><i class="fas fa-info-circle"></i> Ayuda</a></p>
+        </div>
     </div>
 </aside>

@@ -35,7 +35,7 @@
             </div>
             <div class="profile">
                 <div class="dropdown">
-                    <button class="dropdown-toggle btn btn-link" type="button" id="profileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dr. Jesús Magallón</button>
+                    <button class="dropdown-toggle btn btn-link" type="button" id="profileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dr. Juan Santana</button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileButton">
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-fw fa-user-cog"></i> Mi Perfil

@@ -10684,6 +10684,19 @@ a.text-dark:focus {
 }
 
 @font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?d9d17590c975aad1be0ddab673f9c769);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?d9d17590c975aad1be0ddab673f9c769) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?4b115e1153a9ea339d6a0bb284cc8ed3) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?b90365bccdabd68c6c03902b4b141f09) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?c39278f7abfc798a241551194f55e29f) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?80533988ff5fecd5be26557d08ce8237) format("svg");
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+}
+
+@font-face {
   font-family: "Font Awesome 5 Free";
   font-style: normal;
   font-weight: 900;
@@ -16552,6 +16565,8 @@ readers do not read off random characters that represent icons */
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar .sidebar--header {
@@ -16617,5 +16632,21 @@ readers do not read off random characters that represent icons */
 .sidebar .sidebar--content .sidebar--menu .sidebar--menu-item a:focus:before {
   background-color: #fff;
   transition: all 0.5s;
+}
+
+.sidebar .sidebar--footer {
+  margin-top: auto;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.sidebar .sidebar--footer p {
+  color: #A1A1A1;
+  margin: 0;
+}
+
+.sidebar .sidebar--footer a {
+  color: #A1A1A1;
+  font-size: 0.8rem;
 }
 
