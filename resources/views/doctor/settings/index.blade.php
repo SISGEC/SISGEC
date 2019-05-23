@@ -27,6 +27,7 @@
                     {{ __("global.security") }}
                 </a>
                 <a class="nav-link" id="system-tab" data-toggle="pill" href="#system" role="tab" aria-controls="system" aria-selected="false">{{ __("global.system_label") }}</a>
+                <a class="nav-link" id="devices-tab" data-toggle="pill" href="#devices" role="tab" aria-controls="devices" aria-selected="false">Dispositivos</a>
                 {{--<a class="nav-link" id="advanced-tab" data-toggle="pill" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">{{ __("global.advanced") }}</a>--}}
             </div>
         </div>
@@ -280,6 +281,37 @@
                                 <div class="row">
                                     <div class="col">
                                         <button type="submit" class="btn btn-primary">{{ __("global.save_options") }}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="devices" role="tabpanel" aria-labelledby="devices-tab">
+                    <div class="bgc-white p-20 bd">    
+                        <div class="block">
+                            <form action="{{ route("doctor.update") }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{doctor()->id}}">
+                                <input type="hidden" name="doctor_id" value="{{ doctor()->doctor_id }}">
+                                <div class="row">
+                                    <div class="col-3 order-1 order-md-2 text-right">
+                                        <button type="button" class="btn btn-primary edit_block" data-tippy="{{ __("global.edit_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-edit"></i></button>
+                                        <button type="submit" class="btn btn-success save_block d-none" data-tippy="{{ __("global.save_settings") }}" data-tippy-arrow="true" data-tippy-placement="left"><i class="fas fa-w fa-save"></i></button>
+                                    </div>
+                                    <div class="col-9">
+                                        <h4 class="c-grey-900"><i class="fas fa-w fa-balance-scale"></i> Probatium</h4>
+                                        <p>Báscula y Tallimetro inteligente.</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="ip">IP</label>
+                                            <input type="text" class="form-control-plaintext" id="ip" name="probatium[ip]" value="{{ old("probatium.ip", config("app.probatium.ip"))}}" readonly>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Doctor;
+use App\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -89,6 +90,10 @@ class DoctorController extends Controller
                 $doctor->professional_license = $request->input("doctor.professional_license", $doctor->professional_license);
             }
 
+            if($request->has("probatium")) {
+                $this->saveSettingOrCreateNewIfNotExist("app.probatium.ip", $request->input("probatium.ip", config("app.probatium.ip")));
+            }
+
             if($request->has("password")) {
                 $request->validate([
                     'password.new' => 'required|min:6|',
@@ -139,6 +144,22 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
+    }
+
+    public function saveSettingOrCreateNewIfNotExist($key, $value) {
+        $setting = Settings::where("key", $key)->first();
+        if(!is_null($setting)) {
+            $setting->update([
+                'key' => $key,
+                'value' => $value
+            ]);
+        } else {
+            $setting = Settings::create([
+                'key' => $key,
+                'value' => $value
+            ]);
+        }
+        return $setting;
     }
 
     public function settings(Request $request) {

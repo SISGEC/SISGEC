@@ -82,6 +82,7 @@
                 'cancel_alert_text': "{{__('global.cancel_alert_text')}}"
             };
             var Notifications = '{!! json_encode($notify) !!}';
+            var ProbatiumIP = "{{ config('app.probatium.ip') }}";
         </script>
     </head>
     <body class="app">

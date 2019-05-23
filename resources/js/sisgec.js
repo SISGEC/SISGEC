@@ -402,5 +402,48 @@ $(document).ready(function() {
                 autosave.manuallyReleaseData();
             });
         }
+
+        function loadDataFromProbatium() {
+            $(".btn-probatium").find("i").removeClass("fa-cloud-download-alt");
+            $(".btn-probatium").find("i").addClass("fa-spinner fa-spin");
+            $(".btn-probatium").attr("disable", "disable");
+            $.get( ProbatiumIP + "/data.json", function( data ) {
+                var weight = data.data.weight;
+                $("#weight").val(weight);
+                var height = data.data.height;
+                if(height <= 6) {
+                    height = 0;
+                }
+                $("#height").val(height);
+                if(typeof heightMask !== "undefined") {
+                    heightMask.updateValue();
+                }
+                if(typeof weightMask !== "undefined") {
+                    weightMask.updateValue();
+                }
+
+                setTimeout(function(){
+                    $(".btn-probatium").find("i").removeClass("fa-spinner fa-spin");
+                    $(".btn-probatium").find("i").addClass("fa-cloud-download-alt");
+                    $(".btn-probatium").removeAttr("disable", "disable");
+                },1000);
+            });
+        }
+
+        if($(".weight-get-button").length > 0) {
+            $(".weight-get-button").on("click", function(e) {
+                loadDataFromProbatium($(this));
+                e.preventDefault();
+                return false;
+            });
+        }
+
+        if($(".height-get-button").length > 0) {
+            $(".height-get-button").on("click", function(e) {
+                loadDataFromProbatium($(this));
+                e.preventDefault();
+                return false;
+            });
+        }
     }
 });

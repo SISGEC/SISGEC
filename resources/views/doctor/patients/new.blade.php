@@ -125,11 +125,25 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="weight">{{ __("person.weight") }}</label>
-                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="{{ old("measure.weight", "") }}" />
+                                            <div class="row no-gutters">
+                                                <div class="col-7">
+                                                    <input type="text" class="form-control" id="weight" name="measure[weight]" value="{{ old("measure.weight", "") }}" />
+                                                </div>
+                                                <div class="col-5 text-right">
+                                                    <button class="btn btn-info btn-probatium weight-get-button"><i class="fas fa-cloud-download-alt"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <label for="height">{{ __("person.height") }}</label>
-                                            <input type="text" class="form-control" id="height" name="measure[height]" value="{{ old("measure.height", "") }}" />
+                                            <div class="row no-gutters">
+                                                <div class="col-7">
+                                                    <input type="text" class="form-control" id="height" name="measure[height]" value="{{ old("measure.height", "") }}" />
+                                                </div>
+                                                <div class="col-5 text-right">
+                                                    <button class="btn btn-info btn-probatium height-get-button"><i class="fas fa-cloud-download-alt"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <label for="temperature">{{ __("person.temperature") }}</label>
