@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PathologicalPersonal extends Model
 {
-    protected $fillable = ['childhood_diseases','surgical_operations','accidents','traumatic_brain_injury','allergies','disabilities','blood_transfusions'];
+    protected $fillable = ['childhood_diseases','surgical_operations','accidents','traumatic_brain_injury','allergies','disabilities','blood_transfusions', 'suicidal_risk'];
     
     public function anamnesis(){
         return $this->belongsTo('App\Anamnesis');
@@ -20,7 +20,8 @@ class PathologicalPersonal extends Model
             'traumatic_brain_injury' => __('global.denied'),
             'allergies' => __('global.denied'),
             'disabilities' => __('global.denied'),
-            'blood_transfusions' => __('global.denied')
+            'blood_transfusions' => __('global.denied'),
+            'suicidal_risk' => __('global.denied')
         );
     }
 }

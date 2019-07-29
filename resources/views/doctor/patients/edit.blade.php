@@ -8,8 +8,11 @@
     </div>
 
     <div class="row align-items-center">
-        <div class="col text-left">
+        <div class="col-6 text-left">
             <h2 class="c-grey-900 mT-10 mB-30">{{ __("global.edit_patient") }} > {{ $patient->full_name }}</h2>
+        </div>
+        <div class="col-6 text-right">
+            <h2 class="c-grey-900 mT-10 mB-30">Fecha de elaboración: {{ date("H:m:s d/m/Y") }}</h2>
         </div>
     </div>
 
@@ -66,16 +69,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <label for="scholarship">{{ __("person.scholarship") }}</label>
-                                            @php
-                                                $scholarships = is_array(__("scholarships")) ? __("scholarships") : [];
-                                            @endphp
-
-                                            <select name="patient[scholarship]" id="scholarship" class="form-control custom-select">
-                                                <option value="">{{ __("global.select_an_option") }}</option>
-                                                @foreach ($scholarships as $scholarship)
-                                                    <option value="{{ $scholarship }}"{{ old("patient.scholarship", $patient->scholarship) === $scholarship ? " selected" : "" }}>{{ $scholarship }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" name="patient[scholarship]" id="scholarship" class="form-control" value="{{ old("patient.scholarship", $patient->scholarship) }}" placeholder="{{ __("global.example_scholarship") }}" />
                                         </div>
                                         <div class="col-6">
                                             <label for="occupation">{{ __("person.occupation") }}</label>
@@ -125,15 +119,30 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="weight">{{ __("person.weight") }}</label>
-                                            <input type="text" class="form-control" id="weight" name="measure[weight]" value="{{ old("measure.weight", $patient->measures->weight) }}" />
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" autocomplete="off" id="weight" name="measure[weight]" value="{{ old("measure.weight", $patient->measures->weight) }}" aria-describedby="weight-append" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="weight-append">kg</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <label for="height">{{ __("person.height") }}</label>
-                                            <input type="text" class="form-control" id="height" name="measure[height]" value="{{ old("measure.height", $patient->measures->height) }}" />
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" autocomplete="off" id="height" name="measure[height]" value="{{ old("measure.height", $patient->measures->height) }}" aria-describedby="height-append" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="height-append">cm</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <label for="temperature">{{ __("person.temperature") }}</label>
-                                            <input type="text" class="form-control" id="temperature" name="measure[temperature]" value="{{ old("measure.temperature", $patient->measures->temperature) }}" />
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" autocomplete="off" id="temperature" name="measure[temperature]" value="{{ old("measure.temperature", $patient->measures->temperature) }}" aria-describedby="temperature-append" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="temperature-append">ºC</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -142,15 +151,25 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <label for="heart_rate">{{ __("person.heart_rate") }}</label>
-                                            <input type="text" class="form-control" id="heart_rate" name="measure[heart_rate]" value="{{ old("measure.heart_rate", $patient->measures->heart_rate) }}" />
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" autocomplete="off" id="heart_rate" name="measure[heart_rate]" value="{{ old("measure.heart_rate", $patient->measures->heart_rate) }}" aria-describedby="heart_rate-append" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="heart_rate-append">BPM</span>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-4">
                                             <label for="blood_pressure">{{ __("person.blood_pressure") }}</label>
-                                            <input type="text" class="form-control" id="blood_pressure" name="measure[blood_pressure]" value="{{ old("measure.blood_pressure", $patient->measures->blood_pressure) }}" />
+                                            <input type="text" class="form-control" autocomplete="off" id="blood_pressure" name="measure[blood_pressure]" value="{{ old("measure.blood_pressure", $patient->measures->blood_pressure) }}" placeholder="000/00" />
                                         </div>
                                         <div class="col-4">
                                             <label or="breathing_frequency">{{ __("person.breathing_frequency") }}</label>
-                                            <input type="text" class="form-control" id="breathing_frequency" name="measure[breathing_frequency]" value="{{ old("measure.breathing_frequency", $patient->measures->breathing_frequency) }}" />
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" autocomplete="off" id="breathing_frequency" name="measure[breathing_frequency]" value="{{ old("measure.breathing_frequency", $patient->measures->breathing_frequency) }}" aria-describedby="breathing_frequency-append" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="breathing_frequency-append">RPM</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -343,6 +362,13 @@
                                     <div class="col form-group">
                                         <label class="c-grey-900 pT-10">{{ __("global.blood_transfusions") }}</label>
                                         <textarea class="form-control" name="pathological[blood_transfusions]" id="blood_transfusions" cols="30" rows="1">{{ old("pathological.blood_transfusions", $patient->initial_clinical_history->anamnesis->pathological_personal->blood_transfusions) }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <label class="c-grey-900 pT-10">{{ __("global.suicidal_risk") }}</label>
+                                        <textarea class="form-control" name="pathological[suicidal_risk]" id="suicidal_risk" cols="30" rows="1">{{ old("pathological.suicidal_risk", $patient->initial_clinical_history->anamnesis->pathological_personal->suicidal_risk) }}</textarea>
                                     </div>
                                 </div>
                             </div>

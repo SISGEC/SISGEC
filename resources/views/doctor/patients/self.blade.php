@@ -211,6 +211,9 @@
                                         <li>
                                             <strong>{{ __("global.blood_transfusions") }}:</strong> {{ $patient->initial_clinical_history->anamnesis->pathological_personal->blood_transfusions }}
                                         </li>
+                                        <li>
+                                            <strong>{{ __("global.suicidal_risk") }}:</strong> {{ $patient->initial_clinical_history->anamnesis->pathological_personal->suicidal_risk }}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

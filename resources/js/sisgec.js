@@ -92,9 +92,9 @@ $(document).ready(function() {
         birthdateMask.updateValue();*/
     }
 
-    if($("#weight").length > 0) {
+    /*if($("#weight").length > 0) {
         var weightMask = new IMask($("#weight").get(0), {
-            mask: '00[0] kg',
+            mask: '00[0].00 kg',
             lazy: false,
             placeholderChar: '0'
         });
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
     if($("#height").length > 0) {
         var heightMask = new IMask($("#height").get(0), {
-            mask: '00[0] cm',
+            mask: '00[0]. cm',
             lazy: false,
             placeholderChar: '0'
         });
@@ -137,6 +137,12 @@ $(document).ready(function() {
             mask: '00[0] RPM',
             lazy: false,
             placeholderChar: '0'
+        });
+    }*/
+
+    if($("input#rfc").length > 0) {
+        $("#rfc").on("keyup", function() {
+            this.value = this.value.toLocaleUpperCase();
         });
     }
 

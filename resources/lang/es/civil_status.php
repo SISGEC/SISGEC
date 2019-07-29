@@ -2,8 +2,10 @@
 
 return [
     'Soltero/a',
-    'Comprometido/a',
     'Casado/a',
+    'Union libre',
     'Divorciado/a',
-    'Viudo/a'
+    'Separado/a',
+    'Viudo/a',
+    'Otro'
 ];
