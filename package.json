@@ -54,7 +54,7 @@
     },
     "dependencies": {
         "bootstrap-datepicker": "^1.8.0",
-        "chart.js": "^2.7.3",
+        "chart.js": "^2.9.4",
         "compass-mixins": "^0.12.10",
         "datatables.net-dt": "^1.10.19",
         "devbridge-autocomplete": "^1.4.10",
